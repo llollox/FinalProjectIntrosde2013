@@ -1,20 +1,20 @@
 ##Final Project - Introduction to Service Engineering 2013
 
-###Collaborators:
+###Collaborators
 *   Endrit Bajo
 *   Francesco Maturi
 *   Lorenzo Rigato
 
-###Services REST:
+###Services REST
 *   MotivationalQuotes
 *   Server Web
 
-###Services SOAP:
+###Services SOAP
 *   Storage
 *   CalculateProgress
 *   SuggestedActivities
 *   FilterActivities
 
 
-###External Adapters:
+###External Adapters
 *   CalculateCalories
