@@ -1,0 +1,2250 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (2.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateQuotes (20131224092728)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "quotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar(255), "author" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20131224092728')[0m
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateQuotes (20131224092728)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "quotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20131224092728')[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (8.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I have so much admiration for people who devote their life to the church, ... I was quite inspired by Clara. I was inspired by her drive to do good, by her willingness to sacrifice herself and her body. How inspired she was inspired me.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Motivation can come from many things; friends, family, money, fame, power, satisfaction..the list goes on but inspiration comes from you. There's a fine line between motivation and inspiration but inspiration is a surge of want to do something and only when that is achieved you feel that sense of internal fulfilment.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We should be taught not to wait for inspiration to start a thing. Action always generates inspiration. Inspiration seldom generates action.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (34.1ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“You are the one who inspire everybody to do his duty; I am inspired by your 'inspiration of duty';You are directly or indirectly involved with each and every action that takes place in this world. ”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The discipline which makes the soldiers of a free country reliable in battle is not to be gained by harsh or tyrannical treatment. On the contrary, such treatment is far more likely to destroy than to make an army. It is possible to impart instruction and give commands in such a manner and such a tone of voice as to inspire in the soldier no feeling, but an intense desire to obey, while the opposite manner and tone of voice cannot fail to excite strong resentment and a desire to disobey. The one mode or the other of dealing with subordinates springs from a corresponding spirit in the breast of the commander. He who feels the respect which is due to others cannot fail to inspire in them respect for himself. While he who feels, and hence manifests, disrespect towards others, especially his subordinates, cannot fail to inspire hatred against himself.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We are inspired by what is happening here. The revolution here is electoral. It has inspired us to take these lessons to our country and to inspire our people too.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I wanted to do something that had a purely musical inspiration, and I was inspired by the sound of choirs and the English pastoral music I used to hear when growing up. I was also inspired by the textures and rhythmic vitality of the so-called minimalists, Philip Glass and John Adams, and I'm always intrigued by the sound of the recording studio.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Just being in the park is inspiring to me. I walk through the gates and see plants and birds going and critters running around, and it is a very inspiring place. Everyone has the need to be inspired and uplifted, and this is my way.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I want to spend my life, breathing & living; living & loving; loving & laughing; laughing & smiling; smiling & inspiring; inspiring & creating; creating & accepting; accepting & forgiving.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Only write what inspires you to write. If nothing inspires you write, anyhow. Something might come up.”\n"], ["created_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:04:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" 
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36mQuote Load (1.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.8ms)[0m  [1mDELETE FROM "quotes" WHERE "quotes"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "quotes" WHERE "quotes"."id" = ?  [["id", 2]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "quotes" WHERE "quotes"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "quotes" WHERE "quotes"."id" = ?  [["id", 4]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "quotes" WHERE "quotes"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "quotes" WHERE "quotes"."id" = ?  [["id", 6]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "quotes" WHERE "quotes"."id" = ?[0m  [["id", 7]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "quotes" WHERE "quotes"."id" = ?  [["id", 8]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "quotes" WHERE "quotes"."id" = ?[0m  [["id", 9]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "quotes" WHERE "quotes"."id" = ?  [["id", 10]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36mQuote Load (1.4ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I have so much admiration for people who devote their life to the church, ... I was quite inspired by Clara. I was inspired by her drive to do good, by her willingness to sacrifice herself and her body. How inspired she was inspired me.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00]]
+  [1m[35m (1.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We should be taught not to wait for inspiration to start a thing. Action always generates inspiration. Inspiration seldom generates action.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (36.7ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“You are the one who inspire everybody to do his duty; I am inspired by your 'inspiration of duty';You are directly or indirectly involved with each and every action that takes place in this world. ”\n"], ["created_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:19 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We are inspired by what is happening here. The revolution here is electoral. It has inspired us to take these lessons to our country and to inspire our people too.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Just being in the park is inspiring to me. I walk through the gates and see plants and birds going and critters running around, and it is a very inspiring place. Everyone has the need to be inspired and uplifted, and this is my way.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I want to spend my life, breathing & living; living & loving; loving & laughing; laughing & smiling; smiling & inspiring; inspiring & creating; creating & accepting; accepting & forgiving.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Only write what inspires you to write. If nothing inspires you write, anyhow. Something might come up.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“To inspire those who lack inspiration, is the greatest gift that I can give to my fellow man. More than money, more than love, more than the stars in the sky; that rule my world.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Respect to gain respect. Motivate to get motivated. Inspire to get inspired. Help to get helped. Love to get loved.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Dreams need courage and courage needs inspiration-To be inspired you need to have the courage to dream.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Leadership is inspiration and if you are not inspiring you are not a leader.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Leaders are those who can inspire themselves. Followers are those who are inspired by leaders.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Some say the gift of inspiration is the greatest gift; some say it is love. However, can you imagine what the gift of inspiration tempered by love would create.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I can Inspire myself.. world can get Inspired by \"me\"”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Making love to my thoughts always inspires me to keep my thoughts aroused, for more inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:20 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“It's easy to inspire others compared to inspire youself!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Always seeking to remain in the network of two types of people only -Either inspirer or who is open to be inspired. But never mere followers or higher fliers.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Men shrink less from offending one who inspires love than one who inspires fear.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I write when I'm inspired, and I see to it that I'm inspired at nine o'clock every morning”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Motivation is everything. You can do the work of two people, but you can't be two people. Instead, you have to inspire the next guy down the line and get him to inspire his people.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A deadline is negative inspiration. Still, it's better than no inspiration at all.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The fact that I inspire you - inspires me.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I know the Bible is inspired because it inspires me”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I could never tell where inspiration begins and impulse leaves off. I suppose the answer is in the outcome. If your hunch proves a good one, you were inspired; if it proves bad, you are guilty of yielding to thoughtless impulse.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The Lord Himself inspires us to worship Him; He reveals His Glorious Greatness. He Himself inspires us to place our faith in Him.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Just as appetite comes from eating, so work brings inspiration, if inspiration is not discernible at the beginning”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A good leader inspires people to have confidence in their leader. A great leader inspires people to have confidence in themselves.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If the Bible is true, it needs no inspiration, and - if not true, inspiration can do it no good”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The inspiration to write? Perhaps it's not so much inspiration, as a NEED to write. I get itchy and guilty and dissatisfied when I haven't written for a while. Ideas come to me and need to be written down.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“One of the inspirations for this show was Bill Nye the Science Guy. He talks a lot about inspiring young people to study math and science. . . . I wanted to influence people to think more about math as an everyday language that they can use.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I don't know anything about inspiration because I don't know what inspiration is; I've heard about it, but I never saw it.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:21 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“While trying to inspire, don't forget to be inspired.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The Rocket Racing League will inspire people of all ages to once again look up into the sky to find inspiration and excitement,”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We are excited to welcome Greg home and congratulate him on this successful private mission. He has been an inspiration to me and I'm sure that his message of 'never give up hope' will inspire millions of others to follow their dreams.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“She appeals to the German brain, if not the German heart. She doesn't inspire strong emotions. But she does inspire strong thinking about what is truly best for the nation.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“An America that inspires hope in its ideals must complement an America that inspires awe in its strength.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It's just the way we have to play. We believe. You're seeing an inspired team with an inspired belief in everybody. All we care about is that we won. We're going back to Dallas with a chance.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I think this record will take a little longer because I think it will need to be played live. As long as I'm inspired and the guys are inspired, I think it'll roll.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“For us, silence is an active catalyst for inspiration. It inspires us to make a racket.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“May that 'divine knowledgeable person'(almighty) inspire us! One, without whose inspiration one can never attain total knowledge.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“She's been our inspiration. The only reason we've stuck together is she's made all of our music better. She's inspired us to succeed.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“She's very humble. She's such an inspiration. She came here and thrived and didn't give up. She inspires other people to keep going.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The courage and bravery of our young men and women fighting overseas continues to inspire all of us, and indeed inspire the free world and those yearning for freedom.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:22 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Because it's very clean, very impeccable but then it's all inspired by the legions and nobles of the North. The hair is done like a Munch painting, and the things are inspired by the music of Grieg.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We are both trying to find our own inspiration and movement. My inspiration is sign language.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Nelson Mandela is a hero to all people who value freedom and dignity and justice. President Mandela's principled opposition to tyranny and injustice inspires us today and will inspire our sons and daughters for generations to come.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“And Mrs. Parks, who was 92 years old and lived a life that was long and inspirational well beyond that single act -- I think for all of us, her inspiration will live on.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Just as appetite comes by eating, so work brings inspiration, if inspiration is not discernible at the beginning.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“In making my strips the inspiration is really only the germ of something, they say it's 99% perspiration, 1% inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Jerome Bettis is an inspiration. He's been an inspiration throughout the playoffs. But it comes down to going out Sunday and doing the things we've been doing.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It?s about the athletes. The Special Olympics is such an amazing part of the community and I want to support them and inspire them like they inspire us.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We could not have asked for a more inspirational partner to create an equally inspirational and entertaining DVD series.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We are just ordinary boys in an extraordinary position. That can be inspiring for other ordinary people. If there is any revolution we are inspiring it is that we have taken our own fate into our own hands. We are total control freaks.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I think it is an inspiration to us, an inspiration to teachers to keep giving of our best.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“There was so much excitement for music at the time, and much of it had to do with the Beatles. The Beatles inspired probably more bands than we will ever know, and they certainly inspired me.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“uses (Kyle) as an inspiration. He says when he thinks about Kyle, 'I haven't got any problems.' Kyle is an inspiration to people, but he may not know it.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“There is the inspirational quality of live exhibits, ... One of the main reasons for aquariums to exist these days is to use that power of inspiration of living animals to motivate visitors to protect these animals in the world.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“He was obeyed, yet he inspired neither love nor fear, nor even respect. He inspired uneasiness. That was it!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:23 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I try to sing songs to the kids that will inspire them, and so the next generation they start working hard, and then the little guys they see you guys working hard and they get inspired by you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“But if the witnesses are inspired of God then there is no reason for their disagreeing on anything, and if they do disagree it is a demonstration that they were not inspired”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Jerome has inspired each individual on this team in some form or way. He kind of inspires us to go out and play hard so we can get him that Super Bowl ring and end on a great note.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“It's been so long since I've been around something from somebody else that's inspired me. For the last 20 years, it's been up to me to inspire me.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“In marking the establishment of our churches and parishes, we are not just commemorating long past events, we are celebrating the living faith which inspired those actions, and which continues to inspire, guide and sustain us today,”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If a violent act towards a woman takes place, and the inspiration for that act is violence in cinema, the inspiration for that act would have come from somewhere else if movies didn't exist.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It was an inspired choice and an inspiring performance. There doesn't seem to be a weakness in your abilities,”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I entered the contest to tell people about how I got inspired, and how I try to inspire other people. It's about finding strength and motivation to go for your goals and dreams.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A lot of my inspiration came from the kids. But then other things; like the news, everything is pretty inspiring these days.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“One's a sad lesson, and the other's inspiring, ... We are Americans and we choose to be inspired.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“When I get inspired to write, the song just seems to come to me all at once. All I have to do is keep living to stay inspired.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“She's just a tremendous inspiration for me as a coach and I use her as well as many other former players here to inspire my team. I say whatever you want to do, you can do it.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It is the inspiration of the Olympic Games that drives people not only to compete but to improve, and to bring lasting spiritual and moral benefits to the athlete and inspiration to those lucky enough to witness the athletic dedication.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“(My inspiration) was so strong with 'Love. Angel. Music. Baby.. I knew exactly what I wanted to do, and it was just like I had such a fire of inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:24 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I know what inspiring basketball is. When we're dead in the water and we're not playing the way we're capable of, I'm going to say that. But tonight we were very inspiring.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“A good leader inspires other men and women with confidence. A great leader inspires them with confidence in themselves.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“His songs are inspiring, and they really inspire young people. I like that he talks about the right things.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The creative legacy of Pirates of the Caribbean has come full circle with the attraction initially inspiring our highly successful film franchise and now the films inspiring exciting additions to the attraction itself.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Sitting on the bench inspired Francisco. She doesn't like sitting on the bench, and that inspired her to work hard. She wanted to make an immediate impact, and she knew she had to work.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“It was inspiring work, we knew we were telling a great story and that would inspire others,”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The inspired Bible has been and is the greatest curse of Christendom, and will so remain as long as it is held to be inspired”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The inspired scribbler always has the gift for gossip in our common usage he or she can always inspire the commonplace with an uncommon flavor, and transform trivialities by some original grace or sympathy or humor or affection.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I don't really think about it too much. All I know is people inspired me very much and I tried to inspire people. It went both ways.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I told him [Dean] that he really had inspired me in Iowa about a year ago, ... Well, when you give something this much of your life and the sacrifices that you make, he really did and he still does [inspire me].”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“What Rev Run represents is a special reality. We need inspiration, and his reality is an inspiration. If you're a father, and you see him raise his family, you'll learn how to raise your family.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I can be inspirational..i can be depressing..i can be extremely selfish..i can be extremely selfless..i can be the happiest person you know..i can be the most down person you know..i could be your everything..but i could never be your nothing.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“You cannot get success just by reading the others' inspiration success stories and quotes and do nothing to improve.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:25 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If inspiration does not find you today, routine will.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Love is the music that inspires our souls to dance.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The power of your determination coupled with your inspiration fueled by perspiration determines your destination”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Nothing can be more painful than the cry of the word which gave us the inspiration to dream of love.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Inspiration comes from love♥♥♥. It might be a child's smile or a sunset or sunrise or a cricket that sings in the night..Or your lover that holds arms wide open to embrace...”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Imagine watching a movie on your life ...are you enjoying your movie? Is it fun? Entertaining? Inspiring? An adventure? Make it fun!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“You can be a beacon of inspiration by doing no more than your daily routine. And, yes, it must be a different routine than what you have now.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“There is only one lasting motivation; and that is self-motivation. Others can inspire us, but only you can take action.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I'm interested in the minds of the mature and inspired.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“An excellent motivational quotes are those which inspire us to excel in our objective to motivate to strengthen others.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Inspired By Beauty In Creation We Are One”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Live the life you would like to inspire others to live. A life of kindness. Joy. Doing what you love with passion. Excitement. Fun.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Every relationship is a life force, an inspiration, a reason. It should be a light in the dark, a spark of hope in the middle of the storm, a healing balm to an old wound.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Words embody power to inspire or motivate us, but it is only we who have power to open up to see and feel it.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“A true smile from a complete stranger can inspire joy, even hope. Be that stranger...”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Selfish people look for success and are in great majority with good bonhomie, but others who crave for excellence are in extreme minority with enthusiasm as their sole inspiration and motivation.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:26 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“All good things in life are inspired by your friends is the new All good things in life are free”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“You know you have lived well when people talk about your life and become inspired.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The best inspirational story is the story of your life.NR”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“To inspire love within each other, we realize the fulfillment of our own hearts longing.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Let my thoughts about life be the inspiration to your heart.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We are all here to learn about ourselves and inspire others in our own unique way.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“We create inspirational and unique art with dance movements, envisioned in our creative minds and expressed through our bodies.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“To drive the cause, be the inspiration!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“A hero you are, through and though; your inspiration to me, is true and true. I wish a life here, of nirvana for you; a life of love, mirroring Heavens venue.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“My mother is a walking contradiction and so is every woman in the universe. I am passionately inspired by contradictions.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Life is beyond measure, it is the vastness of the star filled sky. Life is the highest peak on the most majestic mountain, it is the awe inspiring fullness of the ocean. All of this fills our hearts with the greatness that we were created to be.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“If inspirational quotes are only seen as useless words on paper, then jail is just an ordinary room you're staying in.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“inspirations never come in gifts.....nowadays you can search it on google..!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:27 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Learn, Inspire, Fight, Excel ... that's LIFE.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I can show you a world where the man that stands beside you is devoted to you, supports you, understands you, believes in you, and most of all inspires you!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“In moments of outrage, when we feebly seek vengeance, we can do one of two things with our newly kindled flames. We can burn those who inspired them, or we can burn away our weakness.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If you are inspired by someone's success & want to follow him/her, then it's better to choose his/her footprints than his/her foot wears.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We look everywhere; forward, left, right, above our heads, even beneath our feet, but we won't get anywhere until we look within ourselves, in search of the truth.\n(inspired by Ostad Elahi's philosophy)”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“To me, soccer isn't about inspiration. Its about dedication, motivation, sacrifice and, most importantly, loving the game.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I live my life in my own way and others are inspired to do the same.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“All the answers are already there, waiting for us to inspire them to come out...”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Inspire with Love.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“When love for the Lord and His love for our neighbors /\nIs what we are into and what we're about, /\nOur service to others inspires our labors, /\nAnd fearing the Lord casts all other fears out.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Be careful who influence and inspire your life. Their ways seem like leading to life but the truth is, they lead to eternal death”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Allow others to be inspired by who you are.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Your life is your message to the world. Make it inspiring.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Poverty is an inspiration in its way...”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Inspiration attached to phenomenons is a failure to find something worth describing in yourself.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Being the leader doesn't give you the permission to be a bully. Respect and inspiration work better than fear and chaos.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:28 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A person's words can inspire the world only if the same motivates him or her too to do something different and difficult to make a good difference in others' lives to uplift humanity in society.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Perfection is not neccessary to become an inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Everybody needs an inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“A man especially wealthy can readily elevate his status and stature on prestige and reputation in society by living an unpretentious lifestyle to motivate self and inspire many others.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It is not words, but the deep trust on words that motivate and inspire people.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The source for any inspiration comes from sights, sounds, smell, taste, and touch.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Bosses hire and fire.\nLeaders inspire others to perform.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The purpose of LIFE is to be HAPPY. And. To LIVE your LIFE in your own way to INSPIRE others to LIVE a LIFE of HAPPINESS.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:29 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It is not just a mean of acquiring knowledge. One is instantly inspired in observing nature.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Inspirational Moments are the building blocks to advancement of life”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Live your life so well that it will inspire even you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Looking to the dead for inspiration strikes me as about as logical as looking to the cruel for compassion. When I need help breathing, I tend to start with people who are.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“One of the best ways to inspire oneself is to aspire life of right-size desire and relentlessly perspire to douse all negative thoughts’ fire of networking liar and ensure nothing conspire to make others’ tire to him admire.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Real-time action of leaders inspires followers and support-seeking word of followers motivates leaders.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Great thoughts are merely for motivation and inspiration ,but not for intimation or intimidation.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“When we know our true nature, especially the functioning of the mind, we stop being judgmental and become an inspiration and support to others.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Everyone thinks that only their life is a novel but in reality every life is a novel ,each contains some inspiration, pain and happiness in different ratios.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Passion with compassion removes life’s hallucination to pave road for self-motivation and inspiration and lead to forge ahead with zeal and energy for the real growth in a correct succession.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“My inspiration does not come from real life, but from a world that runs like a movie, behind my eyes.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“\"My mind full of ideas, and my heart full of inspiration\" -Zeke Millan-”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Gratitude masters the inspirational life”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“”The inspirational things we read don’t change the daily struggles we face, but they do give us prospective how we see ourselves.”\n~ Tom Baker”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Although faith is something I can not see; I trust in GOD he hears my dream. Believing in you is so easy for me; a hero foundation was built by thee. Extraordinary you are, absolutely puree; you’re my inspiration now, into all eternity.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Compromise with your loved ones and compromise with your self respective to your loved ones, inspire to have an easy life for them as well as for your self.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:30 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I have found reading the Bible inspiring and entertaining. If I didn't know better, I would swear that P.T. Barnum, L. Ron Hubbard, and Jules Verne collaborated to give us this wonderful book.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Live your life so that it would even inspire you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Look around; world is full of inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Truth adds the strength to our mind, the courage to our heart, the happiness to our soul and empowerment, motivation and inspiration to feel the best in our enriching life’s journey.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Be inspired by things in life that are beautiful and good.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Don't limit yourself to one dream. Use that one dream to open up more. Model > Inspiration > Magazine Owner > Actress.... The Sky Is Not The Limit”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Inspirational thoughts are the building blocks to the advancment of life, through positive interaction, positive ideals, and positive creation…benefit – to enahance effects on loved ones, effect on stangers, effect on friends, and effect on you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Your actions should inspire others to dream.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“The fledgling courage of a single man may one day be the unexpected father of a million inspirations”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Be mindful of your actions for they will either inspire you or haunt you the choice is always yours.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Humble questions become awe-inspiring declarations of our memories”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Freedom is kingdom of wisdom that blossoms multiple numbers of innovation, invention and inspiration in life.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I'm mentally inspired by my past cuz its shows me wat not to do to creat a gud future for myself”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If you are easily inspired by others, then you are most likely trying to impress others.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Inspiration is my drug and Expression is my gateway.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“The fall of man is caused by the seductiveness of Inspiration, Pleasure, Natural Beauty, Material Instinct and their refusal too cooperate with their counterparts, Imagination, Inelligence, Passion, and Instinct.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Light shines upon us inspiration, and as it falls quietly over us,\nour thoughts find a voice, dark, diaphanous and true, soothing; in the tone of shadows.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“In the avalanche of motivational quotes, ideating and creating a new own inspirational quote is like finding a different and selfless person in the midst of crowd.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:31 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A man who relentlessly perspires to be excellent evidently inspires many with his intelligence and elegance.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Truth adds strength to our mind, courage to our heart, happiness to our soul and empowerment, motivation and inspiration to feel the best in our enriching life.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“As Christians we should not support or 'like' hate pages. We hate sins, but love the sinners. Promote love, be an inspiration be a plus rather than a minus.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“People think \"positive inspirational quotes\" might them but nothing can actually unless you understand what is \"right or wrong\". Grow up!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“True leadership is the art of creating and clearly communicating your vision, hope, passion, inspiration and the journey you will take your team members on.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“•Ignite your heart¨¨¨*•with then felt.•♥•.¸¸awake your senses .•then left•♥•.¸¸.•¨close your eyes¨*••¨open your soul¨¨*•.inspire dream and love!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Via heart, suffering, inspiration and survival, a hero is born.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Sometimes specific songs identify very lovely, bad and inspiration moments, if you want a flashback, just listen to those songs.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Brainstorm in images. Wildly Inspirational Ideas will bubble up and knock your socks off!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Plant that seed of faith, sprinkle some fertiliser of hope and inspiration, water the soil with your love and courage and watch the magic grow.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“We must be inspired to expect more from ourselves than what we believe to be possible!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Sad but inspirational”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“What's more beautiful, inspiring, and significant than knowing just how much of the universe is within you?”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“pain is just an inspiration of sacrifice”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“\"Learn.Write.Inspire\" ~ Arnab Kumar Roy”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Inspiration is a teacher of your mind”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“I want to dissolve with the sky to let everyone breath me in as an inspiration .”\n"], ["created_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:32 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Great heartbreaks give great inspiration. Nihal Kiran Dalwai”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“FAMILY - Friends Always Managing to Inspire & Love You!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If your thoughts aren't inspiring you, they are expiring you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“inspiration is in us all, if you can't find it just look deeper”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“love,life,happiness,inspiration,personaldevelopment,Satya Kalra, Path To Anandam”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n““Sometimes people compare other people for there magnificent deeds but there is such as only to be see as inspiration with a limitation because God made us simple live simple then.””\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Your life is your message. Make it inspiring.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Men and women inspire, God changes”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Life offers many paths to take, what matters is not the path you take but how many people you inspire along the journey.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Above all skills the most necessary quality needed is passion. To wear passion on your sleeve and give it off as enthusiasm is an art known as inspiration.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“May we constantly remember, before our God and Father, your work produced by faith, your labor prompted by love, and your endurance inspired by hope in our Lord Jesus Christ.\n~Amen~”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“It’s funny how motivation and inspiration can be drawn from the strangest of places and situations, but boy, if feels damn good.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I am that, I am. Competent, inspiring & skillful. The confident hand keeps my knowledge. Artful & generous, opener of gateways, determined to seek solutions.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“If seniors can't lead-by-example themselves,then they can't don the hat of mentor to motivate, inspire, coach,guide their subordinates or build the teamwork for the growth and success of the company.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:33 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“I trust my intuition to deliver powerful visions of my inspired future, and I empower my intent to transform those visions into reality”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Discover your many passions by watching videos that inspire you.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Words can’t motivate or inspire us unless and until we have deep trust on words.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (4.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“LIFE is not a JOURNEY of CHANCE. We are where we are TODAY because of the DECISIONS and ACTIONS we have taken Yesterday. TOMORROW, we will be where Today's Decisions and Actions take us. Make your Life a Journey that will INSPIRE others.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“You don't need great wisdom to write inspirational words. You just need to have experienced some things.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“My words is my Inspiration”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Whenever am down, i put my earphones on, and i listen to cool raps. It seems to inspire me to do better..”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Any good and inspiring story that happens to us, doesn't belong to us. We don't own its copyright. The right belongs to the people who need to hear it and be moved...Now, tell us yours...”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If you need something inspirational, just point up to the top of your vision.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Ideas, inspiration, talents and skills are power. The more we have, the bigger our responsibility is.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (1.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Hear the music, listen to the lyrics, inspire yourself do not deny yourself.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“music inspires me, so does Jesus. you just can't separate me from both of them.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If you choose great language and truthfully inspirational thinking you never have meaningfulness lives of those that you love ... but if there is no give there wont be any take!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“\"Inspired by natural forces, feminine mystique and the spontaneity of form within the essence of beauty, Garrity creates work that traverses between stark realism and the colorful void of abstraction.\" 2006 Irish America Magazine”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“inspiration is like static electricity/ i'm rubbing my cloth over here/ on the crystal shaft of poetic allusion/ and over there....you are/ waiting for the charge that leaps the gulf/ may we all be blessed in these magical exchanges”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“\"Always be grateful for the inspiring music which lifts the spirit of even the lowest heart.\" ~Tom Baker”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Experience the messages of inspiring quotes!”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Inspiration is the one thing you lose just after you stop looking for it.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:34 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Quotes never expire... because they are meant to inspire!! Good things never die”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Dispite all of our mistakes, humans seem to be the ones we are inspired by the most.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Criticism always seems to add inspiration to your pursuit of success. Strip away the anger and bias. And use the rest as fuel.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“People betray others,hearts get broken,lies build unfaithful relationships and people get lost but with all of that life still goes on once ur strong and mentally inspired to rise above them all”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“If you like what you do, it becomes you, when it becomes you, do it will inspire you”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“True leadership lies in proving that the people at top can lead-by-example to motivate and inspire their team relentlessly.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Freedom is the kingdom of wisdom that blossoms multiple numbers of innovation, invention and inspiration in life.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“A leader may not necessarily be a good reader, writer or speaker, but certainly the best teacher in life with his self-made action and always doing initiative generation, perspiration, innovation, motivation and inspiration for his team members.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)  [["content", "\n“Words can inspire or destroy. Encourage or annoy. So choose wisely the things you say and grant you the wisdom to forget not to pray.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quotes" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "\n“Sometime failure is a divine tool sent by the Creator to inspire and elevate you above the clouds. Trust God.”\n"], ["created_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00], ["updated_at", Tue, 24 Dec 2013 10:08:35 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-12-24 11:09:21 +0100
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (5ms)
+
+
+Started GET "/quotes" for 127.0.0.1 at 2013-12-24 11:09:26 +0100
+Processing by QuotesController#index as HTML
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  Rendered quotes/index.html.erb within layouts/application (10.7ms)
+Completed 500 Internal Server Error in 95ms
+
+ActionView::Template::Error (undefined method `body' for #<Quote:0x007f8466a03740>):
+    10: 
+    11: <% @quotes.each do |quote| %>
+    12:   <tr>
+    13:     <td><%= quote.body %></td>
+    14:     <td><%= link_to 'Show', quote %></td>
+    15:     <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+    16:     <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  app/views/quotes/index.html.erb:13:in `block in _app_views_quotes_index_html_erb__3145426862785960224_70103298743400'
+  app/views/quotes/index.html.erb:11:in `each'
+  app/views/quotes/index.html.erb:11:in `_app_views_quotes_index_html_erb__3145426862785960224_70103298743400'
+  app/controllers/quotes_controller.rb:7:in `index'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.9ms)
+
+
+Started GET "/quotes" for 127.0.0.1 at 2013-12-24 11:09:59 +0100
+Processing by QuotesController#index as HTML
+  [1m[35mQuote Load (1.1ms)[0m  SELECT "quotes".* FROM "quotes" 
+  Rendered quotes/index.html.erb within layouts/application (150.4ms)
+Compiled quotes.css  (64ms)  (pid 28656)
+Compiled scaffolds.css  (10ms)  (pid 28656)
+Compiled application.css  (91ms)  (pid 28656)
+Compiled jquery.js  (2ms)  (pid 28656)
+Compiled jquery_ujs.js  (0ms)  (pid 28656)
+Compiled quotes.js  (87ms)  (pid 28656)
+Compiled application.js  (161ms)  (pid 28656)
+Completed 200 OK in 531ms (Views: 480.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/quotes.css?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /quotes.css - 200 OK (5ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /scaffolds.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /quotes.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 11:10:00 +0100
+Served asset /application.js - 200 OK (5ms)
+
+
+Started GET "/quotes/json" for 127.0.0.1 at 2013-12-24 11:10:10 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"json"}
+  [1m[36mQuote Load (0.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", "json"]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=json):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/quotes" for 127.0.0.1 at 2013-12-24 11:10:14 +0100
+Processing by QuotesController#index as HTML
+  [1m[35mQuote Load (1.2ms)[0m  SELECT "quotes".* FROM "quotes" 
+  Rendered quotes/index.html.erb within layouts/application (176.7ms)
+Completed 200 OK in 188ms (Views: 180.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 11:10:15 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/quotes" for 127.0.0.1 at 2013-12-24 11:11:12 +0100
+Processing by QuotesController#index as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  Rendered quotes/index.html.erb within layouts/application (213.4ms)
+Completed 200 OK in 225ms (Views: 217.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/quotes/json" for 127.0.0.1 at 2013-12-24 11:11:23 +0100
+Processing by QuotesController#show as */*
+  Parameters: {"id"=>"json", "quote"=>{}}
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", "json"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=json):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started GET "/quotes" for 127.0.0.1 at 2013-12-24 11:11:42 +0100
+Processing by QuotesController#index as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+Completed 200 OK in 65ms (Views: 49.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:15:45 +0100
+Processing by QuotesController#show as */*
+  Parameters: {"id"=>"random", "quote"=>{}}
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", "random"]]
+Completed 404 Not Found in 2ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.3ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:15:59 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[36mQuote Load (0.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", "random"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.9ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:16:24 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", "random"]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.6ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:16:25 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[36mQuote Load (0.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", "random"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (46.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (54.2ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:16:26 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", "random"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.5ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:16:26 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[36mQuote Load (0.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", "random"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.6ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:16:33 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", "random"]]
+Completed 404 Not Found in 1ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-12-24 11:18:19 +0100
+Connecting to database specified by database.yml
+Served asset /rails.png - 304 Not Modified (2ms)
+
+
+Started GET "/quotes/random" for 127.0.0.1 at 2013-12-24 11:18:23 +0100
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"random"}
+  [1m[36mQuote Load (0.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", "random"]]
+Completed 404 Not Found in 24ms
+
+ActiveRecord::RecordNotFound (Couldn't find Quote with id=random):
+  app/controllers/quotes_controller.rb:16:in `show'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.5ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:19:12 +0100
+Processing by QuotesController#random as HTML
+  [1m[35mQuote Load (1.7ms)[0m  SELECT "quotes".* FROM "quotes" 
+  [1m[36mQuote Load (3.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", 184]]
+Completed 406 Not Acceptable in 20ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:19:18 +0100
+Processing by QuotesController#random as HTML
+  [1m[35mQuote Load (0.8ms)[0m  SELECT "quotes".* FROM "quotes" 
+  [1m[36mQuote Load (0.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", 198]]
+Completed 406 Not Acceptable in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:20:22 +0100
+Processing by QuotesController#random as HTML
+  [1m[35mQuote Load (1.2ms)[0m  SELECT "quotes".* FROM "quotes" 
+  [1m[36mQuote Load (0.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", 12]]
+Completed 500 Internal Server Error in 21ms
+
+ActionView::MissingTemplate (Missing template quotes/random, application/random with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :coffee]}. Searched in:
+  * "/Users/lorenzorigato/quotes/app/views"
+):
+  app/controllers/quotes_controller.rb:86:in `random'
+
+
+  Rendered /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/gems/1.9.1/gems/actionpack-3.2.14/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:21:08 +0100
+Processing by QuotesController#random as HTML
+  [1m[35mQuote Load (0.7ms)[0m  SELECT "quotes".* FROM "quotes" 
+  [1m[36mQuote Load (0.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", 158]]
+  Rendered quotes/random.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/quotes.css?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /quotes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /application.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /jquery.js - 304 Not Modified (44ms)
+
+
+Started GET "/assets/quotes.js?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /quotes.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-12-24 11:21:09 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:21:43 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[35mQuote Load (0.9ms)[0m  SELECT "quotes".* FROM "quotes" 
+  [1m[36mQuote Load (0.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1[0m  [["id", 147]]
+Completed 200 OK in 17ms (Views: 2.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:27:19 +0100
+Connecting to database specified by database.yml
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (45.4ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 45]]
+Completed 200 OK in 75ms (Views: 1.5ms | ActiveRecord: 47.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:27:20 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.3ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 206]]
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:27:22 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 29]]
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:27:22 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 119]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:15 +0100
+Connecting to database specified by database.yml
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.6ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (6.3ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 41]]
+Completed 200 OK in 80ms (Views: 2.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:16 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 96]]
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:17 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 13]]
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:18 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 103]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:19 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 48]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 11:54:19 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 167]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:38 +0100
+Connecting to database specified by database.yml
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.6ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (5.8ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 114]]
+Completed 200 OK in 39ms (Views: 1.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:40 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 111]]
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:41 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 128]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:41 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 68]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:42 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 187]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:42 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 194]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:43 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 35]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:44 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 157]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:45 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 227]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:45 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 172]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:46 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 92]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random" for 127.0.0.1 at 2013-12-24 12:22:46 +0100
+Processing by QuotesController#random as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 69]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:23:57 +0100
+Connecting to database specified by database.yml
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (3.6ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 144]]
+Completed 200 OK in 37ms (Views: 1.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:23:58 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 6]]
+Completed 500  in 55ms
+
+ActiveRecord::RecordNotFound - Couldn't find Quote with id=6:
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:344:in `find_one'
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:315:in `find_with_ids'
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.2.14) lib/active_record/querying.rb:5:in `find'
+  app/controllers/quotes_controller.rb:85:in `random_quote'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:414:in `_run__2173821458866297584__process_action__2948880639391802861__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.14) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.14) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `_run__4321787446794302019__call__1762452887475681761__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:00 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 134]]
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:01 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 229]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:01 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 66]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 210]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 122]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 147]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 65]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 117]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 167]]
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (53.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 203]]
+Completed 200 OK in 63ms (Views: 0.5ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 87]]
+Completed 200 OK in 17ms (Views: 0.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 181]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 20]]
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 196]]
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 213]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 44]]
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 182]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 176]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 90]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 5]]
+Completed 500  in 13ms
+
+ActiveRecord::RecordNotFound - Couldn't find Quote with id=5:
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:344:in `find_one'
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:315:in `find_with_ids'
+  activerecord (3.2.14) lib/active_record/relation/finder_methods.rb:107:in `find'
+  activerecord (3.2.14) lib/active_record/querying.rb:5:in `find'
+  app/controllers/quotes_controller.rb:85:in `random_quote'
+  actionpack (3.2.14) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:414:in `_run__2173821458866297584__process_action__2948880639391802861__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.14) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.14) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.14) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.14) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.14) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.14) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.14) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.14) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.14) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/routing/route_set.rb:608:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.8) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.14) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.14) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `_run__4321787446794302019__call__1762452887475681761__callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.14) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.14) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.14) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.14) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.14) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.14) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.14) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.14) lib/rails/engine.rb:484:in `call'
+  railties (3.2.14) lib/rails/application.rb:231:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.14) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/lorenzorigato/.rbenv/versions/1.9.3-p448/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 53]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 159]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 72]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 80]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 50]]
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 170]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 162]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 174]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 148]]
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 217]]
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 119]]
+Completed 200 OK in 72ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 142]]
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 147]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 221]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 27]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:10 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 104]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:10 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 61]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:10 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 154]]
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:10 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 214]]
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:10 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 193]]
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:11 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 155]]
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:11 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 58]]
+Completed 200 OK in 71ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:11 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 227]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:11 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 25]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:11 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 104]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 150]]
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.6ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 84]]
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 164]]
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 74]]
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 65]]
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:12 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 127]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:13 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 162]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:13 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 98]]
+Completed 200 OK in 74ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:13 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 148]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:24:13 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 203]]
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:56 +0100
+Connecting to database specified by database.yml
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.6ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (3.7ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 156]]
+Completed 200 OK in 35ms (Views: 1.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:58 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 178]]
+Completed 200 OK in 49ms (Views: 0.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:58 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 131]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:59 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 133]]
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:59 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 61]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:25:59 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 236]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:00 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 61]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:00 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 27]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:01 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 237]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:01 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 174]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:01 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 111]]
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 156]]
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 114]]
+Completed 200 OK in 57ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 187]]
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:02 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 193]]
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 119]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 97]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 130]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:03 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.5ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 29]]
+Completed 200 OK in 31ms (Views: 1.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.9ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.3ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 118]]
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 82]]
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 153]]
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:04 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 13]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 192]]
+Completed 200 OK in 73ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 143]]
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.3ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 35]]
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:05 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 18]]
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 194]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 229]]
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 55]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:06 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 57]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.8ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 117]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.1ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 94]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 121]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:07 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.0ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 55]]
+Completed 200 OK in 59ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.2ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 89]]
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 137]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 112]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:08 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.2ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 32]]
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (0.7ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 96]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/random_quote" for 127.0.0.1 at 2013-12-24 12:26:09 +0100
+Processing by QuotesController#random_quote as */*
+  Parameters: {"quote"=>{}}
+  [1m[36mQuote Load (1.3ms)[0m  [1mSELECT "quotes".* FROM "quotes" [0m
+  [1m[35mQuote Load (0.1ms)[0m  SELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = ? LIMIT 1  [["id", 240]]
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 1.4ms)
+Connecting to database specified by database.yml
