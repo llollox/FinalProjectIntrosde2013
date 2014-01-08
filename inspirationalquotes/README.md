@@ -2,7 +2,7 @@
 
 This is a simple REST Service written in Ruby On Rails and Deployed on Heroku that provides some Motivational Quotes as a JSON.
 
-### Get a Motivational Quote
+### Get a Inspirational Quote
 
 <b>GET REQUEST</b> to: http://inspirationalquotes.herokuapp.com/random_quote
 
@@ -17,5 +17,5 @@ You will get something like the json below:
 }
 ```
 
-### Motivational Quotes Source
+### Inspirational Quotes Source
 Quotes are fetched from [This WebSite](http://www.quotesdaddy.com/find/quote/Motivation/) scraping the HTML and building a simple Quotes Database.

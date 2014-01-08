@@ -17,4 +17,4 @@
 
 
 ###External Adapters
-*   CalculateCalories
+*   RecipeAnalyzer
