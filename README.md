@@ -5,4 +5,16 @@
 *   Francesco Maturi
 *   Lorenzo Rigato
 
+###Services REST:
+*   MotivationalQuotes
+*   Server Web
 
+###Services SOAP:
+*   Storage
+*   CalculateProgress
+*   SuggestedActivities
+*   FilterActivities
+
+
+###External Adapters:
+*   CalculateCalories
