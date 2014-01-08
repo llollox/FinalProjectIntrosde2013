@@ -6,11 +6,14 @@
 *   Lorenzo Rigato
 
 ###Services REST
-*   [InspirationalQuotes](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/inspirationalquotes)
+
+*   [InspirationalQuotes](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/inspirationalquotes):This is a simple REST Service written in Ruby On Rails and Deployed on Heroku that provides some Motivational Quotes as a JSON.
+
 *   [Server Web] (https://github.com/llollox/FinalProjectIntrosde2013/tree/master/WebAppRest)
 
 ###Services SOAP
-*   [Storage] (https://github.com/llollox/FinalProjectIntrosde2013/tree/master/StorageService)
+
+*   [Storage] (https://github.com/llollox/FinalProjectIntrosde2013/tree/master/StorageService): This is a storage service that allows to interact with a Mysql Database
 *   CalculateProgress
 *   SuggestedActivities
 *   FilterActivities
