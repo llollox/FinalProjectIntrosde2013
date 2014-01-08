@@ -1,10 +1,8 @@
 ##Recipe Analyzer
-This is an adapter that take as input a recipe as a json and provide some informations like calories calling Edamam api's .
-
 
 ###Interact with API
 
-[API Documentation PAGE](https://developer.edamam.com/docs).
+[EDAMAM API Documentation PAGE](https://developer.edamam.com/docs).
 
 app_id = <b>0391102e</b>
 

@@ -17,4 +17,4 @@
 
 
 ###External Adapters
-*   RecipeAnalyzer
+*   [RecipeAnalyzer](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/ExternalAdapters/RecipeAnalyzer): This is an adapter that take as input a recipe as a json and provide some informations like calories calling Edamam api's.
