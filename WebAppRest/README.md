@@ -1,45 +1,23 @@
-DOCUMENTATION Assignment #2: Francesco Maturi & Lorenzo Rigato
-===========
+##WebApp Rest Service
 
-All code is available @ [our github repository](https://github.com/francescomaturi/assignment2).
+This is the Service that interact with the client and all other services.
 
-#Services Documentation:
-
-## Motivational Quotes
-
-**GET  http://inspirationalquotes.herokuapp.com/random_quote**
-
-#####Response Example:
-
-{
-    "content": "\n“True leadership lies in proving that the people at top can lead-by-example 
-    to motivate and inspire their team relentlessly.”\n",
-    
-    "created_at": "2013-12-24T11:19:51Z",
-    
-    "id": 597,
-    
-    "updated_at": "2013-12-24T11:19:51Z"
-}
-
-
-Hibernate Configuration:
+<!--Hibernate Configuration:
 ----------------
 The database used is in `database/mydb.db`, we need to configure hibernate to find it: please go to 
 `src/main/resources/hibernate.cfg.xml` file and at connection url property type the following:
 
 * For Mac users: `jdbc:sqlite:database/mydb.db`
-* For Unix users: `jdbc:sqlite:<your_directory>/<path_to_this_project>/database/mydb.db`
+* For Unix users: `jdbc:sqlite:<your_directory>/<path_to_this_project>/database/mydb.db`-->
 
-Database:
-----------------
-The database used is sqlite, it contains all ice hockey 
+####Database
+We use the Storage Service
+<!--The database used is sqlite, it contains all ice hockey 
 people from Ontario present in [dbpedia.org](http://dbpedia.org/About).
 
-To fetch and parse data from dbpedia it was used [Apache Jena](http://jena.apache.org/): a free and open source Java framework for building Semantic Web and Linked Data applications. 
+To fetch and parse data from dbpedia it was used [Apache Jena](http://jena.apache.org/): a free and open source Java framework for building Semantic Web and Linked Data applications. -->
 
-REST Service:
-----------------
+####REST Service
 All our services support both json and xml format for response. 
 To specify the response format just set the header `Accept: application/json` or `Accept: application/xml` for the type you require.
 
@@ -97,14 +75,13 @@ Returns all the people that are in the specified range of height or weight.
 
 Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
 
-Client
-----------------
+####Client
 
 This is a simple introduction to understand how to use that web application.
 
 This client is implemented using [Backbone.js](http://backbonejs.org/) which is a javascript library that easily allows to make REST request and manage their response on a html page.
 
-### Usage
+#### Usage
 
 Start tomcat, open your browser and navigate the the follow url: `http://localhost:8080/RESTService/`
 
@@ -130,7 +107,7 @@ Just for an example, the following screenshot contains the form for the editing 
 
 ![Alt text](doc/edit-person.png)
 
-### Chrome and CORS Request
+#### Chrome and CORS Request
 
 To make a request outside our domain we have to set a flag for google chrome that allows make requests for any domain.
 
