@@ -19,40 +19,24 @@ Set Header Content-Type: <b>application/json</b>
 ```json
 {
   "title": "Fresh Ham Roasted With Rye Bread and Dried Fruit Stuffing",
-	"prep": "1. Have your butcher bone and butterfly the ham and score the fat in a diamond pattern. ...",
-  "yield": "About 1 servings",
-  "ingr": [
-    
+"prep": "1. Have your butcher bone and butterfly the ham and score the fat in a diamond pattern. ...",
+"yield": "About 1 servings",
+"ingr": [    
     "7 cloves garlic, minced",
- 		
- 		"1 cup chopped onions",
-    
+ 	"1 cup chopped onions",
     "2 cloves garlic, minced",
-    
     "5 cups beef stock",
-    
     "1/3 cup water",
-    
     "1/2 cup red wine",
-    
     "4 tomatoes - peeled, seeded and chopped",
-    
     "1 cup chopped carrots",
-    
     "1/2 teaspoon dried basil",
-    
     "1/2 teaspoon dried oregano",
-    
     "1 cup tomato sauce",
-    
     "1 zucchini, chopped",
-    
     "8 ounces cheese tortellini",
-    
     "1 green bell pepper, chopped",
-    
     "1 tablespoon chopped fresh parsley",
-    
     "2 tablespoons grated Parmesan cheese for topping"
   ]
 }
