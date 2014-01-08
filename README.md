@@ -1,4 +1,4 @@
-##Final Project Introduction to Service Engineering 2013
+##Final Project - Introduction to Service Engineering 2013
 
 ###Collaborators:
 *   Endrit Bajo
