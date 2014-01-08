@@ -6,7 +6,7 @@ To start communicate with this server follow these steps:
 
 1. Install mysql server in your machine [MySql Download](http://www.mysql.it/downloads/)
 2. Start mysql server 
-    - <b>Unix</b>: Go into /usr/local/mysql/support-files and run `mysql.server start`
+    - <b>Unix</b>: Go into /usr/local/mysql/support-files and run `mysql.server start` (Ensure you have 755 permission in that folder to start he server, otherwise you will get an error!)
 3. Run Publisher class of Storage Service
 4. Run Main of Client Project to test if it is works!
 
