@@ -1,5 +1,9 @@
 package com.introsde.project.receipt.model;
 
+/**
+ * @author franz
+ * 
+ */
 public class NutritionEstimates {
 
 	private String attribute;
@@ -38,4 +42,11 @@ public class NutritionEstimates {
 	public void setValue(Double value) {
 		this.value = value;
 	}
+
+	@Override
+	public String toString() {
+		return "NutritionEstimates [attribute=" + attribute + ", description="
+				+ description + ", unit=" + unit + ", value=" + value + "]";
+	}
+
 }

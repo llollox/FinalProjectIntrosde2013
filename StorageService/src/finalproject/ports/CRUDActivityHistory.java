@@ -2,18 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
-import finalproject.model.Activity;
 import finalproject.model.ActivityHistory;
-import finalproject.model.ActivityHistoryValue;
-import finalproject.model.ActivityValueType;
 
-@WebService(
-		serviceName = "ActivityHistoryService",
-		portName = "CRUD",
-		targetNamespace = "http://finalproject.sde.unitn.it/"
-)
+@WebService(serviceName = "ActivityHistoryService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDActivityHistory {
-	
+
 	// CREATE ACTIVITYHISTORY
 	public int createActivityHistory(ActivityHistory activityhistory) {
 		ActivityHistory a = ActivityHistory.create(activityhistory);

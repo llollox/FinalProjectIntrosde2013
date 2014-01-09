@@ -2,14 +2,9 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
-import finalproject.model.Activity;
 import finalproject.model.ActivityValueType;
 
-@WebService(
-		serviceName = "ActivityValueTypeService",
-		portName = "CRUD",
-		targetNamespace = "http://finalproject.sde.unitn.it/"
-)
+@WebService(serviceName = "ActivityValueTypeService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDActivityValueType {
 
 	// CREATE ACTIVITY VALUE TYPE
@@ -41,5 +36,5 @@ public class CRUDActivityValueType {
 	public boolean deleteType(int id) {
 		return ActivityValueType.delete(id);
 	}
-	
+
 }

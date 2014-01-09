@@ -2,6 +2,9 @@ package com.introsde.project.receipt.finder;
 
 import java.util.List;
 
+import com.introsde.project.receipt.model.Attributes;
+import com.introsde.project.receipt.model.ImageUrlsBySize;
+
 public class Matches {
 
 	private Attributes attributes;
