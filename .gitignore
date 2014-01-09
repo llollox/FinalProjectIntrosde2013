@@ -1,2 +1,5 @@
 .DS_Store
-.gitignore
+
+StorageService/src/META-INF/persistence.xml
+/bin
+/target
