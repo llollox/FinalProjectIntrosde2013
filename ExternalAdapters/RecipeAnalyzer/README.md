@@ -16,9 +16,6 @@ Set Header Content-Type: <b>application/json</b>
 
 ```json
 {
-  "title": "Fresh Ham Roasted With Rye Bread and Dried Fruit Stuffing",
-  "prep": "1. Have your butcher bone and butterfly the ham and score the fat in a diamond pattern. ...",
-  "yield": "About 1 servings",
   "ingr": [    
     "7 cloves garlic, minced",
  	"1 cup chopped onions",
