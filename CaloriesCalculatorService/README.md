@@ -31,28 +31,19 @@ This is a simple SOAP service that provide some calories calculation stuff.
 	
 	The BMR is the amount of energy expended daily by humans and other animals at rest. Rest is defined as existing in a neutrally temperate environment while in the postabsorptive state.
 
-* <b>GET IDEAL DAILY CALORIES NEEDED</b>
+* <b>GET IDEAL DAILY CALORIES NEEDED</b> ```public double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek)``` 
+	- @PARAMS 
+		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest.
+		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
 	
-	@param <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest.
-	
-	@param <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
-	
-	@return the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
-	
-	```public double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek)``` 
+	- @RETURN the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 
-* <b>GET IDEAL DAILY CALORIES NEEDED</b>
-	
-	@param <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest. 
-	
-	@param <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
+* <b>GET IDEAL DAILY CALORIES NEEDED</b> ```public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate)```
+	- @PARAMS
+		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest. 
+		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
+		* <b>weightDifference</b> weight difference that you want get or lose. You can pass it both in kg or grams.
+		* <b>startDate</b> the day that you want to start this diet.
+		* <b>endDate</b> the day that you want to finish this diet.
 
-	@param <b>weightDifference</b> weight difference that you want get or lose. You can pass it both in kg or grams.
-
-	@param <b>startDate</b> the day that you want to start this diet.
-
-	@param <b>endDate</b> the day that you want to finish this diet.
-
-	@return the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
-	
-	```public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate)``` 
+	- @RETURN the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week. 
