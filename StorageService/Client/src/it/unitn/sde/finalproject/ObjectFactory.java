@@ -42,46 +42,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateValueResponse }
-     * 
-     */
-    public UpdateValueResponse createUpdateValueResponse() {
-        return new UpdateValueResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertValueResponse }
-     * 
-     */
-    public InsertValueResponse createInsertValueResponse() {
-        return new InsertValueResponse();
-    }
-
-    /**
-     * Create an instance of {@link InsertValue }
-     * 
-     */
-    public InsertValue createInsertValue() {
-        return new InsertValue();
-    }
-
-    /**
-     * Create an instance of {@link ReadValue }
-     * 
-     */
-    public ReadValue createReadValue() {
-        return new ReadValue();
-    }
-
-    /**
-     * Create an instance of {@link ReadValueResponse }
-     * 
-     */
-    public ReadValueResponse createReadValueResponse() {
-        return new ReadValueResponse();
-    }
-
-    /**
      * Create an instance of {@link UpdateValue }
      * 
      */
@@ -90,11 +50,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeleteValueResponse }
+     * Create an instance of {@link ActivityHistoryValue }
      * 
      */
-    public DeleteValueResponse createDeleteValueResponse() {
-        return new DeleteValueResponse();
+    public ActivityHistoryValue createActivityHistoryValue() {
+        return new ActivityHistoryValue();
     }
 
     /**
@@ -106,11 +66,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ActivityHistoryValue }
+     * Create an instance of {@link InsertValueResponse }
      * 
      */
-    public ActivityHistoryValue createActivityHistoryValue() {
-        return new ActivityHistoryValue();
+    public InsertValueResponse createInsertValueResponse() {
+        return new InsertValueResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadValueResponse }
+     * 
+     */
+    public ReadValueResponse createReadValueResponse() {
+        return new ReadValueResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadValue }
+     * 
+     */
+    public ReadValue createReadValue() {
+        return new ReadValue();
+    }
+
+    /**
+     * Create an instance of {@link UpdateValueResponse }
+     * 
+     */
+    public UpdateValueResponse createUpdateValueResponse() {
+        return new UpdateValueResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteValueResponse }
+     * 
+     */
+    public DeleteValueResponse createDeleteValueResponse() {
+        return new DeleteValueResponse();
+    }
+
+    /**
+     * Create an instance of {@link InsertValue }
+     * 
+     */
+    public InsertValue createInsertValue() {
+        return new InsertValue();
     }
 
     /**

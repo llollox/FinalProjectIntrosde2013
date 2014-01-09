@@ -20,6 +20,8 @@ public class Publisher {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/activityhistory", new CRUDActivityHistory());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/activity", new CRUDActivity());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/activityhistoryvalue", new CRUDActivityHistoryValue());
+		
+		System.out.println("Started Publisher");
 	}
 	
 }

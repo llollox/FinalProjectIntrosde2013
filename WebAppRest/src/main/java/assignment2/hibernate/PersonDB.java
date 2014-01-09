@@ -10,6 +10,13 @@ import assignment2.model.Person;
 
 public class PersonDB {
 
+	/**
+	 * 
+	 * I'm the explanation
+	 * 
+	 * @param person
+	 *            person returned
+	 */
 	public static Person savePerson(Person person) {
 		Session session = Hibernate.getSessionFactory().openSession();
 		Transaction transaction = null;
