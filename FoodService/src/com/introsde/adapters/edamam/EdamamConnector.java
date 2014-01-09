@@ -16,9 +16,9 @@ public class EdamamConnector {
 	private static final String EDAMAM_APP_ID = "0391102e";
 	private static final String EDAMAM_APP_KEY = "49b4d54afcee8097e23228be928a81d1";
 
-	WebResource service;
+	private static WebResource service;
 
-	public EdamamConnector() {
+	static {
 
 		ClientConfig config = new DefaultClientConfig();
 		Client client = Client.create(config);
@@ -26,7 +26,7 @@ public class EdamamConnector {
 		service = client.resource("https://api.edamam.com/api");
 	}
 
-	public EdamamResponse get(List<String> ingr) {
+	public static EdamamResponse get(List<String> ingr) {
 
 		if (ingr == null || ingr.isEmpty())
 			return null;

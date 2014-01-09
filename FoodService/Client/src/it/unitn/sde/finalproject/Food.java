@@ -42,6 +42,24 @@ public interface Food {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns it.unitn.sde.finalproject.ReceiptFinder
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "get20RecipesByCalories", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.Get20RecipesByCalories")
+    @ResponseWrapper(localName = "get20RecipesByCaloriesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.Get20RecipesByCaloriesResponse")
+    @Action(input = "http://finalproject.sde.unitn.it/Food/get20RecipesByCaloriesRequest", output = "http://finalproject.sde.unitn.it/Food/get20RecipesByCaloriesResponse")
+    public ReceiptFinder get20RecipesByCalories(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1);
+
+    /**
+     * 
      * @param arg2
      * @param arg1
      * @param arg0
@@ -69,10 +87,10 @@ public interface Food {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "calculateIngredients", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.CalculateIngredients")
-    @ResponseWrapper(localName = "calculateIngredientsResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.CalculateIngredientsResponse")
-    @Action(input = "http://finalproject.sde.unitn.it/Food/calculateIngredientsRequest", output = "http://finalproject.sde.unitn.it/Food/calculateIngredientsResponse")
-    public EdamamResponse calculateIngredients(
+    @RequestWrapper(localName = "calculateIngredientsValues", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.CalculateIngredientsValues")
+    @ResponseWrapper(localName = "calculateIngredientsValuesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.CalculateIngredientsValuesResponse")
+    @Action(input = "http://finalproject.sde.unitn.it/Food/calculateIngredientsValuesRequest", output = "http://finalproject.sde.unitn.it/Food/calculateIngredientsValuesResponse")
+    public EdamamResponse calculateIngredientsValues(
         @WebParam(name = "arg0", targetNamespace = "")
         List<String> arg0);
 

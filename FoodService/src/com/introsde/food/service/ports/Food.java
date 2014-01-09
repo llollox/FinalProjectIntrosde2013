@@ -15,21 +15,26 @@ public class Food {
 
 	public Receipt getRecipe(String recipeId) {
 
-		YummlyConnector connector = new YummlyConnector();
-		return connector.getRecipe(recipeId);
+		return YummlyConnector.getRecipe(recipeId);
+	}
+
+	public ReceiptFinder get20RecipesByCalories(int minKcal, int maxKcal) {
+
+		final int SIZE = 20;
+
+		return YummlyConnector.getRecipesByCalories(minKcal, maxKcal, SIZE);
 	}
 
 	public ReceiptFinder getRecipesByCalories(int minKcal, int maxKcal,
 			int maxResults) {
 
-		YummlyConnector connector = new YummlyConnector();
-		return connector.getRecipesByCalories(minKcal, maxKcal, maxResults);
+		return YummlyConnector.getRecipesByCalories(minKcal, maxKcal,
+				maxResults);
 	}
 
-	public EdamamResponse calculateIngredients(List<String> ingredients) {
+	public EdamamResponse calculateIngredientsValues(List<String> ingredients) {
 
-		EdamamConnector connector = new EdamamConnector();
-		return connector.get(ingredients);
+		return EdamamConnector.get(ingredients);
 	}
 
 }

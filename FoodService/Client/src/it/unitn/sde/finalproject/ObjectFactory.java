@@ -25,13 +25,15 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _GetRecipeResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipeResponse");
-    private final static QName _CalculateIngredients_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredients");
     private final static QName _GetRecipesByCalories_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipesByCalories");
     private final static QName _EdamamResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "edamamResponse");
     private final static QName _GetRecipe_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipe");
     private final static QName _ReceiptFinder_QNAME = new QName("http://finalproject.sde.unitn.it/", "receiptFinder");
+    private final static QName _Get20RecipesByCalories_QNAME = new QName("http://finalproject.sde.unitn.it/", "get20RecipesByCalories");
+    private final static QName _CalculateIngredientsValues_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredientsValues");
     private final static QName _GetRecipesByCaloriesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipesByCaloriesResponse");
-    private final static QName _CalculateIngredientsResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredientsResponse");
+    private final static QName _CalculateIngredientsValuesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredientsValuesResponse");
+    private final static QName _Get20RecipesByCaloriesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "get20RecipesByCaloriesResponse");
     private final static QName _Receipt_QNAME = new QName("http://finalproject.sde.unitn.it/", "receipt");
 
     /**
@@ -74,6 +76,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CalculateIngredientsValues }
+     * 
+     */
+    public CalculateIngredientsValues createCalculateIngredientsValues() {
+        return new CalculateIngredientsValues();
+    }
+
+    /**
+     * Create an instance of {@link Get20RecipesByCalories }
+     * 
+     */
+    public Get20RecipesByCalories createGet20RecipesByCalories() {
+        return new Get20RecipesByCalories();
+    }
+
+    /**
      * Create an instance of {@link GetRecipeResponse }
      * 
      */
@@ -90,11 +108,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateIngredients }
+     * Create an instance of {@link Get20RecipesByCaloriesResponse }
      * 
      */
-    public CalculateIngredients createCalculateIngredients() {
-        return new CalculateIngredients();
+    public Get20RecipesByCaloriesResponse createGet20RecipesByCaloriesResponse() {
+        return new Get20RecipesByCaloriesResponse();
     }
 
     /**
@@ -106,11 +124,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CalculateIngredientsResponse }
+     * Create an instance of {@link CalculateIngredientsValuesResponse }
      * 
      */
-    public CalculateIngredientsResponse createCalculateIngredientsResponse() {
-        return new CalculateIngredientsResponse();
+    public CalculateIngredientsValuesResponse createCalculateIngredientsValuesResponse() {
+        return new CalculateIngredientsValuesResponse();
     }
 
     /**
@@ -315,15 +333,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredients }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "calculateIngredients")
-    public JAXBElement<CalculateIngredients> createCalculateIngredients(CalculateIngredients value) {
-        return new JAXBElement<CalculateIngredients>(_CalculateIngredients_QNAME, CalculateIngredients.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipesByCalories }{@code >}}
      * 
      */
@@ -360,6 +369,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Get20RecipesByCalories }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "get20RecipesByCalories")
+    public JAXBElement<Get20RecipesByCalories> createGet20RecipesByCalories(Get20RecipesByCalories value) {
+        return new JAXBElement<Get20RecipesByCalories>(_Get20RecipesByCalories_QNAME, Get20RecipesByCalories.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredientsValues }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "calculateIngredientsValues")
+    public JAXBElement<CalculateIngredientsValues> createCalculateIngredientsValues(CalculateIngredientsValues value) {
+        return new JAXBElement<CalculateIngredientsValues>(_CalculateIngredientsValues_QNAME, CalculateIngredientsValues.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipesByCaloriesResponse }{@code >}}
      * 
      */
@@ -369,12 +396,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredientsResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredientsValuesResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "calculateIngredientsResponse")
-    public JAXBElement<CalculateIngredientsResponse> createCalculateIngredientsResponse(CalculateIngredientsResponse value) {
-        return new JAXBElement<CalculateIngredientsResponse>(_CalculateIngredientsResponse_QNAME, CalculateIngredientsResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "calculateIngredientsValuesResponse")
+    public JAXBElement<CalculateIngredientsValuesResponse> createCalculateIngredientsValuesResponse(CalculateIngredientsValuesResponse value) {
+        return new JAXBElement<CalculateIngredientsValuesResponse>(_CalculateIngredientsValuesResponse_QNAME, CalculateIngredientsValuesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Get20RecipesByCaloriesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "get20RecipesByCaloriesResponse")
+    public JAXBElement<Get20RecipesByCaloriesResponse> createGet20RecipesByCaloriesResponse(Get20RecipesByCaloriesResponse value) {
+        return new JAXBElement<Get20RecipesByCaloriesResponse>(_Get20RecipesByCaloriesResponse_QNAME, Get20RecipesByCaloriesResponse.class, null, value);
     }
 
     /**

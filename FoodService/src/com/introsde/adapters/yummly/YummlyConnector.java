@@ -14,9 +14,9 @@ public class YummlyConnector {
 	private static final String YUMMLY_APP_ID = "ad98c4ce";
 	private static final String YUMMLY_APP_KEY = "034eea1cd3f52cdd3a742772fca0d859";
 
-	private WebResource service;
+	private static WebResource service;
 
-	public YummlyConnector() {
+	static {
 
 		ClientConfig config = new DefaultClientConfig();
 		Client client = Client.create(config);
@@ -24,7 +24,7 @@ public class YummlyConnector {
 		service = client.resource("http://api.yummly.com/v1/api");
 	}
 
-	public Receipt getRecipe(String recipeId) {
+	public static Receipt getRecipe(String recipeId) {
 
 		if (recipeId == null || recipeId.matches("\\s*"))
 			return null;
@@ -35,7 +35,7 @@ public class YummlyConnector {
 				.accept(MediaType.APPLICATION_JSON).get(Receipt.class);
 	}
 
-	public ReceiptFinder getRecipesByCalories(int minKcal, int maxKcal,
+	public static ReceiptFinder getRecipesByCalories(int minKcal, int maxKcal,
 			int maxResults) {
 
 		if (minKcal < 0 || maxKcal < minKcal)
