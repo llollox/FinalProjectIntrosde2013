@@ -5,10 +5,10 @@ This is a simple SOAP service that provide some calories calculation stuff.
 ####Documentation
 
 * <b>GET IDEAL WEIGHT</b>
+	- @PARAMS
+		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
-	@param <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
-	
-	@return is a double that indicates ideal weight.
+	- @RETURN is a double that indicates ideal weight.
 	
 	```public double getIdealWeight(double height)``` 
 	
