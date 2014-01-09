@@ -1,3 +1,4 @@
+
 ##Final Project - Introduction to Service Engineering 2013
 
 ###Collaborators
@@ -17,6 +18,7 @@
 *   CalculateProgress
 *   SuggestedActivities
 *   FilterActivities
+*   [CaloriesCalculator](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/CaloriesCalculatorService): A simple service that implements some formulae to calculate calories stuff (Ideal Weight, Ideal Amount of Calories per day etc.)
 
 
 ###External Adapters
