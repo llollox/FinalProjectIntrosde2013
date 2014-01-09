@@ -4,13 +4,11 @@ This is a simple SOAP service that provide some calories calculation stuff.
 
 ####Documentation
 
-* <b>GET IDEAL WEIGHT</b>
+* <b>GET IDEAL WEIGHT ```public double getIdealWeight(double height)``` </b>
 	- @PARAMS
 		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
 	- @RETURN is a double that indicates ideal weight.
-	
-	```public double getIdealWeight(double height)``` 
 	
 	The ideal weight is 52 kg + 1.9kg for each inch of height over 152.4cm (1 inch = 2.54cm).
 
