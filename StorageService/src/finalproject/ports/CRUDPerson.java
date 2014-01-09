@@ -1,9 +1,12 @@
 package finalproject.ports;
 
 import javax.jws.WebService;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import finalproject.model.Goal;
 import finalproject.model.Person;
+import finalproject.utils.DatabaseUtil;
 
 @WebService(
 		serviceName = "PersonService",
@@ -43,14 +46,16 @@ public class CRUDPerson {
 	}
 	
 	// ADD GOAL TO PERSON
-	public void linkgoal(int idperson, int idgoal) {
+	public void linkGoal(int idperson, int idgoal) {
 		Person p = Person.read(idperson);
 		Goal g = Goal.read(idgoal);
+		
+		if (p.getGoals().contains(g))
+			return;
 		
 		p.getGoals().add(g);
 		g.getPeople().add(p);
 		
 		Person.update(p);
 	}
-	
 }

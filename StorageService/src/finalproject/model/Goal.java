@@ -141,4 +141,16 @@ public class Goal {
 	    return true;
 	}
 	
+	@Override
+    public boolean equals(Object object) {
+        
+		boolean equal = false;
+		
+        if (object != null && object instanceof Goal) {
+            equal = this.id == ((Goal) object).getId();
+        }
+
+        return equal;
+    }
+	
 }

@@ -101,8 +101,8 @@ public interface CaloriesCalculator {
 
     /**
      * 
-     * @param arg4
-     * @param arg3
+     * @param date2
+     * @param date
      * @param arg2
      * @param arg1
      * @param arg0
@@ -122,8 +122,8 @@ public interface CaloriesCalculator {
         @WebParam(name = "arg2", targetNamespace = "")
         double arg2,
         @WebParam(name = "arg3", targetNamespace = "")
-        Date arg3,
+        Date date,
         @WebParam(name = "arg4", targetNamespace = "")
-        Date arg4);
+        Date date2);
 
 }

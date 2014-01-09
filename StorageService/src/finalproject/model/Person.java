@@ -104,7 +104,7 @@ public class Person {
 		return healthprofiles.get(healthprofiles.size() - 1);
 	}
 
-	@XmlTransient
+	@XmlElement(name = "healthprofilehistory")
 	public List<HealthProfile> getHealthProfileHistory() {
 		return this.healthprofiles;
 	}
