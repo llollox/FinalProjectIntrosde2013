@@ -52,19 +52,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Matches {
 
-	
-	
-    @Override
-	public String toString() {
-		return "Matches [attributes=" + attributes + ", flavors=" + flavors
-				+ ", id=" + id + ", imageUrlsBySize=" + imageUrlsBySize
-				+ ", ingredients=" + ingredients + ", rating=" + rating
-				+ ", recipeName=" + recipeName + ", smallImageUrls="
-				+ smallImageUrls + ", sourceDisplayName=" + sourceDisplayName
-				+ ", totalTimeInSeconds=" + totalTimeInSeconds + "]";
-	}
-
-	protected Attributes attributes;
+    protected Attributes attributes;
     protected String flavors;
     protected String id;
     protected ImageUrlsBySize imageUrlsBySize;

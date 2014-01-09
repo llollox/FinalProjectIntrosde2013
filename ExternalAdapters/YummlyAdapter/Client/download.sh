@@ -2,6 +2,6 @@
 
 rm -rf it/;
 
-wsimport -keep http://localhost:5920/food/readrecipes?wsdl;
+wsimport -keep http://localhost:5920/foodservice/recipes?wsdl;
 
 
