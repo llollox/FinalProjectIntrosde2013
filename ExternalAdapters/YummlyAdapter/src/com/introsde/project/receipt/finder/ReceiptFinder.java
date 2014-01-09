@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.introsde.project.receipt.model.Attribution;
+
 @XmlRootElement
 public class ReceiptFinder {
 

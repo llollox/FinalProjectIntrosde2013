@@ -26,18 +26,6 @@ public class Receipt {
 		return this.attributes;
 	}
 
-	@Override
-	public String toString() {
-		return "Receipt [attributes=" + attributes + ", attribution="
-				+ attribution + ", flavors=" + flavors + ", id=" + id
-				+ ", images=" + images + ", ingredientLines=" + ingredientLines
-				+ ", name=" + name + ", numberOfServings=" + numberOfServings
-				+ ", nutritionEstimates=" + nutritionEstimates + ", rating="
-				+ rating + ", source=" + source + ", totalTime=" + totalTime
-				+ ", totalTimeInSeconds=" + totalTimeInSeconds + ", yield="
-				+ yield + "]";
-	}
-
 	public void setAttributes(Attributes attributes) {
 		this.attributes = attributes;
 	}
@@ -145,5 +133,17 @@ public class Receipt {
 
 	public void setYield(String yield) {
 		this.yield = yield;
+	}
+
+	@Override
+	public String toString() {
+		return "Receipt [attributes=" + attributes + ", attribution="
+				+ attribution + ", flavors=" + flavors + ", id=" + id
+				+ ", images=" + images + ", ingredientLines=" + ingredientLines
+				+ ", name=" + name + ", numberOfServings=" + numberOfServings
+				+ ", nutritionEstimates=" + nutritionEstimates + ", rating="
+				+ rating + ", source=" + source + ", totalTime=" + totalTime
+				+ ", totalTimeInSeconds=" + totalTimeInSeconds + ", yield="
+				+ yield + "]";
 	}
 }

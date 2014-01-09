@@ -1,6 +1,5 @@
 package com.introsde.project.receipt.model;
 
-
 public class Unit {
 
 	private String abbreviation;
@@ -47,5 +46,12 @@ public class Unit {
 
 	public void setPluralAbbreviation(String pluralAbbreviation) {
 		this.pluralAbbreviation = pluralAbbreviation;
+	}
+
+	@Override
+	public String toString() {
+		return "Unit [abbreviation=" + abbreviation + ", id=" + id + ", name="
+				+ name + ", plural=" + plural + ", pluralAbbreviation="
+				+ pluralAbbreviation + "]";
 	}
 }

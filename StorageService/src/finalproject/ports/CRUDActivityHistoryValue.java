@@ -2,16 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
-import finalproject.model.ActivityHistory;
 import finalproject.model.ActivityHistoryValue;
 
-@WebService(
-		serviceName = "ActivityHistoryValueService",
-		portName = "CRUD",
-		targetNamespace = "http://finalproject.sde.unitn.it/"
-)
+@WebService(serviceName = "ActivityHistoryValueService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDActivityHistoryValue {
-	
+
 	// CREATE A NEW ACTIVITY HISTORY VALUE
 	public int insertValue(ActivityHistoryValue value) {
 		ActivityHistoryValue a = ActivityHistoryValue.create(value);
@@ -21,7 +16,7 @@ public class CRUDActivityHistoryValue {
 
 		return a.getId();
 	}
-	
+
 	// READ ACTIVITY HISTORY VALUE
 	public ActivityHistoryValue readValue(int id) {
 		return ActivityHistoryValue.read(id);

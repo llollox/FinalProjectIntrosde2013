@@ -43,6 +43,12 @@
 		</dependency>
 		<!-- end required by jersey -->
 
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+			<version>2.2.10</version>
+		</dependency>
+
 
 	</dependencies>
 
