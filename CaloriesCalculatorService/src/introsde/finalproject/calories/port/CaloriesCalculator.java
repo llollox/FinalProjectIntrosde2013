@@ -1,15 +1,23 @@
 
-package calories;
+package introsde.finalproject.calories.port;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class CaloriesUtils {
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService(
+		serviceName = "CaloriesService",
+		portName = "Calculator",
+		targetNamespace = "http://finalproject.sde.unitn.it/"
+)
+public class CaloriesCalculator {
 	
 	public static double NO_EXERCISE = 1.2; // NO Exercise done!
-	public static double LIGHT_EXERCISE = 1.375; // Light exercise (1–3 days per week)
-	public static double MODERATE_EXERCISE = 1.55; // Moderate exercise (3–5 days per week)
-	public static double HEAVY_EXERCISE = 1.725; // Heavy exercise (6–7 days per week)
+	public static double LIGHT_EXERCISE = 1.375; // Light exercise (1???3 days per week)
+	public static double MODERATE_EXERCISE = 1.55; // Moderate exercise (3???5 days per week)
+	public static double HEAVY_EXERCISE = 1.725; // Heavy exercise (6???7 days per week)
 	public static double VERY_HEAVY_EXERCISE = 1.9; // Very heavy exercise (twice per day, extra heavy workouts)
 	
 	/**
@@ -19,7 +27,8 @@ public class CaloriesUtils {
 	 * The ideal weight is 52 kg + 1.9kg for each inch of height over 152.4cm (1 inch = 2.54cm).
 	 * 
 	 */	
-    public static double getIdealWeight(double height){
+	@WebMethod
+    public double getIdealWeight(double height){
     	if (height < 4) //height in meters
     		height = height * 100.0; //height converted in cm	
     	return 52 + (((height - 152.4)/2.54) * 1.9);	
@@ -31,11 +40,12 @@ public class CaloriesUtils {
 	 * @return the BMI calculated for a person that have this height.
 	 * The BMI provides a reliable indicator of body fatness for most people and is used to screen for weight categories that may lead to health problems.
 	 * 
-	 */	
-    public static double getIdealBMI(double height){
+	 */
+	@WebMethod
+    public double getIdealBMI(double height){
     	if (height > 4) //height in centimeters
     		height = height / 100.0; //height converted in meters	
-    	return CaloriesUtils.getIdealWeight(height) / (height * height);	
+    	return getIdealWeight(height) / (height * height);	
     }
     
     /**
@@ -48,7 +58,8 @@ public class CaloriesUtils {
 	 * The BMR is the amount of energy expended daily by humans and other animals at rest. Rest is defined as existing in a neutrally temperate environment while in the postabsorptive state.
 	 * @see http://en.wikipedia.org/wiki/Basal_metabolic_rate
 	 */	
-    public static double getBMR(double height, double weight, double age, int sex){
+	@WebMethod
+    public double getBMR(double height, double weight, double age, int sex){
     	if (height < 4) //height in meters
     		height = height * 100.0; //height converted in cm	
     	if (weight > 1000) //weight in grams
@@ -67,7 +78,8 @@ public class CaloriesUtils {
 	 * @param exerciseAmountPerWeek is the number of times that this person do exercise in a week
 	 * @return the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 	 */
-    public static double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek){
+	@WebMethod
+    public double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek){
     	switch (exerciseAmountPerWeek) {
 		case 0:
 			return bmr * NO_EXERCISE;
@@ -103,7 +115,8 @@ public class CaloriesUtils {
    	 * @param endDate the day that you want to finish this diet.
    	 * @return the amount of calories needed for that person to manage his weight in the period that he have specified.
    	 */
-    public static double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate){
+	@WebMethod
+    public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate){
     	if (weightDifference > 1000) //weight in grams
     		weightDifference = weightDifference / 1000.0;
     	double weeksDifference = daysBetween(startDate, endDate)/7.0;
@@ -118,18 +131,7 @@ public class CaloriesUtils {
     	}
     }
     
-    public static void main (String[] args){
-    	Calendar c = Calendar.getInstance();
-    	c.add(Calendar.DAY_OF_MONTH, 100);
-    	System.out.println("Calories Needed Per Week To Lose 10kg in 100days!!");
-    	for (int i = 0;i<10;i++){
-    		System.out.println("Amount Exercise = "+  i + 
-    				" Calories = "  + getDailyCaloriesNeededToManageWeight(getBMR(175, 68.5, 23, 1),i, 10, new Date(), c.getTime()));
-    	}
-    	
-    }
-    
-    public static int daysBetween(Date d1, Date d2){
+    private static int daysBetween(Date d1, Date d2){
     	if (d2.getTime() == d1.getTime())
     		return 0;
     	else
