@@ -1,16 +1,21 @@
 package finalproject.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -30,8 +35,20 @@ public class Activity {
 	@ManyToMany(mappedBy="activities")
 	private Set<ActivityValueType> valuetypes = new HashSet<ActivityValueType>();
 	
+	@ManyToMany(mappedBy="activities", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	private List<Goal> goals = new ArrayList<Goal>();
+	
 	public Activity() {}
 	
+	@XmlTransient
+	public List<Goal> getGoals() {
+		return goals;
+	}
+
+	public void setGoals(List<Goal> goals) {
+		this.goals = goals;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -166,5 +183,17 @@ public class Activity {
 			   !a.isDaily() && a.isWeekly() && a.isMonthly() ||
 			   a.isDaily() && a.isWeekly() && a.isMonthly());
 	}
+	
+	@Override
+    public boolean equals(Object object) {
+        
+		boolean equal = false;
+		
+        if (object != null && object instanceof Activity) {
+            equal = this.id == ((Activity) object).getId();
+        }
+
+        return equal;
+    }
 	
 }
