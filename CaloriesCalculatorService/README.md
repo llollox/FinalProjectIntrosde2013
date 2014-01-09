@@ -4,7 +4,7 @@ This is a simple SOAP service that provide some calories calculation stuff.
 
 ####Documentation
 
-* <b>GET IDEAL WEIGHT ```public double getIdealWeight(double height)``` </b>
+* <b>GET IDEAL WEIGHT</b> ```public double getIdealWeight(double height)``` 
 	- @PARAMS
 		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
@@ -12,29 +12,22 @@ This is a simple SOAP service that provide some calories calculation stuff.
 	
 	The ideal weight is 52 kg + 1.9kg for each inch of height over 152.4cm (1 inch = 2.54cm).
 
-* <b>GET IDEAL BMI</b>
+* <b>GET IDEAL BMI</b> ```public double getIdealBMI(double height)``` 
+	- @PARAMS
+		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
-	@param <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
-	
-	@return the BMI calculated for a person that have this height.
-	
-	```public double getIdealBMI(double height)``` 
+	- @RETURN the BMI calculated for a person that have this height.
 	
 	The BMI provides a reliable indicator of body fatness for most people and is used to screen for weight categories that may lead to health problems.
 
-* <b>GET BMR</b>
+* <b>GET BMR</b> ```public double getBMR(double height, double weight, double age, int sex)``` 
+	- @PARAMS
+		* <b>height</b> can passed both in meters or centimeters.
+		* <b>weight</b> can passed both in kg or grams.
+		* <b>age</b> must be passed in years as double.
+		* <b>sex</b> is the sex of that person, 1 for man and 0 for woman.
 	
-	@param <b>height</b> can passed both in meters or centimeters.
-	
-	@param <b>weight</b> can passed both in kg or grams.
-	
-	@param <b>age</b> must be passed in years as double.
-	
-	@param <b>sex</b> is the sex of that person, 1 for man and 0 for woman.
-	
-	@return the <b>BMR</b> calculated for a person that have this height and weight.
-	
-	```public double getBMR(double height, double weight, double age, int sex)``` 
+	- @RETURN the <b>BMR</b> calculated for a person that have this height and weight.
 	
 	The BMR is the amount of energy expended daily by humans and other animals at rest. Rest is defined as existing in a neutrally temperate environment while in the postabsorptive state.
 
