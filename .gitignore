@@ -1,5 +1,5 @@
 .DS_Store
 
-/StorageService/src/META-INF/persistence.xml
+StorageService/src/META-INF/persistence.xml
 /bin
 /target
