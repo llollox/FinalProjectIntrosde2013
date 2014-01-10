@@ -55,13 +55,19 @@
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-		<!-- end required by jersey -->
-
+		
 		<dependency>
-			<groupId>FoodClient</groupId>
-			<artifactId>FoodClient</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+		  <groupId>StorageServiceClient</groupId>
+		  <artifactId>StorageServiceClient</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- end required by jersey -->
+    
+    <dependency>
+      <groupId>FoodClient</groupId>
+      <artifactId>FoodClient</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
 
 	</dependencies>
 

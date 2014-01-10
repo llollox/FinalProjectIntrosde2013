@@ -89,7 +89,8 @@ public class HealthProfileService {
 	public HealthProfile getHealthProfile(@PathParam("p_id") Long p_id,
 			@PathParam("hp_id") Long hp_id) {
 
-		return HealthProfileDB.getSpecificHealthProfile(p_id, hp_id);
+//		return HealthProfileDB.getSpecificHealthProfile(p_id, hp_id);
+		return null;
 	}
 
 	@PUT
@@ -99,20 +100,21 @@ public class HealthProfileService {
 	public Response updateHealthProfileX(@PathParam("p_id") Long p_id,
 			@PathParam("hp_id") Long hp_id, HealthProfile newHp) {
 
-		HealthProfile dbHp = HealthProfileDB.getSpecificHealthProfile(p_id,
-				hp_id);
-		if (dbHp != null && newHp.getWeight() != null
-				&& newHp.getHeight() != null) {
-
-			dbHp.setHeight(newHp.getHeight());
-			dbHp.setWeight(newHp.getWeight());
-
-			dbHp = HealthProfileDB.updateHealthProfile(dbHp);
-
-			return Response.status(Response.Status.OK).entity(dbHp).build();
-		}
-
-		return Response.status(Response.Status.BAD_REQUEST).build();
+//		HealthProfile dbHp = HealthProfileDB.getSpecificHealthProfile(p_id,
+//				hp_id);
+//		if (dbHp != null && newHp.getWeight() != null
+//				&& newHp.getHeight() != null) {
+//
+//			dbHp.setHeight(newHp.getHeight());
+//			dbHp.setWeight(newHp.getWeight());
+//
+//			dbHp = HealthProfileDB.updateHealthProfile(dbHp);
+//
+//			return Response.status(Response.Status.OK).entity(dbHp).build();
+//		}
+//
+//		return Response.status(Response.Status.BAD_REQUEST).build();
+		return null;
 	}
 
 	@DELETE
@@ -121,16 +123,17 @@ public class HealthProfileService {
 	public Response deleteHealthProfileX(@PathParam("p_id") Long p_id,
 			@PathParam("hp_id") Long hp_id) {
 
-		HealthProfile hp = HealthProfileDB
-				.getSpecificHealthProfile(p_id, hp_id);
-
-		if (hp != null) {
-			HealthProfileDB.deleteHealthProfile(hp_id);
-
-			return Response.status(Response.Status.OK).entity(hp).build();
-		}
-
-		return Response.status(Response.Status.BAD_REQUEST).build();
+//		HealthProfile hp = HealthProfileDB
+//				.getSpecificHealthProfile(p_id, hp_id);
+//
+//		if (hp != null) {
+//			HealthProfileDB.deleteHealthProfile(hp_id);
+//
+//			return Response.status(Response.Status.OK).entity(hp).build();
+//		}
+//
+//		return Response.status(Response.Status.BAD_REQUEST).build();
+		return null;
 	}
 
 }
