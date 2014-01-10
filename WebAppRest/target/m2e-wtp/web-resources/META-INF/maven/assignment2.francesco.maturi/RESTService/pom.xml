@@ -55,12 +55,6 @@
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
-		
-		<dependency>
-		  <groupId>StorageServiceClient</groupId>
-		  <artifactId>StorageServiceClient</artifactId>
-		  <version>0.0.1-SNAPSHOT</version>
-		</dependency>
 		<!-- end required by jersey -->
 
 		<dependency>

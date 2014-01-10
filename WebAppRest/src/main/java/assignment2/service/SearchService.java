@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -27,7 +26,7 @@ public class SearchService {
 	@GET
 	@Path("/birthdate")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public ArrayList<Person> getPeopleByBirthdate(@PathParam("p_id") Long p_id,
+	public ArrayList<Person> getPeopleByBirthdate(
 			@QueryParam("to") String before_qp,
 			@QueryParam("from") String after_qp) {
 
