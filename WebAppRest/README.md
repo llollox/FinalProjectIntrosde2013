@@ -84,7 +84,7 @@ Returns a <b>Receipt</b> object
 **GET  /food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS**
 
 
-Returns a <b>List of Matches</b> which are the recipes found
+Returns a <b>List of Matches</b> which are the recipes found. The parameters are all optionals.
 
 <hr/>
 
