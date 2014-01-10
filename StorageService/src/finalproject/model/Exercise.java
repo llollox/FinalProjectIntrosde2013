@@ -20,8 +20,17 @@ public class Exercise {
 	
 	private String description;
 	private float difficultyvalue;
+	private int aerobic;
 	
 	public Exercise() {}
+
+	public int getAerobic() {
+		return aerobic;
+	}
+
+	public void setAerobic(int aerobic) {
+		this.aerobic = aerobic;
+	}
 
 	public int getId() {
 		return id;

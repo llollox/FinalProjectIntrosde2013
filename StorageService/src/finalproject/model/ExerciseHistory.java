@@ -35,8 +35,8 @@ public class ExerciseHistory {
 	private Person person;
 	
 	@ManyToOne
-	@JoinColumn(name = "idactivity")
-	private Activity activity;
+	@JoinColumn(name = "idactivitychoosen")
+	private ActivityChoosen activitychoosen;
 	
 	@ManyToOne
 	@JoinColumn(name = "idexercise")
@@ -52,12 +52,12 @@ public class ExerciseHistory {
 		this.person = person;
 	}
 
-	public Activity getActivity() {
-		return activity;
+	public ActivityChoosen getActivityChoosen() {
+		return activitychoosen;
 	}
 
-	public void setActivity(Activity activity) {
-		this.activity = activity;
+	public void setActivityChoosen(ActivityChoosen activitychoosen) {
+		this.activitychoosen = activitychoosen;
 	}
 
 	public Exercise getExercise() {
@@ -83,30 +83,6 @@ public class ExerciseHistory {
 	public void setDate(String date) {
 		this.date = date;
 	}
-
-	public int getPersonId() {
-		if (person == null)
-			return -1;
-		return person.getId();
-	}
-
-	public void setPersonId(int id) {
-		Person p = Person.read(id);
-		if (p != null)
-			this.person = p;
-	}
-
-	public int getActivityId() {
-		if (activity == null)
-			return -1;
-		return activity.getId();
-	}
-
-	public void setActivityId(int id) {
-		Activity a = Activity.read(id);
-		if (a != null)
-			this.activity = a;
-	}
 	
 	// ##########################################
 	// # CRUD
@@ -119,7 +95,7 @@ public class ExerciseHistory {
 		if (a.getDate() != null && !isDateValid(a.getDate()))
 			return null;
 		
-		if (a.getPersonId() == -1 || a.getActivityId() == -1)
+		if (a.getPerson() == null || a.getActivityChoosen() == null || a.getExercise() == null)
 			return null;
 		
 		EntityManager em = DatabaseUtil.createEntityManager();
@@ -148,7 +124,7 @@ public class ExerciseHistory {
 		if (a.getDate() != null && !isDateValid(a.getDate()))
 			return null;
 		
-		if (Activity.read(a.getActivityId()) == null || Person.read(a.getPersonId()) == null)
+		if (a.getPerson() == null || a.getActivityChoosen() == null || a.getExercise() == null)
 			return null;
 		
 		EntityManager em = DatabaseUtil.createEntityManager();

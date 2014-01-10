@@ -30,12 +30,30 @@ public class Activity {
 	private String description;
 	private int type;
 	private float value;
+	private int difficultyvalue;
+	private int aerobic;
 	
 	@ManyToMany(mappedBy="activities", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private List<Goal> goals = new ArrayList<Goal>();
 	
 	public Activity() {}
 	
+	public int getDifficultyvalue() {
+		return difficultyvalue;
+	}
+
+	public void setDifficultyvalue(int difficultyvalue) {
+		this.difficultyvalue = difficultyvalue;
+	}
+
+	public int getAerobic() {
+		return aerobic;
+	}
+
+	public void setAerobic(int aerobic) {
+		this.aerobic = aerobic;
+	}
+
 	public int getType() {
 		return type;
 	}

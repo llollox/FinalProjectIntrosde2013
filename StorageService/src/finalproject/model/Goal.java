@@ -30,6 +30,7 @@ public class Goal {
 	
 	private String name;
 	private String value;
+	private String enddate;
 	
 	@ManyToMany(mappedBy="goals", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private List<Person> people = new ArrayList<Person>();
@@ -40,6 +41,14 @@ public class Goal {
 	
 	public Goal() {}
 	
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
 	@XmlTransient
 	public List<Person> getPeople() {
 		return people;
