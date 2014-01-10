@@ -40,8 +40,11 @@ This is a simple SOAP service that provide some calories calculation stuff.
 	- @RETURN the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 
 * <b>GET IDEAL DAILY CALORIES NEEDED TO MANAGE WEIGHT</b> 
-  ```public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, 
-  double weightDifference, Date startDate, Date endDate)```
+  ```
+  public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, 
+  
+  double weightDifference, Date startDate, Date endDate)
+  ```
 	- @PARAMS
 		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest. 
 		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
