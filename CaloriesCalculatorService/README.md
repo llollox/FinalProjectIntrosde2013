@@ -42,7 +42,6 @@ This is a simple SOAP service that provide some calories calculation stuff.
 * <b>GET IDEAL DAILY CALORIES NEEDED TO MANAGE WEIGHT</b> 
   ```
   public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, 
-  
   double weightDifference, Date startDate, Date endDate)
   ```
 	- @PARAMS
