@@ -11,8 +11,24 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 public class YummlyConnector {
 
-	private static final String YUMMLY_APP_ID = "ad98c4ce";
-	private static final String YUMMLY_APP_KEY = "034eea1cd3f52cdd3a742772fca0d859";
+	private static final String APP_ID_KEY = "_app_id";
+	private static final String APP_KEY_KEY = "_app_key";
+
+	private static final String APP_ID_VALUE = "ad98c4ce";
+	private static final String APP_KEY_VALUE = "034eea1cd3f52cdd3a742772fca0d859";
+
+	private static final String TEXT_QUERY = "q";
+	private static final String ALLOWED_INGR = "excludedIngredient[]";
+	private static final String EXCLUDED_INGR = "allowedIngredient[]";
+	private static final String ENERC_KCAL_MIN = "nutrition.ENERC_KCAL.min";
+	private static final String ENERC_KCAL_MAX = "nutrition.ENERC_KCAL.max";
+	private static final String MAX_RESULT = "maxResult";
+
+	enum ATTR_NAME {
+		K, NA, CHOLE, FATRN, FASAT, CHOCDF, FIBTG, PROCNT, VITC, CA, FE, SUGAR, ENERC_KCAL, FAT, VITA_IU
+	}
+
+	String pesce = "390^Pescetarian";
 
 	private static WebResource service;
 
@@ -30,8 +46,8 @@ public class YummlyConnector {
 			return null;
 
 		return service.path("/recipe").path(recipeId)
-				.queryParam("_app_id", YUMMLY_APP_ID)
-				.queryParam("_app_key", YUMMLY_APP_KEY)
+				.queryParam(APP_ID_KEY, APP_ID_VALUE)
+				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
 				.accept(MediaType.APPLICATION_JSON).get(Receipt.class);
 	}
 
@@ -45,11 +61,29 @@ public class YummlyConnector {
 			return null;
 
 		return service.path("/recipes").queryParam("requirePictures", "true")
-				.queryParam("nutrition.ENERC_KCAL.min", minKcal + "")
-				.queryParam("nutrition.ENERC_KCAL.max", maxKcal + "")
-				.queryParam("maxResult", maxResults + "")
-				.queryParam("_app_id", YUMMLY_APP_ID)
-				.queryParam("_app_key", YUMMLY_APP_KEY)
+				.queryParam(ENERC_KCAL_MIN, minKcal + "")
+				.queryParam(ENERC_KCAL_MAX, maxKcal + "")
+				.queryParam(MAX_RESULT, maxResults + "")
+				.queryParam(APP_ID_KEY, APP_ID_VALUE)
+				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
+				.accept(MediaType.APPLICATION_JSON).get(ReceiptFinder.class);
+	}
+
+	public static ReceiptFinder getRecipes(int minKcal, int maxKcal,
+			int maxResults) {
+
+		if (minKcal < 0 || maxKcal < minKcal)
+			return null;
+
+		if (maxResults < 1)
+			return null;
+
+		return service.path("/recipes").queryParam("requirePictures", "true")
+				.queryParam(ENERC_KCAL_MIN, minKcal + "")
+				.queryParam(ENERC_KCAL_MAX, maxKcal + "")
+				.queryParam(MAX_RESULT, maxResults + "")
+				.queryParam(APP_ID_KEY, APP_ID_VALUE)
+				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
 				.accept(MediaType.APPLICATION_JSON).get(ReceiptFinder.class);
 	}
 

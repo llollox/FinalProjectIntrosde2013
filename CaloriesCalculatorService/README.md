@@ -4,7 +4,9 @@ This is a simple SOAP service that provide some calories calculation stuff.
 
 ####Documentation
 
-* <b>GET IDEAL WEIGHT</b> ```public double getIdealWeight(double height)``` 
+* <b>GET IDEAL WEIGHT</b> 
+```java
+public double getIdealWeight(double height)``` 
 	- @PARAMS
 		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
