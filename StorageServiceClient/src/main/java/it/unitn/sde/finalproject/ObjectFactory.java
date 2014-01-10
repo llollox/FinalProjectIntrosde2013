@@ -24,15 +24,15 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _UpdateExercise_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExercise");
-    private final static QName _CreateExerciseResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "createExerciseResponse");
-    private final static QName _ReadExercise_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExercise");
-    private final static QName _DeleteExerciseResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "deleteExerciseResponse");
-    private final static QName _DeleteExercise_QNAME = new QName("http://finalproject.sde.unitn.it/", "deleteExercise");
-    private final static QName _UpdateExerciseResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExerciseResponse");
-    private final static QName _ReadExerciseResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExerciseResponse");
-    private final static QName _Exercise_QNAME = new QName("http://finalproject.sde.unitn.it/", "exercise");
-    private final static QName _CreateExercise_QNAME = new QName("http://finalproject.sde.unitn.it/", "createExercise");
+    private final static QName _CreateExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "createExerciseCategoryResponse");
+    private final static QName _ReadExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExerciseCategory");
+    private final static QName _UpdateExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExerciseCategoryResponse");
+    private final static QName _UpdateExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExerciseCategory");
+    private final static QName _DeleteExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "deleteExerciseCategory");
+    private final static QName _ExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "exerciseCategory");
+    private final static QName _ReadExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExerciseCategoryResponse");
+    private final static QName _CreateExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "createExerciseCategory");
+    private final static QName _DeleteExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "deleteExerciseCategoryResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: it.unitn.sde.finalproject
@@ -42,156 +42,156 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateExercise }
+     * Create an instance of {@link ReadExerciseCategoryResponse }
      * 
      */
-    public UpdateExercise createUpdateExercise() {
-        return new UpdateExercise();
+    public ReadExerciseCategoryResponse createReadExerciseCategoryResponse() {
+        return new ReadExerciseCategoryResponse();
     }
 
     /**
-     * Create an instance of {@link ReadExercise }
+     * Create an instance of {@link UpdateExerciseCategory }
      * 
      */
-    public ReadExercise createReadExercise() {
-        return new ReadExercise();
+    public UpdateExerciseCategory createUpdateExerciseCategory() {
+        return new UpdateExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link CreateExerciseResponse }
+     * Create an instance of {@link DeleteExerciseCategory }
      * 
      */
-    public CreateExerciseResponse createCreateExerciseResponse() {
-        return new CreateExerciseResponse();
+    public DeleteExerciseCategory createDeleteExerciseCategory() {
+        return new DeleteExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link Exercise }
+     * Create an instance of {@link DeleteExerciseCategoryResponse }
      * 
      */
-    public Exercise createExercise() {
-        return new Exercise();
+    public DeleteExerciseCategoryResponse createDeleteExerciseCategoryResponse() {
+        return new DeleteExerciseCategoryResponse();
     }
 
     /**
-     * Create an instance of {@link CreateExercise }
+     * Create an instance of {@link UpdateExerciseCategoryResponse }
      * 
      */
-    public CreateExercise createCreateExercise() {
-        return new CreateExercise();
+    public UpdateExerciseCategoryResponse createUpdateExerciseCategoryResponse() {
+        return new UpdateExerciseCategoryResponse();
     }
 
     /**
-     * Create an instance of {@link DeleteExerciseResponse }
+     * Create an instance of {@link CreateExerciseCategory }
      * 
      */
-    public DeleteExerciseResponse createDeleteExerciseResponse() {
-        return new DeleteExerciseResponse();
+    public CreateExerciseCategory createCreateExerciseCategory() {
+        return new CreateExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link ReadExerciseResponse }
+     * Create an instance of {@link CreateExerciseCategoryResponse }
      * 
      */
-    public ReadExerciseResponse createReadExerciseResponse() {
-        return new ReadExerciseResponse();
+    public CreateExerciseCategoryResponse createCreateExerciseCategoryResponse() {
+        return new CreateExerciseCategoryResponse();
     }
 
     /**
-     * Create an instance of {@link UpdateExerciseResponse }
+     * Create an instance of {@link ExerciseCategory }
      * 
      */
-    public UpdateExerciseResponse createUpdateExerciseResponse() {
-        return new UpdateExerciseResponse();
+    public ExerciseCategory createExerciseCategory() {
+        return new ExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link DeleteExercise }
+     * Create an instance of {@link ReadExerciseCategory }
      * 
      */
-    public DeleteExercise createDeleteExercise() {
-        return new DeleteExercise();
+    public ReadExerciseCategory createReadExerciseCategory() {
+        return new ReadExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateExercise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateExerciseCategoryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "updateExercise")
-    public JAXBElement<UpdateExercise> createUpdateExercise(UpdateExercise value) {
-        return new JAXBElement<UpdateExercise>(_UpdateExercise_QNAME, UpdateExercise.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "createExerciseCategoryResponse")
+    public JAXBElement<CreateExerciseCategoryResponse> createCreateExerciseCategoryResponse(CreateExerciseCategoryResponse value) {
+        return new JAXBElement<CreateExerciseCategoryResponse>(_CreateExerciseCategoryResponse_QNAME, CreateExerciseCategoryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateExerciseResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadExerciseCategory }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "createExerciseResponse")
-    public JAXBElement<CreateExerciseResponse> createCreateExerciseResponse(CreateExerciseResponse value) {
-        return new JAXBElement<CreateExerciseResponse>(_CreateExerciseResponse_QNAME, CreateExerciseResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "readExerciseCategory")
+    public JAXBElement<ReadExerciseCategory> createReadExerciseCategory(ReadExerciseCategory value) {
+        return new JAXBElement<ReadExerciseCategory>(_ReadExerciseCategory_QNAME, ReadExerciseCategory.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReadExercise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateExerciseCategoryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "readExercise")
-    public JAXBElement<ReadExercise> createReadExercise(ReadExercise value) {
-        return new JAXBElement<ReadExercise>(_ReadExercise_QNAME, ReadExercise.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "updateExerciseCategoryResponse")
+    public JAXBElement<UpdateExerciseCategoryResponse> createUpdateExerciseCategoryResponse(UpdateExerciseCategoryResponse value) {
+        return new JAXBElement<UpdateExerciseCategoryResponse>(_UpdateExerciseCategoryResponse_QNAME, UpdateExerciseCategoryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteExerciseResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateExerciseCategory }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "deleteExerciseResponse")
-    public JAXBElement<DeleteExerciseResponse> createDeleteExerciseResponse(DeleteExerciseResponse value) {
-        return new JAXBElement<DeleteExerciseResponse>(_DeleteExerciseResponse_QNAME, DeleteExerciseResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "updateExerciseCategory")
+    public JAXBElement<UpdateExerciseCategory> createUpdateExerciseCategory(UpdateExerciseCategory value) {
+        return new JAXBElement<UpdateExerciseCategory>(_UpdateExerciseCategory_QNAME, UpdateExerciseCategory.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteExercise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteExerciseCategory }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "deleteExercise")
-    public JAXBElement<DeleteExercise> createDeleteExercise(DeleteExercise value) {
-        return new JAXBElement<DeleteExercise>(_DeleteExercise_QNAME, DeleteExercise.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "deleteExerciseCategory")
+    public JAXBElement<DeleteExerciseCategory> createDeleteExerciseCategory(DeleteExerciseCategory value) {
+        return new JAXBElement<DeleteExerciseCategory>(_DeleteExerciseCategory_QNAME, DeleteExerciseCategory.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateExerciseResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ExerciseCategory }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "updateExerciseResponse")
-    public JAXBElement<UpdateExerciseResponse> createUpdateExerciseResponse(UpdateExerciseResponse value) {
-        return new JAXBElement<UpdateExerciseResponse>(_UpdateExerciseResponse_QNAME, UpdateExerciseResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "exerciseCategory")
+    public JAXBElement<ExerciseCategory> createExerciseCategory(ExerciseCategory value) {
+        return new JAXBElement<ExerciseCategory>(_ExerciseCategory_QNAME, ExerciseCategory.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReadExerciseResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadExerciseCategoryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "readExerciseResponse")
-    public JAXBElement<ReadExerciseResponse> createReadExerciseResponse(ReadExerciseResponse value) {
-        return new JAXBElement<ReadExerciseResponse>(_ReadExerciseResponse_QNAME, ReadExerciseResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "readExerciseCategoryResponse")
+    public JAXBElement<ReadExerciseCategoryResponse> createReadExerciseCategoryResponse(ReadExerciseCategoryResponse value) {
+        return new JAXBElement<ReadExerciseCategoryResponse>(_ReadExerciseCategoryResponse_QNAME, ReadExerciseCategoryResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Exercise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateExerciseCategory }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "exercise")
-    public JAXBElement<Exercise> createExercise(Exercise value) {
-        return new JAXBElement<Exercise>(_Exercise_QNAME, Exercise.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "createExerciseCategory")
+    public JAXBElement<CreateExerciseCategory> createCreateExerciseCategory(CreateExerciseCategory value) {
+        return new JAXBElement<CreateExerciseCategory>(_CreateExerciseCategory_QNAME, CreateExerciseCategory.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreateExercise }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteExerciseCategoryResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "createExercise")
-    public JAXBElement<CreateExercise> createCreateExercise(CreateExercise value) {
-        return new JAXBElement<CreateExercise>(_CreateExercise_QNAME, CreateExercise.class, null, value);
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "deleteExerciseCategoryResponse")
+    public JAXBElement<DeleteExerciseCategoryResponse> createDeleteExerciseCategoryResponse(DeleteExerciseCategoryResponse value) {
+        return new JAXBElement<DeleteExerciseCategoryResponse>(_DeleteExerciseCategoryResponse_QNAME, DeleteExerciseCategoryResponse.class, null, value);
     }
 
 }

@@ -6,6 +6,7 @@ import finalproject.ports.CRUDActivity;
 import finalproject.ports.CRUDActivityChoosen;
 import finalproject.ports.CRUDExcludedFood;
 import finalproject.ports.CRUDExercise;
+import finalproject.ports.CRUDExerciseCategory;
 import finalproject.ports.CRUDExerciseHistory;
 import finalproject.ports.CRUDFavouriteFood;
 import finalproject.ports.CRUDGoal;
@@ -24,6 +25,7 @@ public class Publisher {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/excludedfood", new CRUDExcludedFood());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/favouritefood", new CRUDFavouriteFood());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/exercise", new CRUDExercise());
+		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/exercisecategory", new CRUDExerciseCategory());
 		
 		System.out.println("Started Publisher");
 	}

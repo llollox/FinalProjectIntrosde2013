@@ -11,5 +11,6 @@ wsimport -keep http://localhost:5910/lifestyle/storageservice/activity?wsdl;
 wsimport -keep http://localhost:5910/lifestyle/storageservice/excludedfood?wsdl;
 wsimport -keep http://localhost:5910/lifestyle/storageservice/favouritefood?wsdl;
 wsimport -keep http://localhost:5910/lifestyle/storageservice/exercise?wsdl;
+wsimport -keep http://localhost:5910/lifestyle/storageservice/exercisecategory?wsdl;
 
 

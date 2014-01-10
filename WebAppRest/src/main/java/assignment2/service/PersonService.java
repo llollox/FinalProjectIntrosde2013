@@ -29,9 +29,7 @@ public class PersonService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() {
-		
-		//return cperson. DAMMI LE DIO BOIA DI PERSONE!!!
-		return null;
+		return cperson.getPeople();
 	}
 
 	@POST

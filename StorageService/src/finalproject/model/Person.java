@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,6 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
+@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
 @Entity
 @XmlRootElement
 public class Person {
@@ -96,6 +98,13 @@ public class Person {
 	}
 
 	// READ ONLY ELEMENTS
+	
+	public static List<Person> getAll() {
+		EntityManager em = DatabaseUtil.createEntityManager();
+	    List<Person> list = em.createNamedQuery("Person.findAll", Person.class).getResultList();;
+	    em.close();
+		return list;
+	}
 
 	@XmlElement(name = "healthprofile")
 	public HealthProfile getHealthprofile() {
