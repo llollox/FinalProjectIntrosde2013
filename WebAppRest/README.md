@@ -75,6 +75,20 @@ Returns all the people that are in the specified range of height or weight.
 
 Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
 
+
+<hr/>
+**GET  /food/recipe/{RECIPE_ID}**
+
+Returns a <b>Receipt</b> object
+
+**GET  /food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS**
+
+
+Returns a <b>List of Matches</b> which are the recipes found
+
+<hr/>
+
+
 ####Client
 
 This is a simple introduction to understand how to use that web application.
