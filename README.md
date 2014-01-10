@@ -17,7 +17,6 @@
 *   [Storage] (https://github.com/llollox/FinalProjectIntrosde2013/tree/master/StorageService): This is a storage service that allows to interact with a Mysql Database
 *   CalculateProgress
 *   SuggestedActivities
-*   FilterActivities
 *   [CaloriesCalculator](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/CaloriesCalculatorService): A simple service that implements some formulae to calculate calories stuff (Ideal Weight, Ideal Amount of Calories per day etc.)
 
 
