@@ -32,12 +32,21 @@ public class Activity {
 	private float value;
 	private int difficultyvalue;
 	private int aerobic;
+	private int activitygroup;
 	
 	@ManyToMany(mappedBy="activities", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private List<Goal> goals = new ArrayList<Goal>();
 	
 	public Activity() {}
 	
+	public int getActivitygroup() {
+		return activitygroup;
+	}
+
+	public void setActivitygroup(int activitygroup) {
+		this.activitygroup = activitygroup;
+	}
+
 	public int getDifficultyvalue() {
 		return difficultyvalue;
 	}
