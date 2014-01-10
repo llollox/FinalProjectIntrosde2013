@@ -3,8 +3,6 @@ package finalproject.ports;
 import javax.jws.WebService;
 
 import finalproject.model.Activity;
-import finalproject.model.ActivityValueType;
-import finalproject.model.Goal;
 
 @WebService(serviceName = "ActivityService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDActivity {
@@ -37,20 +35,6 @@ public class CRUDActivity {
 	// DELETE ACTIVITY
 	public boolean deleteActivity(int id) {
 		return Activity.delete(id);
-	}
-
-	// ADD VALUETYPE TO ACTIVITY
-	public void linkValueType(int idactivity, int idvaluetype) {
-		Activity a = Activity.read(idactivity);
-		ActivityValueType t = ActivityValueType.read(idvaluetype);
-		
-		if (a.getValuetypes().contains(t))
-			return;
-		
-		a.getValuetypes().add(t);
-		t.getActivities().add(a);
-		
-		Activity.update(a);
 	}
 
 }

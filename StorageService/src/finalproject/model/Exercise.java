@@ -1,70 +1,32 @@
 package finalproject.model;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
 @Entity
 @XmlRootElement
-public class Activity {
+public class Exercise {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String description;
-	private int type;
-	private float value;
+	private float difficultyvalue;
 	
-	@ManyToMany(mappedBy="activities", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-	private List<Goal> goals = new ArrayList<Goal>();
-	
-	public Activity() {}
-	
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public float getValue() {
-		return value;
-	}
-
-	public void setValue(float value) {
-		this.value = value;
-	}
-
-	@XmlTransient
-	public List<Goal> getGoals() {
-		return goals;
-	}
-
-	public void setGoals(List<Goal> goals) {
-		this.goals = goals;
-	}
+	public Exercise() {}
 
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -76,13 +38,20 @@ public class Activity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public float getDifficultyvalue() {
+		return difficultyvalue;
+	}
+
+	public void setDifficultyvalue(float difficultyvalue) {
+		this.difficultyvalue = difficultyvalue;
+	}
 	
 	// ##########################################
 	// # CRUD
 	// ##########################################
-
-	public static Activity create(Activity a) {
+	
+	public static Exercise create(Exercise a) {
 		// reset id
 		a.setId(0);
 		
@@ -97,17 +66,17 @@ public class Activity {
 		return a;
 	}
 	
-	public static Activity read(int id) {
+	public static Exercise read(int id) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-		Activity a = em.find(Activity.class, id);
+		Exercise a = em.find(Exercise.class, id);
 		em.close();
 		return a;
 	}
 	
-	public static Activity update(Activity a) {
+	public static Exercise update(Exercise a) {
 		
 		if (a.getId() <= 0)
-			return null;
+			return null;		
 		
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -120,7 +89,7 @@ public class Activity {
 	}
 	
 	public static boolean delete(int id) {
-		Activity a = read(id);
+		Exercise a = read(id);
 		
 		if (a == null)
 			return false;
@@ -137,24 +106,5 @@ public class Activity {
 	    
 	    return true;
 	}
-	
-//	private static boolean isPeriodCorrect(Activity a) {
-//		return !(a.isDaily() && a.isWeekly() && !a.isMonthly() ||
-//			   a.isDaily() && !a.isWeekly() && a.isMonthly() ||
-//			   !a.isDaily() && a.isWeekly() && a.isMonthly() ||
-//			   a.isDaily() && a.isWeekly() && a.isMonthly());
-//	}
-	
-	@Override
-    public boolean equals(Object object) {
-        
-		boolean equal = false;
-		
-        if (object != null && object instanceof Activity) {
-            equal = this.id == ((Activity) object).getId();
-        }
-
-        return equal;
-    }
 	
 }

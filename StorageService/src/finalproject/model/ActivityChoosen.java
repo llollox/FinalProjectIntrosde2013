@@ -1,5 +1,7 @@
 package finalproject.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,60 +23,67 @@ import finalproject.utils.DatabaseUtil;
 
 @Entity
 @XmlRootElement
-public class Activity {
+public class ActivityChoosen {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String description;
-	private int type;
-	private float value;
+	private String date;
+	private float percentage;
 	
-	@ManyToMany(mappedBy="activities", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-	private List<Goal> goals = new ArrayList<Goal>();
+	private Person person;
+	private Activity activity;
+	private Goal goal;
 	
-	public Activity() {}
+	public ActivityChoosen() {}
 	
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public float getValue() {
-		return value;
-	}
-
-	public void setValue(float value) {
-		this.value = value;
-	}
-
-	@XmlTransient
-	public List<Goal> getGoals() {
-		return goals;
-	}
-
-	public void setGoals(List<Goal> goals) {
-		this.goals = goals;
-	}
-
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getDate() {
+		return date;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public float getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(float percentage) {
+		this.percentage = percentage;
+	}
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
+	public Goal getGoal() {
+		return goal;
+	}
+
+	public void setGoal(Goal goal) {
+		this.goal = goal;
 	}
 	
 	
@@ -82,9 +91,12 @@ public class Activity {
 	// # CRUD
 	// ##########################################
 
-	public static Activity create(Activity a) {
+	public static ActivityChoosen create(ActivityChoosen a) {
 		// reset id
 		a.setId(0);
+		
+		if (a.getDate() != null && !isDateValid(a.getDate()))
+			return null;
 		
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -97,16 +109,19 @@ public class Activity {
 		return a;
 	}
 	
-	public static Activity read(int id) {
+	public static ActivityChoosen read(int id) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-		Activity a = em.find(Activity.class, id);
+		ActivityChoosen a = em.find(ActivityChoosen.class, id);
 		em.close();
 		return a;
 	}
 	
-	public static Activity update(Activity a) {
+	public static ActivityChoosen update(ActivityChoosen a) {
 		
 		if (a.getId() <= 0)
+			return null;
+		
+		if (a.getDate() != null && !isDateValid(a.getDate()))
 			return null;
 		
 		EntityManager em = DatabaseUtil.createEntityManager();
@@ -120,7 +135,7 @@ public class Activity {
 	}
 	
 	public static boolean delete(int id) {
-		Activity a = read(id);
+		ActivityChoosen a = read(id);
 		
 		if (a == null)
 			return false;
@@ -138,6 +153,22 @@ public class Activity {
 	    return true;
 	}
 	
+	private static boolean isDateValid(String date) {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		df.setLenient(false);
+
+		try {
+			df.parse(date);
+		} catch (ParseException e) {
+			return false;
+		}
+		
+		if (date.length() != 10)
+			return false;
+		
+		return true;
+	}
+	
 //	private static boolean isPeriodCorrect(Activity a) {
 //		return !(a.isDaily() && a.isWeekly() && !a.isMonthly() ||
 //			   a.isDaily() && !a.isWeekly() && a.isMonthly() ||
@@ -150,8 +181,8 @@ public class Activity {
         
 		boolean equal = false;
 		
-        if (object != null && object instanceof Activity) {
-            equal = this.id == ((Activity) object).getId();
+        if (object != null && object instanceof ActivityChoosen) {
+            equal = this.id == ((ActivityChoosen) object).getId();
         }
 
         return equal;

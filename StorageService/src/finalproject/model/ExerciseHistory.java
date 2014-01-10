@@ -22,7 +22,7 @@ import finalproject.utils.DatabaseUtil;
 
 @Entity
 @XmlRootElement
-public class ActivityHistory {
+public class ExerciseHistory {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,11 +38,36 @@ public class ActivityHistory {
 	@JoinColumn(name = "idactivity")
 	private Activity activity;
 	
-	@OneToMany(mappedBy="ActivityHistory", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-	private List<ActivityHistoryValue> values = new ArrayList<ActivityHistoryValue>();
+	@ManyToOne
+	@JoinColumn(name = "idexercise")
+	private Exercise exercise;
 	
-	public ActivityHistory() {}
+	public ExerciseHistory() {}
 	
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+
+	public Exercise getExercise() {
+		return exercise;
+	}
+
+	public void setExercise(Exercise exercise) {
+		this.exercise = exercise;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -83,17 +108,11 @@ public class ActivityHistory {
 			this.activity = a;
 	}
 	
-	// READ ONLY
-
-	public List<ActivityHistoryValue> getValues() {
-		return values;
-	}
-	
 	// ##########################################
 	// # CRUD
 	// ##########################################
 	
-	public static ActivityHistory create(ActivityHistory a) {
+	public static ExerciseHistory create(ExerciseHistory a) {
 		// reset id
 		a.setId(0);
 		
@@ -114,14 +133,14 @@ public class ActivityHistory {
 		return a;
 	}
 	
-	public static ActivityHistory read(int id) {
+	public static ExerciseHistory read(int id) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-		ActivityHistory a = em.find(ActivityHistory.class, id);
+		ExerciseHistory a = em.find(ExerciseHistory.class, id);
 		em.close();
 		return a;
 	}
 	
-	public static ActivityHistory update(ActivityHistory a) {
+	public static ExerciseHistory update(ExerciseHistory a) {
 		
 		if (a.getId() <= 0)
 			return null;
@@ -143,7 +162,7 @@ public class ActivityHistory {
 	}
 	
 	public static boolean delete(int id) {
-		ActivityHistory a = read(id);
+		ExerciseHistory a = read(id);
 		
 		if (a == null)
 			return false;
