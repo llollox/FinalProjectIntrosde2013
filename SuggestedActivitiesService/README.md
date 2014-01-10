@@ -4,11 +4,11 @@ This is a simple SOAP service that provides the best activities for a person kee
 
 ####Documentation
 
-* <b>GET IDEAL WEIGHT</b> 
-```public double getIdealWeight(double height)``` 
+* <b>GET SUGGESTED ACTIVITIES</b> 
+```public Activity[] getSuggestedActivities(HealthProfile hp, Goal[] goalList)``` 
 	- @PARAMS
-		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
+		* <b>goalList</b> is the list of goals that the person has chosen
+		* <b>hp</b> is the health profile of the person.
 	
-	- @RETURN is a double that indicates ideal weight.
+	- @RETURN a list of suggested activities for that person based on his health profile and goals choosen.
 	
-	The ideal weight is 52 kg + 1.9kg for each inch of height over 152.4cm (1 inch = 2.54cm).
