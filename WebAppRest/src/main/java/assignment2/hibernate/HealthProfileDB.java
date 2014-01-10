@@ -1,5 +1,7 @@
 package assignment2.hibernate;
 
+import it.unitn.sde.finalproject.HealthProfile;
+
 import java.util.ArrayList;
 
 import org.hibernate.HibernateException;
@@ -8,7 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import assignment2.model.HealthProfile;
+
 
 public class HealthProfileDB {
 
@@ -20,7 +22,7 @@ public class HealthProfileDB {
 			transaction = session.beginTransaction();
 
 			Long id = (Long) session.save(hp);
-			hp.setHealthprofile_id(id);
+//			hp.setHealthprofile_id(id);
 
 			transaction.commit();
 		} catch (HibernateException e) {
@@ -43,8 +45,8 @@ public class HealthProfileDB {
 			transaction = session.beginTransaction();
 
 			session.update(hp);
-			hp = (HealthProfile) session.get(HealthProfile.class,
-					hp.getHealthprofile_id());
+//			hp = (HealthProfile) session.get(HealthProfile.class,
+//					hp.getHealthprofile_id());
 
 			transaction.commit();
 		} catch (HibernateException e) {

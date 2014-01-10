@@ -1,12 +1,13 @@
 package assignment2.hibernate;
 
+import it.unitn.sde.finalproject.Person;
+
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import assignment2.model.Person;
 
 public class PersonDB {
 
@@ -25,7 +26,7 @@ public class PersonDB {
 			transaction = session.beginTransaction();
 
 			Long id = (Long) session.save(person);
-			person.setPerson_id(id);
+//			person.setPerson_id(id);
 
 			transaction.commit();
 
@@ -49,7 +50,7 @@ public class PersonDB {
 			transaction = session.beginTransaction();
 
 			session.update(person);
-			person = (Person) session.get(Person.class, person.getPerson_id());
+//			person = (Person) session.get(Person.class, person.getPerson_id());
 
 			transaction.commit();
 

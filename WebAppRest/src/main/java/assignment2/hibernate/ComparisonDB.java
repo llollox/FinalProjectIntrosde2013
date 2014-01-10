@@ -1,5 +1,7 @@
 package assignment2.hibernate;
 
+import it.unitn.sde.finalproject.Person;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +14,6 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import assignment2.model.Person;
 
 public class ComparisonDB {
 
