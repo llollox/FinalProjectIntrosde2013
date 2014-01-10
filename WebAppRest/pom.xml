@@ -55,6 +55,7 @@
 			<artifactId>jackson-core-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
+<<<<<<< HEAD
 		
 		<dependency>
 		  <groupId>StorageServiceClient</groupId>
@@ -68,6 +69,15 @@
       <artifactId>FoodClient</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+=======
+
+		<dependency>
+			<groupId>FoodClient</groupId>
+			<artifactId>FoodClient</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+>>>>>>> 66c830ac3e8273105524f5059aca32ab1b4ec209
+
 
 	</dependencies>
 
