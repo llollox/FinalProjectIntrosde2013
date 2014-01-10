@@ -31,14 +31,22 @@ This is a simple SOAP service that provide some calories calculation stuff.
 	
 	The BMR is the amount of energy expended daily by humans and other animals at rest. Rest is defined as existing in a neutrally temperate environment while in the postabsorptive state.
 
-* <b>GET IDEAL DAILY CALORIES NEEDED</b> ```public double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek)``` 
+* <b>GET IDEAL DAILY CALORIES NEEDED</b> ```public double getIdealDailyCaloriesNeeded(
+
+double bmr, int exerciseAmountPerWeek
+
+)``` 
 	- @PARAMS 
 		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest.
 		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
 	
 	- @RETURN the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 
-* <b>GET IDEAL DAILY CALORIES NEEDED</b> ```public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate)```
+* <b>GET IDEAL DAILY CALORIES NEEDED TO MANAGE WEIGHT</b> ```public double getDailyCaloriesNeededToManageWeight(
+
+double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate
+
+)```
 	- @PARAMS
 		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest. 
 		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
