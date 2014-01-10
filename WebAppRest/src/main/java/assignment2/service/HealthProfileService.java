@@ -1,5 +1,10 @@
 package assignment2.service;
 
+import it.unitn.sde.finalproject.CRUDPerson;
+import it.unitn.sde.finalproject.CUHealthProfile;
+import it.unitn.sde.finalproject.HealthProfile;
+import it.unitn.sde.finalproject.Person;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,12 +21,13 @@ import javax.ws.rs.core.Response;
 
 import assignment2.hibernate.HealthProfileDB;
 import assignment2.hibernate.PersonDB;
-import assignment2.model.HealthProfile;
-import assignment2.model.Person;
 
 @Path("/person/{p_id}/healthprofile")
 public class HealthProfileService {
-
+	
+	public static CRUDPerson cperson = new it.unitn.sde.finalproject.PersonService().getCRUD();
+	public static CUHealthProfile chp = new it.unitn.sde.finalproject.HealthProfileService().getCRUD();
+	
 	/**
 	 * GET POST
 	 * 
@@ -33,40 +39,42 @@ public class HealthProfileService {
 	public ArrayList<HealthProfile> getPersonHealthProfileHistory(
 			@PathParam("p_id") Long p_id) {
 
-		ArrayList<HealthProfile> history = HealthProfileDB
-				.getPersonHealthProfileHistory(p_id);
-
-		return !history.isEmpty() ? history : null;
+//		ArrayList<HealthProfile> history = HealthProfileDB
+//				.getPersonHealthProfileHistory(p_id);
+//
+//		return !history.isEmpty() ? history : null;
+		return null;
 	}
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public ArrayList<HealthProfile> setHealthProfile(
-			@PathParam("p_id") Long p_id, HealthProfile json) {
+			@PathParam("p_id") int p_id, HealthProfile json) {
+		
+		int hpId = chp.createHealthProfile(p_id, json);
 
-		Person dbPerson = PersonDB.getPerson(p_id);
-
-		if (dbPerson != null && json != null && json.getHeight() != null
-				&& json.getWeight() != null) {
-
-			// metto nella history il corrente perche ora lo aggiorno
-			HealthProfileDB.saveHealthProfile(new HealthProfile(dbPerson
-					.getPerson_id(), dbPerson.getWeight(),
-					dbPerson.getHeight(), dbPerson.getLastupdate()));
-
-			// aggiorno la persona col nuovo hp
-			dbPerson.setLastupdate(new Date());
-			dbPerson.setHeight(json.getHeight());
-			dbPerson.setWeight(json.getWeight());
-
-			dbPerson = PersonDB.updatePerson(dbPerson);
-		}
-
-		ArrayList<HealthProfile> history = HealthProfileDB
-				.getPersonHealthProfileHistory(p_id);
-
-		return !history.isEmpty() ? history : null;
+//		if (dbPerson != null && json != null && json.getHeight() != null
+//				&& json.getWeight() != null) {
+//
+//			// metto nella history il corrente perche ora lo aggiorno
+//			HealthProfileDB.saveHealthProfile(new HealthProfile(dbPerson
+//					.getPerson_id(), dbPerson.getWeight(),
+//					dbPerson.getHeight(), dbPerson.getLastupdate()));
+//
+//			// aggiorno la persona col nuovo hp
+//			dbPerson.setLastupdate(new Date());
+//			dbPerson.setHeight(json.getHeight());
+//			dbPerson.setWeight(json.getWeight());
+//
+//			dbPerson = PersonDB.updatePerson(dbPerson);
+//		}
+//
+//		ArrayList<HealthProfile> history = HealthProfileDB
+//				.getPersonHealthProfileHistory(p_id);
+//
+//		return !history.isEmpty() ? history : null;
+		return null;
 	}
 
 	/**

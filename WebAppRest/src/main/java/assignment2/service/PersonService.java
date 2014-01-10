@@ -1,7 +1,8 @@
 package assignment2.service;
 
-import java.util.ArrayList;
-import java.util.Date;
+import it.unitn.sde.finalproject.CRUDPerson;
+import it.unitn.sde.finalproject.Person;
+
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -15,14 +16,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import assignment2.hibernate.HealthProfileDB;
-import assignment2.hibernate.PersonDB;
-import assignment2.model.HealthProfile;
-import assignment2.model.Person;
-
 @Path("/person")
 public class PersonService {
-
+	
+	public static CRUDPerson cperson = new it.unitn.sde.finalproject.PersonService().getCRUD();
 	/**
 	 * GET POST
 	 * 
@@ -32,26 +29,21 @@ public class PersonService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() {
-		return PersonDB.getPeople();
+		
+		//return cperson. DAMMI LE DIO BOIA DI PERSONE!!!
+		return null;
 	}
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createPerson(Person person) {
-		// controllo perche magari non mi parsa la data correttamente JAXB
-		if (person.getBirthdate() != null && person.getWeight() != null
-				&& person.getHeight() != null && person.getFirstname() != null
-				&& person.getLastname() != null) {
-
-			person.setPerson_id(null);
-			person.setLastupdate(new Date());
-
-			person = PersonDB.savePerson(person);
-
-			return Response.status(Response.Status.OK).entity(person).build();
-
-		} else {
+		
+		int personId = cperson.createPerson(person);
+		if (personId != -1){
+			return Response.status(Response.Status.OK).entity(personId).build();
+		} 
+		else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -67,47 +59,35 @@ public class PersonService {
 	@GET
 	@Path("/{p_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Person getPerson(@PathParam("p_id") Long p_id) {
-		return PersonDB.getPerson(p_id);
+	public Person getPerson(@PathParam("p_id") int p_id) {
+		return cperson.readPerson(p_id);
 	}
 
 	@PUT
 	@Path("/{p_id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updatePerson(@PathParam("p_id") Long p_id, Person json) {
+	public Response updatePerson(@PathParam("p_id") int p_id, Person json) {
 
-		Person dbPerson = PersonDB.getPerson(p_id);
+		Person dbPerson = cperson.readPerson(p_id);
 
 		if (dbPerson != null && json.getFirstname() != null
-				&& json.getLastname() != null && json.getBirthdate() != null
-				&& json.getWeight() != null && json.getHeight() != null) {
-
-			// se ho aggiornato anche i valori di peso e altezza
-			if (dbPerson.getHeight() != json.getHeight()
-					|| dbPerson.getWeight() != json.getWeight()) {
-
-				// metto nella history il corrente perche ora lo aggiorno
-				HealthProfileDB.saveHealthProfile(new HealthProfile(dbPerson
-						.getPerson_id(), dbPerson.getWeight(), dbPerson
-						.getHeight(), dbPerson.getLastupdate()));
-
-				// aggiorno i valori correnti
-				dbPerson.setHeight(json.getHeight());
-				dbPerson.setWeight(json.getWeight());
-				dbPerson.setLastupdate(new Date());
-
-			}
+				&& json.getLastname() != null && json.getBirthdate() != null 
+				&& json.getSex() != null) {
 
 			// aggionro i dati della persona
 			dbPerson.setFirstname(json.getFirstname());
 			dbPerson.setLastname(json.getLastname());
 			dbPerson.setBirthdate(json.getBirthdate());
+			dbPerson.setSex(json.getSex());
 
 			// aggiorno nel db la persona
-			dbPerson = PersonDB.updatePerson(dbPerson);
-
-			return Response.status(Response.Status.OK).entity(dbPerson).build();
+			int personId = cperson.updatePerson(dbPerson);
+			
+			if (personId != -1) //data successiful updated!
+				return Response.status(Response.Status.OK).entity(dbPerson).build();
+			else 
+				return Response.status(Response.Status.BAD_REQUEST).build();
 
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
@@ -117,18 +97,18 @@ public class PersonService {
 	@DELETE
 	@Path("/{p_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deletePerson(@PathParam("p_id") Long p_id) {
+	public Response deletePerson(@PathParam("p_id") int p_id) {
 
-		Person person = PersonDB.deletePerson(p_id);
-		if (person != null) {
+		if (cperson.deletePerson(p_id)) {
 
-			ArrayList<HealthProfile> history = HealthProfileDB
-					.getPersonHealthProfileHistory(p_id);
-			person.setHealthProfileHistory(history);
+//			DELETE HP LIST
+//			ArrayList<HealthProfile> history = HealthProfileDB
+//					.getPersonHealthProfileHistory(p_id);
+//			person.setHealthProfileHistory(history);
+//
+//			HealthProfileDB.deletePersonHealthProfileHistory(history);
 
-			HealthProfileDB.deletePersonHealthProfileHistory(history);
-
-			return Response.status(Response.Status.OK).entity(person).build();
+			return Response.status(Response.Status.OK).build();
 
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
