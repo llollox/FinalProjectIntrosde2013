@@ -84,6 +84,18 @@ public class HealthProfile {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+	
+	public int getPersonId() {
+		if (this.person != null)
+			return this.person.getId();
+		return -1;
+	}
+	
+	public void setPersonId(int id) {
+		Person p = Person.read(id);
+		if (p != null)
+			this.person = p;
+	}
 
 	public int getId() {
 		return id;
@@ -172,6 +184,25 @@ public class HealthProfile {
 		em.close();
 		
 	    return newHP;
+	}
+	
+	public static boolean delete(int id) {
+		HealthProfile p = read(id);
+
+		if (p == null)
+			return false;
+
+		EntityManager em = DatabaseUtil.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		p = em.merge(p);
+		em.remove(p);
+		tx.commit();
+
+		em.close();
+
+		return true;
 	}
 	
 	private static String getCurrentDate() {

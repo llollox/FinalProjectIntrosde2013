@@ -1,6 +1,7 @@
 
 package it.unitn.sde.finalproject;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -22,6 +23,17 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface CRUDExerciseCategory {
 
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<it.unitn.sde.finalproject.ExerciseCategory>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getCategories", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetCategories")
+    @ResponseWrapper(localName = "getCategoriesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetCategoriesResponse")
+    public List<ExerciseCategory> getCategories();
 
     /**
      * 

@@ -14,12 +14,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
+@NamedQuery(name="Goal.findAll", query="SELECT p FROM Goal p")
 @Entity
 @XmlRootElement
 public class Goal {
@@ -86,6 +89,7 @@ public class Goal {
 		this.activities = activities;
 	}
 
+	@XmlElement(name = "activities")
 	public List<Activity> getActivities() {
 		return activities;
 	}

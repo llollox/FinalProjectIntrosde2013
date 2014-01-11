@@ -1,6 +1,7 @@
 
 package it.unitn.sde.finalproject;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -22,6 +23,17 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface CRUDActivity {
 
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<it.unitn.sde.finalproject.Activity>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getActivities", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetActivities")
+    @ResponseWrapper(localName = "getActivitiesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetActivitiesResponse")
+    public List<Activity> getActivities();
 
     /**
      * 

@@ -9,10 +9,12 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import finalproject.utils.DatabaseUtil;
 
+@NamedQuery(name="ExerciseCategory.findAll", query="SELECT p FROM ExerciseCategory p")
 @Entity
 @XmlRootElement
 public class ExerciseCategory {

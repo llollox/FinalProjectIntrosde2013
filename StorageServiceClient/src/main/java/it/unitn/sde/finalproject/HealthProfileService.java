@@ -49,11 +49,11 @@ public class HealthProfileService
     /**
      * 
      * @return
-     *     returns CUHealthProfile
+     *     returns CRUDHealthProfile
      */
     @WebEndpoint(name = "CRUD")
-    public CUHealthProfile getCRUD() {
-        return super.getPort(new QName("http://finalproject.sde.unitn.it/", "CRUD"), CUHealthProfile.class);
+    public CRUDHealthProfile getCRUD() {
+        return super.getPort(new QName("http://finalproject.sde.unitn.it/", "CRUD"), CRUDHealthProfile.class);
     }
 
     /**
@@ -61,11 +61,11 @@ public class HealthProfileService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns CUHealthProfile
+     *     returns CRUDHealthProfile
      */
     @WebEndpoint(name = "CRUD")
-    public CUHealthProfile getCRUD(WebServiceFeature... features) {
-        return super.getPort(new QName("http://finalproject.sde.unitn.it/", "CRUD"), CUHealthProfile.class, features);
+    public CRUDHealthProfile getCRUD(WebServiceFeature... features) {
+        return super.getPort(new QName("http://finalproject.sde.unitn.it/", "CRUD"), CRUDHealthProfile.class, features);
     }
 
 }

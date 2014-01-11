@@ -11,13 +11,13 @@ import finalproject.ports.CRUDExerciseHistory;
 import finalproject.ports.CRUDFavouriteFood;
 import finalproject.ports.CRUDGoal;
 import finalproject.ports.CRUDPerson;
-import finalproject.ports.CUHealthProfile;
+import finalproject.ports.CRUDHealthProfile;
 
 public class Publisher {
 
 	public static void main(String[] args) {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/person", new CRUDPerson());
-		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/healthprofile", new CUHealthProfile());
+		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/healthprofile", new CRUDHealthProfile());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/goal", new CRUDGoal());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/activitychoosen", new CRUDActivityChoosen());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/exercisehistory", new CRUDExerciseHistory());

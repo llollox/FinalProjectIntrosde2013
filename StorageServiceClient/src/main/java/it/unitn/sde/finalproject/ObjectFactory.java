@@ -25,9 +25,11 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _CreateExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "createExerciseCategoryResponse");
+    private final static QName _GetCategoriesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "getCategoriesResponse");
     private final static QName _ReadExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExerciseCategory");
     private final static QName _UpdateExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExerciseCategoryResponse");
     private final static QName _UpdateExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "updateExerciseCategory");
+    private final static QName _GetCategories_QNAME = new QName("http://finalproject.sde.unitn.it/", "getCategories");
     private final static QName _DeleteExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "deleteExerciseCategory");
     private final static QName _ExerciseCategory_QNAME = new QName("http://finalproject.sde.unitn.it/", "exerciseCategory");
     private final static QName _ReadExerciseCategoryResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "readExerciseCategoryResponse");
@@ -42,43 +44,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ReadExerciseCategoryResponse }
+     * Create an instance of {@link ExerciseCategory }
      * 
      */
-    public ReadExerciseCategoryResponse createReadExerciseCategoryResponse() {
-        return new ReadExerciseCategoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateExerciseCategory }
-     * 
-     */
-    public UpdateExerciseCategory createUpdateExerciseCategory() {
-        return new UpdateExerciseCategory();
-    }
-
-    /**
-     * Create an instance of {@link DeleteExerciseCategory }
-     * 
-     */
-    public DeleteExerciseCategory createDeleteExerciseCategory() {
-        return new DeleteExerciseCategory();
-    }
-
-    /**
-     * Create an instance of {@link DeleteExerciseCategoryResponse }
-     * 
-     */
-    public DeleteExerciseCategoryResponse createDeleteExerciseCategoryResponse() {
-        return new DeleteExerciseCategoryResponse();
-    }
-
-    /**
-     * Create an instance of {@link UpdateExerciseCategoryResponse }
-     * 
-     */
-    public UpdateExerciseCategoryResponse createUpdateExerciseCategoryResponse() {
-        return new UpdateExerciseCategoryResponse();
+    public ExerciseCategory createExerciseCategory() {
+        return new ExerciseCategory();
     }
 
     /**
@@ -90,19 +60,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreateExerciseCategoryResponse }
+     * Create an instance of {@link GetCategories }
      * 
      */
-    public CreateExerciseCategoryResponse createCreateExerciseCategoryResponse() {
-        return new CreateExerciseCategoryResponse();
+    public GetCategories createGetCategories() {
+        return new GetCategories();
     }
 
     /**
-     * Create an instance of {@link ExerciseCategory }
+     * Create an instance of {@link DeleteExerciseCategory }
      * 
      */
-    public ExerciseCategory createExerciseCategory() {
-        return new ExerciseCategory();
+    public DeleteExerciseCategory createDeleteExerciseCategory() {
+        return new DeleteExerciseCategory();
     }
 
     /**
@@ -114,12 +84,69 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetCategoriesResponse }
+     * 
+     */
+    public GetCategoriesResponse createGetCategoriesResponse() {
+        return new GetCategoriesResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateExerciseCategoryResponse }
+     * 
+     */
+    public UpdateExerciseCategoryResponse createUpdateExerciseCategoryResponse() {
+        return new UpdateExerciseCategoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdateExerciseCategory }
+     * 
+     */
+    public UpdateExerciseCategory createUpdateExerciseCategory() {
+        return new UpdateExerciseCategory();
+    }
+
+    /**
+     * Create an instance of {@link ReadExerciseCategoryResponse }
+     * 
+     */
+    public ReadExerciseCategoryResponse createReadExerciseCategoryResponse() {
+        return new ReadExerciseCategoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateExerciseCategoryResponse }
+     * 
+     */
+    public CreateExerciseCategoryResponse createCreateExerciseCategoryResponse() {
+        return new CreateExerciseCategoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteExerciseCategoryResponse }
+     * 
+     */
+    public DeleteExerciseCategoryResponse createDeleteExerciseCategoryResponse() {
+        return new DeleteExerciseCategoryResponse();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CreateExerciseCategoryResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "createExerciseCategoryResponse")
     public JAXBElement<CreateExerciseCategoryResponse> createCreateExerciseCategoryResponse(CreateExerciseCategoryResponse value) {
         return new JAXBElement<CreateExerciseCategoryResponse>(_CreateExerciseCategoryResponse_QNAME, CreateExerciseCategoryResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategoriesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getCategoriesResponse")
+    public JAXBElement<GetCategoriesResponse> createGetCategoriesResponse(GetCategoriesResponse value) {
+        return new JAXBElement<GetCategoriesResponse>(_GetCategoriesResponse_QNAME, GetCategoriesResponse.class, null, value);
     }
 
     /**
@@ -147,6 +174,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "updateExerciseCategory")
     public JAXBElement<UpdateExerciseCategory> createUpdateExerciseCategory(UpdateExerciseCategory value) {
         return new JAXBElement<UpdateExerciseCategory>(_UpdateExerciseCategory_QNAME, UpdateExerciseCategory.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCategories }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getCategories")
+    public JAXBElement<GetCategories> createGetCategories(GetCategories value) {
+        return new JAXBElement<GetCategories>(_GetCategories_QNAME, GetCategories.class, null, value);
     }
 
     /**
