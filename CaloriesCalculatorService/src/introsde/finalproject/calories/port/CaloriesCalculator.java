@@ -1,6 +1,7 @@
 
 package introsde.finalproject.calories.port;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,24 +29,47 @@ public class CaloriesCalculator {
 	 * 
 	 */	
 	@WebMethod
-    public double getIdealWeight(double height){
+    public double getIdealWeight(double height, int sex){
     	if (height < 4) //height in meters
     		height = height * 100.0; //height converted in cm	
-    	return 52 + (((height - 152.4)/2.54) * 1.9);	
+    	switch (sex) {
+		case 0:
+			return (100.0 * 0.45359237) + ((height-152.4)/2.54) * (5 * 0.45359237);
+		case 1:
+			return (106.0 * 0.45359237) + ((height-152.4)/2.54) * (6 * 0.45359237);
+		}
+    	return -1;
     }
     
     /**
 	 * 
 	 * @param height is the height of the person, you can pass both in meters or centimeters.
+	 * @return the IDEAL BMI calculated for a person that have this height.
+	 * The BMI provides a reliable indicator of body fatness for most people and is used to screen for weight categories that may lead to health problems.
+	 * 
+	 */
+	@WebMethod
+    public double getIdealBMI(double height, int sex){
+    	if (height > 4) //height in centimeters
+    		height = height / 100.0; //height converted in meters	
+    	return getIdealWeight(height,sex) / (height * height);	
+    }
+	
+	 /**
+	 * 
+	 * @param height is the height of the person, you can pass both in meters or centimeters.
+	 * @param weight can passed both in kg or grams.
 	 * @return the BMI calculated for a person that have this height.
 	 * The BMI provides a reliable indicator of body fatness for most people and is used to screen for weight categories that may lead to health problems.
 	 * 
 	 */
 	@WebMethod
-    public double getIdealBMI(double height){
+    public double getBMI(double height, double weight){
     	if (height > 4) //height in centimeters
-    		height = height / 100.0; //height converted in meters	
-    	return getIdealWeight(height) / (height * height);	
+    		height = height / 100.0; //height converted in meters
+    	if (weight > 1000) //weight in grams
+    		weight = weight / 1000.0;
+    	return weight / (height * height);	
     }
     
     /**
@@ -116,18 +140,22 @@ public class CaloriesCalculator {
    	 * @return the amount of calories needed for that person to manage his weight in the period that he have specified.
    	 */
 	@WebMethod
-    public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, Date startDate, Date endDate){
+    public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, int days){
     	if (weightDifference > 1000) //weight in grams
     		weightDifference = weightDifference / 1000.0;
-    	double weeksDifference = daysBetween(startDate, endDate)/7.0;
-    	if ((double) weightDifference / weeksDifference > 1.0) // impossible to reach!
-    		return -1.0;
+    	
+    	double weeksDifference = days/7.0;
+    	double difficultCoefficient = (double) weightDifference / weeksDifference;
+    	
+    	if (Math.abs(difficultCoefficient) > 1) 
+    		return -1.0;  // impossible to reach!
     	else{
-    		double dailyCaloriesNeededToManageWeight = getIdealDailyCaloriesNeeded(bmr, exerciseAmountPerWeek) - ((double) weightDifference * 7800) / (daysBetween(startDate, endDate));
-    		if (dailyCaloriesNeededToManageWeight < bmr)
+    		double dailyCaloriesNeeded = getIdealDailyCaloriesNeeded(bmr, exerciseAmountPerWeek);
+    		double dailyCaloriesNeededManaged =	dailyCaloriesNeeded + ((double) weightDifference * 7800) / (double) days;
+    		if (dailyCaloriesNeededManaged < bmr)
     			return -1; //impossible to reach
     		else
-    			return dailyCaloriesNeededToManageWeight;
+    			return dailyCaloriesNeededManaged;
     	}
     }
     
@@ -137,4 +165,11 @@ public class CaloriesCalculator {
     	else
     		return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24)) + 1;
      }
+    
+//    public static void main(String[] args){
+//    	CaloriesCalculator cc = new CaloriesCalculator();
+//    	System.out.println("-1 = " + cc.getDailyCaloriesNeededToManageWeight(1500.0, 3, -1, 100));
+//    	System.out.println("-5 = " +cc.getDailyCaloriesNeededToManageWeight(1500.0, 3, -5, 100));
+//    	System.out.println("-10 = " +cc.getDailyCaloriesNeededToManageWeight(2000.0, 3, -10, 100));
+//    }
 }
