@@ -17,6 +17,7 @@
 		<class>finalproject.model.ExcludedFood</class>
 		<class>finalproject.model.FavouriteFood</class>
 		<class>finalproject.model.Exercise</class>
+		<class>finalproject.model.ExerciseCategory</class>
 		<class>finalproject.model.ExerciseHistory</class>
 
 		<properties>

@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,8 +24,9 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
+@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
 @Entity
-@XmlRootElement
+@XmlRootElement(name = "person")
 public class Person {
 
 	@Id
@@ -44,14 +46,6 @@ public class Person {
 	private List<HealthProfile> healthprofiles = new ArrayList<HealthProfile>();
 
 	public Person() {
-	}
-
-	public List<Goal> getGoals() {
-		return goals;
-	}
-
-	public void setGoals(List<Goal> goals) {
-		this.goals = goals;
 	}
 
 	public String getFirstname() {
@@ -96,7 +90,19 @@ public class Person {
 	}
 
 	// READ ONLY ELEMENTS
+	
+	public static List<Person> getAll() {
+		EntityManager em = DatabaseUtil.createEntityManager();
+	    List<Person> list = em.createNamedQuery("Person.findAll", Person.class).getResultList();;
+	    em.close();
+		return list;
+	}
 
+	@XmlElement(name = "goals")
+	public List<Goal> getGoals() {
+		return goals;
+	}
+	
 	@XmlElement(name = "healthprofile")
 	public HealthProfile getHealthprofile() {
 		if (healthprofiles.size() == 0)
@@ -164,9 +170,6 @@ public class Person {
 
 		if (p.getBirthdate() != null)
 			person.setBirthdate(p.getBirthdate());
-
-		if ((p.getGoals() != null) || (p.getGoals().size() != 0))
-			person.setGoals(p.getGoals());
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();

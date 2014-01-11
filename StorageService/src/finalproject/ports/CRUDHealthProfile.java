@@ -3,13 +3,14 @@ package finalproject.ports;
 import javax.jws.WebService;
 
 import finalproject.model.HealthProfile;
+import finalproject.model.Person;
 
 @WebService(
 		serviceName = "HealthProfileService",
 		portName = "CRUD",
 		targetNamespace = "http://finalproject.sde.unitn.it/"
 )
-public class CUHealthProfile {
+public class CRUDHealthProfile {
 
 	// CREATE HEALTHPROFILE
 	public int createHealthProfile(int idperson, HealthProfile hp) {
@@ -21,6 +22,11 @@ public class CUHealthProfile {
 		return h.getId(); 
 	}
 	
+	// READ HEALTHPROFILE
+	public HealthProfile readHealthProfile(int id) {
+		return HealthProfile.read(id);
+	}
+	
 	// UPDATE HEALTHPROFILE
 	public int updateHealthProfile(int idperson, HealthProfile hp) {
 		
@@ -30,6 +36,11 @@ public class CUHealthProfile {
 			return -1;
 		
 		return h.getId(); 
+	}
+	
+	// DELETE HEALTHPROFILE
+	public boolean deleteHealthProfile(int id) {
+		return HealthProfile.delete(id);
 	}
 	
 }

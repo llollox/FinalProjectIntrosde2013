@@ -1,9 +1,10 @@
 package assignment2.service;
 
+import java.util.List;
+
 import it.unitn.sde.finalproject.CRUDPerson;
 import it.unitn.sde.finalproject.Person;
-
-import java.util.List;
+import it.unitn.sde.finalproject.PersonService;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -17,21 +18,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/person")
-public class PersonService {
+public class PersonResource {
 	
-	public static CRUDPerson cperson = new it.unitn.sde.finalproject.PersonService().getCRUD();
-	/**
-	 * GET POST
-	 * 
-	 * /person
-	 */
+	public static CRUDPerson cperson = new PersonService().getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() {
-		
-		//return cperson. DAMMI LE DIO BOIA DI PERSONE!!!
-		return null;
+		List<Person> list = cperson.getPeople();
+		return list;
 	}
 
 	@POST
@@ -47,14 +42,6 @@ public class PersonService {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
-
-	/**
-	 * 
-	 * GET PUT DELETE
-	 * 
-	 * /person/{p_id}
-	 * 
-	 */
 
 	@GET
 	@Path("/{p_id}")
@@ -86,7 +73,7 @@ public class PersonService {
 			
 			if (personId != -1) //data successiful updated!
 				return Response.status(Response.Status.OK).entity(dbPerson).build();
-			else 
+			else
 				return Response.status(Response.Status.BAD_REQUEST).build();
 
 		} else {
@@ -100,13 +87,6 @@ public class PersonService {
 	public Response deletePerson(@PathParam("p_id") int p_id) {
 
 		if (cperson.deletePerson(p_id)) {
-
-//			DELETE HP LIST
-//			ArrayList<HealthProfile> history = HealthProfileDB
-//					.getPersonHealthProfileHistory(p_id);
-//			person.setHealthProfileHistory(history);
-//
-//			HealthProfileDB.deletePersonHealthProfileHistory(history);
 
 			return Response.status(Response.Status.OK).build();
 

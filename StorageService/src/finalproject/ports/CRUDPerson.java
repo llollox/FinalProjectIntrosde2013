@@ -1,12 +1,11 @@
 package finalproject.ports;
 
+import java.util.List;
+
 import javax.jws.WebService;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 import finalproject.model.Goal;
 import finalproject.model.Person;
-import finalproject.utils.DatabaseUtil;
 
 @WebService(
 		serviceName = "PersonService",
@@ -28,6 +27,11 @@ public class CRUDPerson {
 	// READ PERSON
 	public Person readPerson(int id) {
 		return Person.read(id);
+	}
+	
+	// GET PEOPLE
+	public List<Person> getPeople() {
+		return Person.getAll();
 	}
 
 	// UPDATE PERSON

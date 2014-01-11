@@ -14,11 +14,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
+@NamedQuery(name="Activity.findAll", query="SELECT p FROM Activity p")
 @Entity
 @XmlRootElement
 public class Activity {

@@ -3,6 +3,7 @@ package it.unitn.sde.finalproject;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -21,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="heartrate" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="height" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="weight" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -30,6 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "healthProfile", propOrder = {
     "bloodpressure",
@@ -37,6 +40,7 @@ import javax.xml.bind.annotation.XmlType;
     "heartrate",
     "height",
     "id",
+    "personId",
     "weight"
 })
 public class HealthProfile {
@@ -46,6 +50,7 @@ public class HealthProfile {
     protected int heartrate;
     protected double height;
     protected int id;
+    protected int personId;
     protected double weight;
 
     /**
@@ -134,6 +139,22 @@ public class HealthProfile {
      */
     public void setId(int value) {
         this.id = value;
+    }
+
+    /**
+     * Gets the value of the personId property.
+     * 
+     */
+    public int getPersonId() {
+        return personId;
+    }
+
+    /**
+     * Sets the value of the personId property.
+     * 
+     */
+    public void setPersonId(int value) {
+        this.personId = value;
     }
 
     /**

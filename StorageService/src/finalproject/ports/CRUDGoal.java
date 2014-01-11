@@ -1,5 +1,7 @@
 package finalproject.ports;
 
+import java.util.List;
+
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -16,6 +18,14 @@ import finalproject.utils.DatabaseUtil;
 )
 public class CRUDGoal {
 
+	// GET GOALS
+	public List<Goal> getGoals() {
+		EntityManager em = DatabaseUtil.createEntityManager();
+	    List<Goal> list = em.createNamedQuery("Goal.findAll", Goal.class).getResultList();;
+	    em.close();
+	    return list;
+	}
+	
 	// CREATE GOAL
 	public int createGoal(Goal goal) {
 		Goal g = Goal.create(goal);
