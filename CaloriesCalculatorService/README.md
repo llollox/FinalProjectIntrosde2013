@@ -10,7 +10,7 @@ public double getIdealWeight(double height)```
 	- @PARAMS
 		* <b>height</b> is the height of the person, you can pass both in meters or centimeters. 
 	
-	- @RETURN is a double that indicates ideal weight.
+	- @RETURN a double that indicates ideal weight.
 	
 	The ideal weight is 52 kg + 1.9kg for each inch of height over 152.4cm (1 inch = 2.54cm).
 
@@ -44,13 +44,12 @@ public double getIdealWeight(double height)```
 * <b>GET IDEAL DAILY CALORIES NEEDED TO MANAGE WEIGHT</b> 
   ```
   public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, 
-  double weightDifference, Date startDate, Date endDate)
+  double weightDifference, int days)
   ```
 	- @PARAMS
 		* <b>bmr</b> is the amount of energy expended daily by humans and other animals at rest. 
 		* <b>exerciseAmountPerWeek</b> is the number of times that this person do exercise in a week.
 		* <b>weightDifference</b> weight difference that you want get or lose. You can pass it both in kg or grams.
-		* <b>startDate</b> the day that you want to start this diet.
-		* <b>endDate</b> the day that you want to finish this diet.
+		* <b>days</b> number of days that you have to reach that weight.
 
-	- @RETURN the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week. 
+	- @RETURN the amount of calories needed for that person to reach his target weight, doing this amount of exercise per week, in the specified amount of days available. 

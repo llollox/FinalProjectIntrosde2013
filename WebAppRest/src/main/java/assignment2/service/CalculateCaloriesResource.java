@@ -20,7 +20,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 @Path("/calculate")
-public class CalculateCaloriesService {
+public class CalculateCaloriesResource {
 	
 	public static CaloriesCalculator cc = new CaloriesService().getCalculator();
 
@@ -95,10 +95,10 @@ public class CalculateCaloriesService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getIdealDailyCaloriesNeeded(
 			@QueryParam("bmr") double bmr,
-			@QueryParam("exerciseAmountPerWeek") int exerciseAmountPerWeek){
+			@QueryParam("exerciseTimesPerWeek") int exerciseTimesPerWeek){
 
-		if (bmr > 0 && exerciseAmountPerWeek > 0){
-			return Response.status(Response.Status.OK).entity(""+cc.getIdealDailyCaloriesNeeded(bmr, exerciseAmountPerWeek)).build();
+		if (bmr > 0){
+			return Response.status(Response.Status.OK).entity(""+cc.getIdealDailyCaloriesNeeded(bmr, exerciseTimesPerWeek)).build();
 		}
 		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
@@ -109,16 +109,15 @@ public class CalculateCaloriesService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response getDailyCaloriesNeededToManageWeight(
 			@QueryParam("bmr") double bmr,
-			@QueryParam("exerciseAmountPerWeek") int exerciseAmountPerWeek,
+			@QueryParam("exerciseTimesPerWeek") int exerciseTimesPerWeek,
 			@QueryParam("weightDifference") String weightDifference,
 			@QueryParam("days") int days){
 
-		if (bmr > 0 && exerciseAmountPerWeek > 0 
-				&& weightDifference != null && days > 0){
+		if (bmr > 0 && weightDifference != null && days > 0){
 
 			return Response.status(Response.Status.OK).
 					entity(""+cc.getDailyCaloriesNeededToManageWeight(
-							bmr, exerciseAmountPerWeek, Integer.parseInt(weightDifference), days)).
+							bmr, exerciseTimesPerWeek, Integer.parseInt(weightDifference), days)).
 							build();
 		}
 		else

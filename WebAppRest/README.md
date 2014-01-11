@@ -77,14 +77,41 @@ Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH
 
 
 <hr/>
+####Food Api
 **GET  /food/recipe/{RECIPE_ID}**
 
 Returns a <b>Receipt</b> object
 
 **GET  /food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS**
 
-
 Returns a <b>List of Matches</b> which are the recipes found. The parameters are all optionals.
+
+<hr/>
+
+####Calculate Calories Api
+**GET  /calculate/idealweight?height=HEIGHT&sex=SEX**
+
+Returns a double that indicates IDEAL WEIGHT.
+
+**GET  /calculate/idealbmi?height=HEIGHT&sex=SEX**
+
+Returns the IDEAL BMI calculated for that person.
+
+**GET  /calculate/bmi?height=HEIGHT&weight=WEIGHT**
+
+Returns the BMI calculated for that person.
+
+**GET  /calculate/bmr?height=HEIGHT&weight=WEIGHT&age=AGE&sex=SEX**
+
+Returns the BMR calculated for that person.
+
+**GET  /calculate/dailycalories?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK**
+
+Returns the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
+
+**GET  /calculate/dailycaloriesmanaged?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK&weightDifference=WEIGHTDIFFERENCE&days=DAYS**
+
+Returns the amount of calories needed for that person to reach his target weight, doing this amount of exercise per week, in the specified amount of days available.
 
 <hr/>
 
