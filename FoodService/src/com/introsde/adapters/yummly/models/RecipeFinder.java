@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @XmlRootElement
-public class ReceiptFinder {
+public class RecipeFinder {
 
 	private Attribution attribution;
 	private Criteria criteria;

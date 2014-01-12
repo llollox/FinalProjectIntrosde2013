@@ -5,7 +5,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Receipt {
+public class Recipe {
 
 	private Attributes attributes;
 	private Attribution attribution;
