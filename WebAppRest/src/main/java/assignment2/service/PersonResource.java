@@ -17,7 +17,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/person")
+@Path("/person/")
 public class PersonResource {
 	
 	public static CRUDPerson cperson = new PersonService().getCRUD();
@@ -94,5 +94,26 @@ public class PersonResource {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
-
+	
+	@GET
+	@Path("/birthdate?from={start}&to={end}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<Person> getPeopleByBirthdate(@PathParam("start") String start, @PathParam("end") String end) {
+		return cperson.getPeopleByBirthdate(start, end);
+	}
+	
+	@GET
+	@Path("/measure?name={name}&min={min}&max={max}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<Person> getPeopleByMeasure(@PathParam("name") String name, @PathParam("min") String min, @PathParam("max") String max) {
+		return cperson.getPeopleByMeasure(name, min, max);
+	}
+	
+	@GET
+	@Path("/name?contains={name}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<Person> getPeopleByName(@PathParam("name") String name) {
+		return cperson.getPeopleByName(name);
+	}
+	
 }

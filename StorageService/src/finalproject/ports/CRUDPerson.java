@@ -33,6 +33,26 @@ public class CRUDPerson {
 	public List<Person> getPeople() {
 		return Person.getAll();
 	}
+	
+	// GET PEOPLE BY NAME
+	public List<Person> getPeopleByName(String name) {
+		return Person.getByName(name);
+	}
+	
+	// GET PEOPLE BY BIRTHDATE
+	public List<Person> getPeopleByBirthdate(String start, String end) {
+		return Person.getByBirthdate(start, end);
+	}
+	
+	// GET PEOPLE BY MASURE
+	public List<Person> getPeopleByMeasure(String measure, String min, String max) {
+		if (measure.equals("height"))
+			return Person.getByHeight(min, max);
+		else if (measure.equals("weight"))
+			return Person.getByWeight(min, max);
+		
+		return null;
+	}
 
 	// UPDATE PERSON
 	public int updatePerson(Person person) {
