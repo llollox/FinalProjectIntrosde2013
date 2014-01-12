@@ -1,12 +1,12 @@
 package com.introsde.adapters.edamam.models;
 
-public class Nutrient {
+public class ENERC_KCAL {
 
 	private String label;
 	private Double quantity;
 	private String unit;
 
-	public Nutrient() {
+	public ENERC_KCAL() {
 		super();
 	}
 
@@ -33,11 +33,4 @@ public class Nutrient {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-
-	@Override
-	public String toString() {
-		return "Nutrient [label=" + label + ", quantity=" + quantity
-				+ ", unit=" + unit + "]";
-	}
-
 }

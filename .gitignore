@@ -6,3 +6,5 @@ StorageService/src/META-INF/persistence.xml
 
 .DS_Store
 .DS_Store?
+
+*.class

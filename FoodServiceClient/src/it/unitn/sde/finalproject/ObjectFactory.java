@@ -132,99 +132,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Chole }
-     * 
-     */
-    public Chole createChole() {
-        return new Chole();
-    }
-
-    /**
-     * Create an instance of {@link Chocdf }
-     * 
-     */
-    public Chocdf createChocdf() {
-        return new Chocdf();
-    }
-
-    /**
      * Create an instance of {@link FacetCounts }
      * 
      */
     public FacetCounts createFacetCounts() {
         return new FacetCounts();
-    }
-
-    /**
-     * Create an instance of {@link Nutrient }
-     * 
-     */
-    public Nutrient createNutrient() {
-        return new Nutrient();
-    }
-
-    /**
-     * Create an instance of {@link Matches }
-     * 
-     */
-    public Matches createMatches() {
-        return new Matches();
-    }
-
-    /**
-     * Create an instance of {@link Fatrn }
-     * 
-     */
-    public Fatrn createFatrn() {
-        return new Fatrn();
-    }
-
-    /**
-     * Create an instance of {@link EnercKCAL }
-     * 
-     */
-    public EnercKCAL createEnercKCAL() {
-        return new EnercKCAL();
-    }
-
-    /**
-     * Create an instance of {@link SmallImageUrls }
-     * 
-     */
-    public SmallImageUrls createSmallImageUrls() {
-        return new SmallImageUrls();
-    }
-
-    /**
-     * Create an instance of {@link Flavors }
-     * 
-     */
-    public Flavors createFlavors() {
-        return new Flavors();
-    }
-
-    /**
-     * Create an instance of {@link TotalNutrients }
-     * 
-     */
-    public TotalNutrients createTotalNutrients() {
-        return new TotalNutrients();
-    }
-
-    /**
-     * Create an instance of {@link ImageUrlsBySize }
-     * 
-     */
-    public ImageUrlsBySize createImageUrlsBySize() {
-        return new ImageUrlsBySize();
-    }
-
-    /**
-     * Create an instance of {@link NutritionEstimates }
-     * 
-     */
-    public NutritionEstimates createNutritionEstimates() {
-        return new NutritionEstimates();
     }
 
     /**
@@ -236,22 +148,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Fasat }
-     * 
-     */
-    public Fasat createFasat() {
-        return new Fasat();
-    }
-
-    /**
-     * Create an instance of {@link Fat }
-     * 
-     */
-    public Fat createFat() {
-        return new Fat();
-    }
-
-    /**
      * Create an instance of {@link Unit }
      * 
      */
@@ -260,19 +156,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Fibtg }
+     * Create an instance of {@link Matches }
      * 
      */
-    public Fibtg createFibtg() {
-        return new Fibtg();
+    public Matches createMatches() {
+        return new Matches();
     }
 
     /**
-     * Create an instance of {@link Na }
+     * Create an instance of {@link EnercKCAL }
      * 
      */
-    public Na createNa() {
-        return new Na();
+    public EnercKCAL createEnercKCAL() {
+        return new EnercKCAL();
     }
 
     /**
@@ -281,6 +177,30 @@ public class ObjectFactory {
      */
     public Source createSource() {
         return new Source();
+    }
+
+    /**
+     * Create an instance of {@link SmallImageUrls }
+     * 
+     */
+    public SmallImageUrls createSmallImageUrls() {
+        return new SmallImageUrls();
+    }
+
+    /**
+     * Create an instance of {@link TotalNutrients }
+     * 
+     */
+    public TotalNutrients createTotalNutrients() {
+        return new TotalNutrients();
+    }
+
+    /**
+     * Create an instance of {@link Flavors }
+     * 
+     */
+    public Flavors createFlavors() {
+        return new Flavors();
     }
 
     /**
@@ -300,6 +220,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ImageUrlsBySize }
+     * 
+     */
+    public ImageUrlsBySize createImageUrlsBySize() {
+        return new ImageUrlsBySize();
+    }
+
+    /**
      * Create an instance of {@link Attribution }
      * 
      */
@@ -308,19 +236,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Sugar }
+     * Create an instance of {@link NutritionEstimates }
      * 
      */
-    public Sugar createSugar() {
-        return new Sugar();
-    }
-
-    /**
-     * Create an instance of {@link Procnt }
-     * 
-     */
-    public Procnt createProcnt() {
-        return new Procnt();
+    public NutritionEstimates createNutritionEstimates() {
+        return new NutritionEstimates();
     }
 
     /**
