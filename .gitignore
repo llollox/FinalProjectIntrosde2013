@@ -3,8 +3,6 @@ StorageService/src/META-INF/persistence.xml
 /bin
 
 .settings
-.classpath
-.project
 
 .DS_Store
 .DS_Store?
