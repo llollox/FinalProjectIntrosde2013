@@ -1,4 +1,4 @@
-package assignment2.service;
+package introsde.finalproject.service;
 
 import introsde.finalproject.calories.client.CaloriesCalculator;
 import introsde.finalproject.calories.client.CaloriesService;

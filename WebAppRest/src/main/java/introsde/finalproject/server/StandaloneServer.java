@@ -1,4 +1,4 @@
-package assignment2.server;
+package introsde.finalproject.server;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -9,8 +9,7 @@ import com.sun.net.httpserver.HttpServer;
 public class StandaloneServer {
 	public static void main(String[] args) throws IllegalArgumentException,
 			IOException {
-		
-		
+
 		String protocol = "http://"; // of course...
 		String port = ":5900/"; // you can use any other as long as it is not in
 								// use

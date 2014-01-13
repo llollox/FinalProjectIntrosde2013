@@ -1,4 +1,6 @@
-package assignment2.service;
+package introsde.finalproject.service;
+
+import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -11,22 +13,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExerciseHistory;
-import finalproject.client.service.ExerciseHistoryService;
-import finalproject.model.ExerciseHistory;
+import finalproject.client.interfaces.CRUDActivity;
+import finalproject.client.service.ActivityService;
+import finalproject.model.Activity;
 
-@Path("/exercisehistory")
-public class ExerciseHistoryResource {
+@Path("/activity")
+public class ActivityResource {
 
-	public static CRUDExerciseHistory cexercisehistory = new ExerciseHistoryService()
-			.getCRUD();
+	public static CRUDActivity cactivity = new ActivityService().getCRUD();
+
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public List<Activity> getActivities() {
+		return cactivity.getActivities();
+	}
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createExerciseHistory(ExerciseHistory a) {
+	public Response createActivity(Activity a) {
 
-		int id = cexercisehistory.createExerciseHistory(a);
+		int id = cactivity.createActivity(a);
 		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
 		} else {
@@ -37,31 +44,30 @@ public class ExerciseHistoryResource {
 	@GET
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public ExerciseHistory getExerciseHistory(@PathParam("id") int id) {
-		return cexercisehistory.readExerciseHistory(id);
+	public Activity getActivity(@PathParam("id") int id) {
+		return cactivity.readActivity(id);
 	}
 
 	@PUT
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateExerciseHistory(@PathParam("id") int id,
-			ExerciseHistory json) {
+	public Response updateActivity(@PathParam("id") int id, Activity json) {
 
-		ExerciseHistory a = cexercisehistory.readExerciseHistory(id);
+		Activity a = cactivity.readActivity(id);
 
-		if (a != null && json.getActivityChoosen() != null
-				&& json.getDate() != null && json.getExercise() != null
-				&& json.getPerson() != null) {
+		if (a != null && json.getDescription() != null) {
 
 			// aggionro i dati
-			a.setActivityChoosen(json.getActivityChoosen());
-			a.setDate(json.getDate());
-			a.setExercise(json.getExercise());
-			a.setPerson(json.getPerson());
+			a.setActivitygroup(json.getActivitygroup());
+			a.setAerobic(json.getAerobic());
+			a.setDescription(json.getDescription());
+			a.setDifficultyvalue(json.getDifficultyvalue());
+			a.setType(json.getType());
+			a.setValue(json.getValue());
 
 			// aggiorno nel db
-			int _id = cexercisehistory.updateExerciseHistory(a);
+			int _id = cactivity.updateActivity(a);
 
 			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
@@ -76,9 +82,9 @@ public class ExerciseHistoryResource {
 	@DELETE
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deleteExerciseHistory(@PathParam("id") int id) {
+	public Response deleteActivity(@PathParam("id") int id) {
 
-		if (cexercisehistory.deleteExerciseHistory(id)) {
+		if (cactivity.deleteActivity(id)) {
 
 			return Response.status(Response.Status.OK).build();
 

@@ -1,4 +1,7 @@
-package assignment2.crawler;
+package introsde.finalproject.crawler;
+
+import introsde.finalproject.service.HealthProfileResource;
+import introsde.finalproject.service.PersonResource;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -11,8 +14,6 @@ import javax.ws.rs.core.Response;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import assignment2.service.HealthProfileResource;
-import assignment2.service.PersonResource;
 
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
