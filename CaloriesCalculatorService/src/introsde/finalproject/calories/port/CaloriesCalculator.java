@@ -71,6 +71,23 @@ public class CaloriesCalculator {
     		weight = weight / 1000.0;
     	return weight / (height * height);	
     }
+	
+	/**
+   	 * @param bmi (double) is the bmi of a person. 
+   	 * @return The label associated that explain the value of this bmi
+   	 */
+	@WebMethod
+	public String getBmiLabel(double bmi){
+		if (bmi <= 18.5)
+			return "Underweight";
+		else if (bmi > 18.5 && bmi <= 25)
+			return "Normal";
+		else if (bmi > 25 && bmi <= 30)
+			return "Overweight";
+		else if (bmi > 30)
+			return "Obese";
+		return null;
+	}
     
     /**
 	 * 
@@ -159,6 +176,12 @@ public class CaloriesCalculator {
     	}
     }
 	
+	/**
+   	 * @param age (double) is the age of a person. 
+   	 * @param heartRate (int) average bpm of his heart. 
+   	 * @return The Target Heart Rate (THR) at which you MAXIMIZE the benefits of cardiovascular activity when you exercise in this zone of your target heart rate
+   	 */
+	@WebMethod
 	public double getTargetHeartRate(double age, int heartRate){
 		double maximumHeartRate = 220 - age;
 		double heartRateReserve = maximumHeartRate - heartRate;
@@ -166,18 +189,36 @@ public class CaloriesCalculator {
 		double upperLimit = (heartRateReserve * 0.8) + heartRate;
 		return (upperLimit + lowerLimit)/2;
 	}
+	
+	/**
+   	 * @param minbloodpressure (double) is minimum blood pressure of the person
+   	 * @param maxnbloodpressure (double) is maximum blood pressure of the person 
+   	 * @return The label associated that explain the value of these blood pressures.
+   	 */
+	@WebMethod
+	public String getBloodPressureLabel(double minbloodpressure, double maxbloodpressure){
+		if (isBetween(maxbloodpressure, 91, 120))
+			return "Normal";
+		else if (isBetween(maxbloodpressure, 121, 140))
+			return "High";
+		else if (isBetween(maxbloodpressure, 0, 90))
+			return "Low";
+		else if (isBetween(maxbloodpressure, 141, 250))
+			return "Very High";
+		return null;
+	}
     
+	private static boolean isBetween(double value, double lowerbound, double upperbound){
+		if (value >= lowerbound && value <= upperbound)
+			return true;
+		else 
+			return false;
+	}
+	
     private static int daysBetween(Date d1, Date d2){
     	if (d2.getTime() == d1.getTime())
     		return 0;
     	else
     		return (int)( (d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24)) + 1;
      }
-    
-//    public static void main(String[] args){
-//    	CaloriesCalculator cc = new CaloriesCalculator();
-//    	System.out.println("-1 = " + cc.getDailyCaloriesNeededToManageWeight(1500.0, 3, -1, 100));
-//    	System.out.println("-5 = " +cc.getDailyCaloriesNeededToManageWeight(1500.0, 3, -5, 100));
-//    	System.out.println("-10 = " +cc.getDailyCaloriesNeededToManageWeight(2000.0, 3, -10, 100));
-//    }
 }

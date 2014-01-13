@@ -61,6 +61,18 @@ public interface CaloriesCalculator {
         double height,
         @WebParam(name = "arg1", targetNamespace = "")
         double weight);
+    
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns double
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    public String getBmiLabel(
+        @WebParam(name = "arg0", targetNamespace = "")
+        double bmi);
 
     /**
      * 
@@ -133,5 +145,20 @@ public interface CaloriesCalculator {
         double age,
         @WebParam(name = "arg1", targetNamespace = "")
         int heartRate);
+    
+    /**
+     * 
+     * @param minbloodpressure
+     * @param maxbloodpressure
+     * @return
+     *     returns The label associated that explain the value of these blood pressures
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    public String getBloodPressureLabel(
+        @WebParam(name = "arg0", targetNamespace = "")
+        double minbloodpressure,
+        @WebParam(name = "arg1", targetNamespace = "")
+        double maxbloodpressure);
 
 }
