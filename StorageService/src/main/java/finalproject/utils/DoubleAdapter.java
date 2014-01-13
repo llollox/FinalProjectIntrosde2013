@@ -10,12 +10,12 @@ public class DoubleAdapter extends XmlAdapter<String, Double> {
 
 	@Override
 	public String marshal(Double arg0) throws Exception {
-		return decimalFormat.format(arg0.doubleValue());
+		return decimalFormat.format(arg0);
 	}
 
 	@Override
 	public Double unmarshal(String arg0) throws Exception {
-		return decimalFormat.parse(arg0.replace('.', ',')).doubleValue();
+		return decimalFormat.parse(arg0).doubleValue();
 	}
 
 }
