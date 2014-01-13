@@ -29,6 +29,36 @@ public interface Food {
      * 
      * @param arg0
      * @return
+     *     returns it.unitn.sde.finalproject.Recipe
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getRecipe", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipe")
+    @ResponseWrapper(localName = "getRecipeResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipeResponse")
+    @Action(input = "http://finalproject.sde.unitn.it/Food/getRecipeRequest", output = "http://finalproject.sde.unitn.it/Food/getRecipeResponse")
+    public Recipe getRecipe(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns it.unitn.sde.finalproject.RecipeFinder
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getRecipes", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipes")
+    @ResponseWrapper(localName = "getRecipesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipesResponse")
+    @Action(input = "http://finalproject.sde.unitn.it/Food/getRecipesRequest", output = "http://finalproject.sde.unitn.it/Food/getRecipesResponse")
+    public RecipeFinder getRecipes(
+        @WebParam(name = "arg0", targetNamespace = "")
+        QueryParams arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns it.unitn.sde.finalproject.EdamamResponse
      */
     @WebMethod

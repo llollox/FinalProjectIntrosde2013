@@ -4,12 +4,15 @@ import it.unitn.sde.finalproject.EdamamResponse;
 import it.unitn.sde.finalproject.EnercKCAL;
 import it.unitn.sde.finalproject.Food;
 import it.unitn.sde.finalproject.FoodService;
+import it.unitn.sde.finalproject.KeyValuePair;
+import it.unitn.sde.finalproject.Matches;
+import it.unitn.sde.finalproject.QueryParams;
+import it.unitn.sde.finalproject.RecipeFinder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.introsde.adapters.yummly.models.Matches;
-import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.adapters.yummly.Yummly;
 
 public class Main {
 
@@ -25,24 +28,25 @@ public class Main {
 		// for (Matches m : r.getMatches())
 		// System.out.println(foodService.getRecipe(m.getId()).getName());
 
-		List<String> ingr = new ArrayList<String>();
-
-		ingr.add("20g butter");
-		ingr.add("30g oil");
-		ingr.add("300g meat");
-
-		EdamamResponse res = foodService.calculateIngredientsValues(ingr);
-
-		System.out.println("Calories: " + res.getCalories());
-		System.out.println("Total Daily: "
-				+ res.getTotalDaily().getENERCKCAL().getLabel() + " "
-				+ res.getTotalDaily().getENERCKCAL().getQuantity() + " "
-				+ res.getTotalDaily().getENERCKCAL().getUnit());
-
-		System.out.println("Total Nutrients: "
-				+ res.getTotalNutrients().getENERCKCAL().getLabel() + " "
-				+ res.getTotalNutrients().getENERCKCAL().getQuantity() + " "
-				+ res.getTotalNutrients().getENERCKCAL().getUnit());
+		// List<String> ingrList = new ArrayList<String>();
+		//
+		// ingrList.add("20g butter");
+		// ingrList.add("30g oil");
+		// ingrList.add("300g meat");
+		//
+		// EdamamResponse res =
+		// foodService.calculateIngredientsValues(ingrList);
+		//
+		// System.out.println("Calories: " + res.getCalories());
+		// System.out.println("Total Daily: "
+		// + res.getTotalDaily().getENERCKCAL().getLabel() + " "
+		// + res.getTotalDaily().getENERCKCAL().getQuantity() + " "
+		// + res.getTotalDaily().getENERCKCAL().getUnit());
+		//
+		// System.out.println("Total Nutrients: "
+		// + res.getTotalNutrients().getENERCKCAL().getLabel() + " "
+		// + res.getTotalNutrients().getENERCKCAL().getQuantity() + " "
+		// + res.getTotalNutrients().getENERCKCAL().getUnit());
 
 		ArrayList<String> allowed = new ArrayList<String>(), excuded = new ArrayList<String>();
 
@@ -53,8 +57,23 @@ public class Main {
 		excuded.add("mint");
 		excuded.add("chicken");
 
-		//RecipeFinder finder = foodService.getRecipes(allowed, excuded);
-//		p(finder, foodService);
+		QueryParams params = new QueryParams();
+
+		List<KeyValuePair> list = new ArrayList<KeyValuePair>();
+
+		for (String ingr : allowed) {
+			list.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, ingr));
+		}
+
+		for (String ingr : excuded) {
+			list.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, ingr));
+		}
+
+		params.setQueryParams(list);
+
+		RecipeFinder finder = foodService.getRecipes(params);
+
+		p(finder, foodService);
 
 	}
 

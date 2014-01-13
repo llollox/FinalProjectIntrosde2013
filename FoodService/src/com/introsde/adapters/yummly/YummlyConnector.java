@@ -7,6 +7,8 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import com.introsde.adapters.yummly.models.Recipe;
 import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.utils.KeyValuePair;
+import com.introsde.food.utils.QueryParams;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
@@ -125,6 +127,21 @@ public class YummlyConnector {
 		return retrive(queryParams, null, null);
 	}
 
+	public static RecipeFinder getRecipes(QueryParams params) {
+
+		if (params == null) {
+			return null;
+		}
+
+		MultivaluedMapImpl queryParams = new MultivaluedMapImpl();
+
+		for (KeyValuePair pair : params.getQueryParams()) {
+			queryParams.add(pair.getKey(), pair.getValue());
+		}
+
+		return retrive(queryParams, null, null);
+	}
+
 	// *******************************************************************
 	//
 	// TWO METHODS THAT CONNECTS AND GETS ALL THE INFORMATIONS FROM YUMMLY
@@ -139,13 +156,13 @@ public class YummlyConnector {
 			queryParams = new MultivaluedMapImpl();
 		}
 
-		for (String ingr : includedIngredients) {
-			queryParams.add(Yummly.ALLOWED_INGREDIENT, ingr);
-		}
+		if (includedIngredients != null)
+			for (String ingr : includedIngredients)
+				queryParams.add(Yummly.ALLOWED_INGREDIENT, ingr);
 
-		for (String ingr : excludedIngredients) {
-			queryParams.add(Yummly.EXCLUDED_INGREDIENT, ingr);
-		}
+		if (excludedIngredients != null)
+			for (String ingr : excludedIngredients)
+				queryParams.add(Yummly.EXCLUDED_INGREDIENT, ingr);
 
 		if (!queryParams.containsKey(Yummly.MAX_RESULTS))
 			queryParams.add(Yummly.MAX_RESULTS, "20");

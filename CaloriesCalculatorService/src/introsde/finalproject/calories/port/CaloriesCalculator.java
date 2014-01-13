@@ -158,6 +158,10 @@ public class CaloriesCalculator {
     			return dailyCaloriesNeededManaged;
     	}
     }
+	
+	public double getIdealHeartRate(){
+		return 0;
+	}
     
     private static int daysBetween(Date d1, Date d2){
     	if (d2.getTime() == d1.getTime())
