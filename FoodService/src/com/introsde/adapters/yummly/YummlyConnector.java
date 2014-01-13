@@ -5,8 +5,8 @@ import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
-import com.introsde.adapters.yummly.models.Receipt;
-import com.introsde.adapters.yummly.models.ReceiptFinder;
+import com.introsde.adapters.yummly.models.Recipe;
+import com.introsde.adapters.yummly.models.RecipeFinder;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
@@ -15,34 +15,7 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 public class YummlyConnector {
 
-	private static final String APP_ID_VALUE = "ad98c4ce";
-	private static final String APP_KEY_VALUE = "034eea1cd3f52cdd3a742772fca0d859";
-
-	private static final String APP_ID_KEY = "_app_id";
-	private static final String APP_KEY_KEY = "_app_key";
-
-	private static final String ENERC_KCAL_MAX = "nutrition.ENERC_KCAL.max";
-	private static final String ENERC_KCAL_MIN = "nutrition.ENERC_KCAL.min";
-
-	private static final String MAX_RESULTS = "maxResult";
-
-	private static final String ALLOWED_INGREDIENTS = "allowedIngredient[]";
-	private static final String EXCLUDED_INGREDIENTS = "excludedIngredient[]";
-
-	private static final String TEXT_QUERY = "q";
-
-	private static final String ALLOWED_DIET = "allowedDiet[]";
-
-	private static final String PESCETARIAN = "390^Pescetarian";
-	private static final String LACTO_OVO_VEGETARIAN = "387^Lacto-ovo vegetarian";
-	private static final String LACTO_VEGETARIAN = "388^Lacto vegetarian";
-	private static final String OVO_VEGETARIAN = "389^Ovo vegetarian";
-
 	private static WebResource service;
-
-	enum ATTR_NAME {
-		K, NA, CHOLE, FATRN, FASAT, CHOCDF, FIBTG, PROCNT, VITC, CA, FE, SUGAR, ENERC_KCAL, FAT, VITA_IU
-	}
 
 	static {
 
@@ -52,18 +25,20 @@ public class YummlyConnector {
 		service = client.resource("http://api.yummly.com/v1/api");
 	}
 
-	public static Receipt getRecipe(String recipeId) {
+	public static RecipeFinder getRecipes(int minKcal, int maxKcal) {
 
-		if (recipeId == null || recipeId.matches("\\s*"))
+		if (minKcal < 0 || maxKcal < minKcal)
 			return null;
 
-		return service.path("/recipe").path(recipeId)
-				.queryParam(APP_ID_KEY, APP_ID_VALUE)
-				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
-				.accept(MediaType.APPLICATION_JSON).get(Receipt.class);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+
+		queryParams.add(Yummly.KCAL_MIN, minKcal + "");
+		queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
+
+		return retrive(queryParams, null, null);
 	}
 
-	public static ReceiptFinder getRecipesByCalories(int minKcal, int maxKcal,
+	public static RecipeFinder getRecipes(int minKcal, int maxKcal,
 			int maxResults) {
 
 		if (minKcal < 0 || maxKcal < minKcal)
@@ -72,45 +47,118 @@ public class YummlyConnector {
 		if (maxResults < 1)
 			return null;
 
-		return service
-				.path("/recipes")
-				// parameter to get recipes with pictures
-				.queryParam("requirePictures", "true")
-				.queryParam(ENERC_KCAL_MIN, minKcal + "")
-				.queryParam(ENERC_KCAL_MAX, maxKcal + "")
-				.queryParam(MAX_RESULTS, maxResults + "")
-				.queryParam(APP_ID_KEY, APP_ID_VALUE)
-				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
-				.accept(MediaType.APPLICATION_JSON).get(ReceiptFinder.class);
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+
+		queryParams.add(Yummly.KCAL_MIN, minKcal + "");
+		queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
+		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+
+		return retrive(queryParams, null, null);
 	}
 
-	public static void getRecipes(String textQuery,
+	public static RecipeFinder getRecipes(String textQuery) {
+
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+
+		return retrive(queryParams, null, null);
+	}
+
+	public static RecipeFinder getRecipes(String textQuery, int maxResults) {
+
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+
+		return retrive(queryParams, null, null);
+	}
+
+	public static RecipeFinder getRecipes(String textQuery,
+			List<String> includedIngredients, List<String> excludedIngredients) {
+
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+
+		return retrive(queryParams, includedIngredients, excludedIngredients);
+	}
+
+	public static RecipeFinder getRecipes(String textQuery,
 			List<String> includedIngredients, List<String> excludedIngredients,
 			int maxResults) {
 
-		service.path("/recipes");
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
 
-		MultivaluedMap<String, String> map = new MultivaluedMapImpl();
+		return retrive(queryParams, includedIngredients, excludedIngredients);
+	}
+
+	public static RecipeFinder getRecipes(List<String> includedIngredients,
+			List<String> excludedIngredients) {
+
+		return retrive(null, includedIngredients, excludedIngredients);
+	}
+
+	public static RecipeFinder getRecipes(
+			MultivaluedMap<String, String> queryParams,
+			List<String> includedIngredients, List<String> excludedIngredients) {
+
+		return retrive(queryParams, includedIngredients, excludedIngredients);
+	}
+
+	public static RecipeFinder getRecipes(
+			MultivaluedMap<String, String> queryParams) {
+
+		if (queryParams == null) {
+			queryParams = new MultivaluedMapImpl();
+		}
+
+		return retrive(queryParams, null, null);
+	}
+
+	// *******************************************************************
+	//
+	// TWO METHODS THAT CONNECTS AND GETS ALL THE INFORMATIONS FROM YUMMLY
+	//
+	// *******************************************************************
+
+	private static RecipeFinder retrive(
+			MultivaluedMap<String, String> queryParams,
+			List<String> includedIngredients, List<String> excludedIngredients) {
+
+		if (queryParams == null) {
+			queryParams = new MultivaluedMapImpl();
+		}
 
 		for (String ingr : includedIngredients) {
-			map.add(ALLOWED_INGREDIENTS, ingr);
+			queryParams.add(Yummly.ALLOWED_INGREDIENT, ingr);
 		}
 
 		for (String ingr : excludedIngredients) {
-			map.add(EXCLUDED_INGREDIENTS, ingr);
+			queryParams.add(Yummly.EXCLUDED_INGREDIENT, ingr);
 		}
 
-		if (!map.isEmpty()) {
-			service.queryParams(map);
-		}
+		if (!queryParams.containsKey(Yummly.MAX_RESULTS))
+			queryParams.add(Yummly.MAX_RESULTS, "20");
 
-		if (textQuery != null)
-			service.queryParam(TEXT_QUERY, textQuery);
+		// parameter to get recipes with pictures
+		queryParams.add("requirePictures", "true");
+		// add app key and id
+		queryParams.add(Yummly.APP_ID_KEY, Yummly.APP_ID_VALUE);
+		queryParams.add(Yummly.APP_KEY_KEY, Yummly.APP_KEY_VALUE);
 
-		service.queryParam(APP_ID_KEY, APP_ID_VALUE)
-				.queryParam(MAX_RESULTS, maxResults + "")
-				.queryParam(APP_KEY_KEY, APP_KEY_VALUE)
-				.accept(MediaType.APPLICATION_JSON).get(ReceiptFinder.class);
+		return service.path("/recipes").queryParams(queryParams)
+				.accept(MediaType.APPLICATION_JSON).get(RecipeFinder.class);
+	}
 
+	public static Recipe getRecipe(String recipeId) {
+
+		if (recipeId == null || recipeId.matches("\\s*"))
+			return null;
+
+		return service.path("/recipe").path(recipeId)
+				.queryParam(Yummly.APP_ID_KEY, Yummly.APP_ID_VALUE)
+				.queryParam(Yummly.APP_KEY_KEY, Yummly.APP_KEY_VALUE)
+				.accept(MediaType.APPLICATION_JSON).get(Recipe.class);
 	}
 }

@@ -1,2 +1,7 @@
-/bin
 /target
+/bin
+
+.settings
+
+.DS_Store
+.DS_Store?

@@ -67,6 +67,57 @@ public interface CRUDPerson {
      * 
      * @param arg0
      * @return
+     *     returns java.util.List<it.unitn.sde.finalproject.Person>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPeopleByName", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByName")
+    @ResponseWrapper(localName = "getPeopleByNameResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByNameResponse")
+    public List<Person> getPeopleByName(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<it.unitn.sde.finalproject.Person>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPeopleByBirthdate", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByBirthdate")
+    @ResponseWrapper(localName = "getPeopleByBirthdateResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByBirthdateResponse")
+    public List<Person> getPeopleByBirthdate(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<it.unitn.sde.finalproject.Person>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getPeopleByMeasure", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByMeasure")
+    @ResponseWrapper(localName = "getPeopleByMeasureResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByMeasureResponse")
+    public List<Person> getPeopleByMeasure(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns int
      */
     @WebMethod

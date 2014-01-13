@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="cautions" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="dietLabels" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="healthLabels" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="totalDaily" type="{http://finalproject.sde.unitn.it/}totalNutrients" minOccurs="0"/>
  *         &lt;element name="totalNutrients" type="{http://finalproject.sde.unitn.it/}totalNutrients" minOccurs="0"/>
  *         &lt;element name="uri" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="yield" type="{http://www.w3.org/2001/XMLSchema}double" minOccurs="0"/>
@@ -40,6 +41,7 @@ import javax.xml.bind.annotation.XmlType;
     "cautions",
     "dietLabels",
     "healthLabels",
+    "totalDaily",
     "totalNutrients",
     "uri",
     "yield"
@@ -53,6 +55,7 @@ public class EdamamResponse {
     protected List<String> dietLabels;
     @XmlElement(nillable = true)
     protected List<String> healthLabels;
+    protected TotalNutrients totalDaily;
     protected TotalNutrients totalNutrients;
     protected String uri;
     protected Double yield;
@@ -166,6 +169,30 @@ public class EdamamResponse {
             healthLabels = new ArrayList<String>();
         }
         return this.healthLabels;
+    }
+
+    /**
+     * Gets the value of the totalDaily property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TotalNutrients }
+     *     
+     */
+    public TotalNutrients getTotalDaily() {
+        return totalDaily;
+    }
+
+    /**
+     * Sets the value of the totalDaily property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TotalNutrients }
+     *     
+     */
+    public void setTotalDaily(TotalNutrients value) {
+        this.totalDaily = value;
     }
 
     /**

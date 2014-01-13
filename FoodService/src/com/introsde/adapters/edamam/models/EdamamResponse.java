@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 @XmlRootElement
 public class EdamamResponse {
 
@@ -21,9 +20,9 @@ public class EdamamResponse {
 
 	private List<Object> cautions = new ArrayList<Object>();
 
-	// private List<Nutrient> totalNutrients = new ArrayList<Nutrient>();
-
 	private TotalNutrients totalNutrients;
+
+	private TotalNutrients totalDaily;
 
 	public String getUri() {
 		return uri;
@@ -81,20 +80,12 @@ public class EdamamResponse {
 		this.totalNutrients = totalNutrients;
 	}
 
-	// public List<Nutrient> getTotalNutrients() {
-	// return totalNutrients;
-	// }
-	//
-	// public void setTotalNutrients(List<Nutrient> totalNutrients) {
-	// this.totalNutrients = totalNutrients;
-	// }
+	public TotalNutrients getTotalDaily() {
+		return totalDaily;
+	}
 
-	@Override
-	public String toString() {
-		return "\nEdamamResponse [uri=" + uri + ", yield=" + yield
-				+ ", calories=" + calories + ", dietLabels=" + dietLabels
-				+ ", healthLabels=" + healthLabels + ", cautions=" + cautions
-				+ ", totalNutrients=" + totalNutrients + "]";
+	public void setTotalDaily(TotalNutrients totalDaily) {
+		this.totalDaily = totalDaily;
 	}
 
 }

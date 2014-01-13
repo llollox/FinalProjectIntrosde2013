@@ -37,10 +37,7 @@ public class EdamamConnector {
 		return service.path("/nutrient-info")
 				.queryParam("app_id", EDAMAM_APP_ID)
 				.queryParam("app_key", EDAMAM_APP_KEY)
-				.queryParam("extractOnly", "")
-
-				.type(MediaType.APPLICATION_JSON)
-
+				.queryParam("extractOnly", "").type(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON)
 				.post(EdamamResponse.class, request);
 	}

@@ -52,14 +52,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreateExerciseCategory }
-     * 
-     */
-    public CreateExerciseCategory createCreateExerciseCategory() {
-        return new CreateExerciseCategory();
-    }
-
-    /**
      * Create an instance of {@link GetCategories }
      * 
      */
@@ -121,6 +113,14 @@ public class ObjectFactory {
      */
     public CreateExerciseCategoryResponse createCreateExerciseCategoryResponse() {
         return new CreateExerciseCategoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link CreateExerciseCategory }
+     * 
+     */
+    public CreateExerciseCategory createCreateExerciseCategory() {
+        return new CreateExerciseCategory();
     }
 
     /**
