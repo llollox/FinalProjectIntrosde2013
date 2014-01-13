@@ -44,7 +44,7 @@ public class Person {
 	private String lastname;
 	private String birthdate;
 	private Integer exerciseTimesPerWeek;
-	
+
 	@Transient
 	private ExtendedHealthProfile extendedhealthprofile;
 
@@ -97,7 +97,7 @@ public class Person {
 	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
-	
+
 	public Integer getExerciseTimesPerWeek() {
 		return exerciseTimesPerWeek;
 	}
@@ -159,8 +159,8 @@ public class Person {
 
 		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
 			return null;
-		
-		if(p.getExerciseTimesPerWeek() == null)
+
+		if (p.getExerciseTimesPerWeek() == null)
 			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();
@@ -182,6 +182,10 @@ public class Person {
 	}
 
 	public static Person update(Person p) {
+		Person person = Person.read(p.getId());
+
+		if (person == null)
+			return null;
 
 		if (p.getId() <= 0)
 			return null;
@@ -194,16 +198,15 @@ public class Person {
 
 		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
 			return null;
-		
-		if(p.getExerciseTimesPerWeek() == null)
+
+		if (p.getExerciseTimesPerWeek() == null)
 			return null;
 
-		Person person = Person.read(p.getId());
 		person.setFirstname(p.getFirstname());
 		person.setLastname(p.getLastname());
-
-		if (p.getBirthdate() != null)
-			person.setBirthdate(p.getBirthdate());
+		person.setSex(p.getSex());
+		person.setExerciseTimesPerWeek(p.getExerciseTimesPerWeek());
+		person.setBirthdate(p.getBirthdate());
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();

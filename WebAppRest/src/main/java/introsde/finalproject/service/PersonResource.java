@@ -26,7 +26,7 @@ import finalproject.model.ExtendedHealthProfile;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
 
-@Path("/person/")
+@Path("/person")
 public class PersonResource {
 
 	CRUDPerson cperson = new PersonService().getCRUD();
@@ -47,7 +47,8 @@ public class PersonResource {
 
 		int personId = cperson.createPerson(person);
 		if (personId != -1) {
-			return Response.status(Response.Status.OK).entity(personId).build();
+			return Response.status(Response.Status.OK)
+					.entity(cperson.readPerson(personId)).build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
@@ -72,30 +73,15 @@ public class PersonResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response updatePerson(@PathParam("p_id") int p_id, Person json) {
 
-		Person dbPerson = cperson.readPerson(p_id);
+		// aggiorno nel db la persona
+		int personId = cperson.updatePerson(json);
 
-		if (dbPerson != null && json.getFirstname() != null
-				&& json.getLastname() != null && json.getBirthdate() != null
-				&& json.getSex() != null) {
-
-			// aggionro i dati della persona
-			dbPerson.setFirstname(json.getFirstname());
-			dbPerson.setLastname(json.getLastname());
-			dbPerson.setBirthdate(json.getBirthdate());
-			dbPerson.setSex(json.getSex());
-
-			// aggiorno nel db la persona
-			int personId = cperson.updatePerson(dbPerson);
-
-			if (personId != -1) // data successiful updated!
-				return Response.status(Response.Status.OK).entity(dbPerson)
-						.build();
-			else
-				return Response.status(Response.Status.BAD_REQUEST).build();
-
-		} else {
+		if (personId != -1) // data successiful updated!
+			return Response.status(Response.Status.OK)
+					.entity(cperson.readPerson(personId)).build();
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
+
 	}
 
 	@DELETE
@@ -138,7 +124,8 @@ public class PersonResource {
 	private ExtendedHealthProfile getExtendedHealthProfile(Person person)
 			throws ParseException {
 
-		if (person.getHealthProfileHistory() != null) {
+		if (person.getHealthProfileHistory() != null
+				&& person.getHealthProfileHistory().size() > 0) {
 
 			HealthProfile hp = person.getHealthProfileHistory().get(
 					person.getHealthProfileHistory().size() - 1);
