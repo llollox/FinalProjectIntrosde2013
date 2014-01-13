@@ -8,6 +8,7 @@ import java.sql.PseudoColumnUsage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
@@ -122,13 +123,19 @@ public class WikiParser {
                     int num_healthProfiles = randBetween(1, 5);
                     
                     for(int i=0;i<num_healthProfiles;i++){
-                    	int year = randBetween(Integer.parseInt(birthDate.substring(0, 4)), 2010);
-                        gc.set(gc.YEAR, year);
-                        int dayOfYear = randBetween(1, gc.getActualMaximum(gc.DAY_OF_YEAR));
-                        gc.set(gc.DAY_OF_YEAR, dayOfYear);
+                    	int year = randBetween(Integer.parseInt(birthDate.substring(0, 4)), 2013);
+                    	int month = randBetween(1,12);
+                    	int day = randBetween(1,28);
+                    	
+                    	int hearthRate = randBetween(60,90);
+                    	int minBloadPressure = randBetween(60,110);
+                    	int maxBloadPressure = randBetween(minBloadPressure+10,180);
+                    	
+//                        gc.set(Calendar.YEAR, year);
+//                        int dayOfYear = randBetween(1, gc.getActualMaximum(Calendar.DAY_OF_YEAR));
+//                        gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
 
-                        String dateRandom = gc.get(gc.YEAR) + "-" + gc.get(gc.MONTH) + "-" + gc.get(gc.DAY_OF_MONTH);
-                        Date date = dateFormat.parse(dateRandom);
+                        String dateRandom = year + "-" + month + "-" + day;
                         
                         Double randWeight = randBetween(weight-(randBetween(0.5,5.0)), weight+(randBetween(0.5,5.0)));
                         Double randHeight = randBetween(height-(randBetween(0.0,0.5)), height+(randBetween(0.0,0.5)));
@@ -137,6 +144,9 @@ public class WikiParser {
                         hp.setHeight(randHeight);
                         hp.setWeight(randWeight);
                         hp.setDate(dateRandom);
+                        hp.setHeartrate(hearthRate);
+                        hp.setMaxbloodpressure(maxBloadPressure);
+                        hp.setMinbloodpressure(minBloadPressure);
                         hp.setPersonId(pId);
                         
                         hps.createHealthProfile(hp);

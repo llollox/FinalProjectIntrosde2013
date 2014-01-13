@@ -3,7 +3,6 @@ package it.unitn.sde.finalproject;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,11 +16,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="bloodpressure" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="heartrate" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="height" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="maxbloodpressure" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="minbloodpressure" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="personId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="weight" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
@@ -32,42 +32,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "healthProfile", propOrder = {
-    "bloodpressure",
     "date",
     "heartrate",
     "height",
     "id",
+    "maxbloodpressure",
+    "minbloodpressure",
     "personId",
     "weight"
 })
 public class HealthProfile {
 
-    protected int bloodpressure;
     protected String date;
     protected int heartrate;
     protected double height;
     protected int id;
+    protected int maxbloodpressure;
+    protected int minbloodpressure;
     protected int personId;
     protected double weight;
-
-    /**
-     * Gets the value of the bloodpressure property.
-     * 
-     */
-    public int getBloodpressure() {
-        return bloodpressure;
-    }
-
-    /**
-     * Sets the value of the bloodpressure property.
-     * 
-     */
-    public void setBloodpressure(int value) {
-        this.bloodpressure = value;
-    }
 
     /**
      * Gets the value of the date property.
@@ -139,6 +124,38 @@ public class HealthProfile {
      */
     public void setId(int value) {
         this.id = value;
+    }
+
+    /**
+     * Gets the value of the maxbloodpressure property.
+     * 
+     */
+    public int getMaxbloodpressure() {
+        return maxbloodpressure;
+    }
+
+    /**
+     * Sets the value of the maxbloodpressure property.
+     * 
+     */
+    public void setMaxbloodpressure(int value) {
+        this.maxbloodpressure = value;
+    }
+
+    /**
+     * Gets the value of the minbloodpressure property.
+     * 
+     */
+    public int getMinbloodpressure() {
+        return minbloodpressure;
+    }
+
+    /**
+     * Sets the value of the minbloodpressure property.
+     * 
+     */
+    public void setMinbloodpressure(int value) {
+        this.minbloodpressure = value;
     }
 
     /**

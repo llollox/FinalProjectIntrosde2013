@@ -3,7 +3,7 @@ package it.unitn.sde.finalproject;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="person" type="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "favouriteFood", propOrder = {
     "id",
@@ -39,6 +38,7 @@ public class FavouriteFood {
 
     protected int id;
     protected String name;
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Person person;
 
     /**

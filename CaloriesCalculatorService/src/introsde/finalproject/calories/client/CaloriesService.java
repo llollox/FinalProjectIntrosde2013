@@ -1,5 +1,5 @@
 
-package it.unitn.sde.finalproject;
+package introsde.finalproject.calories.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
