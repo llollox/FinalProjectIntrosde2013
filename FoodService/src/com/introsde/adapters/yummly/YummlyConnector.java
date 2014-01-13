@@ -99,6 +99,15 @@ public class YummlyConnector {
 		return retrive(null, includedIngredients, excludedIngredients);
 	}
 
+	public static RecipeFinder getRecipes(List<String> includedIngredients,
+			List<String> excludedIngredients, int maxResults) {
+
+		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+
+		return retrive(queryParams, includedIngredients, excludedIngredients);
+	}
+
 	public static RecipeFinder getRecipes(
 			MultivaluedMap<String, String> queryParams,
 			List<String> includedIngredients, List<String> excludedIngredients) {

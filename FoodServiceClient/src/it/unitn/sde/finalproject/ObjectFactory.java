@@ -24,39 +24,15 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetRecipeResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipeResponse");
-    private final static QName _GetRecipesByCalories_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipesByCalories");
     private final static QName _EdamamResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "edamamResponse");
-    private final static QName _GetRecipe_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipe");
-    private final static QName _ReceiptFinder_QNAME = new QName("http://finalproject.sde.unitn.it/", "receiptFinder");
-    private final static QName _Get20RecipesByCalories_QNAME = new QName("http://finalproject.sde.unitn.it/", "get20RecipesByCalories");
     private final static QName _CalculateIngredientsValues_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredientsValues");
-    private final static QName _GetRecipesByCaloriesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "getRecipesByCaloriesResponse");
     private final static QName _CalculateIngredientsValuesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "calculateIngredientsValuesResponse");
-    private final static QName _Get20RecipesByCaloriesResponse_QNAME = new QName("http://finalproject.sde.unitn.it/", "get20RecipesByCaloriesResponse");
-    private final static QName _Receipt_QNAME = new QName("http://finalproject.sde.unitn.it/", "receipt");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: it.unitn.sde.finalproject
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link ReceiptFinder }
-     * 
-     */
-    public ReceiptFinder createReceiptFinder() {
-        return new ReceiptFinder();
-    }
-
-    /**
-     * Create an instance of {@link GetRecipe }
-     * 
-     */
-    public GetRecipe createGetRecipe() {
-        return new GetRecipe();
     }
 
     /**
@@ -68,59 +44,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetRecipesByCaloriesResponse }
-     * 
-     */
-    public GetRecipesByCaloriesResponse createGetRecipesByCaloriesResponse() {
-        return new GetRecipesByCaloriesResponse();
-    }
-
-    /**
      * Create an instance of {@link CalculateIngredientsValues }
      * 
      */
     public CalculateIngredientsValues createCalculateIngredientsValues() {
         return new CalculateIngredientsValues();
-    }
-
-    /**
-     * Create an instance of {@link Get20RecipesByCalories }
-     * 
-     */
-    public Get20RecipesByCalories createGet20RecipesByCalories() {
-        return new Get20RecipesByCalories();
-    }
-
-    /**
-     * Create an instance of {@link GetRecipeResponse }
-     * 
-     */
-    public GetRecipeResponse createGetRecipeResponse() {
-        return new GetRecipeResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetRecipesByCalories }
-     * 
-     */
-    public GetRecipesByCalories createGetRecipesByCalories() {
-        return new GetRecipesByCalories();
-    }
-
-    /**
-     * Create an instance of {@link Get20RecipesByCaloriesResponse }
-     * 
-     */
-    public Get20RecipesByCaloriesResponse createGet20RecipesByCaloriesResponse() {
-        return new Get20RecipesByCaloriesResponse();
-    }
-
-    /**
-     * Create an instance of {@link Receipt }
-     * 
-     */
-    public Receipt createReceipt() {
-        return new Receipt();
     }
 
     /**
@@ -132,38 +60,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FacetCounts }
-     * 
-     */
-    public FacetCounts createFacetCounts() {
-        return new FacetCounts();
-    }
-
-    /**
-     * Create an instance of {@link Criteria }
-     * 
-     */
-    public Criteria createCriteria() {
-        return new Criteria();
-    }
-
-    /**
-     * Create an instance of {@link Unit }
-     * 
-     */
-    public Unit createUnit() {
-        return new Unit();
-    }
-
-    /**
-     * Create an instance of {@link Matches }
-     * 
-     */
-    public Matches createMatches() {
-        return new Matches();
-    }
-
-    /**
      * Create an instance of {@link EnercKCAL }
      * 
      */
@@ -172,93 +68,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Source }
-     * 
-     */
-    public Source createSource() {
-        return new Source();
-    }
-
-    /**
-     * Create an instance of {@link SmallImageUrls }
-     * 
-     */
-    public SmallImageUrls createSmallImageUrls() {
-        return new SmallImageUrls();
-    }
-
-    /**
      * Create an instance of {@link TotalNutrients }
      * 
      */
     public TotalNutrients createTotalNutrients() {
         return new TotalNutrients();
-    }
-
-    /**
-     * Create an instance of {@link Flavors }
-     * 
-     */
-    public Flavors createFlavors() {
-        return new Flavors();
-    }
-
-    /**
-     * Create an instance of {@link Images }
-     * 
-     */
-    public Images createImages() {
-        return new Images();
-    }
-
-    /**
-     * Create an instance of {@link Attributes }
-     * 
-     */
-    public Attributes createAttributes() {
-        return new Attributes();
-    }
-
-    /**
-     * Create an instance of {@link ImageUrlsBySize }
-     * 
-     */
-    public ImageUrlsBySize createImageUrlsBySize() {
-        return new ImageUrlsBySize();
-    }
-
-    /**
-     * Create an instance of {@link Attribution }
-     * 
-     */
-    public Attribution createAttribution() {
-        return new Attribution();
-    }
-
-    /**
-     * Create an instance of {@link NutritionEstimates }
-     * 
-     */
-    public NutritionEstimates createNutritionEstimates() {
-        return new NutritionEstimates();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipeResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getRecipeResponse")
-    public JAXBElement<GetRecipeResponse> createGetRecipeResponse(GetRecipeResponse value) {
-        return new JAXBElement<GetRecipeResponse>(_GetRecipeResponse_QNAME, GetRecipeResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipesByCalories }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getRecipesByCalories")
-    public JAXBElement<GetRecipesByCalories> createGetRecipesByCalories(GetRecipesByCalories value) {
-        return new JAXBElement<GetRecipesByCalories>(_GetRecipesByCalories_QNAME, GetRecipesByCalories.class, null, value);
     }
 
     /**
@@ -271,33 +85,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipe }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getRecipe")
-    public JAXBElement<GetRecipe> createGetRecipe(GetRecipe value) {
-        return new JAXBElement<GetRecipe>(_GetRecipe_QNAME, GetRecipe.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ReceiptFinder }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "receiptFinder")
-    public JAXBElement<ReceiptFinder> createReceiptFinder(ReceiptFinder value) {
-        return new JAXBElement<ReceiptFinder>(_ReceiptFinder_QNAME, ReceiptFinder.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Get20RecipesByCalories }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "get20RecipesByCalories")
-    public JAXBElement<Get20RecipesByCalories> createGet20RecipesByCalories(Get20RecipesByCalories value) {
-        return new JAXBElement<Get20RecipesByCalories>(_Get20RecipesByCalories_QNAME, Get20RecipesByCalories.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredientsValues }{@code >}}
      * 
      */
@@ -307,39 +94,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetRecipesByCaloriesResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "getRecipesByCaloriesResponse")
-    public JAXBElement<GetRecipesByCaloriesResponse> createGetRecipesByCaloriesResponse(GetRecipesByCaloriesResponse value) {
-        return new JAXBElement<GetRecipesByCaloriesResponse>(_GetRecipesByCaloriesResponse_QNAME, GetRecipesByCaloriesResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CalculateIngredientsValuesResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "calculateIngredientsValuesResponse")
     public JAXBElement<CalculateIngredientsValuesResponse> createCalculateIngredientsValuesResponse(CalculateIngredientsValuesResponse value) {
         return new JAXBElement<CalculateIngredientsValuesResponse>(_CalculateIngredientsValuesResponse_QNAME, CalculateIngredientsValuesResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Get20RecipesByCaloriesResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "get20RecipesByCaloriesResponse")
-    public JAXBElement<Get20RecipesByCaloriesResponse> createGet20RecipesByCaloriesResponse(Get20RecipesByCaloriesResponse value) {
-        return new JAXBElement<Get20RecipesByCaloriesResponse>(_Get20RecipesByCaloriesResponse_QNAME, Get20RecipesByCaloriesResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Receipt }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://finalproject.sde.unitn.it/", name = "receipt")
-    public JAXBElement<Receipt> createReceipt(Receipt value) {
-        return new JAXBElement<Receipt>(_Receipt_QNAME, Receipt.class, null, value);
     }
 
 }

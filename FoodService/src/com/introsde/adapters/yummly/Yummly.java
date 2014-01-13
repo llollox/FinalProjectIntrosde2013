@@ -42,10 +42,6 @@ public class Yummly {
 	public static final String LACTO_VEGETARIAN = "388^Lacto vegetarian";
 	public static final String OVO_VEGETARIAN = "389^Ovo vegetarian";
 
-	// enum ATTR_NAME {
-	// K, NA, CHOLE, FATRN, FASAT, CHOCDF, FIBTG, VITC, CA, FE, SUGAR, VITA_IU
-	// }
-
 	public static void main(String[] args) {
 
 		ArrayList<String> allowed = new ArrayList<String>(), excuded = new ArrayList<String>();
@@ -57,7 +53,7 @@ public class Yummly {
 		excuded.add("mint");
 		excuded.add("chicken");
 
-		RecipeFinder finder = YummlyConnector.getRecipes(allowed, excuded, 5);
+		RecipeFinder finder = YummlyConnector.getRecipes(allowed, excuded);
 
 		p(finder);
 	}
@@ -82,5 +78,4 @@ public class Yummly {
 			System.out.println(m.getId());
 		}
 	}
-
 }

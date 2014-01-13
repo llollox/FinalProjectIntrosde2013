@@ -29,60 +29,6 @@ public interface Food {
      * 
      * @param arg0
      * @return
-     *     returns it.unitn.sde.finalproject.Receipt
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getRecipe", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipe")
-    @ResponseWrapper(localName = "getRecipeResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipeResponse")
-    @Action(input = "http://finalproject.sde.unitn.it/Food/getRecipeRequest", output = "http://finalproject.sde.unitn.it/Food/getRecipeResponse")
-    public Receipt getRecipe(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns it.unitn.sde.finalproject.ReceiptFinder
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "get20RecipesByCalories", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.Get20RecipesByCalories")
-    @ResponseWrapper(localName = "get20RecipesByCaloriesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.Get20RecipesByCaloriesResponse")
-    @Action(input = "http://finalproject.sde.unitn.it/Food/get20RecipesByCaloriesRequest", output = "http://finalproject.sde.unitn.it/Food/get20RecipesByCaloriesResponse")
-    public ReceiptFinder get20RecipesByCalories(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1);
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns it.unitn.sde.finalproject.ReceiptFinder
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getRecipesByCalories", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipesByCalories")
-    @ResponseWrapper(localName = "getRecipesByCaloriesResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetRecipesByCaloriesResponse")
-    @Action(input = "http://finalproject.sde.unitn.it/Food/getRecipesByCaloriesRequest", output = "http://finalproject.sde.unitn.it/Food/getRecipesByCaloriesResponse")
-    public ReceiptFinder getRecipesByCalories(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        int arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        int arg2);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns it.unitn.sde.finalproject.EdamamResponse
      */
     @WebMethod

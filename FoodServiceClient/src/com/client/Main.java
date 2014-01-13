@@ -1,11 +1,15 @@
 package com.client;
 
 import it.unitn.sde.finalproject.EdamamResponse;
+import it.unitn.sde.finalproject.EnercKCAL;
 import it.unitn.sde.finalproject.Food;
 import it.unitn.sde.finalproject.FoodService;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.introsde.adapters.yummly.models.Matches;
+import com.introsde.adapters.yummly.models.RecipeFinder;
 
 public class Main {
 
@@ -40,5 +44,41 @@ public class Main {
 				+ res.getTotalNutrients().getENERCKCAL().getQuantity() + " "
 				+ res.getTotalNutrients().getENERCKCAL().getUnit());
 
+		ArrayList<String> allowed = new ArrayList<String>(), excuded = new ArrayList<String>();
+
+		allowed.add("oil");
+		allowed.add("butter");
+		allowed.add("vinegar");
+
+		excuded.add("mint");
+		excuded.add("chicken");
+
+		RecipeFinder finder = foodService.getRecipes(allowed, excuded);
+
+		p(finder, foodService);
+
 	}
+
+	static void p(RecipeFinder finder, Food food) {
+
+		for (Matches m : finder.getMatches()) {
+
+			EdamamResponse response = food.calculateIngredientsValues(m
+					.getIngredients());
+
+			System.out.println("--------------------------");
+			System.out.println(m.getRecipeName());
+			System.out.println(m.getIngredients());
+			System.out.println(response.getCalories());
+
+			EnercKCAL kcal = response.getTotalDaily().getENERCKCAL();
+			System.out.println(kcal.getLabel() + " " + kcal.getQuantity() + " "
+					+ kcal.getUnit());
+			System.out.println(response.getHealthLabels());
+			System.out.println(response.getDietLabels());
+			System.out.println(m.getRating());
+			System.out.println(m.getId());
+		}
+	}
+
 }
