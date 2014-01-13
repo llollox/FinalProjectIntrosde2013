@@ -151,10 +151,13 @@ public class WikiParser {
 
 						HealthProfile hp = new HealthProfile();
 
-						hp.setHeight(df.parse(df.format(randHeight))
-								.doubleValue());
-						hp.setWeight(df.parse(df.format(randWeight))
-								.doubleValue());
+//						hp.setHeight(df.parse(df.format(randHeight))
+//								.doubleValue());
+//						hp.setWeight(df.parse(df.format(randWeight))
+//								.doubleValue());
+						
+						hp.setHeight(randHeight);
+						hp.setWeight(randWeight);
 
 						hp.setDate(dateRandom);
 						hp.setHeartrate(hearthRate);
