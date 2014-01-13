@@ -45,7 +45,7 @@ public class Person {
 	private String birthdate;
 
 	@Transient
-	private ExtendedHealthProfile healthprofile;
+	private ExtendedHealthProfile extendedhealthprofile;
 
 	@ManyToMany
 	@JoinTable(name = "Person_has_Goal", joinColumns = { @JoinColumn(name = "idperson", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idgoal", referencedColumnName = "id") })
@@ -97,6 +97,15 @@ public class Person {
 		this.sex = sex;
 	}
 
+	public ExtendedHealthProfile getExtendedhealthprofile() {
+		return extendedhealthprofile;
+	}
+
+	public void setExtendedhealthprofile(
+			ExtendedHealthProfile extendedhealthprofile) {
+		this.extendedhealthprofile = extendedhealthprofile;
+	}
+
 	// READ ONLY ELEMENTS
 
 	public static List<Person> getAll() {
@@ -113,19 +122,11 @@ public class Person {
 		return goals;
 	}
 
-	// @XmlElement(name = "healthprofile")
-	// public HealthProfile getHealthprofile() {
-	// if (healthprofiles.size() == 0)
-	// return null;
-	// return healthprofiles.get(healthprofiles.size() - 1);
-	// }
-
-	public ExtendedHealthProfile getHealthprofile() {
-		return healthprofile;
-	}
-
-	public void setHealthprofile(ExtendedHealthProfile healthprofile) {
-		this.healthprofile = healthprofile;
+	@XmlElement(name = "healthprofile")
+	public HealthProfile getHealthprofile() {
+		if (healthprofiles.size() == 0)
+			return null;
+		return healthprofiles.get(healthprofiles.size() - 1);
 	}
 
 	@XmlElement(name = "healthprofilehistory")
