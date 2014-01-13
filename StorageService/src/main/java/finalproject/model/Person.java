@@ -43,7 +43,8 @@ public class Person {
 	private String firstname;
 	private String lastname;
 	private String birthdate;
-
+	private Integer exerciseTimesPerWeek;
+	
 	@Transient
 	private ExtendedHealthProfile healthprofile;
 
@@ -95,6 +96,14 @@ public class Person {
 
 	public void setSex(Integer sex) {
 		this.sex = sex;
+	}
+	
+	public Integer getExerciseTimesPerWeek() {
+		return exerciseTimesPerWeek;
+	}
+
+	public void setExerciseTimesPerWeek(Integer exerciseTimesPerWeek) {
+		this.exerciseTimesPerWeek = exerciseTimesPerWeek;
 	}
 
 	// READ ONLY ELEMENTS
@@ -149,6 +158,9 @@ public class Person {
 
 		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
 			return null;
+		
+		if(p.getExerciseTimesPerWeek() == null)
+			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -180,6 +192,9 @@ public class Person {
 			return null;
 
 		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
+			return null;
+		
+		if(p.getExerciseTimesPerWeek() == null)
 			return null;
 
 		Person person = Person.read(p.getId());

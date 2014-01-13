@@ -118,6 +118,7 @@ public class WikiParser {
 					p.setLastname(lastName);
 					p.setBirthdate(birthDate);
 					p.setSex(randBetween(0, 1));
+					p.setExerciseTimesPerWeek(randBetween(0, 7));
 
 					Response r = ps.createPerson(p);
 					int pId = (Integer) r.getEntity();
