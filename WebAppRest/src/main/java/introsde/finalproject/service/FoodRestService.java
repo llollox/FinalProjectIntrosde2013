@@ -24,7 +24,6 @@ public class FoodRestService {
 	Food foodService = new FoodService().getFood();
 
 	@GET
-	@Path("/recipes")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Matches> getRecipesByCalories() {
 		List<Matches> list;
@@ -41,7 +40,7 @@ public class FoodRestService {
 	}
 
 	@GET
-	@Path("/recipe/{recipeId}")
+	@Path("/{recipeId}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Recipe getRecipe(@PathParam("recipeId") String recipeId) {
 
