@@ -1,12 +1,7 @@
 package introsde.finalproject.crawler;
 
-import introsde.finalproject.service.HealthProfileResource;
-import introsde.finalproject.service.PersonResource;
-
-import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -25,14 +20,7 @@ import finalproject.model.Person;
 
 public class WikiParser {
 
-	public static PersonResource ps = new PersonResource();
-	public static HealthProfileResource hps = new HealthProfileResource();
 	private static Random random = new Random();
-	private static GregorianCalendar gc = new GregorianCalendar();
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"yyyy-MM-dd");
-
-	private static DecimalFormat df = new DecimalFormat("##.00");
 
 	public static void main(String[] args) throws ParserConfigurationException,
 			TransformerException, ParseException {
@@ -119,8 +107,9 @@ public class WikiParser {
 					p.setSex(randBetween(0, 1));
 					p.setExerciseTimesPerWeek(randBetween(0, 7));
 
-					Response r = ps.createPerson(p);
-					int pId = (Integer) r.getEntity();
+					p = Person.create(p);
+
+					int pId = p.getId();
 
 					int num_healthProfiles = randBetween(1, 5);
 
@@ -146,15 +135,19 @@ public class WikiParser {
 						Double randWeight = randBetween(
 								weight - (randBetween(0.5, 5.0)), weight
 										+ (randBetween(0.5, 5.0)));
-						Double randHeight = randBetween(height - (randBetween(0.01, 0.5)), height
+						Double randHeight = randBetween(
+								height - (randBetween(0.01, 0.5)), height
 										+ (randBetween(0.01, 0.2)));
 
 						HealthProfile hp = new HealthProfile();
 
-						hp.setHeight(df.parse(df.format(randHeight))
-								.doubleValue());
-						hp.setWeight(df.parse(df.format(randWeight))
-								.doubleValue());
+						// hp.setHeight(df.parse(df.format(randHeight))
+						// .doubleValue());
+						// hp.setWeight(df.parse(df.format(randWeight))
+						// .doubleValue());
+
+						hp.setHeight(randHeight);
+						hp.setWeight(randWeight);
 
 						hp.setDate(dateRandom);
 						hp.setHeartrate(hearthRate);
@@ -162,7 +155,7 @@ public class WikiParser {
 						hp.setMinbloodpressure(minBloadPressure);
 						hp.setPersonId(pId);
 
-						hps.createHealthProfile(hp);
+						HealthProfile.create(pId, hp);
 
 						// stmt = c.createStatement();
 						// String INSERT_INTO_WEIGHT =
