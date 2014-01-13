@@ -15,7 +15,7 @@ import finalproject.ports.CRUDPerson;
 
 public class StorageServicePublisher {
 
-	public static void main(String[] args) {
+	public StorageServicePublisher() {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/person", new CRUDPerson());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/healthprofile", new CRUDHealthProfile());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/goal", new CRUDGoal());
