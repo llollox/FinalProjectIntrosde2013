@@ -1,11 +1,5 @@
 package assignment2.service;
 
-import it.unitn.sde.finalproject.Food;
-import it.unitn.sde.finalproject.FoodService;
-import it.unitn.sde.finalproject.Matches;
-import it.unitn.sde.finalproject.Receipt;
-import it.unitn.sde.finalproject.ReceiptFinder;
-
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -15,8 +9,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import com.food.client.Food;
+import com.food.client.FoodService;
+import com.introsde.adapters.yummly.models.Matches;
+import com.introsde.adapters.yummly.models.Recipe;
+import com.introsde.adapters.yummly.models.RecipeFinder;
+
 @Path("/food/recipe")
 public class FoodRestService {
+
+	Food foodService = new FoodService().getFood();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -24,8 +26,6 @@ public class FoodRestService {
 			@QueryParam("max") Integer maxKcal,
 			@QueryParam("min") Integer minKcal,
 			@QueryParam("maxResults") Integer maxResults) {
-
-		Food foodService = new FoodService().getFood();
 
 		if (maxKcal == null)
 			maxKcal = 5000;
@@ -36,17 +36,14 @@ public class FoodRestService {
 		if (maxResults == null)
 			maxResults = 20;
 
-		ReceiptFinder finder = foodService.getRecipesByCalories(minKcal,
-				maxKcal, maxResults);
+		RecipeFinder finder = foodService.getRecipes(null);
 		return finder.getMatches();
 	}
 
 	@GET
 	@Path("/{recipeId}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Receipt getRecipe(@PathParam("recipeId") String recipeId) {
-
-		Food foodService = new FoodService().getFood();
+	public Recipe getRecipe(@PathParam("recipeId") String recipeId) {
 
 		return foodService.getRecipe(recipeId);
 	}

@@ -1,20 +1,17 @@
-package com.client;
-
-import it.unitn.sde.finalproject.EdamamResponse;
-import it.unitn.sde.finalproject.EnercKCAL;
-import it.unitn.sde.finalproject.Food;
-import it.unitn.sde.finalproject.FoodService;
-import it.unitn.sde.finalproject.KeyValuePair;
-import it.unitn.sde.finalproject.Matches;
-import it.unitn.sde.finalproject.QueryParams;
-import it.unitn.sde.finalproject.RecipeFinder;
+package com.food.client;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.introsde.adapters.edamam.models.ENERC_KCAL;
+import com.introsde.adapters.edamam.models.EdamamResponse;
 import com.introsde.adapters.yummly.Yummly;
+import com.introsde.adapters.yummly.models.Matches;
+import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.utils.KeyValuePair;
+import com.introsde.food.utils.QueryParams;
 
-public class Main {
+public class ClientTest {
 
 	/**
 	 * @param args
@@ -89,7 +86,7 @@ public class Main {
 			System.out.println(m.getIngredients());
 			System.out.println(response.getCalories());
 
-			EnercKCAL kcal = response.getTotalDaily().getENERCKCAL();
+			ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
 			System.out.println(kcal.getLabel() + " " + kcal.getQuantity() + " "
 					+ kcal.getUnit());
 			System.out.println(response.getHealthLabels());
