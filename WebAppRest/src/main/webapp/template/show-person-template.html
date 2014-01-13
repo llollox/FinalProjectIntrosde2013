@@ -17,11 +17,11 @@
 
 	<legend>Current Health Profile</legend>
 	<div class="row-fluid" id="hpinformation">
-		<div class="span4" style="position:relative">
+		<div class="span5" style="position:relative">
 
 			<p class="lead">
 				<b>Blood Pressure</b> 
-					min: <%= healthProfile.minbloodpressure+" max: "+healthProfile.maxbloodpressure %> mmHg
+					min <%= healthProfile.minbloodpressure+" - max "+healthProfile.maxbloodpressure %> mmHg
 					<img src="img/blood-pressure.png" style="height:35px;"/>
 			</p>
 			<p class="lead"><b>Heart Rate</b>: <%= healthProfile.heartrate %> bpm
@@ -47,7 +47,7 @@
 
 		</div>
 		<div class="span1"></div>
-		<div class="span4" style="position:relative;">
+		<div class="span3" style="position:relative;">
 			<img src="img/human.png" style="height:350px;"/>
 		  <p class="lead"><b>Weight</b>: 
 		  	<%= person.get('healthprofile').weight.substring(0,5) + " kg" %>

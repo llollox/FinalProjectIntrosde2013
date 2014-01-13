@@ -147,14 +147,13 @@ public class WikiParser {
 						Double randWeight = randBetween(
 								weight - (randBetween(0.5, 5.0)), weight
 										+ (randBetween(0.5, 5.0)));
-						Double randHeight = randBetween(
-								height - (randBetween(0.0, 0.5)), height
-										+ (randBetween(0.0, 0.5)));
+						Double randHeight = randBetween(height - (randBetween(0.01, 0.5)), height
+										+ (randBetween(0.01, 0.2)));
 
 						HealthProfile hp = new HealthProfile();
 
-						hp.setHeight(df.parse(df.format(height)).doubleValue());
-						hp.setWeight(df.parse(df.format(weight)).doubleValue());
+						hp.setHeight(df.parse(df.format(randHeight)).doubleValue());
+						hp.setWeight(df.parse(df.format(randWeight)).doubleValue());
 
 						hp.setDate(dateRandom);
 						hp.setHeartrate(hearthRate);
