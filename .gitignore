@@ -1,6 +1,8 @@
 /target
 /bin
 
+StorageService/src/main/resources/META-INF/
+
 .settings
 .classpath
 
