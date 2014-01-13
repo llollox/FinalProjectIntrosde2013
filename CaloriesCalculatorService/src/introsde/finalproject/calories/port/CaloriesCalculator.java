@@ -103,8 +103,8 @@ public class CaloriesCalculator {
 	 * @return the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 	 */
 	@WebMethod
-    public double getIdealDailyCaloriesNeeded(double bmr, int exerciseAmountPerWeek){
-    	switch (exerciseAmountPerWeek) {
+    public double getIdealDailyCaloriesNeeded(double bmr, int exerciseTimesPerWeek){
+    	switch (exerciseTimesPerWeek) {
 		case 0:
 			return bmr * NO_EXERCISE;
 		case 1:
@@ -133,14 +133,14 @@ public class CaloriesCalculator {
     
     /**
    	 * @param bmr (double) is the amount of energy expended daily by humans and other animals at rest. 
-   	 * @param exerciseAmountPerWeek (int) is the number of times that this person do exercise in a week
+   	 * @param exerciseTimesPerWeek (int) is the number of times that this person do exercise in a week
    	 * @param weightDifference (double) weight difference that you want get or lose. You can pass it both in kg or grams.
    	 * @param startDate the day that you want to start this diet.
    	 * @param endDate the day that you want to finish this diet.
    	 * @return the amount of calories needed for that person to manage his weight in the period that he have specified.
    	 */
 	@WebMethod
-    public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseAmountPerWeek, double weightDifference, int days){
+    public double getDailyCaloriesNeededToManageWeight(double bmr, int exerciseTimesPerWeek, double weightDifference, int days){
     	if (weightDifference > 1000) //weight in grams
     		weightDifference = weightDifference / 1000.0;
     	
@@ -150,7 +150,7 @@ public class CaloriesCalculator {
     	if (Math.abs(difficultCoefficient) > 1) 
     		return -1.0;  // impossible to reach!
     	else{
-    		double dailyCaloriesNeeded = getIdealDailyCaloriesNeeded(bmr, exerciseAmountPerWeek);
+    		double dailyCaloriesNeeded = getIdealDailyCaloriesNeeded(bmr, exerciseTimesPerWeek);
     		double dailyCaloriesNeededManaged =	dailyCaloriesNeeded + ((double) weightDifference * 7800) / (double) days;
     		if (dailyCaloriesNeededManaged < bmr)
     			return -1; //impossible to reach
@@ -159,8 +159,12 @@ public class CaloriesCalculator {
     	}
     }
 	
-	public double getIdealHeartRate(){
-		return 0;
+	public double getTargetHeartRate(double age, int heartRate){
+		double maximumHeartRate = 220 - age;
+		double heartRateReserve = maximumHeartRate - heartRate;
+		double lowerLimit = (heartRateReserve * 0.6) + heartRate;
+		double upperLimit = (heartRateReserve * 0.8) + heartRate;
+		return (upperLimit + lowerLimit)/2;
 	}
     
     private static int daysBetween(Date d1, Date d2){
