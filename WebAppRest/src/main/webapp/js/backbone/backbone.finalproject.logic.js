@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var editHealthProfile = new EditHealthProfile();
 
 	$.ajaxPrefilter(function(options, originalOptions, jqXR) {
-		options.url = "http://10.23.4.232:5900"
+		options.url = "http://192.168.1.6:5900"
 				+ options.url;
 	});
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
 				}
 			});
 
-	var router = new Router();
+	router = new Router();
 	router.on('route:home', function() {
 		personList.render();
 	});

@@ -97,8 +97,8 @@ var EditPerson = Backbone.View.extend({
 	el : '.page',
 	render : function(options) {
 		var that = this;
-		if (options.person_id) {  // edit form
-			that.person = new Person({ id : options.person_id });
+		if (options.id) {  // edit form
+			that.person = new Person({ id : options.id });
 			that.person.fetch({
 				success : function(person) {
 					var template = _.template($('#new-person-template').html(),{person : person });
@@ -119,8 +119,8 @@ var EditPerson = Backbone.View.extend({
 		var person = new Person();
 		person.save(personDetails, {
 			success : function(user) {
-				var person_id = personDetails.id ? personDetails.id : user.get('person_id');
-				router.navigate('#/showPerson/'+ person_id, {trigger : true});
+				var id = personDetails.id ? personDetails.id : user.get('id');
+				router.navigate('#/showPerson/'+ id, {trigger : true});
 			}
 		});
 		return false;
@@ -136,7 +136,7 @@ var EditPerson = Backbone.View.extend({
 		
 		person.destroy({
 			success : function() {
-				router.navigate('', { trigger : true });
+				router.navigate('', {trigger : true});
 			}
 		});
 		return false;

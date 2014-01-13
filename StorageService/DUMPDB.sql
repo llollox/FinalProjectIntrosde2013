@@ -1,247 +1,359 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+CREATE DATABASE  IF NOT EXISTS `introsde` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `introsde`;
+-- MySQL dump 10.13  Distrib 5.6.13, for osx10.6 (i386)
+--
+-- Host: 127.0.0.1    Database: introsde
+-- ------------------------------------------------------
+-- Server version	5.6.14
 
-DROP SCHEMA IF EXISTS `introsde` ;
-CREATE SCHEMA IF NOT EXISTS `introsde` DEFAULT CHARACTER SET utf8 ;
-USE `introsde` ;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- -----------------------------------------------------
--- Table `introsde`.`ACTIVITY`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`ACTIVITY` ;
+--
+-- Table structure for table `ACTIVITY`
+--
 
-CREATE TABLE IF NOT EXISTS `introsde`.`ACTIVITY` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `ACTIVITYGROUP` INT(11) NULL DEFAULT NULL,
-  `AEROBIC` INT(11) NULL DEFAULT NULL,
-  `DESCRIPTION` VARCHAR(255) NULL DEFAULT NULL,
-  `DIFFICULTYVALUE` INT(11) NULL DEFAULT NULL,
-  `TYPE` INT(11) NULL DEFAULT NULL,
-  `VALUE` FLOAT NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DROP TABLE IF EXISTS `ACTIVITY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ACTIVITY` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ACTIVITYGROUP` int(11) DEFAULT NULL,
+  `AEROBIC` int(11) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) DEFAULT NULL,
+  `DIFFICULTYVALUE` int(11) DEFAULT NULL,
+  `TYPE` int(11) DEFAULT NULL,
+  `VALUE` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `ACTIVITY`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`GOAL`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`GOAL` ;
+LOCK TABLES `ACTIVITY` WRITE;
+/*!40000 ALTER TABLE `ACTIVITY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ACTIVITY` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`GOAL` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `ENDDATE` VARCHAR(255) NULL DEFAULT NULL,
-  `NAME` VARCHAR(255) NULL DEFAULT NULL,
-  `VALUE` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+--
+-- Table structure for table `ACTIVITYCHOOSEN`
+--
 
-
--- -----------------------------------------------------
--- Table `introsde`.`PERSON`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`PERSON` ;
-
-CREATE TABLE IF NOT EXISTS `introsde`.`PERSON` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `BIRTHDATE` VARCHAR(255) NULL DEFAULT NULL,
-  `EXERCISETIMESPERWEEK` INT(11) NULL DEFAULT NULL,
-  `FIRSTNAME` VARCHAR(255) NULL DEFAULT NULL,
-  `LASTNAME` VARCHAR(255) NULL DEFAULT NULL,
-  `SEX` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 41
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `introsde`.`ACTIVITYCHOOSEN`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`ACTIVITYCHOOSEN` ;
-
-CREATE TABLE IF NOT EXISTS `introsde`.`ACTIVITYCHOOSEN` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `DATE` VARCHAR(255) NULL DEFAULT NULL,
-  `PERCENTAGE` FLOAT NULL DEFAULT NULL,
-  `ACTIVITY_ID` INT(11) NULL DEFAULT NULL,
-  `GOAL_ID` INT(11) NULL DEFAULT NULL,
-  `PERSON_ID` INT(11) NULL DEFAULT NULL,
+DROP TABLE IF EXISTS `ACTIVITYCHOOSEN`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ACTIVITYCHOOSEN` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` varchar(255) DEFAULT NULL,
+  `PERCENTAGE` float DEFAULT NULL,
+  `ACTIVITY_ID` int(11) DEFAULT NULL,
+  `GOAL_ID` int(11) DEFAULT NULL,
+  `PERSON_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `FK_ACTIVITYCHOOSEN_PERSON_ID` (`PERSON_ID` ASC),
-  INDEX `FK_ACTIVITYCHOOSEN_GOAL_ID` (`GOAL_ID` ASC),
-  INDEX `FK_ACTIVITYCHOOSEN_ACTIVITY_ID` (`ACTIVITY_ID` ASC),
-  CONSTRAINT `FK_ACTIVITYCHOOSEN_ACTIVITY_ID`
-    FOREIGN KEY (`ACTIVITY_ID`)
-    REFERENCES `introsde`.`ACTIVITY` (`ID`),
-  CONSTRAINT `FK_ACTIVITYCHOOSEN_GOAL_ID`
-    FOREIGN KEY (`GOAL_ID`)
-    REFERENCES `introsde`.`GOAL` (`ID`),
-  CONSTRAINT `FK_ACTIVITYCHOOSEN_PERSON_ID`
-    FOREIGN KEY (`PERSON_ID`)
-    REFERENCES `introsde`.`PERSON` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  KEY `FK_ACTIVITYCHOOSEN_PERSON_ID` (`PERSON_ID`),
+  KEY `FK_ACTIVITYCHOOSEN_GOAL_ID` (`GOAL_ID`),
+  KEY `FK_ACTIVITYCHOOSEN_ACTIVITY_ID` (`ACTIVITY_ID`),
+  CONSTRAINT `FK_ACTIVITYCHOOSEN_ACTIVITY_ID` FOREIGN KEY (`ACTIVITY_ID`) REFERENCES `ACTIVITY` (`ID`),
+  CONSTRAINT `FK_ACTIVITYCHOOSEN_GOAL_ID` FOREIGN KEY (`GOAL_ID`) REFERENCES `GOAL` (`ID`),
+  CONSTRAINT `FK_ACTIVITYCHOOSEN_PERSON_ID` FOREIGN KEY (`PERSON_ID`) REFERENCES `PERSON` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `ACTIVITYCHOOSEN`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`EXCLUDEDFOOD`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`EXCLUDEDFOOD` ;
+LOCK TABLES `ACTIVITYCHOOSEN` WRITE;
+/*!40000 ALTER TABLE `ACTIVITYCHOOSEN` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ACTIVITYCHOOSEN` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`EXCLUDEDFOOD` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `NAME` VARCHAR(255) NULL DEFAULT NULL,
-  `PERSON_ID` INT(11) NULL DEFAULT NULL,
+--
+-- Table structure for table `EXCLUDEDFOOD`
+--
+
+DROP TABLE IF EXISTS `EXCLUDEDFOOD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EXCLUDEDFOOD` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  `PERSON_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `FK_EXCLUDEDFOOD_PERSON_ID` (`PERSON_ID` ASC),
-  CONSTRAINT `FK_EXCLUDEDFOOD_PERSON_ID`
-    FOREIGN KEY (`PERSON_ID`)
-    REFERENCES `introsde`.`PERSON` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  KEY `FK_EXCLUDEDFOOD_PERSON_ID` (`PERSON_ID`),
+  CONSTRAINT `FK_EXCLUDEDFOOD_PERSON_ID` FOREIGN KEY (`PERSON_ID`) REFERENCES `PERSON` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `EXCLUDEDFOOD`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`EXERCISE`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`EXERCISE` ;
+LOCK TABLES `EXCLUDEDFOOD` WRITE;
+/*!40000 ALTER TABLE `EXCLUDEDFOOD` DISABLE KEYS */;
+/*!40000 ALTER TABLE `EXCLUDEDFOOD` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`EXERCISE` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `AEROBIC` INT(11) NULL DEFAULT NULL,
-  `DESCRIPTION` VARCHAR(255) NULL DEFAULT NULL,
-  `DIFFICULTYVALUE` FLOAT NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+--
+-- Table structure for table `EXERCISE`
+--
 
+DROP TABLE IF EXISTS `EXERCISE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EXERCISE` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `AEROBIC` int(11) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) DEFAULT NULL,
+  `DIFFICULTYVALUE` float DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- -----------------------------------------------------
--- Table `introsde`.`EXERCISECATEGORY`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`EXERCISECATEGORY` ;
+--
+-- Dumping data for table `EXERCISE`
+--
 
-CREATE TABLE IF NOT EXISTS `introsde`.`EXERCISECATEGORY` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `NAME` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+LOCK TABLES `EXERCISE` WRITE;
+/*!40000 ALTER TABLE `EXERCISE` DISABLE KEYS */;
+/*!40000 ALTER TABLE `EXERCISE` ENABLE KEYS */;
+UNLOCK TABLES;
 
+--
+-- Table structure for table `EXERCISECATEGORY`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`EXERCISEHISTORY`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`EXERCISEHISTORY` ;
+DROP TABLE IF EXISTS `EXERCISECATEGORY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EXERCISECATEGORY` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`EXERCISEHISTORY` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `DATE` VARCHAR(255) NULL DEFAULT NULL,
-  `idactivitychoosen` INT(11) NULL DEFAULT NULL,
-  `idexercise` INT(11) NULL DEFAULT NULL,
-  `idperson` INT(11) NULL DEFAULT NULL,
+--
+-- Dumping data for table `EXERCISECATEGORY`
+--
+
+LOCK TABLES `EXERCISECATEGORY` WRITE;
+/*!40000 ALTER TABLE `EXERCISECATEGORY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `EXERCISECATEGORY` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `EXERCISEHISTORY`
+--
+
+DROP TABLE IF EXISTS `EXERCISEHISTORY`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `EXERCISEHISTORY` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` varchar(255) DEFAULT NULL,
+  `idactivitychoosen` int(11) DEFAULT NULL,
+  `idexercise` int(11) DEFAULT NULL,
+  `idperson` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `FK_EXERCISEHISTORY_idexercise` (`idexercise` ASC),
-  INDEX `FK_EXERCISEHISTORY_idperson` (`idperson` ASC),
-  INDEX `FK_EXERCISEHISTORY_idactivitychoosen` (`idactivitychoosen` ASC),
-  CONSTRAINT `FK_EXERCISEHISTORY_idactivitychoosen`
-    FOREIGN KEY (`idactivitychoosen`)
-    REFERENCES `introsde`.`ACTIVITYCHOOSEN` (`ID`),
-  CONSTRAINT `FK_EXERCISEHISTORY_idexercise`
-    FOREIGN KEY (`idexercise`)
-    REFERENCES `introsde`.`EXERCISE` (`ID`),
-  CONSTRAINT `FK_EXERCISEHISTORY_idperson`
-    FOREIGN KEY (`idperson`)
-    REFERENCES `introsde`.`PERSON` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  KEY `FK_EXERCISEHISTORY_idexercise` (`idexercise`),
+  KEY `FK_EXERCISEHISTORY_idperson` (`idperson`),
+  KEY `FK_EXERCISEHISTORY_idactivitychoosen` (`idactivitychoosen`),
+  CONSTRAINT `FK_EXERCISEHISTORY_idactivitychoosen` FOREIGN KEY (`idactivitychoosen`) REFERENCES `ACTIVITYCHOOSEN` (`ID`),
+  CONSTRAINT `FK_EXERCISEHISTORY_idexercise` FOREIGN KEY (`idexercise`) REFERENCES `EXERCISE` (`ID`),
+  CONSTRAINT `FK_EXERCISEHISTORY_idperson` FOREIGN KEY (`idperson`) REFERENCES `PERSON` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `EXERCISEHISTORY`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`FAVOURITEFOOD`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`FAVOURITEFOOD` ;
+LOCK TABLES `EXERCISEHISTORY` WRITE;
+/*!40000 ALTER TABLE `EXERCISEHISTORY` DISABLE KEYS */;
+/*!40000 ALTER TABLE `EXERCISEHISTORY` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`FAVOURITEFOOD` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `NAME` VARCHAR(255) NULL DEFAULT NULL,
-  `PERSON_ID` INT(11) NULL DEFAULT NULL,
+--
+-- Table structure for table `FAVOURITEFOOD`
+--
+
+DROP TABLE IF EXISTS `FAVOURITEFOOD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `FAVOURITEFOOD` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  `PERSON_ID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `FK_FAVOURITEFOOD_PERSON_ID` (`PERSON_ID` ASC),
-  CONSTRAINT `FK_FAVOURITEFOOD_PERSON_ID`
-    FOREIGN KEY (`PERSON_ID`)
-    REFERENCES `introsde`.`PERSON` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+  KEY `FK_FAVOURITEFOOD_PERSON_ID` (`PERSON_ID`),
+  CONSTRAINT `FK_FAVOURITEFOOD_PERSON_ID` FOREIGN KEY (`PERSON_ID`) REFERENCES `PERSON` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `FAVOURITEFOOD`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`Goal_has_Activity`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`Goal_has_Activity` ;
+LOCK TABLES `FAVOURITEFOOD` WRITE;
+/*!40000 ALTER TABLE `FAVOURITEFOOD` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FAVOURITEFOOD` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`Goal_has_Activity` (
-  `idgoal` INT(11) NOT NULL,
-  `idactivity` INT(11) NOT NULL,
-  PRIMARY KEY (`idgoal`, `idactivity`),
-  INDEX `FK_Goal_has_Activity_idactivity` (`idactivity` ASC),
-  CONSTRAINT `FK_Goal_has_Activity_idgoal`
-    FOREIGN KEY (`idgoal`)
-    REFERENCES `introsde`.`GOAL` (`ID`),
-  CONSTRAINT `FK_Goal_has_Activity_idactivity`
-    FOREIGN KEY (`idactivity`)
-    REFERENCES `introsde`.`ACTIVITY` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+--
+-- Table structure for table `GOAL`
+--
 
+DROP TABLE IF EXISTS `GOAL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GOAL` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ENDDATE` varchar(255) DEFAULT NULL,
+  `NAME` varchar(255) DEFAULT NULL,
+  `VALUE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- -----------------------------------------------------
--- Table `introsde`.`HEALTHPROFILE`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`HEALTHPROFILE` ;
+--
+-- Dumping data for table `GOAL`
+--
 
-CREATE TABLE IF NOT EXISTS `introsde`.`HEALTHPROFILE` (
-  `ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `DATE` VARCHAR(255) NULL DEFAULT NULL,
-  `HEARTRATE` INT(11) NULL DEFAULT NULL,
-  `HEIGHT` DOUBLE NULL DEFAULT NULL,
-  `MAXBLOODPRESSURE` INT(11) NULL DEFAULT NULL,
-  `MINBLOODPRESSURE` INT(11) NULL DEFAULT NULL,
-  `WEIGHT` DOUBLE NULL DEFAULT NULL,
-  `idperson` INT(11) NULL DEFAULT NULL,
+LOCK TABLES `GOAL` WRITE;
+/*!40000 ALTER TABLE `GOAL` DISABLE KEYS */;
+/*!40000 ALTER TABLE `GOAL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Goal_has_Activity`
+--
+
+DROP TABLE IF EXISTS `Goal_has_Activity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Goal_has_Activity` (
+  `idgoal` int(11) NOT NULL,
+  `idactivity` int(11) NOT NULL,
+  PRIMARY KEY (`idgoal`,`idactivity`),
+  KEY `FK_Goal_has_Activity_idactivity` (`idactivity`),
+  CONSTRAINT `FK_Goal_has_Activity_idgoal` FOREIGN KEY (`idgoal`) REFERENCES `GOAL` (`ID`),
+  CONSTRAINT `FK_Goal_has_Activity_idactivity` FOREIGN KEY (`idactivity`) REFERENCES `ACTIVITY` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Goal_has_Activity`
+--
+
+LOCK TABLES `Goal_has_Activity` WRITE;
+/*!40000 ALTER TABLE `Goal_has_Activity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Goal_has_Activity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `HEALTHPROFILE`
+--
+
+DROP TABLE IF EXISTS `HEALTHPROFILE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `HEALTHPROFILE` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DATE` varchar(255) DEFAULT NULL,
+  `HEARTRATE` int(11) DEFAULT NULL,
+  `HEIGHT` double DEFAULT NULL,
+  `MAXBLOODPRESSURE` int(11) DEFAULT NULL,
+  `MINBLOODPRESSURE` int(11) DEFAULT NULL,
+  `WEIGHT` double DEFAULT NULL,
+  `idperson` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `FK_HEALTHPROFILE_idperson` (`idperson` ASC),
-  CONSTRAINT `FK_HEALTHPROFILE_idperson`
-    FOREIGN KEY (`idperson`)
-    REFERENCES `introsde`.`PERSON` (`ID`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 122
-DEFAULT CHARACTER SET = utf8;
+  KEY `FK_HEALTHPROFILE_idperson` (`idperson`),
+  CONSTRAINT `FK_HEALTHPROFILE_idperson` FOREIGN KEY (`idperson`) REFERENCES `PERSON` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `HEALTHPROFILE`
+--
 
--- -----------------------------------------------------
--- Table `introsde`.`Person_has_Goal`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `introsde`.`Person_has_Goal` ;
+LOCK TABLES `HEALTHPROFILE` WRITE;
+/*!40000 ALTER TABLE `HEALTHPROFILE` DISABLE KEYS */;
+INSERT INTO `HEALTHPROFILE` VALUES (11,'2014-01-13',66,1,126,109,88,4),(12,'2014-01-13',71,1,176,101,88,4),(13,'2014-01-13',77,1,138,74,88,4),(14,'2014-01-13',87,1,178,105,88,4),(15,'2014-01-13',67,1,106,81,88,4),(16,'2014-01-13',80,1,134,101,88,5),(17,'2014-01-13',66,1,99,73,88,5),(18,'2014-01-13',78,1,158,76,88,5),(19,'2014-01-13',68,1,133,71,88,5),(20,'2014-01-13',74,1,176,83,88,5),(21,'2014-01-13',87,2,93,69,112,6),(22,'2014-01-13',86,2,174,94,112,6),(23,'2014-01-13',70,2,169,62,97,7),(24,'2014-01-13',64,2,120,89,97,7),(25,'2014-01-13',62,2,124,78,98,8),(26,'2014-01-13',80,2,150,91,98,8),(27,'2014-01-13',64,2,158,88,98,8),(28,'2014-01-13',63,2,121,109,98,8),(29,'2014-01-13',60,2,162,103,98,8),(30,'2014-01-13',80,2,121,107,120,9),(31,'2014-01-13',86,2,83,65,120,9),(32,'2014-01-13',75,2,161,89,106,10),(33,'2014-01-13',68,2,112,83,106,10),(34,'2014-01-13',88,2,142,92,106,10),(35,'2014-01-13',74,2,108,75,106,10),(36,'2014-01-13',82,1,141,89,89,11),(37,'2014-01-13',78,1,113,80,89,11),(38,'2014-01-13',76,1,150,63,89,11),(39,'2014-01-13',68,1,155,96,89,11),(40,'2014-01-13',77,1,140,106,89,11),(41,'2014-01-13',63,1,109,80,88,12),(42,'2014-01-13',84,1,148,91,88,12),(43,'2014-01-13',86,1,121,85,88,12),(44,'2014-01-13',61,1,166,91,88,12),(45,'2014-01-13',65,1,103,79,88,12),(46,'2014-01-13',89,2,160,71,105,13),(47,'2014-01-13',62,2,77,61,105,13),(48,'2014-01-13',69,2,120,79,105,13),(49,'2014-01-13',71,1,175,85,92,14),(50,'2014-01-13',81,1,136,87,92,14),(51,'2014-01-13',85,1,119,66,92,14),(52,'2014-01-13',70,2,111,91,92,15),(53,'2014-01-13',75,2,128,76,92,15),(54,'2014-01-13',70,2,132,84,92,15),(55,'2014-01-13',70,2,169,106,93,16),(56,'2014-01-13',80,2,118,94,120,17),(57,'2014-01-13',72,2,162,106,120,17),(58,'2014-01-13',74,2,98,78,120,17),(59,'2014-01-13',80,2,130,69,120,17),(60,'2014-01-13',73,2,122,72,120,17),(61,'2014-01-13',67,1,130,67,88,18),(62,'2014-01-13',77,1,114,70,88,18),(63,'2014-01-13',75,2,125,62,99,19),(64,'2014-01-13',60,2,158,75,99,19),(65,'2014-01-13',75,2,171,98,99,19),(66,'2014-01-13',83,2,90,75,105,20),(67,'2014-01-13',68,2,164,82,105,20),(68,'2014-01-13',63,2,146,103,110,21),(69,'2014-01-13',79,2,130,89,110,21),(70,'2014-01-13',87,2,119,85,110,21),(71,'2014-01-13',64,2,176,91,110,21),(72,'2014-01-13',89,1,103,77,92,22),(73,'2014-01-13',70,1,170,106,92,22),(74,'2014-01-13',77,1,120,109,92,22),(75,'2014-01-13',88,1,96,70,86,23),(76,'2014-01-13',74,1,166,110,92,24),(77,'2014-01-13',82,1,164,101,92,24),(78,'2014-01-13',60,2,137,92,109,25),(79,'2014-01-13',69,2,153,94,109,25),(80,'2014-01-13',84,2,157,67,109,25),(81,'2014-01-13',63,1,172,89,78,26),(82,'2014-01-13',84,1,148,102,78,26),(83,'2014-01-13',73,1,114,80,78,26),(84,'2014-01-13',74,1,99,80,78,26),(85,'2014-01-13',73,1,111,98,92,27),(86,'2014-01-13',86,1,178,107,92,27),(87,'2014-01-13',70,1,92,80,92,27),(88,'2014-01-13',77,2,137,96,124,28),(89,'2014-01-13',63,2,144,108,124,28),(90,'2014-01-13',87,2,158,90,124,28),(91,'2014-01-13',69,2,145,105,124,28),(92,'2014-01-13',63,1,173,95,98,29),(93,'2014-01-13',82,1,161,83,98,29),(94,'2014-01-13',83,1,111,92,98,29),(95,'2014-01-13',75,2,128,89,120,30),(96,'2014-01-13',63,2,143,89,108,31),(97,'2014-01-13',64,2,121,63,108,31),(98,'2014-01-13',73,2,155,89,108,31),(99,'2014-01-13',66,2,133,94,117,32),(100,'2014-01-13',84,2,122,74,117,32),(101,'2014-01-13',75,1,165,104,92,33),(102,'2014-01-13',71,1,178,105,84,34),(103,'2014-01-13',81,1,151,104,84,34),(104,'2014-01-13',75,1,139,82,84,34),(105,'2014-01-13',66,1,91,80,84,34),(106,'2014-01-13',61,2,148,61,127,35),(107,'2014-01-13',89,2,159,73,127,35),(108,'2014-01-13',66,2,175,73,127,35),(109,'2014-01-13',74,2,127,61,127,35),(110,'2014-01-13',60,2,124,62,102,36),(111,'2014-01-13',78,2,131,105,102,36),(112,'2014-01-13',87,1,125,93,97,37),(113,'2014-01-13',61,2,179,68,101,38),(114,'2014-01-13',66,2,85,68,101,38),(115,'2014-01-13',80,2,179,98,97,39),(116,'2014-01-13',85,2,107,94,97,39),(117,'2014-01-13',63,2,130,73,97,39),(118,'2014-01-13',72,1,159,85,83,40),(119,'2014-01-13',63,1,168,109,83,40),(120,'2014-01-13',62,1,122,101,83,40),(121,'2014-01-13',85,1,122,107,83,40);
+/*!40000 ALTER TABLE `HEALTHPROFILE` ENABLE KEYS */;
+UNLOCK TABLES;
 
-CREATE TABLE IF NOT EXISTS `introsde`.`Person_has_Goal` (
-  `idperson` INT(11) NOT NULL,
-  `idgoal` INT(11) NOT NULL,
-  PRIMARY KEY (`idperson`, `idgoal`),
-  INDEX `FK_Person_has_Goal_idgoal` (`idgoal` ASC),
-  CONSTRAINT `FK_Person_has_Goal_idperson`
-    FOREIGN KEY (`idperson`)
-    REFERENCES `introsde`.`PERSON` (`ID`),
-  CONSTRAINT `FK_Person_has_Goal_idgoal`
-    FOREIGN KEY (`idgoal`)
-    REFERENCES `introsde`.`GOAL` (`ID`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+--
+-- Table structure for table `PERSON`
+--
 
+DROP TABLE IF EXISTS `PERSON`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PERSON` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BIRTHDATE` varchar(255) DEFAULT NULL,
+  `EXERCISETIMESPERWEEK` int(11) DEFAULT NULL,
+  `FIRSTNAME` varchar(255) DEFAULT NULL,
+  `LASTNAME` varchar(255) DEFAULT NULL,
+  `SEX` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+--
+-- Dumping data for table `PERSON`
+--
+
+LOCK TABLES `PERSON` WRITE;
+/*!40000 ALTER TABLE `PERSON` DISABLE KEYS */;
+INSERT INTO `PERSON` VALUES (4,'1979-09-20',6,'Damien','Ryan',1),(5,'1981-08-24',2,'Daryl','Corletto',1),(6,'1980-06-23',7,'David','Andersen',0),(7,'1983-10-22',7,'David','Barlow',0),(8,'1987-10-02',1,'Joe','Ingles',0),(9,'1986-02-19',5,'Luke','Nevill',0),(10,'1978-02-03',4,'Matthew','Nielsen',1),(11,'1979-08-03',7,'Nathan','Crosswell',1),(12,'1979-11-06',2,'Peter','Crawford',1),(13,'1987-07-04',5,'Ater','Majok',0),(14,'1986-10-30',5,'Adam','Gibson',0),(15,'1985-02-18',4,'Brad','Newley',0),(16,'1983-08-14',7,'Jacob','Holmes',1),(17,'1982-12-31',2,'Luke','Schenscher',0),(18,'1975-12-13',4,'Calvin Thomas, Jr.','Bruton',1),(19,'1978-08-11',6,'Dusty','Rychart',1),(20,'1983-06-08',1,'Mark','Worthington',1),(21,'1979-07-10',4,'Russell','Hinder',1),(22,'1985-01-21',1,'Matt','Unicomb',1),(23,'1992-03-23',2,'Kyrie','Irving',0),(24,'1988-12-06',1,'Anatoly','Bose',0),(25,'1986-02-23',5,'Julian','Khazzouh',1),(26,'1991-02-16',0,'Tom','Daly',0),(27,'1984-09-05',4,'Damian','Martin',0),(28,'1984-10-22',5,'Aleks','Maric',1),(29,'1992-04-27',1,'Mitch','Creek',0),(30,'1969-01-19',1,'Luc','Longley',0),(31,'1988-04-03',6,'Daniel','Johnson',0),(32,'1986-12-09',6,'Aron','Baynes',1),(33,'1985-03-14',5,'Steven','Markovic',0),(34,'1984-03-04',6,'Rhys','Carter',0),(35,'1986-10-10',1,'Nathan','Jawai',1),(36,'1981-01-21',5,'Shawn','Redhage',1),(37,'1989-02-03',0,'Alex','Gynes',0),(38,'1987-09-19',3,'Greg','Hire',1),(39,'1990-08-23',3,'Ryan','Broekhoff',0),(40,'1985-02-07',2,'Ben','Madgen',0);
+/*!40000 ALTER TABLE `PERSON` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Person_has_Goal`
+--
+
+DROP TABLE IF EXISTS `Person_has_Goal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Person_has_Goal` (
+  `idperson` int(11) NOT NULL,
+  `idgoal` int(11) NOT NULL,
+  PRIMARY KEY (`idperson`,`idgoal`),
+  KEY `FK_Person_has_Goal_idgoal` (`idgoal`),
+  CONSTRAINT `FK_Person_has_Goal_idperson` FOREIGN KEY (`idperson`) REFERENCES `PERSON` (`ID`),
+  CONSTRAINT `FK_Person_has_Goal_idgoal` FOREIGN KEY (`idgoal`) REFERENCES `GOAL` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Person_has_Goal`
+--
+
+LOCK TABLES `Person_has_Goal` WRITE;
+/*!40000 ALTER TABLE `Person_has_Goal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Person_has_Goal` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-01-13 21:46:54

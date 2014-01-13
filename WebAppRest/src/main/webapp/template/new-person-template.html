@@ -87,6 +87,11 @@
 			    $('#dp3').datepicker({
 					format: 'dd-mm-yyyy'
 				});
+
+				$("select#selectGender").val(<%= person ? person.get('sex') : '' %>);
+			  $("select#selectLifeStyle").val(
+			  	<%= person ? person.get('exerciseTimesPerWeek') : '' %>
+			  );
 		  });
 		</script>
 	</script>
