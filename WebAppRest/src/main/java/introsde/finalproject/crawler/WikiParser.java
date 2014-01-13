@@ -14,7 +14,6 @@ import javax.ws.rs.core.Response;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -153,8 +152,10 @@ public class WikiParser {
 
 						HealthProfile hp = new HealthProfile();
 
-						hp.setHeight(df.parse(df.format(height)).doubleValue());
-						hp.setWeight(df.parse(df.format(weight)).doubleValue());
+						hp.setHeight(df.parse(df.format(randHeight))
+								.doubleValue());
+						hp.setWeight(df.parse(df.format(randWeight))
+								.doubleValue());
 
 						hp.setDate(dateRandom);
 						hp.setHeartrate(hearthRate);

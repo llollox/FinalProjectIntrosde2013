@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import finalproject.utils.DatabaseUtil;
-import finalproject.utils.DoubleAdapter;
+import finalproject.utils.DoubleDecimalAdapter;
 
 @Entity
 @XmlRootElement
@@ -40,7 +40,7 @@ public class HealthProfile {
 	public HealthProfile() {
 	}
 
-	@XmlJavaTypeAdapter(DoubleAdapter.class)
+	@XmlJavaTypeAdapter(DoubleDecimalAdapter.class)
 	public Double getHeight() {
 		return height;
 	}
@@ -49,7 +49,7 @@ public class HealthProfile {
 		this.height = height;
 	}
 
-	@XmlJavaTypeAdapter(DoubleAdapter.class)
+	@XmlJavaTypeAdapter(DoubleDecimalAdapter.class)
 	public Double getWeight() {
 		return weight;
 	}
