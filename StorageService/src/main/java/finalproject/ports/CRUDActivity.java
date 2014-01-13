@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 import finalproject.model.Activity;
-import finalproject.model.Person;
 import finalproject.utils.DatabaseUtil;
 
 @WebService(serviceName = "ActivityService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
@@ -16,11 +14,13 @@ public class CRUDActivity {
 	// GET ACTIVITIES
 	public List<Activity> getActivities() {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Activity> list = em.createNamedQuery("Activity.findAll", Activity.class).getResultList();;
-	    em.close();
-	    return list;
+		List<Activity> list = em.createNamedQuery("Activity.findAll",
+				Activity.class).getResultList();
+		;
+		em.close();
+		return list;
 	}
-	
+
 	// CREATE ACTIVITY
 	public int createActivity(Activity activity) {
 		Activity a = Activity.create(activity);

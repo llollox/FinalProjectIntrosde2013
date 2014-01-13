@@ -5,7 +5,6 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 
-import finalproject.model.Activity;
 import finalproject.model.ExerciseCategory;
 import finalproject.utils.DatabaseUtil;
 
@@ -15,11 +14,14 @@ public class CRUDExerciseCategory {
 	// GET CATEGORIES
 	public List<ExerciseCategory> getCategories() {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<ExerciseCategory> list = em.createNamedQuery("ExerciseCategory.findAll", ExerciseCategory.class).getResultList();;
-	    em.close();
-	    return list;
+		List<ExerciseCategory> list = em.createNamedQuery(
+				"ExerciseCategory.findAll", ExerciseCategory.class)
+				.getResultList();
+		;
+		em.close();
+		return list;
 	}
-	
+
 	// CREATE CATEGORY
 	public int createExerciseCategory(ExerciseCategory exercise) {
 		ExerciseCategory a = ExerciseCategory.create(exercise);

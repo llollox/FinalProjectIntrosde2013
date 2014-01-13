@@ -21,17 +21,15 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
 @NamedQueries({
-	@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p"),
-	@NamedQuery(name="Person.findByBirthdate", query="SELECT p FROM Person p WHERE p.birthdate < :end AND p.birthdate > :start"),
-	@NamedQuery(name="Person.getByHeight", query="SELECT p FROM Person p, HealthProfile h WHERE h.height <= :max AND h.height >= :min AND h.person.id = p.id"),
-	@NamedQuery(name="Person.getByWeight", query="SELECT p FROM Person p, HealthProfile h WHERE h.weight <= :max AND h.weight >= :min AND h.person.id = p.id"),
-	@NamedQuery(name="Person.findByName", query="SELECT p FROM Person p WHERE (p.firstname LIKE CONCAT(CONCAT('%', :name), '%')) OR (p.lastname LIKE CONCAT(CONCAT('%', :name), '%'))")
-})
+		@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
+		@NamedQuery(name = "Person.findByBirthdate", query = "SELECT p FROM Person p WHERE p.birthdate < :end AND p.birthdate > :start"),
+		@NamedQuery(name = "Person.getByHeight", query = "SELECT p FROM Person p, HealthProfile h WHERE h.height <= :max AND h.height >= :min AND h.person.id = p.id"),
+		@NamedQuery(name = "Person.getByWeight", query = "SELECT p FROM Person p, HealthProfile h WHERE h.weight <= :max AND h.weight >= :min AND h.person.id = p.id"),
+		@NamedQuery(name = "Person.findByName", query = "SELECT p FROM Person p WHERE (p.firstname LIKE CONCAT(CONCAT('%', :name), '%')) OR (p.lastname LIKE CONCAT(CONCAT('%', :name), '%'))") })
 @Entity
 @XmlRootElement(name = "person")
 public class Person {
@@ -97,11 +95,13 @@ public class Person {
 	}
 
 	// READ ONLY ELEMENTS
-	
+
 	public static List<Person> getAll() {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Person> list = em.createNamedQuery("Person.findAll", Person.class).getResultList();;
-	    em.close();
+		List<Person> list = em.createNamedQuery("Person.findAll", Person.class)
+				.getResultList();
+		;
+		em.close();
 		return list;
 	}
 
@@ -109,7 +109,7 @@ public class Person {
 	public List<Goal> getGoals() {
 		return goals;
 	}
-	
+
 	@XmlElement(name = "healthprofile")
 	public HealthProfile getHealthprofile() {
 		if (healthprofiles.size() == 0)
@@ -206,33 +206,47 @@ public class Person {
 
 		return true;
 	}
-	
+
 	public static List<Person> getByBirthdate(String start, String end) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Person> list = em.createNamedQuery("Person.findByBirthdate", Person.class).setParameter("start", start).setParameter("end", end).getResultList();;
-	    em.close();
-	    return list;
+		List<Person> list = em
+				.createNamedQuery("Person.findByBirthdate", Person.class)
+				.setParameter("start", start).setParameter("end", end)
+				.getResultList();
+		;
+		em.close();
+		return list;
 	}
-	
+
 	public static List<Person> getByHeight(String min, String max) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Person> list = em.createNamedQuery("Person.getByHeight", Person.class).setParameter("min", Double.parseDouble(min)).setParameter("max", Double.parseDouble(max)).getResultList();
-	    em.close();
-	    return list;
+		List<Person> list = em
+				.createNamedQuery("Person.getByHeight", Person.class)
+				.setParameter("min", Double.parseDouble(min))
+				.setParameter("max", Double.parseDouble(max)).getResultList();
+		em.close();
+		return list;
 	}
-	
+
 	public static List<Person> getByWeight(String min, String max) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Person> list = em.createNamedQuery("Person.getByWeight", Person.class).setParameter("min", min).setParameter("max", max).getResultList();;
-	    em.close();
-	    return list;
+		List<Person> list = em
+				.createNamedQuery("Person.getByWeight", Person.class)
+				.setParameter("min", min).setParameter("max", max)
+				.getResultList();
+		;
+		em.close();
+		return list;
 	}
-	
+
 	public static List<Person> getByName(String name) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-	    List<Person> list = em.createNamedQuery("Person.findByName", Person.class).setParameter("name", name).getResultList();;
-	    em.close();
-	    return list;
+		List<Person> list = em
+				.createNamedQuery("Person.findByName", Person.class)
+				.setParameter("name", name).getResultList();
+		;
+		em.close();
+		return list;
 	}
 
 	private static boolean isDateValid(String date) {
