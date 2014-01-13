@@ -78,22 +78,22 @@ public class ClientTest {
 
 		for (Matches m : finder.getMatches()) {
 
-			EdamamResponse response = food.calculateIngredientsValues(m
-					.getIngredients());
-
-			System.out.println("--------------------------");
-			System.out.println(m.getRecipeName());
-			System.out.println(m.getIngredients());
-			System.out.println(response.getCalories());
-
-			ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
-			System.out.println(kcal.getLabel() + " " + kcal.getQuantity() + " "
-					+ kcal.getUnit());
-			System.out.println(response.getHealthLabels());
-			System.out.println(response.getDietLabels());
-			System.out.println(m.getRating());
-			System.out.println(m.getId());
+//			EdamamResponse response = food.calculateIngredientsValues(m
+//					.getIngredients());
+//
+//			System.out.println("--------------------------");
+//			System.out.println(m.getRecipeName());
+//			System.out.println(m.getIngredients());
+//			System.out.println(response.getCalories());
+//
+//			ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
+//			System.out.println(kcal.getLabel() + " " + kcal.getQuantity() + " "
+//					+ kcal.getUnit());
+//			System.out.println(response.getHealthLabels());
+//			System.out.println(response.getDietLabels());
+//			System.out.println(m.getRating());
+//			System.out.println(m.getId());
+			System.out.println(m);
 		}
 	}
-
 }

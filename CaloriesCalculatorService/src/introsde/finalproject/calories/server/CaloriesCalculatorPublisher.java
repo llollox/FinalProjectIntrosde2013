@@ -4,7 +4,7 @@ import introsde.finalproject.calories.port.CaloriesCalculator;
 
 import javax.xml.ws.Endpoint;
 
-public class Publisher {
+public class CaloriesCalculatorPublisher {
 	public static void main(String[] args) {
 		Endpoint.publish("http://localhost:5990/calories/calculator",
 				new CaloriesCalculator());

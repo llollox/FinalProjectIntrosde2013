@@ -4,12 +4,13 @@ import javax.xml.ws.Endpoint;
 
 import com.introsde.food.service.ports.Food;
 
-public class FoodPublisher {
+public class FoodServicePublisher {
 
 	public static void main(String[] args) {
-		Endpoint.publish("http://localhost:5920/foodservice/recipes", new Food());
+		Endpoint.publish("http://localhost:5920/foodservice/recipes",
+				new Food());
 
-		System.out.println("Started FoodPublisher");
+		System.out.println("Started Food Publisher");
 	}
 
 }

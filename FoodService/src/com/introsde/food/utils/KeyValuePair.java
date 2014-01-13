@@ -1,5 +1,8 @@
 package com.introsde.food.utils;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class KeyValuePair {
 
 	private String key;

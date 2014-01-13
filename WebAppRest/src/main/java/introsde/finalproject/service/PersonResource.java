@@ -35,8 +35,13 @@ public class PersonResource {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Person> getPeople() {
+	public List<Person> getPeople() throws ParseException {
 		List<Person> list = cperson.getPeople();
+
+		for (Person p : list) {
+			p.setHealthprofile(getExtendedHealthProfile(p));
+		}
+
 		return list;
 	}
 

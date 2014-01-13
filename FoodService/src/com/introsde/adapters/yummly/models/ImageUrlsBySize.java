@@ -1,23 +1,36 @@
 package com.introsde.adapters.yummly.models;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ImageUrlsBySize {
 
-	private String _360;
-	private String _90;
+	private String bigImage;
+	private String smallImage;
 
-	public String get_360() {
-		return this._360;
+	@XmlElement(name = "_360")
+	public String getBigImage() {
+		return bigImage;
 	}
 
-	public void set360(String _360) {
-		this._360 = _360;
+	public void setBigImage(String bigImage) {
+		this.bigImage = bigImage;
 	}
 
-	public String get_90() {
-		return this._90;
+	@XmlElement(name = "_90")
+	public String getSmallImage() {
+		return smallImage;
 	}
 
-	public void set_90(String _90) {
-		this._90 = _90;
+	public void setSmallImage(String smallImage) {
+		this.smallImage = smallImage;
 	}
+
+	@Override
+	public String toString() {
+		return "ImageUrlsBySize [bigImage=" + bigImage + ", smallImage="
+				+ smallImage + "]";
+	}
+
 }

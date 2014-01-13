@@ -7,6 +7,7 @@ import com.introsde.adapters.edamam.models.ENERC_KCAL;
 import com.introsde.adapters.edamam.models.EdamamResponse;
 import com.introsde.adapters.yummly.models.Matches;
 import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.utils.QueryParams;
 
 public class Yummly {
 
@@ -44,38 +45,35 @@ public class Yummly {
 
 	public static void main(String[] args) {
 
-		ArrayList<String> allowed = new ArrayList<String>(), excuded = new ArrayList<String>();
-
-		allowed.add("oil");
-		allowed.add("butter");
-		allowed.add("vinegar");
-
-		excuded.add("mint");
-		excuded.add("chicken");
-
-		RecipeFinder finder = YummlyConnector.getRecipes(allowed, excuded);
+		RecipeFinder finder = YummlyConnector.getRecipes(null);
 
 		p(finder);
 	}
 
 	static void p(RecipeFinder finder) {
 
+		int count = 0;
 		for (Matches m : finder.getMatches()) {
 
-			EdamamResponse response = EdamamConnector.get(m.getIngredients());
+			// EdamamResponse response =
+			// EdamamConnector.get(m.getIngredients());
 
-			System.out.println("--------------------------");
-			System.out.println(m.getRecipeName());
-			System.out.println(m.getIngredients());
-			System.out.println(response.getCalories());
-
-			ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
-			System.out.println(kcal.getLabel() + " " + kcal.getQuantity() + " "
-					+ kcal.getUnit());
-			System.out.println(response.getHealthLabels());
-			System.out.println(response.getDietLabels());
-			System.out.println(m.getRating());
+			System.out.println("\n" + ++count
+					+ ".    ------------------------------\n");
+			// System.out.println(m.getRecipeName());
+			// System.out.println(m.getIngredients());
+			// System.out.println(response.getCalories());
+			//
+			// ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
+			// System.out.println(kcal.getLabel() + " " + kcal.getQuantity() +
+			// " "
+			// + kcal.getUnit());
+			// System.out.println(response.getHealthLabels());
+			// System.out.println(response.getDietLabels());
+			// System.out.println(m.getRating());
 			System.out.println(m.getId());
+
+			System.out.println(m);
 		}
 	}
 }

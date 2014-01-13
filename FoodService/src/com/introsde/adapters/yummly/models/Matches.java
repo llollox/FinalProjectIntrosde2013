@@ -2,7 +2,9 @@ package com.introsde.adapters.yummly.models;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Matches {
 
 	private Attributes attributes;
@@ -12,19 +14,9 @@ public class Matches {
 	private List<String> ingredients;
 	private Double rating;
 	private String recipeName;
-	private List<SmallImageUrls> smallImageUrls;
+	private List<String> smallImageUrls;
 	private String sourceDisplayName;
 	private Double totalTimeInSeconds;
-
-	@Override
-	public String toString() {
-		return "Matches [attributes=" + attributes + ", flavors=" + flavors
-				+ ", id=" + id + ", imageUrlsBySize=" + imageUrlsBySize
-				+ ", ingredients=" + ingredients + ", rating=" + rating
-				+ ", recipeName=" + recipeName + ", smallImageUrls="
-				+ smallImageUrls + ", sourceDisplayName=" + sourceDisplayName
-				+ ", totalTimeInSeconds=" + totalTimeInSeconds + "]";
-	}
 
 	public Attributes getAttributes() {
 		return this.attributes;
@@ -82,11 +74,11 @@ public class Matches {
 		this.recipeName = recipeName;
 	}
 
-	public List<SmallImageUrls> getSmallImageUrls() {
-		return this.smallImageUrls;
+	public List<String> getSmallImageUrls() {
+		return smallImageUrls;
 	}
 
-	public void setSmallImageUrls(List<SmallImageUrls> smallImageUrls) {
+	public void setSmallImageUrls(List<String> smallImageUrls) {
 		this.smallImageUrls = smallImageUrls;
 	}
 
@@ -105,4 +97,15 @@ public class Matches {
 	public void setTotalTimeInSeconds(Double totalTimeInSeconds) {
 		this.totalTimeInSeconds = totalTimeInSeconds;
 	}
+
+	@Override
+	public String toString() {
+		return "[attributes=" + attributes + ",\n flavors=" + flavors
+				+ ",\n id=" + id + ",\n imageUrlsBySize=" + imageUrlsBySize
+				+ ",\n ingredients=" + ingredients + ", rating=" + rating
+				+ ",\n recipeName=" + recipeName + ", smallImageUrls="
+				+ smallImageUrls + ",\n sourceDisplayName=" + sourceDisplayName
+				+ ",\n totalTimeInSeconds=" + totalTimeInSeconds + "]";
+	}
+
 }

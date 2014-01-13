@@ -27,117 +27,113 @@ public class YummlyConnector {
 		service = client.resource("http://api.yummly.com/v1/api");
 	}
 
-	public static RecipeFinder getRecipes(int minKcal, int maxKcal) {
-
-		if (minKcal < 0 || maxKcal < minKcal)
-			return null;
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-
-		queryParams.add(Yummly.KCAL_MIN, minKcal + "");
-		queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
-
-		return retrive(queryParams, null, null);
-	}
-
-	public static RecipeFinder getRecipes(int minKcal, int maxKcal,
-			int maxResults) {
-
-		if (minKcal < 0 || maxKcal < minKcal)
-			return null;
-
-		if (maxResults < 1)
-			return null;
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-
-		queryParams.add(Yummly.KCAL_MIN, minKcal + "");
-		queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
-		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
-
-		return retrive(queryParams, null, null);
-	}
-
-	public static RecipeFinder getRecipes(String textQuery) {
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
-
-		return retrive(queryParams, null, null);
-	}
-
-	public static RecipeFinder getRecipes(String textQuery, int maxResults) {
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
-		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
-
-		return retrive(queryParams, null, null);
-	}
-
-	public static RecipeFinder getRecipes(String textQuery,
-			List<String> includedIngredients, List<String> excludedIngredients) {
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
-
-		return retrive(queryParams, includedIngredients, excludedIngredients);
-	}
-
-	public static RecipeFinder getRecipes(String textQuery,
-			List<String> includedIngredients, List<String> excludedIngredients,
-			int maxResults) {
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add(Yummly.SEARCH_TEXT, textQuery);
-		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
-
-		return retrive(queryParams, includedIngredients, excludedIngredients);
-	}
-
-	public static RecipeFinder getRecipes(List<String> includedIngredients,
-			List<String> excludedIngredients) {
-
-		return retrive(null, includedIngredients, excludedIngredients);
-	}
-
-	public static RecipeFinder getRecipes(List<String> includedIngredients,
-			List<String> excludedIngredients, int maxResults) {
-
-		MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
-		queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
-
-		return retrive(queryParams, includedIngredients, excludedIngredients);
-	}
-
-	public static RecipeFinder getRecipes(
-			MultivaluedMap<String, String> queryParams,
-			List<String> includedIngredients, List<String> excludedIngredients) {
-
-		return retrive(queryParams, includedIngredients, excludedIngredients);
-	}
-
-	public static RecipeFinder getRecipes(
-			MultivaluedMap<String, String> queryParams) {
-
-		if (queryParams == null) {
-			queryParams = new MultivaluedMapImpl();
-		}
-
-		return retrive(queryParams, null, null);
-	}
+	// public static RecipeFinder getRecipes(int minKcal, int maxKcal) {
+	//
+	// if (minKcal < 0 || maxKcal < minKcal)
+	// return null;
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	//
+	// queryParams.add(Yummly.KCAL_MIN, minKcal + "");
+	// queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
+	//
+	// return retrive(queryParams, null, null);
+	// }
+	//
+	// public static RecipeFinder getRecipes(int minKcal, int maxKcal,
+	// int maxResults) {
+	//
+	// if (minKcal < 0 || maxKcal < minKcal)
+	// return null;
+	//
+	// if (maxResults < 1)
+	// return null;
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	//
+	// queryParams.add(Yummly.KCAL_MIN, minKcal + "");
+	// queryParams.add(Yummly.KCAL_MAX, maxKcal + "");
+	// queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+	//
+	// return retrive(queryParams, null, null);
+	// }
+	//
+	// public static RecipeFinder getRecipes(String textQuery) {
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	// queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+	//
+	// return retrive(queryParams, null, null);
+	// }
+	//
+	// public static RecipeFinder getRecipes(String textQuery, int maxResults) {
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	// queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+	// queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+	//
+	// return retrive(queryParams, null, null);
+	// }
+	//
+	// public static RecipeFinder getRecipes(String textQuery,
+	// List<String> includedIngredients, List<String> excludedIngredients) {
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	// queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+	//
+	// return retrive(queryParams, includedIngredients, excludedIngredients);
+	// }
+	//
+	// public static RecipeFinder getRecipes(String textQuery,
+	// List<String> includedIngredients, List<String> excludedIngredients,
+	// int maxResults) {
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	// queryParams.add(Yummly.SEARCH_TEXT, textQuery);
+	// queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+	//
+	// return retrive(queryParams, includedIngredients, excludedIngredients);
+	// }
+	//
+	// public static RecipeFinder getRecipes(List<String> includedIngredients,
+	// List<String> excludedIngredients) {
+	//
+	// return retrive(null, includedIngredients, excludedIngredients);
+	// }
+	//
+	// public static RecipeFinder getRecipes(List<String> includedIngredients,
+	// List<String> excludedIngredients, int maxResults) {
+	//
+	// MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+	// queryParams.add(Yummly.MAX_RESULTS, maxResults + "");
+	//
+	// return retrive(queryParams, includedIngredients, excludedIngredients);
+	// }
+	//
+	// public static RecipeFinder getRecipes(
+	// MultivaluedMap<String, String> queryParams,
+	// List<String> includedIngredients, List<String> excludedIngredients) {
+	//
+	// return retrive(queryParams, includedIngredients, excludedIngredients);
+	// }
+	//
+	// public static RecipeFinder getRecipes(
+	// MultivaluedMap<String, String> queryParams) {
+	//
+	// if (queryParams == null) {
+	// queryParams = new MultivaluedMapImpl();
+	// }
+	//
+	// return retrive(queryParams, null, null);
+	// }
 
 	public static RecipeFinder getRecipes(QueryParams params) {
 
-		if (params == null) {
-			return null;
-		}
-
 		MultivaluedMapImpl queryParams = new MultivaluedMapImpl();
 
-		for (KeyValuePair pair : params.getQueryParams()) {
-			queryParams.add(pair.getKey(), pair.getValue());
-		}
+		if (params != null)
+			for (KeyValuePair pair : params.getQueryParams())
+				queryParams.add(pair.getKey(), pair.getValue());
 
 		return retrive(queryParams, null, null);
 	}

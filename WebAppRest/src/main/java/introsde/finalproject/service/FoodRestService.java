@@ -6,7 +6,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.food.client.Food;
@@ -14,29 +13,18 @@ import com.food.client.FoodService;
 import com.introsde.adapters.yummly.models.Matches;
 import com.introsde.adapters.yummly.models.Recipe;
 import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.utils.QueryParams;
 
-@Path("/food/recipe")
+@Path("/food/recipes")
 public class FoodRestService {
 
 	Food foodService = new FoodService().getFood();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Matches> getRecipesByCalories(
-			@QueryParam("max") Integer maxKcal,
-			@QueryParam("min") Integer minKcal,
-			@QueryParam("maxResults") Integer maxResults) {
+	public List<Matches> getRecipesByCalories() {
 
-		if (maxKcal == null)
-			maxKcal = 5000;
-
-		if (minKcal == null)
-			minKcal = 0;
-
-		if (maxResults == null)
-			maxResults = 20;
-
-		RecipeFinder finder = foodService.getRecipes(null);
+		RecipeFinder finder = foodService.getRecipes(new QueryParams());
 		return finder.getMatches();
 	}
 

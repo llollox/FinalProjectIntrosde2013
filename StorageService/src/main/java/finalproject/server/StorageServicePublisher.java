@@ -13,7 +13,7 @@ import finalproject.ports.CRUDGoal;
 import finalproject.ports.CRUDHealthProfile;
 import finalproject.ports.CRUDPerson;
 
-public class Publisher {
+public class StorageServicePublisher {
 
 	public static void main(String[] args) {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/person", new CRUDPerson());
