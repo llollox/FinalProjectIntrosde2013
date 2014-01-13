@@ -36,8 +36,7 @@ public class PersonResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() throws ParseException {
-		List<Person> list = cperson.getPeople();
-		return list;
+		return cperson.getPeople();
 	}
 
 	@POST
@@ -90,7 +89,6 @@ public class PersonResource {
 	public Response deletePerson(@PathParam("p_id") int p_id) {
 
 		if (cperson.deletePerson(p_id)) {
-
 			return Response.status(Response.Status.OK).build();
 
 		} else {

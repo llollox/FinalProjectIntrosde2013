@@ -1,7 +1,7 @@
 package finalproject.model;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -20,6 +21,7 @@ import finalproject.utils.DoubleDecimalAdapter;
 
 @Entity
 @XmlRootElement
+@NamedQuery(name = "HealthProfile.findHp", query = "select hp from HealthProfile hp where hp.person.id = :pid and hp.id = :hpid")
 public class HealthProfile {
 
 	@Id
@@ -124,19 +126,33 @@ public class HealthProfile {
 	// # CRUD
 	// ##########################################
 
-	public static HealthProfile read(int id) {
+	public static HealthProfile read(int pid, int hpid) {
 		EntityManager em = DatabaseUtil.createEntityManager();
-		HealthProfile h = em.find(HealthProfile.class, id);
+
+		// HealthProfile h = em.find(HealthProfile.class, id);
+		HealthProfile h = em
+				.createNamedQuery("HealthProfile.findHp", HealthProfile.class)
+				.setParameter("pid", pid).setParameter("hpid", hpid)
+				.getSingleResult();
+
 		em.close();
 		return h;
 	}
 
 	public static HealthProfile create(int idperson, HealthProfile hp) {
 
+		Person p = Person.read(idperson);
+
+		if (p == null)
+			return null;
+
+		if (hp.getHeight() == null || hp.getWeight() == null)
+			return null;
+
 		// reset the id
 		hp.setId(0);
 
-		hp.setPerson(Person.read(idperson));
+		hp.setPerson(p);
 		hp.setDate(getCurrentDate());
 
 		EntityManager em = DatabaseUtil.createEntityManager();
@@ -152,11 +168,16 @@ public class HealthProfile {
 
 	public static HealthProfile update(int idperson, HealthProfile hp) {
 
-		HealthProfile newHP = HealthProfile.read(hp.getId());
+		Person p = Person.read(idperson);
+
+		if (p == null)
+			return null;
+
+		HealthProfile newHP = HealthProfile.read(idperson, hp.getId());
 
 		// if the healthprofile does not exist create it
 		if (newHP == null) {
-			hp.setPerson(Person.read(idperson));
+			hp.setPerson(p);
 			hp.setDate(getCurrentDate());
 
 			EntityManager em = DatabaseUtil.createEntityManager();
@@ -205,8 +226,8 @@ public class HealthProfile {
 		return newHP;
 	}
 
-	public static boolean delete(int id) {
-		HealthProfile p = read(id);
+	public static boolean delete(int pid, int hpid) {
+		HealthProfile p = read(pid, hpid);
 
 		if (p == null)
 			return false;
@@ -230,7 +251,7 @@ public class HealthProfile {
 
 		String date = null;
 		try {
-			date = df.format(Calendar.getInstance().getTime());
+			date = df.format(new Date());
 		} catch (Exception e) {
 		}
 

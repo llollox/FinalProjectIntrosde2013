@@ -160,7 +160,9 @@ public class Person {
 		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
 			return null;
 
-		if (p.getExerciseTimesPerWeek() == null)
+		if (p.getExerciseTimesPerWeek() == null
+				|| p.getExerciseTimesPerWeek() < 0
+				|| p.getExerciseTimesPerWeek() > 7)
 			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();

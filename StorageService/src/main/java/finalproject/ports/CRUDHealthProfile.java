@@ -18,8 +18,8 @@ public class CRUDHealthProfile {
 	}
 
 	// READ HEALTHPROFILE
-	public HealthProfile readHealthProfile(int id) {
-		return HealthProfile.read(id);
+	public HealthProfile readHealthProfile(int pid, int hpid) {
+		return HealthProfile.read(pid, hpid);
 	}
 
 	// UPDATE HEALTHPROFILE
@@ -34,8 +34,8 @@ public class CRUDHealthProfile {
 	}
 
 	// DELETE HEALTHPROFILE
-	public boolean deleteHealthProfile(int id) {
-		return HealthProfile.delete(id);
+	public boolean deleteHealthProfile(int pid, int hpid) {
+		return HealthProfile.delete(pid, hpid);
 	}
 
 }

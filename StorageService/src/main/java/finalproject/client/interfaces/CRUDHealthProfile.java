@@ -35,7 +35,8 @@ public interface CRUDHealthProfile {
 	@WebMethod
 	@WebResult(targetNamespace = "")
 	public HealthProfile readHealthProfile(
-			@WebParam(name = "arg0", targetNamespace = "") int arg0);
+			@WebParam(name = "arg0", targetNamespace = "") int arg0,
+			@WebParam(name = "arg1", targetNamespace = "") int arg1);
 
 	/**
 	 * 
@@ -57,6 +58,7 @@ public interface CRUDHealthProfile {
 	@WebMethod
 	@WebResult(targetNamespace = "")
 	public boolean deleteHealthProfile(
-			@WebParam(name = "arg0", targetNamespace = "") int arg0);
+			@WebParam(name = "arg0", targetNamespace = "") int arg0,
+			@WebParam(name = "arg1", targetNamespace = "") int arg1);
 
 }

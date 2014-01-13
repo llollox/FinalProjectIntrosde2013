@@ -13,75 +13,62 @@ import javax.ws.rs.core.Response;
 
 import finalproject.client.interfaces.CRUDHealthProfile;
 import finalproject.client.service.HealthProfileService;
-import finalproject.client.service.PersonService;
 import finalproject.model.HealthProfile;
-import finalproject.model.Person;
 
-@Path("/healthprofile")
+@Path("/person/{p_id}/healthprofile")
 public class HealthProfileResource {
 
-	public static CRUDHealthProfile chealthprofile = new HealthProfileService()
-			.getCRUD();
+	public static CRUDHealthProfile soap = new HealthProfileService().getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createHealthProfile(HealthProfile a) {
+	public Response createHealthProfile(@PathParam("p_id") int pid,
+			HealthProfile hp) {
 
-		int id = chealthprofile.createHealthProfile(a.getPersonId(), a);
-		if (id != -1) {
-			return Response.status(Response.Status.OK).entity(id).build();
+		int hp_id = soap.createHealthProfile(pid, hp);
+		if (hp_id != -1) {
+			return Response.status(Response.Status.OK)
+					.entity(soap.readHealthProfile(pid, hp_id)).build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
 
 	@GET
-	@Path("/{id}")
+	@Path("/{hp_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public HealthProfile getHealthProfile(@PathParam("id") int id) {
-		return chealthprofile.readHealthProfile(id);
+	public HealthProfile getHealthProfile(@PathParam("p_id") int pid,
+			@PathParam("hp_id") int hp_id) {
+		return soap.readHealthProfile(pid, hp_id);
 	}
 
 	@PUT
-	@Path("/{id}")
+	@Path("/{hp_id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateHealthProfile(@PathParam("id") int id,
-			HealthProfile json) {
+	public Response updateHealthProfile(@PathParam("p_id") int pid,
+			@PathParam("hp_id") int hp_id, HealthProfile json) {
 
-		HealthProfile a = chealthprofile.readHealthProfile(id);
-		Person p = new PersonService().getCRUD().readPerson(a.getPersonId());
+		json.setId(hp_id);
+		// aggiorno nel db
+		int id = soap.updateHealthProfile(pid, json);
 
-		if (a != null && p != null && json.getDate() != null) {
-
-			// aggionro i dati
-			a.setMinbloodpressure(json.getMinbloodpressure());
-			a.setMaxbloodpressure(json.getMaxbloodpressure());
-			a.setDate(json.getDate());
-			a.setHeartrate(json.getHeartrate());
-			a.setHeight(json.getHeight());
-			a.setWeight(json.getWeight());
-
-			// aggiorno nel db
-			int _id = chealthprofile.updateHealthProfile(json.getPersonId(), a);
-
-			if (_id != -1) // data successiful updated!
-				return Response.status(Response.Status.OK).entity(a).build();
-			else
-				return Response.status(Response.Status.BAD_REQUEST).build();
-
-		} else {
+		if (id != -1) // data successiful updated!
+			return Response.status(Response.Status.OK)
+					.entity(soap.readHealthProfile(pid, hp_id)).build();
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
+
 	}
 
 	@DELETE
-	@Path("/{id}")
+	@Path("/{hp_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deleteHealthProfile(@PathParam("id") int id) {
+	public Response deleteHealthProfile(@PathParam("p_id") int pid,
+			@PathParam("hp_id") int hp_id) {
 
-		if (chealthprofile.deleteHealthProfile(id)) {
+		if (soap.deleteHealthProfile(pid, hp_id)) {
 
 			return Response.status(Response.Status.OK).build();
 
