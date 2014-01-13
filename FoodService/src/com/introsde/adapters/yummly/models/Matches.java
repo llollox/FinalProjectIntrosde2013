@@ -7,10 +7,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Matches {
 
-	private Attributes attributes;
+	// private Attributes attributes;
 	private String flavors;
 	private String id;
-	private ImageUrlsBySize imageUrlsBySize;
+	// private ImageUrlsBySize imageUrlsBySize;
 	private List<String> ingredients;
 	private Double rating;
 	private String recipeName;
@@ -18,13 +18,13 @@ public class Matches {
 	private String sourceDisplayName;
 	private Double totalTimeInSeconds;
 
-	public Attributes getAttributes() {
-		return this.attributes;
-	}
-
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
-	}
+	// public Attributes getAttributes() {
+	// return this.attributes;
+	// }
+	//
+	// public void setAttributes(Attributes attributes) {
+	// this.attributes = attributes;
+	// }
 
 	public String getFlavors() {
 		return this.flavors;
@@ -42,13 +42,13 @@ public class Matches {
 		this.id = id;
 	}
 
-	public ImageUrlsBySize getImageUrlsBySize() {
-		return this.imageUrlsBySize;
-	}
-
-	public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
-		this.imageUrlsBySize = imageUrlsBySize;
-	}
+	// public ImageUrlsBySize getImageUrlsBySize() {
+	// return this.imageUrlsBySize;
+	// }
+	//
+	// public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
+	// this.imageUrlsBySize = imageUrlsBySize;
+	// }
 
 	public List<String> getIngredients() {
 		return this.ingredients;
@@ -97,15 +97,4 @@ public class Matches {
 	public void setTotalTimeInSeconds(Double totalTimeInSeconds) {
 		this.totalTimeInSeconds = totalTimeInSeconds;
 	}
-
-	@Override
-	public String toString() {
-		return "[attributes=" + attributes + ",\n flavors=" + flavors
-				+ ",\n id=" + id + ",\n imageUrlsBySize=" + imageUrlsBySize
-				+ ",\n ingredients=" + ingredients + ", rating=" + rating
-				+ ",\n recipeName=" + recipeName + ", smallImageUrls="
-				+ smallImageUrls + ",\n sourceDisplayName=" + sourceDisplayName
-				+ ",\n totalTimeInSeconds=" + totalTimeInSeconds + "]";
-	}
-
 }

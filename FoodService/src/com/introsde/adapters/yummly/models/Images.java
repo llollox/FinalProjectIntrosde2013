@@ -4,7 +4,8 @@ public class Images {
 
 	private String hostedLargeUrl;
 	private String hostedSmallUrl;
-	private ImageUrlsBySize imageUrlsBySize;
+
+	// private ImageUrlsBySize imageUrlsBySize;
 
 	public String getHostedLargeUrl() {
 		return this.hostedLargeUrl;
@@ -22,11 +23,11 @@ public class Images {
 		this.hostedSmallUrl = hostedSmallUrl;
 	}
 
-	public ImageUrlsBySize getImageUrlsBySize() {
-		return this.imageUrlsBySize;
-	}
-
-	public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
-		this.imageUrlsBySize = imageUrlsBySize;
-	}
+	// public ImageUrlsBySize getImageUrlsBySize() {
+	// return this.imageUrlsBySize;
+	// }
+	//
+	// public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
+	// this.imageUrlsBySize = imageUrlsBySize;
+	// }
 }

@@ -25,7 +25,12 @@ public class FoodRestService {
 	public List<Matches> getRecipesByCalories() {
 
 		RecipeFinder finder = foodService.getRecipes(new QueryParams());
-		return finder.getMatches();
+		List<Matches> list = finder.getMatches();
+
+		for (Matches m : list)
+			addImagesUrl(m.getSmallImageUrls());
+
+		return list;
 	}
 
 	@GET
@@ -34,5 +39,15 @@ public class FoodRestService {
 	public Recipe getRecipe(@PathParam("recipeId") String recipeId) {
 
 		return foodService.getRecipe(recipeId);
+	}
+
+	private void addImagesUrl(List<String> listUrls) {
+
+		String url = listUrls.get(0);
+
+		listUrls.add(url.replace(".s.", ".m."));
+		listUrls.add(url.replace(".s.", ".l."));
+		listUrls.add(url.replace(".s.", ".xl."));
+
 	}
 }

@@ -9,7 +9,7 @@ public class Recipe {
 
 	private Attributes attributes;
 	private Attribution attribution;
-	private Flavors flavors;
+	// private Flavors flavors;
 	private String id;
 	private List<Images> images;
 	private List<String> ingredientLines;
@@ -38,13 +38,13 @@ public class Recipe {
 		this.attribution = attribution;
 	}
 
-	public Flavors getFlavors() {
-		return this.flavors;
-	}
-
-	public void setFlavors(Flavors flavors) {
-		this.flavors = flavors;
-	}
+	// public Flavors getFlavors() {
+	// return this.flavors;
+	// }
+	//
+	// public void setFlavors(Flavors flavors) {
+	// this.flavors = flavors;
+	// }
 
 	public String getId() {
 		return this.id;
@@ -135,15 +135,4 @@ public class Recipe {
 		this.yield = yield;
 	}
 
-	@Override
-	public String toString() {
-		return "Receipt [attributes=" + attributes + ", attribution="
-				+ attribution + ", flavors=" + flavors + ", id=" + id
-				+ ", images=" + images + ", ingredientLines=" + ingredientLines
-				+ ", name=" + name + ", numberOfServings=" + numberOfServings
-				+ ", nutritionEstimates=" + nutritionEstimates + ", rating="
-				+ rating + ", source=" + source + ", totalTime=" + totalTime
-				+ ", totalTimeInSeconds=" + totalTimeInSeconds + ", yield="
-				+ yield + "]";
-	}
 }
