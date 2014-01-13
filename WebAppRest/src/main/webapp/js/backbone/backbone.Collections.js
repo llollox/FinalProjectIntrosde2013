@@ -48,3 +48,15 @@ HealthProfileHistory = Backbone.Collection.extend({
 			return null;
 	}
 });
+
+RecipeList = Backbone.Collection.extend({
+	model : Recipe,
+	url : '/food',
+	parse : function(response) {
+		if (response)
+			return response.matches;
+		else
+			return null;
+	}
+});
+

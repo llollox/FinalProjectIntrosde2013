@@ -17,8 +17,8 @@ Person = Backbone.Model.extend({
 	}
 });
 
-Bmi = Backbone.Model.extend({
-	urlRoot : '/calculate/bmi'
+Recipe = Backbone.Model.extend({
+	urlRoot : '/food'
 	// initialize : function(options) {
 	// 	this.healthProfileHistory = new HealthProfileHistory;
 	// 	this.healthProfileHistory.url = function() {

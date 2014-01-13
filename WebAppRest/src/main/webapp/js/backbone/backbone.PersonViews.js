@@ -148,22 +148,38 @@ var EditPerson = Backbone.View.extend({
 		});
 		person.fetch({
 			success : function(person) {
-				// person.healthProfileHistory.fetch({
-				// 	success : function(healthProfileHistory) {
-				// 		var template = _.template($('#show-person-template')
-				// 				.html(), {
-				// 			person : person,
-				// 			healthProfileHistory : healthProfileHistory.models
-				// 		});
-				// 		that.$el.html(template);
-				// 	}
-				// });
-				var template = _.template($('#show-person-template').html(), {
+				var recipes = new RecipeList().fetch({
+					success : function(recipes) {
+						recipeDetailsList = [];
+						for (var i = 0; i < recipes.models.length; i++) {
+							var recipe = new Recipe({ id : recipes.models[i].get('id') });
+							recipe.fetch({
+								success : function(recipe){
+									recipeDetailsList.push(recipe);
+									console.log(recipeDetailsList);
+								}
+							});
+						}
+
+						
+						// var template = _.template($('#show-person-template')
+						// 		.html(), {
+						// 	person : person,
+						// 	healthProfileHistory : healthProfileHistory.models
+						// });
+						// that.$el.html(template);
+
+						var template = _.template($('#show-person-template').html(), {
 							person : person,
 							healthProfileHistory : person.get('healthprofilehistory'),
-							healthProfile : person.get('extendedhealthprofile')
+							healthProfile : person.get('extendedhealthprofile'),
+							recipes : recipes.models,
+							recipeDetailsList : recipeDetailsList
 						});
-				that.$el.html(template);
+						that.$el.html(template);
+					}
+				});
+				
 			}
 		});
 	}
