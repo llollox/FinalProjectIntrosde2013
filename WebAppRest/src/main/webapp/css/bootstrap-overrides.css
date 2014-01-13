@@ -47,3 +47,54 @@ legend.scheduler-border {
 	margin-top: 100px;
 	width: 400px;
 }
+
+img.gender_icon{
+	max-height: 20px;
+}
+
+div#hpinformation{
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	padding:20px;
+	border-radius:5px;
+}
+
+div.gauge-textfield{
+  /*position: absolute; */
+  /*top: 35px; left: 0; right: 0;*/
+  text-align: center; font-size: 2em; font-weight: bold;
+  color: black; font-family: 'Amaranth', sans-serif;
+}
+
+#preview {
+  background: inherit; 
+  position: absolute;
+  top: 100px;
+  color: #fff;
+  float: left;
+/*  width: 220px;
+  height: 220px;
+  margin: 0 20px 20px 0;*/
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+#canvas-preview{
+  width: 220px; top: 70px;
+  /*position: relative;*/
+}
+
+div.show-gender-icon{
+	position: absolute;
+	right:100px;
+	top: -10px;
+}
+
+.human-height{
+  position: absolute;
+  top: 120px;
+  left: -100px;
+  width: 80px;
+}

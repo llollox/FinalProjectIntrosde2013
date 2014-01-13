@@ -129,8 +129,8 @@ var EditPerson = Backbone.View.extend({
 	deletePerson : function(options) {
 		var person = null;
 		
-		if(options.person_id)
-			person = new Person({id : options.person_id}); //from delete button of list
+		if(options.id)
+			person = new Person({id : options.id}); //from delete button of list
 		else
 			person = this.person; //from delete button of edit profile
 		
@@ -144,20 +144,25 @@ var EditPerson = Backbone.View.extend({
 	showPerson : function(options) {
 		var that = this;
 		var person = new Person({
-			id : options.person_id
+			id : options.id
 		});
 		person.fetch({
 			success : function(person) {
-				person.healthProfileHistory.fetch({
-					success : function(healthProfileHistory) {
-						var template = _.template($('#show-person-template')
-								.html(), {
+				// person.healthProfileHistory.fetch({
+				// 	success : function(healthProfileHistory) {
+				// 		var template = _.template($('#show-person-template')
+				// 				.html(), {
+				// 			person : person,
+				// 			healthProfileHistory : healthProfileHistory.models
+				// 		});
+				// 		that.$el.html(template);
+				// 	}
+				// });
+				var template = _.template($('#show-person-template').html(), {
 							person : person,
-							healthProfileHistory : healthProfileHistory.models
+							healthProfileHistory : person.get('healthprofilehistory')
 						});
-						that.$el.html(template);
-					}
-				});
+				that.$el.html(template);
 			}
 		});
 	}
