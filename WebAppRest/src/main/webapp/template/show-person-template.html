@@ -20,29 +20,30 @@
 		<div class="span4" style="position:relative">
 
 			<p class="lead">
-				<b>Blood Pressure</b>: 80 - 130 mmHg
-				<img src="img/blood-pressure.png" style="height:35px;"/>
+				<b>Blood Pressure</b>: 
+					<%= healthProfile.minbloodpressure+" - "+healthProfile.maxbloodpressure %> mmHg
+					<img src="img/blood-pressure.png" style="height:35px;"/>
 			</p>
-			<p class="lead"><b>Heart Rate</b>: 80 bpm
+			<p class="lead"><b>Heart Rate</b>: <%= healthProfile.heartrate %> bpm
 				<img src="img/heart_beat.png" style="height:25px;"/>
 			</p>
 			<p class="lead">
-				<b>Target Heart Rate</b>: 160 bpm
+				<b>Target Heart Rate</b>: <%= healthProfile.targetHearthRate %> bpm
 				<img src="img/heart_beat.png" style="height:25px;"/>
 			</p>
 
 			<hr/>
 
-			<p class="lead"><b>Calories Needed</b>: 2500 kcal
+			<p class="lead"><b>Calories Needed</b>: <%= healthProfile.idealKcal %> kcal
 				<img src="img/fire.png" style="height:30px;"/>
 			</p>
-			<p class="lead"><b>BMR</b>: 1500 kcal
+			<p class="lead"><b>BMR</b>: <%= healthProfile.bmr %> kcal
 				<img src="img/fire.png" style="height:30px;"/>
 			</p>
 
 			<hr/>
-			<p class="lead"><b>Ideal Weight</b>:  50kg</p>
-			<p class="lead"><b>Ideal Bmi</b>: 21.5 kg/m<sup>2</sup></p>
+			<p class="lead"><b>Ideal Weight</b>: <%= healthProfile.idealWeight %> kg</p>
+			<p class="lead"><b>Ideal Bmi</b>: <%= healthProfile.idealBmi %> kg/m<sup>2</sup></p>
 
 		</div>
 		<div class="span1"></div>
