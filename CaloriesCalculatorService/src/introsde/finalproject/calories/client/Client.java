@@ -1,6 +1,6 @@
 package introsde.finalproject.calories.client;
 
-public class main {
+public class Client {
 
 	public static void main(String[] args) {
 		CaloriesCalculator cc = new CaloriesService().getCalculator();
