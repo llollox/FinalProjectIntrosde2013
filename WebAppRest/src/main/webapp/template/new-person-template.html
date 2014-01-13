@@ -34,28 +34,36 @@
 	  		</div>
   		</div>
 
-  		<legend><%= person ? 'Update' : 'Create' %> Health Profile</legend>
-
-			<div class="control-group">
-				<label class="control-label" for="inputWeight">Weight</label>
+  		<div class="control-group">
+				<label class="control-label" for="selectGender">Gender</label>
 				<div class="controls">
-					<input type="text" name="weight" id="inputWeight" placeholder="Weight"
-						value="<%= person ? person.get('weight') : '' %>"/>
+					<select name="gender" id="selectGender">
+					  <option value=1>Male</option>
+					  <option value=0>Female</option>
+					</select>
 				</div>
 			</div>
 
 			<div class="control-group">
-				<label class="control-label" for="inputHeight">Height</label>
+				<label class="control-label" for="selectLifeStyle">Life Style</label>
 				<div class="controls">
-					<input type="text" name="height" id="inputHeight" placeholder="Height"
-						value="<%= person ? person.get('height') : '' %>"/>
+					<select name="lifestyle" id="selectLifeStyle">
+					  <option value=0>Sedentary (No Exercise)</option>
+					  <option value=3>Lightly Active (Exercise / Sports 1-3 Times / Week)</option>
+					  <option value=5>
+					  	Moderatetely Active (Hard Exercise / Sports 6-7 Times / Week)
+					  </option>
+					  <option value=8>
+					  	Extra Active (Very Hard Exercise / Sports or Physical Job)
+					  </option>
+					</select>
 				</div>
 			</div>
 
 			<br/>
 			<% if (person) { %>
-				<input type="hidden" value = "<%= person.get('person_id') %>" name="id"/>
-			<% }; %>
+				<input type="hidden" value = "<%= person.get('id') %>" name="id"/>
+			<% } %>
 			
 			<div class="form-actions">
 				<% if (person) { %>
