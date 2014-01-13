@@ -160,7 +160,8 @@ var EditPerson = Backbone.View.extend({
 				// });
 				var template = _.template($('#show-person-template').html(), {
 							person : person,
-							healthProfileHistory : person.get('healthprofilehistory')
+							healthProfileHistory : person.get('healthprofilehistory'),
+							healthProfile : person.get('extendedhealthprofile')
 						});
 				that.$el.html(template);
 			}
