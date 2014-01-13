@@ -3,7 +3,7 @@ package it.unitn.sde.finalproject;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,11 +17,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="activityChoosen" type="{http://finalproject.sde.unitn.it/}activityChoosen" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}activityChoosen" minOccurs="0"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="exercise" type="{http://finalproject.sde.unitn.it/}exercise" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}exercise" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="person" type="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,7 +30,6 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "exerciseHistory", propOrder = {
     "activityChoosen",
@@ -41,10 +40,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ExerciseHistory {
 
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected ActivityChoosen activityChoosen;
     protected String date;
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Exercise exercise;
     protected int id;
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Person person;
 
     /**

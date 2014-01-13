@@ -26,7 +26,8 @@ public class HealthProfile {
 	
 	private double height;
 	private double weight;
-	private int bloodpressure;
+	private int minbloodpressure;
+	private int maxbloodpressure;
 	private int heartrate;
 	private String date;
 	
@@ -52,20 +53,28 @@ public class HealthProfile {
 		this.weight = weight;
 	}
 
-	public int getBloodpressure() {
-		return bloodpressure;
-	}
-
-	public void setBloodpressure(int bloodpressure) {
-		this.bloodpressure = bloodpressure;
-	}
-
 	public int getHeartrate() {
 		return heartrate;
 	}
 
 	public void setHeartrate(int heartrate) {
 		this.heartrate = heartrate;
+	}
+	
+	public int getMinbloodpressure() {
+		return minbloodpressure;
+	}
+
+	public void setMinbloodpressure(int minbloodpressure) {
+		this.minbloodpressure = minbloodpressure;
+	}
+
+	public int getMaxbloodpressure() {
+		return maxbloodpressure;
+	}
+
+	public void setMaxbloodpressure(int maxbloodpressure) {
+		this.maxbloodpressure = maxbloodpressure;
 	}
 	
 	public String getDate() {
@@ -167,8 +176,11 @@ public class HealthProfile {
 		if (hp.getWeight() != 0)
 			newHP.setWeight(hp.getWeight());
 		
-		if (hp.getBloodpressure() != 0)
-			newHP.setBloodpressure(hp.getBloodpressure());
+		if (hp.getMinbloodpressure() != 0)
+			newHP.setMinbloodpressure(hp.getMinbloodpressure());
+		
+		if (hp.getMaxbloodpressure() != 0)
+			newHP.setMaxbloodpressure(hp.getMaxbloodpressure());
 		
 		if (hp.getHeartrate() != 0)
 			newHP.setHeartrate(hp.getHeartrate());

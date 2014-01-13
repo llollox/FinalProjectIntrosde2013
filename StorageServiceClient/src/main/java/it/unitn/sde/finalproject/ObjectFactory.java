@@ -44,43 +44,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExerciseCategory }
+     * Create an instance of {@link UpdateExerciseCategory }
      * 
      */
-    public ExerciseCategory createExerciseCategory() {
-        return new ExerciseCategory();
-    }
-
-    /**
-     * Create an instance of {@link GetCategories }
-     * 
-     */
-    public GetCategories createGetCategories() {
-        return new GetCategories();
-    }
-
-    /**
-     * Create an instance of {@link DeleteExerciseCategory }
-     * 
-     */
-    public DeleteExerciseCategory createDeleteExerciseCategory() {
-        return new DeleteExerciseCategory();
-    }
-
-    /**
-     * Create an instance of {@link ReadExerciseCategory }
-     * 
-     */
-    public ReadExerciseCategory createReadExerciseCategory() {
-        return new ReadExerciseCategory();
-    }
-
-    /**
-     * Create an instance of {@link GetCategoriesResponse }
-     * 
-     */
-    public GetCategoriesResponse createGetCategoriesResponse() {
-        return new GetCategoriesResponse();
+    public UpdateExerciseCategory createUpdateExerciseCategory() {
+        return new UpdateExerciseCategory();
     }
 
     /**
@@ -92,19 +60,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateExerciseCategory }
+     * Create an instance of {@link ReadExerciseCategory }
      * 
      */
-    public UpdateExerciseCategory createUpdateExerciseCategory() {
-        return new UpdateExerciseCategory();
+    public ReadExerciseCategory createReadExerciseCategory() {
+        return new ReadExerciseCategory();
     }
 
     /**
-     * Create an instance of {@link ReadExerciseCategoryResponse }
+     * Create an instance of {@link GetCategories }
      * 
      */
-    public ReadExerciseCategoryResponse createReadExerciseCategoryResponse() {
-        return new ReadExerciseCategoryResponse();
+    public GetCategories createGetCategories() {
+        return new GetCategories();
+    }
+
+    /**
+     * Create an instance of {@link GetCategoriesResponse }
+     * 
+     */
+    public GetCategoriesResponse createGetCategoriesResponse() {
+        return new GetCategoriesResponse();
     }
 
     /**
@@ -116,6 +92,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DeleteExerciseCategoryResponse }
+     * 
+     */
+    public DeleteExerciseCategoryResponse createDeleteExerciseCategoryResponse() {
+        return new DeleteExerciseCategoryResponse();
+    }
+
+    /**
      * Create an instance of {@link CreateExerciseCategory }
      * 
      */
@@ -124,11 +108,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DeleteExerciseCategoryResponse }
+     * Create an instance of {@link ReadExerciseCategoryResponse }
      * 
      */
-    public DeleteExerciseCategoryResponse createDeleteExerciseCategoryResponse() {
-        return new DeleteExerciseCategoryResponse();
+    public ReadExerciseCategoryResponse createReadExerciseCategoryResponse() {
+        return new ReadExerciseCategoryResponse();
+    }
+
+    /**
+     * Create an instance of {@link ExerciseCategory }
+     * 
+     */
+    public ExerciseCategory createExerciseCategory() {
+        return new ExerciseCategory();
+    }
+
+    /**
+     * Create an instance of {@link DeleteExerciseCategory }
+     * 
+     */
+    public DeleteExerciseCategory createDeleteExerciseCategory() {
+        return new DeleteExerciseCategory();
     }
 
     /**

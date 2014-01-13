@@ -3,7 +3,7 @@ package it.unitn.sde.finalproject;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -17,12 +17,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="activity" type="{http://finalproject.sde.unitn.it/}activity" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}activity" minOccurs="0"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="goal" type="{http://finalproject.sde.unitn.it/}goal" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}goal" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="percentage" type="{http://www.w3.org/2001/XMLSchema}float"/>
- *         &lt;element name="person" type="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
+ *         &lt;element ref="{http://finalproject.sde.unitn.it/}person" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,7 +31,6 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
-@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "activityChoosen", propOrder = {
     "activity",
@@ -43,11 +42,14 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ActivityChoosen {
 
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Activity activity;
     protected String date;
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Goal goal;
     protected int id;
     protected float percentage;
+    @XmlElement(namespace = "http://finalproject.sde.unitn.it/")
     protected Person person;
 
     /**

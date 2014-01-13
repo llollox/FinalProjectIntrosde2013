@@ -56,7 +56,8 @@ public class HealthProfileResource {
 		if (a != null && p != null && json.getDate() != null) {
 
 			// aggionro i dati
-			a.setBloodpressure(json.getBloodpressure());
+			a.setMinbloodpressure(json.getMinbloodpressure());
+			a.setMaxbloodpressure(json.getMaxbloodpressure());
 			a.setDate(json.getDate());
 			a.setHeartrate(json.getHeartrate());
 			a.setHeight(json.getHeight());

@@ -53,9 +53,8 @@ public class Main {
 		excuded.add("mint");
 		excuded.add("chicken");
 
-		RecipeFinder finder = foodService.getRecipes(allowed, excuded);
-
-		p(finder, foodService);
+		//RecipeFinder finder = foodService.getRecipes(allowed, excuded);
+//		p(finder, foodService);
 
 	}
 
