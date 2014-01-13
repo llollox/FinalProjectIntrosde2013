@@ -7,34 +7,16 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
+
 		<dependency>
-
-			<groupId>com.introsde.final.project</groupId>
-			<artifactId>YummlyAdapter</artifactId>
+			<groupId>FoodService</groupId>
+			<artifactId>FoodServiceAdapter</artifactId>
 			<version>1.0-SNAPSHOT</version>
-
 		</dependency>
+
 	</dependencies>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source />
-					<target />
-				</configuration>
-			</plugin>
-		</plugins>
+		<finalName>FoodClient</finalName>
 	</build>
 </project>
