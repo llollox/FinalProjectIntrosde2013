@@ -1,12 +1,5 @@
 package assignment2.service;
 
-import it.unitn.sde.finalproject.ExerciseHistory;
-import it.unitn.sde.finalproject.ExerciseHistoryService;
-import it.unitn.sde.finalproject.CRUDExerciseHistory;
-import it.unitn.sde.finalproject.CRUDPerson;
-import it.unitn.sde.finalproject.Person;
-import it.unitn.sde.finalproject.PersonService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,21 +11,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDExerciseHistory;
+import finalproject.client.service.ExerciseHistoryService;
+import finalproject.model.ExerciseHistory;
+
 @Path("/exercisehistory")
 public class ExerciseHistoryResource {
-	
-	public static CRUDExerciseHistory cexercisehistory = new ExerciseHistoryService().getCRUD();
+
+	public static CRUDExerciseHistory cexercisehistory = new ExerciseHistoryService()
+			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createExerciseHistory(ExerciseHistory a) {
-		
+
 		int id = cexercisehistory.createExerciseHistory(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -48,13 +45,13 @@ public class ExerciseHistoryResource {
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateExerciseHistory(@PathParam("id") int id, ExerciseHistory json) {
+	public Response updateExerciseHistory(@PathParam("id") int id,
+			ExerciseHistory json) {
 
 		ExerciseHistory a = cexercisehistory.readExerciseHistory(id);
 
 		if (a != null && json.getActivityChoosen() != null
-				&& json.getDate() != null
-				&& json.getExercise() != null
+				&& json.getDate() != null && json.getExercise() != null
 				&& json.getPerson() != null) {
 
 			// aggionro i dati
@@ -65,8 +62,8 @@ public class ExerciseHistoryResource {
 
 			// aggiorno nel db
 			int _id = cexercisehistory.updateExerciseHistory(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();

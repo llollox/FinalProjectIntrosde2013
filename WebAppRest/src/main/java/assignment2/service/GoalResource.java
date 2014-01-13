@@ -2,13 +2,6 @@ package assignment2.service;
 
 import java.util.List;
 
-import it.unitn.sde.finalproject.Goal;
-import it.unitn.sde.finalproject.GoalService;
-import it.unitn.sde.finalproject.CRUDGoal;
-import it.unitn.sde.finalproject.CRUDPerson;
-import it.unitn.sde.finalproject.Person;
-import it.unitn.sde.finalproject.PersonService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,9 +13,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDGoal;
+import finalproject.client.service.GoalService;
+import finalproject.model.Goal;
+
 @Path("/goal")
 public class GoalResource {
-	
+
 	public static CRUDGoal cgoal = new GoalService().getCRUD();
 
 	@GET
@@ -35,12 +32,11 @@ public class GoalResource {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createGoal(Goal a) {
-		
+
 		int id = cgoal.createGoal(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -60,9 +56,7 @@ public class GoalResource {
 
 		Goal a = cgoal.readGoal(id);
 
-		if (a != null
-				&& json.getEnddate() != null
-				&& json.getName() != null
+		if (a != null && json.getEnddate() != null && json.getName() != null
 				&& json.getValue() != null) {
 
 			// aggionro i dati
@@ -72,8 +66,8 @@ public class GoalResource {
 
 			// aggiorno nel db
 			int _id = cgoal.updateGoal(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();

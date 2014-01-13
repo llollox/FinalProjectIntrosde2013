@@ -2,13 +2,6 @@ package assignment2.service;
 
 import java.util.List;
 
-import it.unitn.sde.finalproject.ExerciseCategory;
-import it.unitn.sde.finalproject.ExerciseCategoryService;
-import it.unitn.sde.finalproject.CRUDExerciseCategory;
-import it.unitn.sde.finalproject.CRUDPerson;
-import it.unitn.sde.finalproject.Person;
-import it.unitn.sde.finalproject.PersonService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,10 +13,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDExerciseCategory;
+import finalproject.client.service.ExerciseCategoryService;
+import finalproject.model.ExerciseCategory;
+
 @Path("/exercisecategory")
 public class ExerciseCategoryResource {
-	
-	public static CRUDExerciseCategory cexercisecategory = new ExerciseCategoryService().getCRUD();
+
+	public static CRUDExerciseCategory cexercisecategory = new ExerciseCategoryService()
+			.getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -35,12 +33,11 @@ public class ExerciseCategoryResource {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createExerciseCategory(ExerciseCategory a) {
-		
+
 		int id = cexercisecategory.createExerciseCategory(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -56,7 +53,8 @@ public class ExerciseCategoryResource {
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateExerciseCategory(@PathParam("id") int id, ExerciseCategory json) {
+	public Response updateExerciseCategory(@PathParam("id") int id,
+			ExerciseCategory json) {
 
 		ExerciseCategory a = cexercisecategory.readExerciseCategory(id);
 
@@ -67,8 +65,8 @@ public class ExerciseCategoryResource {
 
 			// aggiorno nel db
 			int _id = cexercisecategory.updateExerciseCategory(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();

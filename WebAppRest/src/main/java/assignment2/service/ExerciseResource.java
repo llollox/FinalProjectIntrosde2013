@@ -1,12 +1,5 @@
 package assignment2.service;
 
-import it.unitn.sde.finalproject.Exercise;
-import it.unitn.sde.finalproject.ExerciseService;
-import it.unitn.sde.finalproject.CRUDExercise;
-import it.unitn.sde.finalproject.CRUDPerson;
-import it.unitn.sde.finalproject.Person;
-import it.unitn.sde.finalproject.PersonService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,21 +11,24 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDExercise;
+import finalproject.client.service.ExerciseService;
+import finalproject.model.Exercise;
+
 @Path("/exercise")
 public class ExerciseResource {
-	
+
 	public static CRUDExercise cexercise = new ExerciseService().getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createExercise(Exercise a) {
-		
+
 		int id = cexercise.createExercise(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -52,8 +48,7 @@ public class ExerciseResource {
 
 		Exercise a = cexercise.readExercise(id);
 
-		if (a != null
-				&& json.getDescription() != null) {
+		if (a != null && json.getDescription() != null) {
 
 			// aggiorno i dati
 			a.setAerobic(json.getAerobic());
@@ -62,8 +57,8 @@ public class ExerciseResource {
 
 			// aggiorno nel db
 			int _id = cexercise.updateExercise(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();

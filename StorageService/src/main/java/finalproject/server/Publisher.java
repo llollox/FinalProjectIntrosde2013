@@ -10,8 +10,8 @@ import finalproject.ports.CRUDExerciseCategory;
 import finalproject.ports.CRUDExerciseHistory;
 import finalproject.ports.CRUDFavouriteFood;
 import finalproject.ports.CRUDGoal;
-import finalproject.ports.CRUDPerson;
 import finalproject.ports.CRUDHealthProfile;
+import finalproject.ports.CRUDPerson;
 
 public class Publisher {
 

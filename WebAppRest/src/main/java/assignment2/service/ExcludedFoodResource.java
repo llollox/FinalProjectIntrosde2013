@@ -1,9 +1,5 @@
 package assignment2.service;
 
-import it.unitn.sde.finalproject.CRUDExcludedFood;
-import it.unitn.sde.finalproject.ExcludedFood;
-import it.unitn.sde.finalproject.ExcludedFoodService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,22 +11,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDExcludedFood;
+import finalproject.client.service.ExcludedFoodService;
+import finalproject.model.ExcludedFood;
+
 @Path("/excludedfood")
 public class ExcludedFoodResource {
-	
-	public static CRUDExcludedFood cexcludedfood = new ExcludedFoodService().getCRUD();
+
+	public static CRUDExcludedFood cexcludedfood = new ExcludedFoodService()
+			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createExcludedFood(ExcludedFood a) {
-		
+
 		int id = cexcludedfood.createExcludedFood(a);
 		cexcludedfood.createExcludedFood(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -46,12 +46,12 @@ public class ExcludedFoodResource {
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateExcludedFood(@PathParam("id") int id, ExcludedFood json) {
+	public Response updateExcludedFood(@PathParam("id") int id,
+			ExcludedFood json) {
 
 		ExcludedFood a = cexcludedfood.readExcludedFood(id);
 
-		if (a != null && json.getName() != null
-				&& json.getPerson() != null) {
+		if (a != null && json.getName() != null && json.getPerson() != null) {
 
 			// aggionro i dati
 			a.setName(json.getName());
@@ -59,8 +59,8 @@ public class ExcludedFoodResource {
 
 			// aggiorno nel db
 			int _id = cexcludedfood.updateExcludedFood(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();

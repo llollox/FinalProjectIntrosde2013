@@ -1,12 +1,5 @@
 package assignment2.service;
 
-import it.unitn.sde.finalproject.FavouriteFood;
-import it.unitn.sde.finalproject.FavouriteFoodService;
-import it.unitn.sde.finalproject.CRUDFavouriteFood;
-import it.unitn.sde.finalproject.CRUDPerson;
-import it.unitn.sde.finalproject.Person;
-import it.unitn.sde.finalproject.PersonService;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,21 +11,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.CRUDFavouriteFood;
+import finalproject.client.service.FavouriteFoodService;
+import finalproject.model.FavouriteFood;
+
 @Path("/favouritefood")
 public class FavouriteFoodResource {
-	
-	public static CRUDFavouriteFood cfavouritefood = new FavouriteFoodService().getCRUD();
+
+	public static CRUDFavouriteFood cfavouritefood = new FavouriteFoodService()
+			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response createFavouriteFood(FavouriteFood a) {
-		
+
 		int id = cfavouritefood.createFavouriteFood(a);
-		if (id != -1){
+		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
-		} 
-		else {
+		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
@@ -48,12 +45,12 @@ public class FavouriteFoodResource {
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateFavouriteFood(@PathParam("id") int id, FavouriteFood json) {
+	public Response updateFavouriteFood(@PathParam("id") int id,
+			FavouriteFood json) {
 
 		FavouriteFood a = cfavouritefood.readFavouriteFood(id);
 
-		if (a != null && json.getName() != null
-				&& json.getPerson() != null) {
+		if (a != null && json.getName() != null && json.getPerson() != null) {
 
 			// aggionro i dati
 			a.setName(json.getName());
@@ -61,8 +58,8 @@ public class FavouriteFoodResource {
 
 			// aggiorno nel db
 			int _id = cfavouritefood.updateFavouriteFood(a);
-			
-			if (_id != -1) //data successiful updated!
+
+			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
 			else
 				return Response.status(Response.Status.BAD_REQUEST).build();
