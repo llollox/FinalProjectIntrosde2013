@@ -1,4 +1,4 @@
-package assignment2.service;
+package introsde.finalproject.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -11,22 +11,21 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDFavouriteFood;
-import finalproject.client.service.FavouriteFoodService;
-import finalproject.model.FavouriteFood;
+import finalproject.client.interfaces.CRUDExercise;
+import finalproject.client.service.ExerciseService;
+import finalproject.model.Exercise;
 
-@Path("/favouritefood")
-public class FavouriteFoodResource {
+@Path("/exercise")
+public class ExerciseResource {
 
-	public static CRUDFavouriteFood cfavouritefood = new FavouriteFoodService()
-			.getCRUD();
+	public static CRUDExercise cexercise = new ExerciseService().getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createFavouriteFood(FavouriteFood a) {
+	public Response createExercise(Exercise a) {
 
-		int id = cfavouritefood.createFavouriteFood(a);
+		int id = cexercise.createExercise(a);
 		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
 		} else {
@@ -37,27 +36,27 @@ public class FavouriteFoodResource {
 	@GET
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public FavouriteFood getFavouriteFood(@PathParam("id") int id) {
-		return cfavouritefood.readFavouriteFood(id);
+	public Exercise getExercise(@PathParam("id") int id) {
+		return cexercise.readExercise(id);
 	}
 
 	@PUT
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateFavouriteFood(@PathParam("id") int id,
-			FavouriteFood json) {
+	public Response updateExercise(@PathParam("id") int id, Exercise json) {
 
-		FavouriteFood a = cfavouritefood.readFavouriteFood(id);
+		Exercise a = cexercise.readExercise(id);
 
-		if (a != null && json.getName() != null && json.getPerson() != null) {
+		if (a != null && json.getDescription() != null) {
 
-			// aggionro i dati
-			a.setName(json.getName());
-			a.setPerson(json.getPerson());
+			// aggiorno i dati
+			a.setAerobic(json.getAerobic());
+			a.setDescription(json.getDescription());
+			a.setDifficultyvalue(json.getDifficultyvalue());
 
 			// aggiorno nel db
-			int _id = cfavouritefood.updateFavouriteFood(a);
+			int _id = cexercise.updateExercise(a);
 
 			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
@@ -72,9 +71,9 @@ public class FavouriteFoodResource {
 	@DELETE
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deleteFavouriteFood(@PathParam("id") int id) {
+	public Response deleteExercise(@PathParam("id") int id) {
 
-		if (cfavouritefood.deleteFavouriteFood(id)) {
+		if (cexercise.deleteExercise(id)) {
 
 			return Response.status(Response.Status.OK).build();
 

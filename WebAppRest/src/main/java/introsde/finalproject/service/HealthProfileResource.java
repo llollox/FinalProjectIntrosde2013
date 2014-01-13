@@ -1,4 +1,4 @@
-package assignment2.service;
+package introsde.finalproject.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -11,21 +11,24 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExercise;
-import finalproject.client.service.ExerciseService;
-import finalproject.model.Exercise;
+import finalproject.client.interfaces.CRUDHealthProfile;
+import finalproject.client.service.HealthProfileService;
+import finalproject.client.service.PersonService;
+import finalproject.model.HealthProfile;
+import finalproject.model.Person;
 
-@Path("/exercise")
-public class ExerciseResource {
+@Path("/healthprofile")
+public class HealthProfileResource {
 
-	public static CRUDExercise cexercise = new ExerciseService().getCRUD();
+	public static CRUDHealthProfile chealthprofile = new HealthProfileService()
+			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createExercise(Exercise a) {
+	public Response createHealthProfile(HealthProfile a) {
 
-		int id = cexercise.createExercise(a);
+		int id = chealthprofile.createHealthProfile(a.getPersonId(), a);
 		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
 		} else {
@@ -36,27 +39,32 @@ public class ExerciseResource {
 	@GET
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Exercise getExercise(@PathParam("id") int id) {
-		return cexercise.readExercise(id);
+	public HealthProfile getHealthProfile(@PathParam("id") int id) {
+		return chealthprofile.readHealthProfile(id);
 	}
 
 	@PUT
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateExercise(@PathParam("id") int id, Exercise json) {
+	public Response updateHealthProfile(@PathParam("id") int id,
+			HealthProfile json) {
 
-		Exercise a = cexercise.readExercise(id);
+		HealthProfile a = chealthprofile.readHealthProfile(id);
+		Person p = new PersonService().getCRUD().readPerson(a.getPersonId());
 
-		if (a != null && json.getDescription() != null) {
+		if (a != null && p != null && json.getDate() != null) {
 
-			// aggiorno i dati
-			a.setAerobic(json.getAerobic());
-			a.setDescription(json.getDescription());
-			a.setDifficultyvalue(json.getDifficultyvalue());
+			// aggionro i dati
+			a.setMinbloodpressure(json.getMinbloodpressure());
+			a.setMaxbloodpressure(json.getMaxbloodpressure());
+			a.setDate(json.getDate());
+			a.setHeartrate(json.getHeartrate());
+			a.setHeight(json.getHeight());
+			a.setWeight(json.getWeight());
 
 			// aggiorno nel db
-			int _id = cexercise.updateExercise(a);
+			int _id = chealthprofile.updateHealthProfile(json.getPersonId(), a);
 
 			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
@@ -71,9 +79,9 @@ public class ExerciseResource {
 	@DELETE
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deleteExercise(@PathParam("id") int id) {
+	public Response deleteHealthProfile(@PathParam("id") int id) {
 
-		if (cexercise.deleteExercise(id)) {
+		if (chealthprofile.deleteHealthProfile(id)) {
 
 			return Response.status(Response.Status.OK).build();
 

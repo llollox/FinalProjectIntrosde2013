@@ -1,4 +1,4 @@
-package assignment2.service;
+package introsde.finalproject.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -11,24 +11,23 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDHealthProfile;
-import finalproject.client.service.HealthProfileService;
-import finalproject.client.service.PersonService;
-import finalproject.model.HealthProfile;
-import finalproject.model.Person;
+import finalproject.client.interfaces.CRUDExcludedFood;
+import finalproject.client.service.ExcludedFoodService;
+import finalproject.model.ExcludedFood;
 
-@Path("/healthprofile")
-public class HealthProfileResource {
+@Path("/excludedfood")
+public class ExcludedFoodResource {
 
-	public static CRUDHealthProfile chealthprofile = new HealthProfileService()
+	public static CRUDExcludedFood cexcludedfood = new ExcludedFoodService()
 			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response createHealthProfile(HealthProfile a) {
+	public Response createExcludedFood(ExcludedFood a) {
 
-		int id = chealthprofile.createHealthProfile(a.getPersonId(), a);
+		int id = cexcludedfood.createExcludedFood(a);
+		cexcludedfood.createExcludedFood(a);
 		if (id != -1) {
 			return Response.status(Response.Status.OK).entity(id).build();
 		} else {
@@ -39,32 +38,27 @@ public class HealthProfileResource {
 	@GET
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public HealthProfile getHealthProfile(@PathParam("id") int id) {
-		return chealthprofile.readHealthProfile(id);
+	public ExcludedFood getExcludedFood(@PathParam("id") int id) {
+		return cexcludedfood.readExcludedFood(id);
 	}
 
 	@PUT
 	@Path("/{id}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response updateHealthProfile(@PathParam("id") int id,
-			HealthProfile json) {
+	public Response updateExcludedFood(@PathParam("id") int id,
+			ExcludedFood json) {
 
-		HealthProfile a = chealthprofile.readHealthProfile(id);
-		Person p = new PersonService().getCRUD().readPerson(a.getPersonId());
+		ExcludedFood a = cexcludedfood.readExcludedFood(id);
 
-		if (a != null && p != null && json.getDate() != null) {
+		if (a != null && json.getName() != null && json.getPerson() != null) {
 
 			// aggionro i dati
-			a.setMinbloodpressure(json.getMinbloodpressure());
-			a.setMaxbloodpressure(json.getMaxbloodpressure());
-			a.setDate(json.getDate());
-			a.setHeartrate(json.getHeartrate());
-			a.setHeight(json.getHeight());
-			a.setWeight(json.getWeight());
+			a.setName(json.getName());
+			a.setPerson(json.getPerson());
 
 			// aggiorno nel db
-			int _id = chealthprofile.updateHealthProfile(json.getPersonId(), a);
+			int _id = cexcludedfood.updateExcludedFood(a);
 
 			if (_id != -1) // data successiful updated!
 				return Response.status(Response.Status.OK).entity(a).build();
@@ -79,9 +73,9 @@ public class HealthProfileResource {
 	@DELETE
 	@Path("/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response deleteHealthProfile(@PathParam("id") int id) {
+	public Response deleteExcludedFood(@PathParam("id") int id) {
 
-		if (chealthprofile.deleteHealthProfile(id)) {
+		if (cexcludedfood.deleteExcludedFood(id)) {
 
 			return Response.status(Response.Status.OK).build();
 

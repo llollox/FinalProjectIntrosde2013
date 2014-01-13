@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -42,6 +43,9 @@ public class Person {
 	private String firstname;
 	private String lastname;
 	private String birthdate;
+
+	@Transient
+	private ExtendedHealthProfile healthprofile;
 
 	@ManyToMany
 	@JoinTable(name = "Person_has_Goal", joinColumns = { @JoinColumn(name = "idperson", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idgoal", referencedColumnName = "id") })
@@ -83,7 +87,6 @@ public class Person {
 
 	public void setId(int id) {
 		this.id = id;
-
 	}
 
 	public Integer getSex() {
@@ -110,11 +113,19 @@ public class Person {
 		return goals;
 	}
 
-	@XmlElement(name = "healthprofile")
-	public HealthProfile getHealthprofile() {
-		if (healthprofiles.size() == 0)
-			return null;
-		return healthprofiles.get(healthprofiles.size() - 1);
+	// @XmlElement(name = "healthprofile")
+	// public HealthProfile getHealthprofile() {
+	// if (healthprofiles.size() == 0)
+	// return null;
+	// return healthprofiles.get(healthprofiles.size() - 1);
+	// }
+
+	public ExtendedHealthProfile getHealthprofile() {
+		return healthprofile;
+	}
+
+	public void setHealthprofile(ExtendedHealthProfile healthprofile) {
+		this.healthprofile = healthprofile;
 	}
 
 	@XmlElement(name = "healthprofilehistory")

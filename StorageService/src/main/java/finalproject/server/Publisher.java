@@ -27,7 +27,7 @@ public class Publisher {
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/exercise", new CRUDExercise());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/exercisecategory", new CRUDExerciseCategory());
 		
-		System.out.println("Started Publisher");
+		System.out.println("Started Storage Service Publisher");
 	}
 	
 }

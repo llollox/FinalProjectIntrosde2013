@@ -1,4 +1,4 @@
-package assignment2.service;
+package introsde.finalproject.service;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
