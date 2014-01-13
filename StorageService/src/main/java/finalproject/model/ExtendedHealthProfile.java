@@ -19,7 +19,7 @@ public class ExtendedHealthProfile extends HealthProfile {
 	private Double menagedWeightKcal;
 	private Double targetHearthRate;
 
-	private Double age;
+	private Integer age;
 
 	public ExtendedHealthProfile() {
 		super();
@@ -35,11 +35,11 @@ public class ExtendedHealthProfile extends HealthProfile {
 		setDate(hp.getDate());
 	}
 
-	public Double getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(Double age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

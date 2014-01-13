@@ -37,11 +37,6 @@ public class PersonResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() throws ParseException {
 		List<Person> list = cperson.getPeople();
-
-		for (Person p : list) {
-			p.setHealthprofile(getExtendedHealthProfile(p));
-		}
-
 		return list;
 	}
 
@@ -65,7 +60,7 @@ public class PersonResource {
 		Person p = cperson.readPerson(p_id);
 
 		if (p != null) {
-			p.setHealthprofile(getExtendedHealthProfile(p));
+			p.setExtendedhealthprofile(getExtendedHealthProfile(p));
 		}
 
 		return p;
@@ -151,7 +146,7 @@ public class PersonResource {
 			ExtendedHealthProfile exp = new ExtendedHealthProfile(hp);
 
 			// TODO CALCOLARE L'ETA' CORRETTA
-			double age = getAge(person.getBirthdate());
+			int age = getAge(person.getBirthdate());
 
 			exp.setAge(age);
 
@@ -188,7 +183,7 @@ public class PersonResource {
 
 	}
 
-	private double getAge(String birthDate) throws ParseException {
+	private int getAge(String birthDate) throws ParseException {
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
