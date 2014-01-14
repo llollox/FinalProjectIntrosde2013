@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var editHealthProfile = new EditHealthProfile();
 
 	$.ajaxPrefilter(function(options, originalOptions, jqXR) {
-		options.url = "http://192.168.1.6:5900"
+		options.url = "http://10.23.5.41:5900"
 				+ options.url;
 	});
 
@@ -16,6 +16,8 @@ $(document).ready(function(){
 					'editPerson/:id' : "editPerson",
 					'deletePerson/:id' : "deletePerson",
 					'showPerson/:id' : "showPerson",
+					'showPerson/:id/food' : "showPersonFood",
+					'showPerson/:id/goal' : "showPersonGoal",
 					'editPerson/:id/editHealthProfile/:healthprofile_id' : "editHealthProfile",
 					'editPerson/:id/editHealthProfile' : "editHealthProfile",
 					'editPerson/:id/deleteHealthProfile/:healthprofile_id' : "deleteHealthProfile",
@@ -26,6 +28,7 @@ $(document).ready(function(){
 
 	router = new Router();
 	router.on('route:home', function() {
+		$(".page").html("<center><img src='img/loading.gif' class='img-loading' /></center>");
 		personList.render();
 	});
 	router.on('route:editPerson', function(id) {
@@ -39,9 +42,18 @@ $(document).ready(function(){
 		});
 	});
 	router.on('route:showPerson', function(id) {
+		$(".page").html("<center><img src='img/loading.gif' class='img-loading' /></center>");
 		editPerson.showPerson({
 			id : id
 		});
+	});
+	router.on('route:showPersonFood', function(id) {
+		$(".page").html("<center><img src='img/loading.gif' class='img-loading' /></center>");
+		editPerson.food({ id : id });
+	});
+	router.on('route:showPersonGoal', function(id) {
+		$(".page").html("<center><img src='img/loading.gif' class='img-loading' /></center>");
+		editPerson.goal({ id : id });
 	});
 	router.on('route:editHealthProfile', function(id, healthprofile_id) {
 		editHealthProfile.render({

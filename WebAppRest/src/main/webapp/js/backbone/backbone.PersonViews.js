@@ -148,25 +148,45 @@ var EditPerson = Backbone.View.extend({
 		});
 		person.fetch({
 			success : function(person) {
-				var recipes = new RecipeList().fetch({
-					success : function(recipes) {
-						// var template = _.template($('#show-person-template')
-						// 		.html(), {
-						// 	person : person,
-						// 	healthProfileHistory : healthProfileHistory.models
-						// });
-						// that.$el.html(template);
-
-						var template = _.template($('#show-person-template').html(), {
-							person : person,
-							healthProfileHistory : person.get('healthprofilehistory'),
-							healthProfile : person.get('extendedhealthprofile'),
-							recipes : recipes.models
+				var template = _.template($('#show-person-hp-template').html(), {
+			 					person : person,
+			 					healthProfileHistory : person.get('healthprofilehistory'),
+								healthProfile : person.get('extendedhealthprofile')
 						});
-						that.$el.html(template);
-					}
-				});
-				
+				that.$el.html(template);
+			}
+		});
+	},
+	food : function(options){
+		var that = this;
+		var person = new Person({
+			id : options.id
+		});
+		person.fetch({
+			success : function(person) {
+				person.recipes.fetch({
+          success : function(recipes) {
+            var template = _.template($('#show-person-food-template').html(), {
+                  person : person,
+								  recipes : recipes.models
+            });
+            that.$el.html(template);
+          }
+      	});
+			}
+		});
+	},
+	goal : function(options){
+		var that = this;
+		var person = new Person({
+			id : options.id
+		});
+		person.fetch({
+			success : function(person) {
+				var template = _.template($('#show-person-goal-template').html(), {
+			 					person : person
+						});
+				that.$el.html(template);
 			}
 		});
 	}

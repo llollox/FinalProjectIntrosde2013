@@ -1,0 +1,98 @@
+<script type="text/template" id="show-person-food-template">
+	
+	<a href="#" class="btn"><i class="icon-arrow-left"></i> Back to person list</a>
+	<br/><br/>
+	<div style="position:relative;text-align:center;">
+		<h2>
+			<%= person.get('firstname') + " " + person.get('lastname') %>
+			<%= " (" + person.get('birthdate') + ")" %>
+		</h2>
+		<div class="show-gender-icon">
+		<% if (person.get('sex') == 1) { %>
+			<img src="img/male_icon.png"/>
+		<% } else { %>
+			<img src="img/female_icon.png"/>
+		<% } %>
+		</div>
+	</div>
+
+	<br/>
+	
+	<center>
+		<a href="#/showPerson/<%= person.get('id') %>" id="menu-hp" 
+				class="show-person-menu-container">
+			<img src="img/stats.png" style="height:70px;"/>
+			<h3 style="display: inline;">Stats</h3>
+		</a>
+		<a href="#/showPerson/<%= person.get('id') %>/food" id="menu-food" 
+			class="show-person-menu-container active">
+			<img src="img/food.png" style="height:70px;"/>
+			<h3 style="display: inline;">Food</h3>
+		</a>
+		<a href="#/showPerson/<%= person.get('id') %>/goal" id="menu-goal" class="show-person-menu-container">
+			<img src="img/target.png" style="height:70px;"/>
+			<h3 style="display: inline;">Goal</h3>
+		</a>
+	</center>
+	<br/><br/>
+
+	<legend>Suggested Recipes</legend>
+
+	<div class="circular-slideshow-container">
+	<div id="ca-container" class="ca-container">
+		<div class="ca-wrapper">
+
+			<% if (recipes) { %>
+				<% _.each(recipes, function(recipe){ %>
+
+					<div class="ca-item">
+						<div class="ca-item-main">
+							<img src="<%= recipe.get('images').hostedLargeUrl %>" class="ca-icon"/>
+							<% if (recipe.get('name').length > 40) { %> 
+								<h3><%= recipe.get('name').substring(0,40) %>...</h3>
+							<% } else { %>
+								<h3><%= recipe.get('name') %></h3>
+							<% } %>
+							<h4 style="display:none;">
+								<span class="ca-quote">&ldquo;</span>
+								<span>The greatness of a nation and its moral progress can be judged by the way in which its animals are treated.</span>
+							</h4>
+								<a href="#" class="ca-more">more...</a>
+						</div>
+						<div class="ca-content-wrapper">
+							<div class="ca-content">
+								<h6><%= recipe.get('name') %></h6>
+								<a href="#" class="ca-close">close</a>
+								<div class="ca-content-text">
+								  <div style="height:250px;">
+										<% _.each(recipe.get('ingredientLines'), function (ingredient, index) { %>
+											<%= index < 10 ? "<div>"+ingredient+"</div>" : "" %>
+										<% }) %>
+									</div>
+									<% _.each(recipe.get('nutritionEstimates'), function (nutrition) { %>
+										<% if (nutrition.attribute == "ENERC_KCAL") { %>
+											<div>
+												<h5>Calories <%= nutrition.value %> kcal</h5>
+											</div>
+										<% } %>
+									<% }) %>
+								</div>
+							</div>
+						</div>
+					</div>
+
+			<% }) %>
+			<% } %>
+				</div>
+			</div>
+		</div>
+	<br/>
+
+	<legend></legend>
+
+	<script type="text/javascript">
+	  $(document).ready(function(){
+	  	$('#ca-container').contentcarousel();
+	  });
+	</script>
+</script>

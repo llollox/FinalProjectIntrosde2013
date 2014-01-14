@@ -68,14 +68,15 @@
 			<version>2.9.2</version>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>edu.uci.ics</groupId>
+			<artifactId>crawler4j</artifactId>
+			<version>3.5</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 
-	<repositories>
-		<repository>
-			<id>hibernatesqlite-maven</id>
-			<url>https://hibernate-sqlite.googlecode.com/svn/trunk/mavenrepo</url>
-		</repository>
-	</repositories>
+	</dependencies>
 
 	<build>
 		<finalName>RESTService</finalName>

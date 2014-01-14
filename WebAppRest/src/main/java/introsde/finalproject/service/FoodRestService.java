@@ -16,12 +16,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.food.client.Food;
-import com.food.client.FoodService;
 import com.introsde.adapters.yummly.Yummly;
 import com.introsde.adapters.yummly.models.Matches;
 import com.introsde.adapters.yummly.models.Recipe;
 import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.client.FoodService;
+import com.introsde.food.client.FoodWebInterface;
 import com.introsde.food.utils.KeyValuePair;
 import com.introsde.food.utils.QueryParams;
 
@@ -38,7 +38,7 @@ import finalproject.model.Person;
 @Path("person/{p_id}/food")
 public class FoodRestService {
 
-	Food foodService = new FoodService().getFood();
+	FoodWebInterface foodSoap = new FoodService().getFood();
 	PersonWebInterface perSoap = new PersonService().getCRUD();
 
 	FavouriteFoodWebInterface favSoap = new FavouriteFoodService().getCRUD();
@@ -58,15 +58,16 @@ public class FoodRestService {
 			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f.getName()));
 
 		for (ExcludedFood e : excludedList)
-			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, e.getName()));
+			params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e.getName()));
 
-		RecipeFinder finder = foodService.getRecipes(params);
+		RecipeFinder finder = foodSoap.getRecipes(params);
 
 		List<Matches> list = finder.getMatches();
 		List<Recipe> recipeList = new ArrayList<Recipe>();
 
-		for (Matches m : list)
-			recipeList.add(foodService.getRecipe(m.getId()));
+		if (list != null)
+			for (Matches m : list)
+				recipeList.add(foodSoap.getRecipe(m.getId()));
 
 		return recipeList;
 	}
@@ -76,7 +77,7 @@ public class FoodRestService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Recipe getRecipe(@PathParam("recipeId") String recipeId) {
 
-		return foodService.getRecipe(recipeId);
+		return foodSoap.getRecipe(recipeId);
 	}
 
 	// ********************************************************************

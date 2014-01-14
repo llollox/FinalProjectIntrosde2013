@@ -106,3 +106,26 @@ div.show-gender-icon{
   padding-top:20px;
   border-radius:5px;
 }
+
+.show-person-menu-container{
+  color: #3e3e3e;
+  text-decoration: none;
+  margin-right: 10px;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #c7c7c7;
+  border-radius: 5px; 
+  background-color: #f4f4f4;
+}
+
+.show-person-menu-container:hover{
+  cursor:pointer;
+  text-decoration: none;
+  border-color: #77a7d0;
+}
+
+.show-person-menu-container.active{
+  background-color: #c1daf0;
+  border-color: #77a7d0;
+}
