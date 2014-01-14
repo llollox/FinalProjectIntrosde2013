@@ -116,8 +116,13 @@
 	</a>
 	<br/><br/>
 	    
-	<% if (healthProfileHistory.length > 0) { %> 
+	<% if (healthProfileHistory.length > 0 || healthProfileHistory.id) { %> 
 
+		<% if (healthProfileHistory.id) { %>
+			<% list = [] %>
+			<% list.push(healthProfileHistory) %>
+			<% healthProfileHistory = list %>
+		<% } %>
 		<table class="table table-hover striped">
 			<thead>
 				<tr>

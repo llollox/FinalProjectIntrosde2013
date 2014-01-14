@@ -13,7 +13,15 @@ Person = Backbone.Model.extend({
 		this.recipes.url = function() {
 		    return '/person/' + options.id + '/food';
 		};
-		this.recipes.bind("reset", this.updateCounts);
+		this.favourites = new FavouriteFoodList;
+		this.favourites.url = function() {
+		    return '/person/' + options.id + '/food/favourite';
+		};
+		this.excludeds = new ExcludedFoodList;
+		this.excludeds.url = function() {
+		    return '/person/' + options.id + '/food/excluded';
+		};
+		// this.recipes.bind("reset", this.updateCounts);
 	}
 });
 
@@ -21,5 +29,19 @@ Recipe = Backbone.Model.extend({
 	idAttribute : "id",
 	urlRoot : function() {
 		return '/person/' + this.get('person_id') + '/food';
+	}
+});
+
+FavouriteFood = Backbone.Model.extend({
+	idAttribute : "id",
+	urlRoot : function() {
+		return '/person/' + this.get('person_id') + '/food/favourite';
+	}
+});
+
+ExcludedFood = Backbone.Model.extend({
+	idAttribute : "id",
+	urlRoot : function() {
+		return '/person/' + this.get('person_id') + '/food/excluded';
 	}
 });

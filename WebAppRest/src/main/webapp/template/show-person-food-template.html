@@ -41,17 +41,17 @@
 	<div class="circular-slideshow-container">
 	<div id="ca-container" class="ca-container">
 		<div class="ca-wrapper">
-
+			
 			<% if (recipes) { %>
 				<% _.each(recipes, function(recipe){ %>
 
 					<div class="ca-item">
 						<div class="ca-item-main">
-							<img src="<%= recipe.get('images').hostedLargeUrl %>" class="ca-icon"/>
-							<% if (recipe.get('name').length > 40) { %> 
-								<h3><%= recipe.get('name').substring(0,40) %>...</h3>
+							<img src="<%= recipe.get('smallImageUrls')[recipe.get('smallImageUrls').length -1] %>" class="ca-icon"/>
+							<% if (recipe.get('recipeName').length > 40) { %> 
+								<h3><%= recipe.get('recipeName').substring(0,40) %>...</h3>
 							<% } else { %>
-								<h3><%= recipe.get('name') %></h3>
+								<h3><%= recipe.get('recipeName') %></h3>
 							<% } %>
 							<h4 style="display:none;">
 								<span class="ca-quote">&ldquo;</span>
@@ -61,21 +61,14 @@
 						</div>
 						<div class="ca-content-wrapper">
 							<div class="ca-content">
-								<h6><%= recipe.get('name') %></h6>
+								<h6><%= recipe.get('recipeName') %></h6>
 								<a href="#" class="ca-close">close</a>
 								<div class="ca-content-text">
 								  <div style="height:250px;">
-										<% _.each(recipe.get('ingredientLines'), function (ingredient, index) { %>
+										<% _.each(recipe.get('ingredients'), function (ingredient, index) { %>
 											<%= index < 10 ? "<div>"+ingredient+"</div>" : "" %>
 										<% }) %>
 									</div>
-									<% _.each(recipe.get('nutritionEstimates'), function (nutrition) { %>
-										<% if (nutrition.attribute == "ENERC_KCAL") { %>
-											<div>
-												<h5>Calories <%= nutrition.value %> kcal</h5>
-											</div>
-										<% } %>
-									<% }) %>
 								</div>
 							</div>
 						</div>
@@ -88,19 +81,128 @@
 		</div>
 	<br/>
 
-	<legend>Favourite Foods</legend>
-	<a href="#/editPerson/<%= person.get('id') %>/editHealthProfile" 
-			class="btn btn-success">
-		<i class="icon-plus icon-white"></i> New Favourite Food
-	</a>
-	<br/>
+	<div class="row-fluid">
+		<div class="span6">
+			<legend>Favourite Foods</legend>
+			<a href="#favouriteFoodModal" role="button" class="btn btn-success" 
+					data-toggle="modal">
+					<i class="icon-plus icon-white"></i>Add Favourite Food
+			</a>
+			<br/><br/>
+			
+			<% if (favouriteFood.length > 0) { %>
+			<table class="table table-hover striped">
+				<thead>
+					<tr>
+					  <th>#</th>
+						<th>Food Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% _.each(favouriteFood, function(food, index){ %>
+						<tr>
+						  <td><%= index + 1 %></td>
+							<td><%= food.get('name') %></td>
+							<td><a href="#/editPerson/<%= person.get('id') %>/deleteFavouriteFood/<%= food.get('id') %>" 
+									class="btn btn-danger" onclick="return confirm('Are you sure?')">
+								<i class="icon-trash icon-white"></i> Delete</a>
+							</td>
+						</tr>
+					<% })%>
+				</tbody>
+			</table>
+	    <% } %>
 
-	<legend>Favourite Foods</legend>
-	<a href="#/editPerson/<%= person.get('id') %>/editHealthProfile" 
-			class="btn btn-success">
-		<i class="icon-plus icon-white"></i> New Favourite Food
-	</a>
-	<br/>
+		</div>
+		<div class="span6">
+			<legend>Excluded Foods</legend>
+			<a href="#excludedFoodModal" role="button" class="btn btn-success" 
+					data-toggle="modal">
+				<i class="icon-plus icon-white"></i> Add Excluded Food
+			</a>
+			<br/><br/>
+
+			<% if (excludedFood.length > 0) { %>
+			<table class="table table-hover striped">
+				<thead>
+					<tr>
+					  <th>#</th>
+						<th>Food Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% _.each(excludedFood, function(food, index){ %>
+						<tr>
+						  <td><%= index + 1 %></td>
+							<td><%= food.get('name') %></td>
+							<td><a href="#/editPerson/<%= person.get('id') %>/deleteExcludedFood/<%= food.get('id') %>" 
+									class="btn btn-danger" onclick="return confirm('Are you sure?')">
+								<i class="icon-trash icon-white"></i> Delete</a>
+							</td>
+						</tr>
+					<% })%>
+				</tbody>
+			</table>
+	    <% } %>
+
+		</div>
+	</div>
+	 
+	<div id="favouriteFoodModal" class="modal hide fade" tabindex="-1" role="dialog" 
+				aria-labelledby="favouriteFoodModalLabel" aria-hidden="true">
+		<form class="form-horizontal favouriteFoodForm" style="margin-bottom: 0px;">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="favouriteFoodModalLabel">Add a Favourite Food</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>
+	    	<div class="control-group">
+          <label class="control-label" for="name">Food Name</label>
+          <div class="controls">
+            <input type="text" id="name" name="name" placeholder="Food Name">
+            <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
+          </div>
+        </div>
+	    </p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button type="submit" class="btn btn-success">
+	    	<i class="icon-plus icon-white"></i> Create
+	    </button>
+	  </div>
+	  </form>
+	</div>
+
+	<div id="excludedFoodModal" class="modal hide fade" tabindex="-1" role="dialog" 
+				aria-labelledby="excludedFoodModalLabel" aria-hidden="true">
+		<form class="form-horizontal excludedFoodForm" style="margin-bottom: 0px;">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="excludedFoodModalLabel">Add an Excluded Food</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>
+	    	<div class="control-group">
+          <label class="control-label" for="name">Food Name</label>
+          <div class="controls">
+            <input type="text" id="name" name="name" placeholder="Food Name">
+            <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
+          </div>
+        </div>
+	    </p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button type="submit" class="btn btn-success">
+	    	<i class="icon-plus icon-white"></i> Create
+	    </button>
+	  </div>
+	  </form>
+	</div>
 
 	<script type="text/javascript">
 	  $(document).ready(function(){
