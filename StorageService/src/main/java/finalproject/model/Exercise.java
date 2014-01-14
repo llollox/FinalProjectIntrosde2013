@@ -17,12 +17,22 @@ public class Exercise {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String description;
 	private float difficultyvalue;
 	private int aerobic;
-	
-	public Exercise() {}
+	private Integer exerciseCategoryId;
+
+	public Exercise() {
+	}
+
+	public Integer getExerciseCategoryId() {
+		return exerciseCategoryId;
+	}
+
+	public void setExerciseCategoryId(Integer exerciseCategoryId) {
+		this.exerciseCategoryId = exerciseCategoryId;
+	}
 
 	public int getAerobic() {
 		return aerobic;
@@ -55,38 +65,38 @@ public class Exercise {
 	public void setDifficultyvalue(float difficultyvalue) {
 		this.difficultyvalue = difficultyvalue;
 	}
-	
+
 	// ##########################################
 	// # CRUD
 	// ##########################################
-	
+
 	public static Exercise create(Exercise a) {
 		// reset id
 		a.setId(0);
-		
+
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		
+
 		tx.begin();
 		em.persist(a);
 		tx.commit();
-	    
+
 		em.close();
 		return a;
 	}
-	
+
 	public static Exercise read(int id) {
 		EntityManager em = DatabaseUtil.createEntityManager();
 		Exercise a = em.find(Exercise.class, id);
 		em.close();
 		return a;
 	}
-	
+
 	public static Exercise update(Exercise a) {
-		
+
 		if (a.getId() <= 0)
-			return null;		
-		
+			return null;
+
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -94,26 +104,26 @@ public class Exercise {
 		tx.commit();
 		em.close();
 
-	    return a;
+		return a;
 	}
-	
+
 	public static boolean delete(int id) {
 		Exercise a = read(id);
-		
+
 		if (a == null)
 			return false;
-		
+
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		
+
 		tx.begin();
-	    a = em.merge(a);
-	    em.remove(a);
-	    tx.commit();
-	    
-	    em.close();
-	    
-	    return true;
+		a = em.merge(a);
+		em.remove(a);
+		tx.commit();
+
+		em.close();
+
+		return true;
 	}
-	
+
 }
