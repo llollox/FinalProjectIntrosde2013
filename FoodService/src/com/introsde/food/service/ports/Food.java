@@ -9,10 +9,11 @@ import com.introsde.adapters.edamam.models.EdamamResponse;
 import com.introsde.adapters.yummly.YummlyConnector;
 import com.introsde.adapters.yummly.models.Recipe;
 import com.introsde.adapters.yummly.models.RecipeFinder;
+import com.introsde.food.client.FoodWebInterface;
 import com.introsde.food.utils.QueryParams;
 
 @WebService(serviceName = "FoodService", portName = "food", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class Food {
+public class Food implements FoodWebInterface {
 
 	public Recipe getRecipe(String recipeId) {
 

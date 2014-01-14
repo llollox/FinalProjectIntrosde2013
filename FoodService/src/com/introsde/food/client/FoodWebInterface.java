@@ -1,4 +1,4 @@
-package com.food.client;
+package com.introsde.food.client;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import com.introsde.food.utils.QueryParams;
  * 
  */
 @WebService(name = "Food", targetNamespace = "http://finalproject.sde.unitn.it/")
-public interface Food {
+public interface FoodWebInterface {
 
 	/**
 	 * 

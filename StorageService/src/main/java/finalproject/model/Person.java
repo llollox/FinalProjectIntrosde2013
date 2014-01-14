@@ -1,7 +1,5 @@
 package finalproject.model;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +22,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import finalproject.utils.DatabaseUtil;
+import finalproject.utils.Utils;
 
 @NamedQueries({
 		@NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p"),
@@ -157,7 +156,7 @@ public class Person {
 		if (p.getSex() == null || (p.getSex() != 1 && p.getSex() != 0))
 			return null;
 
-		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
+		if (p.getBirthdate() != null && !Utils.isDateValid(p.getBirthdate()))
 			return null;
 
 		if (p.getExerciseTimesPerWeek() == null
@@ -198,7 +197,7 @@ public class Person {
 		if (p.getSex() == null || (p.getSex() != 1 && p.getSex() != 0))
 			return null;
 
-		if (p.getBirthdate() != null && !isDateValid(p.getBirthdate()))
+		if (p.getBirthdate() != null && !Utils.isDateValid(p.getBirthdate()))
 			return null;
 
 		if (p.getExerciseTimesPerWeek() == null)
@@ -279,22 +278,6 @@ public class Person {
 		;
 		em.close();
 		return list;
-	}
-
-	private static boolean isDateValid(String date) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-		df.setLenient(false);
-
-		try {
-			df.parse(date);
-		} catch (ParseException e) {
-			return false;
-		}
-
-		if (date.length() != 10)
-			return false;
-
-		return true;
 	}
 
 }

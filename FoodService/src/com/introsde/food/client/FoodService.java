@@ -1,4 +1,4 @@
-package com.food.client;
+package com.introsde.food.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -65,9 +65,9 @@ public class FoodService extends Service {
 	 * @return returns Food
 	 */
 	@WebEndpoint(name = "food")
-	public Food getFood() {
+	public FoodWebInterface getFood() {
 		return super.getPort(new QName("http://finalproject.sde.unitn.it/",
-				"food"), Food.class);
+				"food"), FoodWebInterface.class);
 	}
 
 	/**
@@ -80,9 +80,9 @@ public class FoodService extends Service {
 	 * @return returns Food
 	 */
 	@WebEndpoint(name = "food")
-	public Food getFood(WebServiceFeature... features) {
+	public FoodWebInterface getFood(WebServiceFeature... features) {
 		return super.getPort(new QName("http://finalproject.sde.unitn.it/",
-				"food"), Food.class, features);
+				"food"), FoodWebInterface.class, features);
 	}
 
 	private static URL __getWsdlLocation() {

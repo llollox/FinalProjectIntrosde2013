@@ -8,9 +8,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Matches {
 
 	// private Attributes attributes;
+	// private ImageUrlsBySize imageUrlsBySize;
+
 	private String flavors;
 	private String id;
-	// private ImageUrlsBySize imageUrlsBySize;
 	private List<String> ingredients;
 	private Double rating;
 	private String recipeName;
@@ -18,13 +19,14 @@ public class Matches {
 	private String sourceDisplayName;
 	private Double totalTimeInSeconds;
 
-	// public Attributes getAttributes() {
-	// return this.attributes;
-	// }
-	//
-	// public void setAttributes(Attributes attributes) {
-	// this.attributes = attributes;
-	// }
+	@Override
+	public String toString() {
+		return "Matches [flavors=" + flavors + ", id=" + id + ", ingredients="
+				+ ingredients + ", rating=" + rating + ", recipeName="
+				+ recipeName + ", smallImageUrls=" + smallImageUrls
+				+ ", sourceDisplayName=" + sourceDisplayName
+				+ ", totalTimeInSeconds=" + totalTimeInSeconds + "]";
+	}
 
 	public String getFlavors() {
 		return this.flavors;
@@ -41,14 +43,6 @@ public class Matches {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	// public ImageUrlsBySize getImageUrlsBySize() {
-	// return this.imageUrlsBySize;
-	// }
-	//
-	// public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
-	// this.imageUrlsBySize = imageUrlsBySize;
-	// }
 
 	public List<String> getIngredients() {
 		return this.ingredients;
@@ -97,4 +91,18 @@ public class Matches {
 	public void setTotalTimeInSeconds(Double totalTimeInSeconds) {
 		this.totalTimeInSeconds = totalTimeInSeconds;
 	}
+	// public Attributes getAttributes() {
+	// return this.attributes;
+	// }
+	//
+	// public void setAttributes(Attributes attributes) {
+	// this.attributes = attributes;
+	// }
+	// public ImageUrlsBySize getImageUrlsBySize() {
+	// return this.imageUrlsBySize;
+	// }
+	//
+	// public void setImageUrlsBySize(ImageUrlsBySize imageUrlsBySize) {
+	// this.imageUrlsBySize = imageUrlsBySize;
+	// }
 }
