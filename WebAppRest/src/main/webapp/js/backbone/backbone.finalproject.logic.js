@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var editHealthProfile = new EditHealthProfile();
 
 	$.ajaxPrefilter(function(options, originalOptions, jqXR) {
-		options.url = "http://10.23.5.41:5900"
+		options.url = "http://192.168.0.5:5900"
 				+ options.url;
 	});
 
@@ -21,6 +21,10 @@ $(document).ready(function(){
 					'editPerson/:id/editHealthProfile/:healthprofile_id' : "editHealthProfile",
 					'editPerson/:id/editHealthProfile' : "editHealthProfile",
 					'editPerson/:id/deleteHealthProfile/:healthprofile_id' : "deleteHealthProfile",
+					'editPerson/:id/createFavouriteFood' : "createFavouriteFood",
+					'editPerson/:id/deleteFavouriteFood/:food_id' : "deleteFavouriteFood",
+					'editPerson/:id/createExcludedFood' : "createExcludedFood",
+					'editPerson/:id/deleteExcludedFood/:food_id' : "deleteExcludedFood",
 					'searchName?q=:name' : "searchName",
 					'searchName?q=' : "searchName"
 				}
@@ -70,6 +74,18 @@ $(document).ready(function(){
 	router.on('route:searchName', function(name) {
 		$(".page").find("div#peopleList").html("<center><img src='img/loading.gif' class='img-loading' /></center>");
 		personList.searchName({ name : name });
+	});
+	router.on('route:deleteFavouriteFood', function(id, food_id) {
+		editPerson.deleteFavouriteFood({
+			id : id,
+			food_id : food_id
+		});
+	});
+	router.on('route:deleteExcludedFood', function(id, food_id) {
+		editPerson.deleteExcludedFood({
+			id : id,
+			food_id : food_id
+		});
 	});
 	Backbone.history.start();
 });

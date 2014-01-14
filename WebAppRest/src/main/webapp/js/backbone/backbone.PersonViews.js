@@ -112,7 +112,9 @@ var EditPerson = Backbone.View.extend({
 	},
 	events : {
 		'submit .new-person-form' : 'savePerson',
-		'click .deletePerson' : 'deletePerson'
+		'click .deletePerson' : 'deletePerson',
+		'submit .favouriteFoodForm' : 'saveFavouriteFood',
+		'submit .excludedFoodForm' : 'saveExcludedFood'
 	},
 	savePerson : function(ev) {
 		personDetails = $(ev.currentTarget).serializeObject();
@@ -159,18 +161,28 @@ var EditPerson = Backbone.View.extend({
 	},
 	food : function(options){
 		var that = this;
-		var person = new Person({
-			id : options.id
-		});
+		var person = new Person({ id : options.id});
+		
 		person.fetch({
 			success : function(person) {
 				person.recipes.fetch({
           success : function(recipes) {
-            var template = _.template($('#show-person-food-template').html(), {
-                  person : person,
-								  recipes : recipes.models
-            });
-            that.$el.html(template);
+          	person.favourites.fetch({
+          		success : function(favourites){
+          			person.excludeds.fetch({
+          				success : function(excludeds){
+		          			var template = _.template($('#show-person-food-template').html(), {
+										  recipes : recipes.models,
+										  person : person,
+										  favouriteFood : favourites.models,
+										  excludedFood : excludeds.models
+				            });
+
+				            that.$el.html(template);
+          				}
+      					});
+          		}
+          	});
           }
       	});
 			}
@@ -189,5 +201,57 @@ var EditPerson = Backbone.View.extend({
 				that.$el.html(template);
 			}
 		});
+	},
+	saveFavouriteFood : function(ev){
+		var favouriteFoodDetails = $(ev.currentTarget).serializeObject();
+		var person_id = favouriteFoodDetails.person_id;
+		var favouriteFood = new FavouriteFood();
+		favouriteFood.save(favouriteFoodDetails, {
+			success : function(favouriteFood) {
+				router.navigate('#/showPerson/'+ person_id + "/food", {trigger : true});
+			}
+		});
+		return false;
+	},
+	saveExcludedFood : function(ev){
+		var excludedFoodDetails = $(ev.currentTarget).serializeObject();
+		var person_id = excludedFoodDetails.person_id;
+		var excludedFood = new ExcludedFood();
+		excludedFood.save(excludedFoodDetails, {
+			success : function(excludedFood) {
+				router.navigate('#/showPerson/'+ person_id + "/food", {trigger : true});
+			}
+		});
+		return false;
+	},
+	deleteFavouriteFood : function(options) {
+		var favouriteFood = new FavouriteFood({
+				person_id : options.id,
+				id : options.food_id
+			});
+		
+		favouriteFood.destroy({
+			success : function() {
+				router.navigate('showPerson/' + options.id +"/food", {
+					trigger : true
+				});
+			}
+		});
+		return false;
+	},
+	deleteExcludedFood : function(options) {
+		var excludedFood = new ExcludedFood({
+				person_id : options.id,
+				id : options.food_id
+			});
+		
+		excludedFood.destroy({
+			success : function() {
+				router.navigate('showPerson/' + options.id +"/food", {
+					trigger : true
+				});
+			}
+		});
+		return false;
 	}
 });

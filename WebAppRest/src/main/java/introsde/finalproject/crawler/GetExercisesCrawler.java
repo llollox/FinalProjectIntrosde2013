@@ -58,7 +58,6 @@ public class GetExercisesCrawler extends WebCrawler {
 		}
 		Document doc = Jsoup.parse(html);
 		Element select = doc.select("select").get(2);
-		System.out.println(select);
 		Elements options = select.select("option");
 		
 		Set<String> exCategories = new HashSet<String>();
@@ -93,22 +92,5 @@ public class GetExercisesCrawler extends WebCrawler {
 			}
 			
 		}
-		
-		System.out.println(exCategories);
-		
 	}
-
 }
-
-
-
-/*************
- * 
- * ANAEROBICI
- * 
- * Calisthenics, Dancing, Golf, Gymnastics, Housework, Lying, Rowing Machine, Weight Training, Yardwork
- * 
- * 
- * NO SENSE 
- * Sitting, Standing
- */

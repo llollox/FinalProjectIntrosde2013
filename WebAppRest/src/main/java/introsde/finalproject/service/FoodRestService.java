@@ -156,11 +156,6 @@ public class FoodRestService {
 		if (p == null)
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
-		FavouriteFood food = favSoap.readFavouriteFood(f_id);
-
-		if (p_id != food.getPerson().getId())
-			return Response.status(Response.Status.BAD_REQUEST).build();
-
 		if (favSoap.deleteFavouriteFood(f_id))
 			return Response.ok(Utils.jsonId(f_id)).build();
 

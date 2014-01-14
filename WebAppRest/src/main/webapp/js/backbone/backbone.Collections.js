@@ -53,7 +53,27 @@ RecipeList = Backbone.Collection.extend({
 	model : Recipe,
 	parse : function(response) {
 		if (response)
-			return response.recipe;
+			return response.matches;
+		else
+			return null;
+	}
+});
+
+FavouriteFoodList = Backbone.Collection.extend({
+	model : FavouriteFood,
+	parse : function(response) {
+		if (response)
+			return response.favouriteFood;
+		else
+			return null;
+	}
+});
+
+ExcludedFoodList = Backbone.Collection.extend({
+	model : ExcludedFood,
+	parse : function(response) {
+		if (response)
+			return response.excludedFood;
 		else
 			return null;
 	}
