@@ -16,6 +16,6 @@ public class ProjectRunner {
 		new FoodServicePublisher();
 		new StorageServicePublisher();
 		new WebAppRestServer();
-
+		
 	}
 }

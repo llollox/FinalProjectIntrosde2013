@@ -2,8 +2,6 @@ package introsde.finalproject.service;
 
 import introsde.finalproject.utils.Utils;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -47,24 +45,30 @@ public class FoodRestService {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Recipe> getRecipes(@PathParam("p_id") int p_id) {
+	public List<Matches> getRecipes(@PathParam("p_id") int p_id) {
 
 		List<Matches> list = getMatches(p_id);
-		List<Recipe> recipeList = new ArrayList<Recipe>();
+		// List<Recipe> recipeList = new ArrayList<Recipe>();f
+		for (Matches m : list) {
+			List<String> url = m.getSmallImageUrls();
 
-		for (Matches m : list)
-			recipeList.add(foodSoap.getRecipe(m.getId()));
+			if (url.size() > 0)
+				url.add(url.get(0).replace(".s.", ".l."));
 
-		Iterator<Recipe> i = recipeList.iterator();
-		while (i.hasNext()) {
-			Recipe r = i.next();
-
-			if (r.getImages().size() > 0)
-				if (r.getImages().get(0).getHostedLargeUrl() == null)
-					i.remove();
+			m.setSmallImageUrls(url);
 		}
+		// recipeList.add(foodSoap.getRecipe(m.getId()));
+		//
+		// Iterator<Recipe> i = recipeList.iterator();
+		// while (i.hasNext()) {
+		// Recipe r = i.next();
+		//
+		// if (r.getImages().size() > 0)
+		// if (r.getImages().get(0).getHostedLargeUrl() == null)
+		// i.remove();
+		// }
 
-		return recipeList;
+		return list;
 	}
 
 	@GET
@@ -261,25 +265,30 @@ public class FoodRestService {
 		List<ExcludedFood> excludedList = exclSoap.getPersonsExcludedFood(p_id);
 
 		List<Matches> list;
-		int count = 0;
-		do {
-			QueryParams params = new QueryParams();
 
-			if (count < 1)
-				for (FavouriteFood f : favouriteList)
-					params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f
-							.getName()));
+		QueryParams params = new QueryParams();
+		for (FavouriteFood f : favouriteList)
+			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f.getName()));
 
-			if (count < 2)
-				for (ExcludedFood e : excludedList)
-					params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e
-							.getName()));
+		for (ExcludedFood e : excludedList)
+			params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e.getName()));
 
-			RecipeFinder finder = foodSoap.getRecipes(params);
-			list = finder.getMatches();
+		RecipeFinder finder = foodSoap.getRecipes(params);
+		list = finder.getMatches();
 
-		} while (list != null && count++ < 3);
+		if (list != null && list.size() > 5)
+			return list;
 
-		return list;
+		params = new QueryParams();
+		for (ExcludedFood e : excludedList)
+			params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e.getName()));
+
+		finder = foodSoap.getRecipes(params);
+		list = finder.getMatches();
+
+		if (list != null && list.size() > 5)
+			return list;
+
+		return foodSoap.getRecipes(null).getMatches();
 	}
 }
