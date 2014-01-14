@@ -150,18 +150,6 @@ var EditPerson = Backbone.View.extend({
 			success : function(person) {
 				var recipes = new RecipeList().fetch({
 					success : function(recipes) {
-						recipeDetailsList = [];
-						for (var i = 0; i < recipes.models.length; i++) {
-							var recipe = new Recipe({ id : recipes.models[i].get('id') });
-							recipe.fetch({
-								success : function(recipe){
-									recipeDetailsList.push(recipe);
-									console.log(recipeDetailsList);
-								}
-							});
-						}
-
-						
 						// var template = _.template($('#show-person-template')
 						// 		.html(), {
 						// 	person : person,
@@ -173,8 +161,7 @@ var EditPerson = Backbone.View.extend({
 							person : person,
 							healthProfileHistory : person.get('healthprofilehistory'),
 							healthProfile : person.get('extendedhealthprofile'),
-							recipes : recipes.models,
-							recipeDetailsList : recipeDetailsList
+							recipes : recipes.models
 						});
 						that.$el.html(template);
 					}

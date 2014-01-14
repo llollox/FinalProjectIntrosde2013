@@ -54,7 +54,7 @@ RecipeList = Backbone.Collection.extend({
 	url : '/food',
 	parse : function(response) {
 		if (response)
-			return response.matches;
+			return response.recipe;
 		else
 			return null;
 	}

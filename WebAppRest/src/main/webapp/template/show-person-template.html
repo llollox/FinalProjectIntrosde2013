@@ -80,11 +80,11 @@
 
 					<div class="ca-item">
 						<div class="ca-item-main">
-							<img src="<%= recipe.get('smallImageUrls')[2]%>" class="ca-icon"/>
-							<% if (recipe.get('recipeName').length > 40) { %> 
-								<h3><%= recipe.get('recipeName').substring(0,40) %>...</h3>
+							<img src="<%= recipe.get('images').hostedLargeUrl %>" class="ca-icon"/>
+							<% if (recipe.get('name').length > 40) { %> 
+								<h3><%= recipe.get('name').substring(0,40) %>...</h3>
 							<% } else { %>
-								<h3><%= recipe.get('recipeName') %></h3>
+								<h3><%= recipe.get('name') %></h3>
 							<% } %>
 							<h4 style="display:none;">
 								<span class="ca-quote">&ldquo;</span>
@@ -94,10 +94,21 @@
 						</div>
 						<div class="ca-content-wrapper">
 							<div class="ca-content">
-								<h6><%= recipe.get('recipeName') %></h6>
+								<h6><%= recipe.get('name') %></h6>
 								<a href="#" class="ca-close">close</a>
 								<div class="ca-content-text">
-									<p>Ingredienti vari</p>
+								  <div style="height:250px;">
+										<% _.each(recipe.get('ingredientLines'), function (ingredient, index) { %>
+											<%= index < 10 ? "<div>"+ingredient+"</div>" : "" %>
+										<% }) %>
+									</div>
+									<% _.each(recipe.get('nutritionEstimates'), function (nutrition) { %>
+										<% if (nutrition.attribute == "ENERC_KCAL") { %>
+											<div>
+												<h5>Calories <%= nutrition.value %> kcal</h5>
+											</div>
+										<% } %>
+									<% }) %>
 								</div>
 							</div>
 						</div>
