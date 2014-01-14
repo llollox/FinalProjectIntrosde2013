@@ -30,7 +30,7 @@ public class Activity {
 	private String description;
 	private int type;
 	private float value;
-	private int difficultyvalue;
+	private float difficultyvalue;
 	private int aerobic;
 	private int activitygroup;
 
@@ -48,11 +48,11 @@ public class Activity {
 		this.activitygroup = activitygroup;
 	}
 
-	public int getDifficultyvalue() {
+	public float getDifficultyvalue() {
 		return difficultyvalue;
 	}
 
-	public void setDifficultyvalue(int difficultyvalue) {
+	public void setDifficultyvalue(float difficultyvalue) {
 		this.difficultyvalue = difficultyvalue;
 	}
 

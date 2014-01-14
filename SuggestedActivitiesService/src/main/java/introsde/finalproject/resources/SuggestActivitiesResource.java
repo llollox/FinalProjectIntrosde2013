@@ -19,12 +19,20 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.ActivityWebInterface;
+import finalproject.client.service.ActivityService;
 import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
+import finalproject.ports.CRUDActivity;
 
 @Path("/suggest/")
 public class SuggestActivitiesResource {
+	
+	ActivityWebInterface c = new ActivityService().getCRUD();
+	final int ID_GENERAL_ACTIVITY = 1;
+	final double THRESHOLD_IHB = 0.5;
+	final double THRESHOLD_GHB = 0.8;
 	
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -34,20 +42,29 @@ public class SuggestActivitiesResource {
 		ArrayList<Activity> results = new ArrayList<Activity>();
 		
 		for (Goal goal : goals) {
-			results.addAll(suggestActivity(goal, hp));
+			results.addAll(suggestActivities(goal, hp));
 		}
 		
 		return results;
 	}
 	
-	private List<Activity> suggestActivity(Goal goal, HealthProfile hp) {
+	private List<Activity> suggestActivities(Goal goal, HealthProfile hp) {
 		if (goal.getType() == 0)
-			return suggestWeightActivity(goal, hp);
+			return suggestWeightActivities(goal, hp);
+		if (goal.getType() == 1)
+			return suggestGeneralActivities(goal, hp);
+		if (goal.getType() == 2)
+			return suggestImportantHealthBenefits(goal, hp);
 		return null;
 	}
-	
-	private List<Activity> suggestWeightActivity(Goal goal, HealthProfile hp) {
-		// get data from goal
+
+	/**
+	 * WEIGHT
+	 */
+	private List<Activity> suggestWeightActivities(Goal goal, HealthProfile hp) {
+		List<Activity> result = new ArrayList<Activity>();
+		
+		// get weight to loose/gain
 		double weight = Double.parseDouble(goal.getValue());
 		String enddate = goal.getEnddate();
 		
@@ -57,12 +74,37 @@ public class SuggestActivitiesResource {
 		// calculate difficulty
 		double difficulty = remainingdays / weight;
 		
+		// retrieve the activities
+		List<Activity> activities = goal.getActivities();
+		for (Activity activity : activities) {
+			if (activity.getDifficultyvalue() == difficulty)
+				result.add(activity);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * GENERAL
+	 */
+	private List<Activity> suggestGeneralActivities(Goal goal, HealthProfile hp) {
+		List<Activity> result = new ArrayList<Activity>();
+
+		result.add(c.readActivity(ID_GENERAL_ACTIVITY));
+		
+		return result;
+	}
+	
+	/**
+	 * IMPORTANT HEALTH BENEFITS
+	 */
+	private List<Activity> suggestImportantHealthBenefits(Goal goal, HealthProfile hp) {
 		List<Activity> result = new ArrayList<Activity>();
 		
 		// retrieve the activities
 		List<Activity> activities = goal.getActivities();
 		for (Activity activity : activities) {
-			if (activity.getDifficultyvalue() == difficulty)
+			if (activity.getDifficultyvalue() >= THRESHOLD_IHB)
 				result.add(activity);
 		}
 		
