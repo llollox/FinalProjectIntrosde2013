@@ -153,6 +153,15 @@ public class Activity {
 	// a.isDaily() && a.isWeekly() && a.isMonthly());
 	// }
 
+	public static List<Activity> getActivities() {
+		EntityManager em = DatabaseUtil.createEntityManager();
+		List<Activity> list = em.createNamedQuery("Activity.findAll",
+				Activity.class).getResultList();
+		;
+		em.close();
+		return list;
+	}
+
 	@Override
 	public boolean equals(Object object) {
 

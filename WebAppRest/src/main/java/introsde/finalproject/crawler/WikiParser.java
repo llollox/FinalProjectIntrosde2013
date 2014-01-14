@@ -3,6 +3,7 @@ package introsde.finalproject.crawler;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -27,23 +28,6 @@ public class WikiParser {
 	private static Random random = new Random();
 
 	public static void main(String[] args) throws Exception {
-
-		/************* INSERT EXERCISES AND EX.CATEGORIES ********************/
-
-		File dir = new File("crawl");
-		dir.mkdir();
-
-		int numberOfCrawlers = 1;
-		CrawlConfig config = new CrawlConfig();
-		config.setCrawlStorageFolder("crawl");
-		PageFetcher pageFetcher = new PageFetcher(config);
-		RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
-		RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,
-				pageFetcher);
-		CrawlController controller = new CrawlController(config, pageFetcher,
-				robotstxtServer);
-		controller.addSeed("http://www.exrx.net/Calculators/Calories.html");
-		controller.start(GetExercisesCrawler.class, numberOfCrawlers);
 
 		/************* INSERT GOALS ********************/
 
@@ -72,26 +56,58 @@ public class WikiParser {
 		Activity timeGymnastic = new Activity("3 Times Gymnastic", 3);
 		Activity jumpRope = new Activity("40 Minutes Jumping the Rope", 40);
 
+		ArrayList<Activity> loseActivity = new ArrayList<Activity>();
+		loseActivity.add(jumpRope);
+		loseActivity.add(timeGymnastic);
+		loseActivity.add(bycicle);
+		loseActivity.add(swimming);
+		loseActivity.add(walkingFast);
+
+		goalTW.setActivities(loseActivity);
+		goalTW = Goal.update(goalTW);
 		// ************************************
 		// Important Health Benefits
 		// ************************************
 
-		Activity aeroLight = new Activity("350 Minutes Aerobic Light Activity",
-				350);
-		Activity aeroModerate = new Activity(
+		Activity aeroLightIHB = new Activity(
+				"350 Minutes Aerobic Light Activity", 350);
+		Activity aeroModerateIHB = new Activity(
 				"250 Minutes Aerobic Moderate Activity", 250);
-		Activity analMedium = new Activity(
+		Activity analLightIHB = new Activity(
+				"5 Times Anaerobic Light Activity", 5);
+		Activity analMediumIHB = new Activity(
 				"3 Times Anaerobic Moderate Activity", 3);
+
+		ArrayList<Activity> IHB = new ArrayList<Activity>();
+		IHB.add(aeroLightIHB);
+		IHB.add(aeroModerateIHB);
+		IHB.add(analMediumIHB);
+		IHB.add(analLightIHB);
+
+		goalIHB.setActivities(IHB);
+		goalIHB = Goal.update(goalIHB);
 
 		// ************************************
 		// Greater Health Benefits
 		// ************************************
 
-		Activity aeroGModerate = new Activity(
-				"250 Minutes Aerobic Moderate Activity", 250);
-		Activity aeroHard = new Activity("250 Minutes Aerobic Hard Activity",
-				250);
-		Activity analHard = new Activity("3 Times Anaerobic Hard Activity", 3);
+		Activity aeroModerateGHB = new Activity(
+				"400 Minutes Aerobic Moderate Activity", 400);
+		Activity aeroHardGHB = new Activity(
+				"250 Minutes Aerobic Hard Activity", 250);
+		Activity analHardGHB = new Activity("3 Times Anaerobic Hard Activity",
+				3);
+		Activity analMediumGHB = new Activity(
+				"3 Times Anaerobic Medium Activity", 5);
+
+		ArrayList<Activity> GHBlist = new ArrayList<Activity>();
+		GHBlist.add(aeroModerateGHB);
+		GHBlist.add(aeroHardGHB);
+		GHBlist.add(analHardGHB);
+		GHBlist.add(analMediumGHB);
+
+		goalGHB.setActivities(GHBlist);
+		goalGHB = Goal.update(goalGHB);
 
 		/************* INSERT PERSON ********************/
 
@@ -224,6 +240,23 @@ public class WikiParser {
 			}
 		}
 		qexec.close();
+
+		/************* INSERT EXERCISES AND EX.CATEGORIES ********************/
+
+		File dir = new File("crawl");
+		dir.mkdir();
+
+		int numberOfCrawlers = 1;
+		CrawlConfig config = new CrawlConfig();
+		config.setCrawlStorageFolder("crawl");
+		PageFetcher pageFetcher = new PageFetcher(config);
+		RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+		RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,
+				pageFetcher);
+		CrawlController controller = new CrawlController(config, pageFetcher,
+				robotstxtServer);
+		controller.addSeed("http://www.exrx.net/Calculators/Calories.html");
+		controller.start(GetExercisesCrawler.class, numberOfCrawlers);
 
 	}
 

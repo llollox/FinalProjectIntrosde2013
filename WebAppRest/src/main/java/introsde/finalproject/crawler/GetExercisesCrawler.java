@@ -11,15 +11,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import edu.uci.ics.crawler4j.crawler.CrawlConfig;
-import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
-import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
-import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
-import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import edu.uci.ics.crawler4j.url.WebURL;
+import finalproject.model.Activity;
 import finalproject.model.Exercise;
 import finalproject.model.ExerciseCategory;
 
@@ -60,55 +56,58 @@ public class GetExercisesCrawler extends WebCrawler {
 		Element select = doc.select("select").get(2);
 		System.out.println(select);
 		Elements options = select.select("option");
-		
+
 		Set<String> exCategories = new HashSet<String>();
 		ExerciseCategory exCat = null;
-		
-		for(Element option : options){
+
+		for (Element option : options) {
 			Exercise e = new Exercise();
 			e.setDescription(option.text());
-			e.setDifficultyvalue(Float.parseFloat(option.val()));		
-			
+			e.setDifficultyvalue(Float.parseFloat(option.val()));
+
 			int index = e.getDescription().indexOf("(");
 			String found = null;
 			if (index == -1)
 				found = e.getDescription();
-			else 
-				found = e.getDescription().substring(0,index-1);
-			
-			if (!found.equals("Sitting") && !found.equals("Standing") && !found.equals("Lying")){ //NO SENSE 
-				if (exCategories.add(found)){ //nuova categoria
+			else
+				found = e.getDescription().substring(0, index - 1);
+
+			if (!found.equals("Sitting") && !found.equals("Standing")
+					&& !found.equals("Lying")) { // NO SENSE
+				if (exCategories.add(found)) { // nuova categoria
 					exCat = new ExerciseCategory();
 					exCat.setName(found);
-					
-					if(Arrays.asList("Calisthenics","Dancing","Golf","Gymnastics","Housework","Rowing Machine","Weight Training","Yardwork").contains(found))
+
+					if (Arrays.asList("Calisthenics", "Dancing", "Golf",
+							"Gymnastics", "Housework", "Rowing Machine",
+							"Weight Training", "Yardwork").contains(found))
 						exCat.setAerobic(0);
 					else
 						exCat.setAerobic(1);
-					
+
 					ExerciseCategory.create(exCat);
 				}
 				e.setCategory(exCat);
 				Exercise.create(e);
 			}
-			
+
 		}
-		
+
+		List<Activity> list = Activity.getActivities();
+
 		System.out.println(exCategories);
-		
+
 	}
 
 }
-
-
 
 /*************
  * 
  * ANAEROBICI
  * 
- * Calisthenics, Dancing, Golf, Gymnastics, Housework, Lying, Rowing Machine, Weight Training, Yardwork
+ * Calisthenics, Dancing, Golf, Gymnastics, Housework, Lying, Rowing Machine,
+ * Weight Training, Yardwork
  * 
  * 
- * NO SENSE 
- * Sitting, Standing
+ * NO SENSE Sitting, Standing
  */
