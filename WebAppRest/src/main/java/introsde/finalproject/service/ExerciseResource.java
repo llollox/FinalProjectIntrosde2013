@@ -51,7 +51,6 @@ public class ExerciseResource {
 		if (a != null && json.getDescription() != null) {
 
 			// aggiorno i dati
-			a.setAerobic(json.getAerobic());
 			a.setDescription(json.getDescription());
 			a.setDifficultyvalue(json.getDifficultyvalue());
 

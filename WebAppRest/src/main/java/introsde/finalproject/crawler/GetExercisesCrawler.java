@@ -61,7 +61,7 @@ public class GetExercisesCrawler extends WebCrawler {
 		Elements options = select.select("option");
 		
 		Set<String> exCategories = new HashSet<String>();
-		int exCatId = 0;
+		ExerciseCategory exCat = null;
 		
 		for(Element option : options){
 			Exercise e = new Exercise();
@@ -76,13 +76,13 @@ public class GetExercisesCrawler extends WebCrawler {
 				found = e.getDescription().substring(0,index-1);
 			
 			if (exCategories.add(found)){ //nuova categoria
-				ExerciseCategory exCat = new ExerciseCategory();
+				exCat = new ExerciseCategory();
 				exCat.setName(found);
-//				exCat.setAerobic(1); //need to implement api
-				exCatId = ExerciseCategory.create(exCat).getId();
+				exCat.setAerobic(1); //need to implement api
+				ExerciseCategory.create(exCat);
 			}
 			
-			e.setExerciseCategoryId(exCatId);
+			e.setCategory(exCat);
 			Exercise.create(e);
 			
 		}
@@ -92,3 +92,13 @@ public class GetExercisesCrawler extends WebCrawler {
 	}
 
 }
+
+
+
+/*************
+ * 
+ * ANAEROBICI
+ * 
+ * Calisthenics, Dancing, Golf, Gymnastics
+ * 
+ */
