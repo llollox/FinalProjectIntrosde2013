@@ -15,6 +15,7 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
+import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
 
@@ -24,7 +25,10 @@ public class WikiParser {
 
 	public static void main(String[] args) throws ParserConfigurationException,
 			TransformerException, ParseException {
-
+		
+		Goal g = new Goal();
+		g.setName("General Activity");
+		
 		HashSet<String> names = new HashSet<String>();
 
 		String sparqlService = "http://dbpedia.org/sparql";
@@ -95,8 +99,6 @@ public class WikiParser {
 
 					System.out.println(firstName);
 					System.out.println(lastName);
-					// System.out.println(height);
-					// System.out.println(weight);
 					System.out.println(birthDate + "\n");
 
 					Person p = new Person();
@@ -125,11 +127,6 @@ public class WikiParser {
 						int maxBloadPressure = randBetween(
 								minBloadPressure + 10, 180);
 
-						// gc.set(Calendar.YEAR, year);
-						// int dayOfYear = randBetween(1,
-						// gc.getActualMaximum(Calendar.DAY_OF_YEAR));
-						// gc.set(Calendar.DAY_OF_YEAR, dayOfYear);
-
 						String dateRandom = year + "-" + month + "-" + day;
 
 						Double randWeight = randBetween(
@@ -140,11 +137,6 @@ public class WikiParser {
 										+ (randBetween(0.01, 0.2)));
 
 						HealthProfile hp = new HealthProfile();
-
-//						hp.setHeight(df.parse(df.format(randHeight))
-//								.doubleValue());
-//						hp.setWeight(df.parse(df.format(randWeight))
-//								.doubleValue());
 						
 						hp.setHeight(randHeight);
 						hp.setWeight(randWeight);
@@ -157,29 +149,10 @@ public class WikiParser {
 
 						HealthProfile.create(pId, hp);
 
-						// stmt = c.createStatement();
-						// String INSERT_INTO_WEIGHT =
-						// "INSERT INTO healthprofile (person_id,weight,height,date,steps,calories)"
-						// +
-						// "VALUES ( "+ personId +", " + randWeight + ", " +
-						// randHeight + ", " + date.getTime() + "," + steps +
-						// "," + calories + ");";
-						//
-						// System.out.println(INSERT_INTO_WEIGHT);
-
-						// stmt.executeUpdate(INSERT_INTO_WEIGHT);
-						// stmt.close();
-						System.out
-								.println("HealthProfile created successfully");
+						System.out.println("HealthProfile created successfully");
 					}
-
-					// SQLiteJDBC.addPerson(firstName, lastName, birthDate,
-					// weight, height);
-
 				}
-
 			}
-
 		}
 		qexec.close();
 
