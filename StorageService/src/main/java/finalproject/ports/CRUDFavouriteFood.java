@@ -1,11 +1,14 @@
 package finalproject.ports;
 
+import java.util.List;
+
 import javax.jws.WebService;
 
 import finalproject.model.FavouriteFood;
 
 @WebService(serviceName = "FavouriteFoodService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDFavouriteFood {
+public class CRUDFavouriteFood implements
+		finalproject.client.interfaces.FavouriteFoodWebInterface {
 
 	// CREATE FOOD
 	public int createFavouriteFood(FavouriteFood food) {
@@ -35,6 +38,12 @@ public class CRUDFavouriteFood {
 	// DELETE FOOD
 	public boolean deleteFavouriteFood(int id) {
 		return FavouriteFood.delete(id);
+	}
+
+	/** GET PERSONAL FOOD */
+	public List<FavouriteFood> getPersonsFavouriteFood(int pid) {
+		return FavouriteFood.getPersonFood(pid);
+
 	}
 
 }

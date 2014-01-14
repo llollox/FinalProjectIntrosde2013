@@ -13,14 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDActivity;
+import finalproject.client.interfaces.ActivityWebInterface;
 import finalproject.client.service.ActivityService;
 import finalproject.model.Activity;
 
 @Path("/activity")
 public class ActivityResource {
 
-	public static CRUDActivity cactivity = new ActivityService().getCRUD();
+	public static ActivityWebInterface cactivity = new ActivityService().getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

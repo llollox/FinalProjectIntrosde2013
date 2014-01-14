@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExcludedFood;
+import finalproject.client.interfaces.ExcludedFoodWebInterface;
 import finalproject.client.service.ExcludedFoodService;
 import finalproject.model.ExcludedFood;
 
 @Path("/excludedfood")
 public class ExcludedFoodResource {
 
-	public static CRUDExcludedFood cexcludedfood = new ExcludedFoodService()
+	public static ExcludedFoodWebInterface cexcludedfood = new ExcludedFoodService()
 			.getCRUD();
 
 	@POST

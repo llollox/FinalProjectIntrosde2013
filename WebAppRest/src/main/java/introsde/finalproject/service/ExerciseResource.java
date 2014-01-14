@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExercise;
+import finalproject.client.interfaces.ExerciseWebInterface;
 import finalproject.client.service.ExerciseService;
 import finalproject.model.Exercise;
 
 @Path("/exercise")
 public class ExerciseResource {
 
-	public static CRUDExercise cexercise = new ExerciseService().getCRUD();
+	public static ExerciseWebInterface cexercise = new ExerciseService().getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

@@ -2,10 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
+import finalproject.client.interfaces.HealthProfileWebInterface;
 import finalproject.model.HealthProfile;
 
 @WebService(serviceName = "HealthProfileService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDHealthProfile {
+public class CRUDHealthProfile implements HealthProfileWebInterface {
 
 	// CREATE HEALTHPROFILE
 	public int createHealthProfile(int idperson, HealthProfile hp) {

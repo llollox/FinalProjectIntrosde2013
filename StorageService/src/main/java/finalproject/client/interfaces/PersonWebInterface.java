@@ -15,7 +15,7 @@ import finalproject.model.Person;
  * 
  */
 @WebService(name = "CRUDPerson", targetNamespace = "http://finalproject.sde.unitn.it/")
-public interface CRUDPerson {
+public interface PersonWebInterface {
 
 	/**
 	 * 

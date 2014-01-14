@@ -6,12 +6,13 @@ import javax.jws.WebService;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import finalproject.client.interfaces.GoalWebInterface;
 import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.utils.DatabaseUtil;
 
 @WebService(serviceName = "GoalService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDGoal {
+public class CRUDGoal implements GoalWebInterface {
 
 	// GET GOALS
 	public List<Goal> getGoals() {

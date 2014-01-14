@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDFavouriteFood;
+import finalproject.client.interfaces.FavouriteFoodWebInterface;
 import finalproject.client.service.FavouriteFoodService;
 import finalproject.model.FavouriteFood;
 
 @Path("/favouritefood")
 public class FavouriteFoodResource {
 
-	public static CRUDFavouriteFood cfavouritefood = new FavouriteFoodService()
+	public static FavouriteFoodWebInterface cfavouritefood = new FavouriteFoodService()
 			.getCRUD();
 
 	@POST

@@ -18,7 +18,7 @@ import finalproject.model.Goal;
  * 
  */
 @WebService(name = "CRUDGoal", targetNamespace = "http://finalproject.sde.unitn.it/")
-public interface CRUDGoal {
+public interface GoalWebInterface {
 
 	/**
 	 * 

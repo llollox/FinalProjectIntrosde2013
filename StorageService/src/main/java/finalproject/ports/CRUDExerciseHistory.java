@@ -2,10 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
+import finalproject.client.interfaces.ExerciseHistoryWebInterface;
 import finalproject.model.ExerciseHistory;
 
 @WebService(serviceName = "ExerciseHistoryService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDExerciseHistory {
+public class CRUDExerciseHistory implements ExerciseHistoryWebInterface {
 
 	// CREATE EXERCISEHISTORY
 	public int createExerciseHistory(ExerciseHistory exercisehistory) {

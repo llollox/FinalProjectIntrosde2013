@@ -13,14 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExerciseCategory;
+import finalproject.client.interfaces.ExerciseCategoryWebInterface;
 import finalproject.client.service.ExerciseCategoryService;
 import finalproject.model.ExerciseCategory;
 
 @Path("/exercisecategory")
 public class ExerciseCategoryResource {
 
-	public static CRUDExerciseCategory cexercisecategory = new ExerciseCategoryService()
+	public static ExerciseCategoryWebInterface cexercisecategory = new ExerciseCategoryService()
 			.getCRUD();
 
 	@GET

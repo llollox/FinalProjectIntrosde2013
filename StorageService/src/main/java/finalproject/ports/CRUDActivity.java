@@ -5,11 +5,12 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 
+import finalproject.client.interfaces.ActivityWebInterface;
 import finalproject.model.Activity;
 import finalproject.utils.DatabaseUtil;
 
 @WebService(serviceName = "ActivityService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDActivity {
+public class CRUDActivity implements ActivityWebInterface {
 
 	// GET ACTIVITIES
 	public List<Activity> getActivities() {

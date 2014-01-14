@@ -13,7 +13,7 @@ import finalproject.model.HealthProfile;
  * 
  */
 @WebService(name = "CRUDHealthProfile", targetNamespace = "http://finalproject.sde.unitn.it/")
-public interface CRUDHealthProfile {
+public interface HealthProfileWebInterface {
 
 	/**
 	 * 

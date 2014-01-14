@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDExerciseHistory;
+import finalproject.client.interfaces.ExerciseHistoryWebInterface;
 import finalproject.client.service.ExerciseHistoryService;
 import finalproject.model.ExerciseHistory;
 
 @Path("/exercisehistory")
 public class ExerciseHistoryResource {
 
-	public static CRUDExerciseHistory cexercisehistory = new ExerciseHistoryService()
+	public static ExerciseHistoryWebInterface cexercisehistory = new ExerciseHistoryService()
 			.getCRUD();
 
 	@POST

@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDActivityChoosen;
+import finalproject.client.interfaces.ActivityChoosenWebInterface;
 import finalproject.client.service.ActivityChoosenService;
 import finalproject.model.ActivityChoosen;
 
 @Path("/activitychoosen")
 public class ActivityChoosenResource {
 
-	public static CRUDActivityChoosen cactivitychoosen = new ActivityChoosenService()
+	public static ActivityChoosenWebInterface cactivitychoosen = new ActivityChoosenService()
 			.getCRUD();
 
 	@POST

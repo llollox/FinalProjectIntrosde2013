@@ -13,14 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDGoal;
+import finalproject.client.interfaces.GoalWebInterface;
 import finalproject.client.service.GoalService;
 import finalproject.model.Goal;
 
 @Path("/goal")
 public class GoalResource {
 
-	public static CRUDGoal cgoal = new GoalService().getCRUD();
+	public static GoalWebInterface cgoal = new GoalService().getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

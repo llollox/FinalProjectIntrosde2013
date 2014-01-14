@@ -19,14 +19,31 @@ import com.introsde.adapters.yummly.models.RecipeFinder;
 import com.introsde.food.utils.KeyValuePair;
 import com.introsde.food.utils.QueryParams;
 
-@Path("/food")
+import finalproject.client.interfaces.ExcludedFoodWebInterface;
+import finalproject.client.interfaces.FavouriteFoodWebInterface;
+import finalproject.client.service.ExcludedFoodService;
+import finalproject.client.service.FavouriteFoodService;
+
+@Path("person/{p_id}/food")
 public class FoodRestService {
 
 	Food foodService = new FoodService().getFood();
 
+	FavouriteFoodWebInterface favourite = new FavouriteFoodService().getCRUD();
+	ExcludedFoodWebInterface excluded = new ExcludedFoodService().getCRUD();
+
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Recipe> getRecipesByCalories() {
+	public List<Recipe> getRecipes() {
+		
+		
+//		List<String> ff = favourite.
+//		List<String> ex = new ArrayList<String>();
+		
+		
+		
+		
+		
 		List<Matches> list;
 		do {
 			RecipeFinder finder = foodService.getRecipes(getRandomPrams());

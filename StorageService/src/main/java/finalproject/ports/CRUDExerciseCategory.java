@@ -5,11 +5,12 @@ import java.util.List;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
 
+import finalproject.client.interfaces.ExerciseCategoryWebInterface;
 import finalproject.model.ExerciseCategory;
 import finalproject.utils.DatabaseUtil;
 
 @WebService(serviceName = "ExerciseCategoryService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDExerciseCategory {
+public class CRUDExerciseCategory implements ExerciseCategoryWebInterface {
 
 	// GET CATEGORIES
 	public List<ExerciseCategory> getCategories() {

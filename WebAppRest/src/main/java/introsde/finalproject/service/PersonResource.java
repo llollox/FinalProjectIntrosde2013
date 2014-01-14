@@ -21,7 +21,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDPerson;
+import finalproject.client.interfaces.PersonWebInterface;
 import finalproject.client.service.PersonService;
 import finalproject.model.ExtendedHealthProfile;
 import finalproject.model.HealthProfile;
@@ -30,7 +30,7 @@ import finalproject.model.Person;
 @Path("/person")
 public class PersonResource {
 
-	CRUDPerson cperson = new PersonService().getCRUD();
+	PersonWebInterface cperson = new PersonService().getCRUD();
 	CaloriesCalculator caloriesCalculator = new CaloriesService()
 			.getCalculator();
 

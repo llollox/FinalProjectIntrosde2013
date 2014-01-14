@@ -2,10 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
+import finalproject.client.interfaces.ExerciseWebInterface;
 import finalproject.model.Exercise;
 
 @WebService(serviceName = "ExerciseService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDExercise {
+public class CRUDExercise implements ExerciseWebInterface {
 
 	// CREATE EXERCISE
 	public int createExercise(Exercise exercise) {

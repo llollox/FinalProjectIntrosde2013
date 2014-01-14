@@ -1,13 +1,16 @@
 package finalproject.ports;
 
+import java.util.List;
+
 import javax.jws.WebService;
 
 import finalproject.model.ExcludedFood;
 
 @WebService(serviceName = "ExcludedFoodService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDExcludedFood {
+public class CRUDExcludedFood implements
+		finalproject.client.interfaces.ExcludedFoodWebInterface {
 
-	// CREATE FOOD
+	/** CREATE FOOD */
 	public int createExcludedFood(ExcludedFood food) {
 		ExcludedFood a = ExcludedFood.create(food);
 
@@ -17,12 +20,12 @@ public class CRUDExcludedFood {
 		return a.getId();
 	}
 
-	// READ FOOD
+	/** READ FOOD */
 	public ExcludedFood readExcludedFood(int id) {
 		return ExcludedFood.read(id);
 	}
 
-	// UPDATE FOOD
+	/** UPDATE FOOD */
 	public int updateExcludedFood(ExcludedFood food) {
 		ExcludedFood a = ExcludedFood.update(food);
 
@@ -32,9 +35,13 @@ public class CRUDExcludedFood {
 		return a.getId();
 	}
 
-	// DELETE FOOD
+	/** DELETE FOOD */
 	public boolean deleteExcludedFood(int id) {
 		return ExcludedFood.delete(id);
+	}
+
+	public List<ExcludedFood> getPersonsExcludedFood(int pid) {
+		return ExcludedFood.getPersonFood(pid);
 	}
 
 }

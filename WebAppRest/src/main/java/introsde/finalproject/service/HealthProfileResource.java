@@ -11,14 +11,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.CRUDHealthProfile;
+import finalproject.client.interfaces.HealthProfileWebInterface;
 import finalproject.client.service.HealthProfileService;
 import finalproject.model.HealthProfile;
 
 @Path("/person/{p_id}/healthprofile")
 public class HealthProfileResource {
 
-	public static CRUDHealthProfile soap = new HealthProfileService().getCRUD();
+	public static HealthProfileWebInterface soap = new HealthProfileService().getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

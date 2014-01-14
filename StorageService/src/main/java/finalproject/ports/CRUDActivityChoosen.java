@@ -2,10 +2,11 @@ package finalproject.ports;
 
 import javax.jws.WebService;
 
+import finalproject.client.interfaces.ActivityChoosenWebInterface;
 import finalproject.model.ActivityChoosen;
 
 @WebService(serviceName = "ActivityChoosenService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
-public class CRUDActivityChoosen {
+public class CRUDActivityChoosen implements ActivityChoosenWebInterface {
 
 	// CREATE ACTIVITY
 	public int createActivityChoosen(ActivityChoosen activity) {
