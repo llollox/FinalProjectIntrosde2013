@@ -26,7 +26,7 @@
 				<div class="controls">
 					<div class="input-append date" id="dp3" 
 						data-date="<%= person ? person.get('birthdate') : '' %>" 
-						data-date-format="dd-mm-yyyy">
+						data-date-format="yyyy-mm-dd">
 	    			<input class="input" type="text" id="inputBirthdate" placeholder="Birthdate"
 	    				value="<%= person ? person.get('birthdate') : '' %>" name="birthdate">
 	    			<span class="add-on"><i class="icon-th"></i></span>
@@ -85,7 +85,7 @@
 		  $(document).ready(function(){
 			  window.prettyPrint && prettyPrint();
 			    $('#dp3').datepicker({
-					format: 'dd-mm-yyyy'
+					format: 'yyyy-mm-dd'
 				});
 
 				$("select#selectGender").val(<%= person ? person.get('sex') : '' %>);

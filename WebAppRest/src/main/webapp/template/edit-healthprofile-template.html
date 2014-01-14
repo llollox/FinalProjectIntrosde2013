@@ -20,12 +20,51 @@
         value="<%= healthProfile ? healthProfile.get('height') : '' %>" />
     </div>
   </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputHeartRate">Heart Rate</label>
+    <div class="controls">
+      <input type="text" id="inputHeartRate" name="heartrate" placeholder="Heart Rate"
+        value="<%= healthProfile ? healthProfile.get('heartrate') : '' %>" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputMinBloodPressure">Min Blood Pressure</label>
+    <div class="controls">
+      <input type="text" id="inputMinBloodPressure" name="minbloodpressure" 
+        placeholder="Min Blood Pressure"
+        value="<%= healthProfile ? healthProfile.get('minbloodpressure') : '' %>" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputMaxBloodPressure">Max Blood Pressure</label>
+    <div class="controls">
+      <input type="text" id="inputMaxBloodPressure" name="maxbloodpressure" 
+        placeholder="Max Blood Pressure"
+        value="<%= healthProfile ? healthProfile.get('maxbloodpressure') : '' %>" />
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputDate">Date</label>
+    <div class="controls">
+      <div class="input-append date" id="dp3" 
+        data-date="<%= healthProfile ? healthProfile.get('date') : '' %>" 
+        data-date-format="yyyy-mm-dd">
+        <input class="input" type="text" id="inputDate" placeholder="Date"
+          value="<%= healthProfile ? healthProfile.get('date') : '' %>" name="date">
+        <span class="add-on"><i class="icon-th"></i></span>
+      </div>
+    </div>
+  </div>
   
   <br/>
 
   <input type="hidden" name="person_id" value="<%= person_id %>" />
   <% if (healthProfile) { %>
-    <input type="hidden" value = "<%= healthProfile.get('healthprofile_id') %>" name="healthprofile_id"/>
+    <input type="hidden" value = "<%= healthProfile.get('id') %>" name="id"/>
   <% }; %>
   
   <div class="form-actions">
@@ -45,5 +84,14 @@
   </div>
   
 </form>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.prettyPrint && prettyPrint();
+      $('#dp3').datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  });
+</script>
 
 </script>

@@ -4,15 +4,15 @@ var EditHealthProfile = Backbone.View.extend({
 		var that = this;
 		if (options.healthprofile_id) {
 			that.hp = new HealthProfile({
-				person_id : options.person_id,
-				healthprofile_id : options.healthprofile_id
+				id : options.healthprofile_id,
+				person_id : options.id
 			});
 			that.hp.fetch({
 				success : function(healthProfile) {
 					var template = _.template($('#edit-healthprofile-template')
 							.html(), {
 						healthProfile : healthProfile,
-						person_id : options.person_id
+						person_id : options.id
 					});
 					that.$el.html(template);
 				}
@@ -21,7 +21,7 @@ var EditHealthProfile = Backbone.View.extend({
 			var template = _.template($('#edit-healthprofile-template').html(),
 					{
 						healthProfile : null,
-						person_id : options.person_id
+						person_id : options.id
 					});
 			that.$el.html(template);
 		}
@@ -51,10 +51,10 @@ var EditHealthProfile = Backbone.View.extend({
 		
 		if(options.healthprofile_id){  //delete from healthprofile history
 			hp = new HealthProfile({
-				person_id : options.person_id,
-				healthprofile_id : options.healthprofile_id
+				person_id : options.id,
+				id : options.healthprofile_id
 			});
-			person_id = options.person_id;
+			person_id = options.id;
 		} else {	//delete from edit healthprofile from
 			person_id = this.hp.get('person_id');
 			hp = this.hp;
@@ -62,7 +62,7 @@ var EditHealthProfile = Backbone.View.extend({
 		
 		hp.destroy({
 			success : function() {
-				router.navigate('#/showPerson/' + person_id, {
+				router.navigate('showPerson/' + person_id, {
 					trigger : true
 				});
 			}

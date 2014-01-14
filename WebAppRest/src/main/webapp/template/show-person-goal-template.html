@@ -1,4 +1,4 @@
-<script type="text/template" id="show-person-template">
+<script type="text/template" id="show-person-goal-template">
 	<a href="#" class="btn"><i class="icon-arrow-left"></i> Back to person list</a>
 	<br/><br/>
 	<div style="position:relative;text-align:center;">
@@ -18,7 +18,7 @@
 	<br/>
 	
 	<center>
-		<a href="#/showPerson/<%= person.get('id') %>/myhp" id="menu-hp" class="show-person-menu-container active">
+		<a href="#/showPerson/<%= person.get('id') %>" id="menu-hp" class="show-person-menu-container">
 			<img src="img/stats.png" style="height:70px;"/>
 			<h3 style="display: inline;">Stats</h3>
 		</a>
@@ -26,15 +26,11 @@
 			<img src="img/food.png" style="height:70px;"/>
 			<h3 style="display: inline;">Food</h3>
 		</a>
-		<a href="#/showPerson/<%= person.get('id') %>/goal" id="menu-goal" class="show-person-menu-container">
+		<a href="#/showPerson/<%= person.get('id') %>/goal" id="menu-goal" class="show-person-menu-container active">
 			<img src="img/target.png" style="height:70px;"/>
 			<h3 style="display: inline;">Goal</h3>
 		</a>
 	</center>
 	<br/><br/>
-
-	<div id="showPersonContainer">
-		<center><img src='img/loading.gif' class='img-loading' /></center>
-	</div>
 
 </script>
