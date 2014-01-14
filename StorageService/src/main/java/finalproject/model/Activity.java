@@ -31,10 +31,7 @@ public class Activity {
 	private int id;
 
 	private String description;
-	private int type;
-	private float value;
-	private int aerobic;
-	private int activitygroup;
+	private Integer value;
 
 	@ManyToMany
 	@JoinTable(name = "Activity_has_categories", joinColumns = { @JoinColumn(name = "idactivity", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idcategory", referencedColumnName = "id") })
@@ -46,35 +43,16 @@ public class Activity {
 	public Activity() {
 	}
 
-	public int getActivitygroup() {
-		return activitygroup;
+	public Activity(String description, Integer value) {
+		super();
+		this.description = description;
 	}
 
-	public void setActivitygroup(int activitygroup) {
-		this.activitygroup = activitygroup;
-	}
-
-	public int getAerobic() {
-		return aerobic;
-	}
-
-	public void setAerobic(int aerobic) {
-		this.aerobic = aerobic;
-	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public float getValue() {
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(float value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
 

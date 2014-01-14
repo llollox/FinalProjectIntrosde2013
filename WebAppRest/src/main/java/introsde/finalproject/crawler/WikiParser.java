@@ -17,6 +17,7 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
+import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
@@ -59,57 +60,32 @@ public class WikiParser {
 		goalIHB = Goal.create(goalIHB);
 		goalGHB = Goal.create(goalGHB);
 
-		// /************* INSERT ACTIVITIES ********************/
-		//
-		// // ************************************
-		// // General Activity
-		//
-		// Activity doSpecificSport = new Activity();
-		// doSpecificSport.setDescription("Do a specific sport");
-		// doSpecificSport.setType(0);
-		// doSpecificSport.setValue(0);
-		//
-		// // ************************************
-		// // Per il lose weight
-		// // ************************************
-		//
-		// Activity loseTargetWeight = new Activity();
-		// loseTargetWeight.setDescription("Loose weight");
-		// loseTargetWeight.setType(0);
-		// loseTargetWeight.setValue(0);
-		//
-		// // ************************************
-		// // Important Health Benefits
-		// // ************************************
-		//
-		// Activity ihbMinutes = new Activity();
-		// ihbMinutes
-		// .setDescription("150 minutes Moderate Intentensity Aerobic Activities");
-		// ihbMinutes.setType(0);
-		// // ihbMinutes.set
-		// // ihbMinutes.setValue(0);
-		//
-		// // ************************************
-		// Activity ihbTimes = new Activity();
-		// ihbTimes.setDescription("Do a specific sport");
-		// ihbTimes.setType(0);
-		// ihbTimes.setValue(0);
-		//
-		// // ************************************
-		// // Greater Health Benefits
-		// // ************************************
-		//
-		// Activity ghbMinutes = new Activity();
-		// ghbMinutes.setDescription("Do a specific sport");
-		// ghbMinutes.setType(0);
-		// ghbMinutes.setValue(0);
-		// // ************************************
-		//
-		// Activity ghbTimes = new Activity();
-		// ghbTimes.setDescription("Do a specific sport");
-		// ghbTimes.setType(0);
-		// ghbTimes.setValue(0);
-		// // ************************************
+		/************* INSERT ACTIVITIES ********************/
+
+		// ************************************
+		// Per il lose weight
+		// ************************************
+
+		Activity walkingFast = new Activity("m100 Minutes Walking Fast", 100);
+		Activity swimming = new Activity("75 Minutes Swimming", 75);
+		Activity bycicle = new Activity("150 Minutes Bicycle", 150);
+		Activity timeGymnastic = new Activity("3 Times Gymnastic", 3);
+		Activity jumpRope = new Activity("40 Minutes Jumping the Rope", 40);
+
+		// ************************************
+		// Important Health Benefits
+		// ************************************
+
+		Activity aeroModerate = new Activity("250 minutes Aerobic Moderate",
+				250);
+		Activity analMedium = new Activity("3 times minutes walking fast", 40);
+
+		// ************************************
+		// Greater Health Benefits
+		// ************************************
+
+		Activity aeroHard = new Activity("40 minutes walking fast", 40);
+		Activity analHard = new Activity("40 minutes walking fast", 40);
 
 		/************* INSERT PERSON ********************/
 
