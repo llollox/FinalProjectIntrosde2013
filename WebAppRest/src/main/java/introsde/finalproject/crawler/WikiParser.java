@@ -15,6 +15,7 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
+import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
@@ -26,8 +27,50 @@ public class WikiParser {
 	public static void main(String[] args) throws ParserConfigurationException,
 			TransformerException, ParseException {
 		
-		Goal g = new Goal();
-		g.setName("General Activity");
+		/************* INSERT GOALS ********************/
+		
+		Goal goalGA = new Goal();
+		goalGA.setName("General Activity");
+		goalGA.setEnddate("");
+		goalGA.setType(1);
+		//goalGA.setValue(""+3); // numero che voglio praticarlo a settimana!
+		// questo valore va messo nella PERSON HAS GOAL table NON NELLA TABELLA GOAL!!!
+		
+		Goal goalTW = new Goal();
+		goalTW.setName("Target Weight");
+		int endDateYear = randBetween(2005,2013);
+		int endDatemonth = randBetween(1, 12);
+		int endDateday = randBetween(1, 28);
+		goalTW.setEnddate(endDateYear + "-" + endDatemonth + "-" + endDateday);
+		goalTW.setType(0);
+		goalTW.setValue(""+-10); // voglio perdere 10 kg 
+		
+		Goal goalIHB = new Goal();
+		goalIHB.setName("Important Health Benefits");
+		goalIHB.setEnddate("");
+		goalIHB.setType(2);
+		goalIHB.setValue("");
+		
+		Goal goalGHB = new Goal();
+		goalGHB.setName("Great Health Benefits");
+		goalGHB.setEnddate("");
+		goalIHB.setType(3);
+		goalIHB.setValue("");
+		
+		Goal.create(goalGA);
+		Goal.create(goalTW);
+		Goal.create(goalIHB);
+		Goal.create(goalGHB);
+		
+		/************* INSERT ACTIVITIES ********************/
+		
+		// Per il Do a General Acitivity
+		Activity a = new Activity();
+		a.setDescription("Do a specific sport");
+		a.setType(0);
+		a.setValue(0);
+		
+		/************* INSERT PERSON ********************/
 		
 		HashSet<String> names = new HashSet<String>();
 
@@ -114,6 +157,8 @@ public class WikiParser {
 					int pId = p.getId();
 
 					int num_healthProfiles = randBetween(1, 5);
+					
+					/************* INSERT HEALTH PROFILES ********************/
 
 					for (int i = 0; i < num_healthProfiles; i++) {
 						int year = randBetween(
