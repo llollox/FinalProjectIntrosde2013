@@ -11,12 +11,12 @@ import com.introsde.food.utils.QueryParams;
 
 public class ClientTest {
 
+	static FoodWebInterface foodService = new FoodService().getFood();
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		FoodWebInterface foodService = new FoodService().getFood();
 
 		// ReceiptFinder r = foodService.getRecipesByCalories(200, 250, 30);
 
@@ -57,9 +57,9 @@ public class ClientTest {
 			list.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, ingr));
 		}
 
-		for (String ingr : excuded) {
-			list.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, ingr));
-		}
+		// for (String ingr : excuded) {
+		// list.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, ingr));
+		// }
 
 		params.setQueryParams(list);
 

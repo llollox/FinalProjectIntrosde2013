@@ -54,11 +54,19 @@ public class FoodRestService {
 
 		QueryParams params = new QueryParams();
 
-		for (FavouriteFood f : favouriteList)
-			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f.getName()));
+		for (FavouriteFood f : favouriteList) {
 
-		for (ExcludedFood e : excludedList)
+			System.out.println(Yummly.ALLOWED_INGREDIENT + " " + f.getName());
+
+			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f.getName()));
+		}
+
+		for (ExcludedFood e : excludedList) {
+
+			System.out.println(Yummly.EXCLUDED_INGREDIENT + " " + e.getName());
+
 			params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e.getName()));
+		}
 
 		RecipeFinder finder = foodSoap.getRecipes(params);
 
