@@ -72,7 +72,7 @@ public class HealthProfileResource {
 
 		if (hp_id != -1) {
 			return Response.status(Response.Status.OK)
-					.entity("{\" " + hp_id + "\"}").build();
+					.entity("{\"id\":\"" + hp_id + "\"}").build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}

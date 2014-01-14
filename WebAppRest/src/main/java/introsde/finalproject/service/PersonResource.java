@@ -93,7 +93,7 @@ public class PersonResource {
 
 		if (p_id != -1) {
 			return Response.status(Response.Status.OK)
-					.entity("{\" " + p_id + "\"}").build();
+					.entity("{\"id\":\"" + p_id + "\"}").build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
