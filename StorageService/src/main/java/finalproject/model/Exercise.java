@@ -19,27 +19,18 @@ public class Exercise {
 	private int id;
 
 	private String description;
-	private float difficultyvalue;
-	private int aerobic;
-	private Integer exerciseCategoryId;
+	private Float difficultyvalue;
+	private Integer categoryId;
 
 	public Exercise() {
 	}
 
-	public Integer getExerciseCategoryId() {
-		return exerciseCategoryId;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setExerciseCategoryId(Integer exerciseCategoryId) {
-		this.exerciseCategoryId = exerciseCategoryId;
-	}
-
-	public int getAerobic() {
-		return aerobic;
-	}
-
-	public void setAerobic(int aerobic) {
-		this.aerobic = aerobic;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public int getId() {
@@ -58,11 +49,11 @@ public class Exercise {
 		this.description = description;
 	}
 
-	public float getDifficultyvalue() {
+	public Float getDifficultyvalue() {
 		return difficultyvalue;
 	}
 
-	public void setDifficultyvalue(float difficultyvalue) {
+	public void setDifficultyvalue(Float difficultyvalue) {
 		this.difficultyvalue = difficultyvalue;
 	}
 
