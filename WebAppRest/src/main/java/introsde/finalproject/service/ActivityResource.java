@@ -59,12 +59,12 @@ public class ActivityResource {
 
 		if (a != null && json.getDescription() != null) {
 
-			// aggionro i dati
-			a.setActivitygroup(json.getActivitygroup());
-			a.setAerobic(json.getAerobic());
-			a.setDescription(json.getDescription());
-			a.setType(json.getType());
-			a.setValue(json.getValue());
+			// // aggionro i dati
+			// a.setActivitygroup(json.getActivitygroup());
+			// a.setAerobic(json.getAerobic());
+			// a.setDescription(json.getDescription());
+			// a.setType(json.getType());
+			// a.setValue(json.getValue());
 
 			// aggiorno nel db
 			int _id = cactivity.updateActivity(a);

@@ -66,7 +66,7 @@ public class WikiParser {
 		// Per il lose weight
 		// ************************************
 
-		Activity walkingFast = new Activity("m100 Minutes Walking Fast", 100);
+		Activity walkingFast = new Activity("100 Minutes Walking Fast", 100);
 		Activity swimming = new Activity("75 Minutes Swimming", 75);
 		Activity bycicle = new Activity("150 Minutes Bicycle", 150);
 		Activity timeGymnastic = new Activity("3 Times Gymnastic", 3);
@@ -76,9 +76,9 @@ public class WikiParser {
 		// Important Health Benefits
 		// ************************************
 
-		Activity aeroModerate = new Activity("250 minutes Aerobic Moderate",
+		Activity aeroModerate = new Activity("250 Minutes Aerobic Moderate",
 				250);
-		Activity analMedium = new Activity("3 times minutes walking fast", 40);
+		Activity analMedium = new Activity("3 Times Anaerobic Moderate", 40);
 
 		// ************************************
 		// Greater Health Benefits
