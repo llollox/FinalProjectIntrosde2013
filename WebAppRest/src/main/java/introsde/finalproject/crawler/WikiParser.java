@@ -1,5 +1,6 @@
 package introsde.finalproject.crawler;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
@@ -30,59 +31,106 @@ public class WikiParser {
 
 	public static void main(String[] args) throws Exception {
 		
+		/************* INSERT EXERCISES AND EX.CATEGORIES ********************/
+		
+		File dir = new File("crawl");
+		dir.mkdir();
+		
+		
+			
+		
+        int numberOfCrawlers = 1;
+        CrawlConfig config = new CrawlConfig();
+        config.setCrawlStorageFolder("crawl");
+        PageFetcher pageFetcher = new PageFetcher(config);
+        RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
+        CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
+        controller.addSeed("http://www.exrx.net/Calculators/Calories.html");
+        controller.start(GetExercisesCrawler.class, numberOfCrawlers); 
+		
 		/************* INSERT GOALS ********************/
-		
-		Goal goalGA = new Goal();
-		goalGA.setName("General Activity");
-		goalGA.setEnddate("");
-		goalGA.setType(1);
-		//goalGA.setValue(""+3); // numero che voglio praticarlo a settimana!
-		// questo valore va messo nella PERSON HAS GOAL table NON NELLA TABELLA GOAL!!!
-		
-		Goal goalTW = new Goal();
-		goalTW.setName("Target Weight");
-		int endDateYear = randBetween(2005,2013);
-		int endDatemonth = randBetween(1, 12);
-		int endDateday = randBetween(1, 28);
-		goalTW.setEnddate(endDateYear + "-" + endDatemonth + "-" + endDateday);
-		goalTW.setType(0);
-		goalTW.setValue(""+-10); // voglio perdere 10 kg 
-		
-		Goal goalIHB = new Goal();
-		goalIHB.setName("Important Health Benefits");
-		goalIHB.setEnddate("");
-		goalIHB.setType(2);
-		goalIHB.setValue("");
-		
-		Goal goalGHB = new Goal();
-		goalGHB.setName("Great Health Benefits");
-		goalGHB.setEnddate("");
-		goalIHB.setType(3);
-		goalIHB.setValue("");
-		
-		Goal.create(goalGA);
-		Goal.create(goalTW);
-		Goal.create(goalIHB);
-		Goal.create(goalGHB);
-		
-		/************* INSERT ACTIVITIES ********************/
-		
-		// Per il Do a General Acitivity
-		Activity a = new Activity();
-		a.setDescription("Do a specific sport");
-		a.setType(0);
-		a.setValue(0);
-		 
-		
-		
-		
-		
-		
-		
+
+//		Goal goalGA = new Goal();
+//		goalGA.setName("General Activity");
+//		goalGA.setType(1);
+//		// goalGA.setValue(""+3); // numero che voglio praticarlo a settimana!
+//		// questo valore va messo nella PERSON HAS GOAL table NON NELLA TABELLA
+//		// GOAL!!!
+//
+//		Goal goalTW = new Goal();
+//		goalTW.setName("Target Weight");
+//		goalTW.setType(0);
+//
+//		Goal goalIHB = new Goal();
+//		goalIHB.setName("Important Health Benefits");
+//		goalIHB.setType(2);
+//
+//		Goal goalGHB = new Goal();
+//		goalGHB.setName("Great Health Benefits");
+//		goalIHB.setType(3);
+//
+//		Goal.create(goalGA);
+//		Goal.create(goalTW);
+//		Goal.create(goalIHB);
+//		Goal.create(goalGHB);
+//
+//		/************* INSERT ACTIVITIES ********************/
+//
+//		// ************************************
+//		// General Activity
+//
+//		Activity doSpecificSport = new Activity();
+//		doSpecificSport.setDescription("Do a specific sport");
+//		doSpecificSport.setType(0);
+//		doSpecificSport.setValue(0);
+//
+//		// ************************************
+//		// Per il lose weight
+//		// ************************************
+//
+//		Activity loseTargetWeight = new Activity();
+//		loseTargetWeight.setDescription("Loose weight");
+//		loseTargetWeight.setType(0);
+//		loseTargetWeight.setValue(0);
+//
+//		// ************************************
+//		// Important Health Benefits
+//		// ************************************
+//
+//		Activity ihbMinutes = new Activity();
+//		ihbMinutes
+//				.setDescription("150 minutes Moderate Intentensity Aerobic Activities");
+//		ihbMinutes.setType(0);
+//		// ihbMinutes.set
+//		// ihbMinutes.setValue(0);
+//
+//		// ************************************
+//		Activity ihbTimes = new Activity();
+//		ihbTimes.setDescription("Do a specific sport");
+//		ihbTimes.setType(0);
+//		ihbTimes.setValue(0);
+//
+//		// ************************************
+//		// Greater Health Benefits
+//		// ************************************
+//
+//		Activity ghbMinutes = new Activity();
+//		ghbMinutes.setDescription("Do a specific sport");
+//		ghbMinutes.setType(0);
+//		ghbMinutes.setValue(0);
+//		// ************************************
+//
+//		Activity ghbTimes = new Activity();
+//		ghbTimes.setDescription("Do a specific sport");
+//		ghbTimes.setType(0);
+//		ghbTimes.setValue(0);
+//		// ************************************
+
 		
 		
 		/************* INSERT PERSON ********************/
-		
+
 		HashSet<String> names = new HashSet<String>();
 
 		String sparqlService = "http://dbpedia.org/sparql";
@@ -168,7 +216,7 @@ public class WikiParser {
 					int pId = p.getId();
 
 					int num_healthProfiles = randBetween(1, 5);
-					
+
 					/************* INSERT HEALTH PROFILES ********************/
 
 					for (int i = 0; i < num_healthProfiles; i++) {
@@ -193,7 +241,7 @@ public class WikiParser {
 										+ (randBetween(0.01, 0.2)));
 
 						HealthProfile hp = new HealthProfile();
-						
+
 						hp.setHeight(randHeight);
 						hp.setWeight(randWeight);
 
@@ -205,7 +253,8 @@ public class WikiParser {
 
 						HealthProfile.create(pId, hp);
 
-						System.out.println("HealthProfile created successfully");
+						System.out
+								.println("HealthProfile created successfully");
 					}
 				}
 			}

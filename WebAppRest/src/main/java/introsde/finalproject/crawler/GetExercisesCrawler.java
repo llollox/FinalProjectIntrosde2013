@@ -61,30 +61,29 @@ public class GetExercisesCrawler extends WebCrawler {
 		Elements options = select.select("option");
 		
 		Set<String> exCategories = new HashSet<String>();
+		int exCatId = 0;
 		
 		for(Element option : options){
 			Exercise e = new Exercise();
 			e.setDescription(option.text());
-			e.setDifficultyvalue(Float.parseFloat(option.val()));
-			e.setAerobic(1);
-			
-//			Exercise.create(e);
+			e.setDifficultyvalue(Float.parseFloat(option.val()));		
 			
 			int index = e.getDescription().indexOf("(");
 			String found = null;
-			if (index == -1){
+			if (index == -1)
 				found = e.getDescription();
-			}
-			else {
+			else 
 				found = e.getDescription().substring(0,index-1);
-			}
 			
-			int exCatId = 0;
 			if (exCategories.add(found)){ //nuova categoria
 				ExerciseCategory exCat = new ExerciseCategory();
 				exCat.setName(found);
+//				exCat.setAerobic(1); //need to implement api
 				exCatId = ExerciseCategory.create(exCat).getId();
 			}
+			
+			e.setExerciseCategoryId(exCatId);
+			Exercise.create(e);
 			
 		}
 		

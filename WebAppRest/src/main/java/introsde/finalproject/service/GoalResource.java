@@ -56,13 +56,9 @@ public class GoalResource {
 
 		Goal a = cgoal.readGoal(id);
 
-		if (a != null && json.getEnddate() != null && json.getName() != null
-				&& json.getValue() != null) {
+		if (a != null && json.getName() != null) {
 
-			// aggionro i dati
-			a.setEnddate(json.getEnddate());
 			a.setName(json.getName());
-			a.setValue(json.getValue());
 
 			// aggiorno nel db
 			int _id = cgoal.updateGoal(a);

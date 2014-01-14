@@ -100,4 +100,66 @@ public class CRUDGoal implements GoalWebInterface {
 		return result;
 	}
 
+	public void setGoalValue(int idperson, int idgoal, String value) {
+		EntityManager em = DatabaseUtil.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		em.createNativeQuery(
+				"UPDATE Person_has_Goal SET value=?value WHERE idperson=?idperson and idgoal=?idgoal")
+				.setParameter("value", value)
+				.setParameter("idperson", idperson)
+				.setParameter("idgoal", idgoal).executeUpdate();
+		tx.commit();
+
+		em.close();
+	}
+
+	public String getGoalValue(int idperson, int idgoal) {
+		EntityManager em = DatabaseUtil.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		String result = (String) em
+				.createNativeQuery(
+						"SELECT value FROM introsde.Person_has_Goal WHERE idperson =?idperson AND idgoal =?idgoal")
+				.setParameter("idperson", idperson)
+				.setParameter("idgoal", idgoal).getSingleResult();
+		tx.commit();
+
+		em.close();
+		return result;
+	}
+	
+	public void setGoalEndDate(int idperson, int idgoal, String enddate) {
+		EntityManager em = DatabaseUtil.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		em.createNativeQuery(
+				"UPDATE Person_has_Goal SET enddate=?enddate WHERE idperson=?idperson and idgoal=?idgoal")
+				.setParameter("enddate", enddate)
+				.setParameter("idperson", idperson)
+				.setParameter("idgoal", idgoal).executeUpdate();
+		tx.commit();
+
+		em.close();
+	}
+
+	public String getGoalEndDate(int idperson, int idgoal) {
+		EntityManager em = DatabaseUtil.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		tx.begin();
+		String result = (String) em
+				.createNativeQuery(
+						"SELECT enddate FROM introsde.Person_has_Goal WHERE idperson =?idperson AND idgoal =?idgoal")
+				.setParameter("idperson", idperson)
+				.setParameter("idgoal", idgoal).getSingleResult();
+		tx.commit();
+
+		em.close();
+		return result;
+	}
+
 }
