@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Random;
 
-import javax.ws.rs.core.Response;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
@@ -15,6 +14,11 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 
+import edu.uci.ics.crawler4j.crawler.CrawlConfig;
+import edu.uci.ics.crawler4j.crawler.CrawlController;
+import edu.uci.ics.crawler4j.fetcher.PageFetcher;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
@@ -24,8 +28,7 @@ public class WikiParser {
 
 	private static Random random = new Random();
 
-	public static void main(String[] args) throws ParserConfigurationException,
-			TransformerException, ParseException {
+	public static void main(String[] args) throws Exception {
 		
 		/************* INSERT GOALS ********************/
 		
@@ -69,6 +72,14 @@ public class WikiParser {
 		a.setDescription("Do a specific sport");
 		a.setType(0);
 		a.setValue(0);
+		 
+		
+		
+		
+		
+		
+		
+		
 		
 		/************* INSERT PERSON ********************/
 		
