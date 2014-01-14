@@ -1,5 +1,7 @@
 package introsde.finalproject.service;
 
+import introsde.finalproject.utils.Utils;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -28,12 +30,11 @@ public class HealthProfileResource {
 			HealthProfile hp) {
 
 		int hp_id = soap.createHealthProfile(pid, hp);
-		if (hp_id != -1) {
-			return Response.status(Response.Status.OK)
-					.entity(soap.readHealthProfile(pid, hp_id)).build();
-		} else {
+		if (hp_id != -1)
+			return Response.ok(soap.readHealthProfile(pid, hp_id)).build();
+
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
 	}
 
 	@GET
@@ -56,8 +57,8 @@ public class HealthProfileResource {
 		int id = soap.updateHealthProfile(pid, json);
 
 		if (id != -1) // data successiful updated!
-			return Response.status(Response.Status.OK)
-					.entity(soap.readHealthProfile(pid, hp_id)).build();
+			return Response.ok(soap.readHealthProfile(pid, hp_id)).build();
+
 		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
@@ -70,12 +71,11 @@ public class HealthProfileResource {
 			@PathParam("hp_id") int hp_id) {
 		hp_id = soap.deleteHealthProfile(pid, hp_id);
 
-		if (hp_id != -1) {
-			return Response.status(Response.Status.OK)
-					.entity("{\"id\":\"" + hp_id + "\"}").build();
-		} else {
+		if (hp_id != -1)
+			return Response.ok(Utils.jsonId(hp_id)).build();
+
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
 	}
 
 }
