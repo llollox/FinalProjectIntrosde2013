@@ -31,10 +31,7 @@ public class Goal {
 	private int id;
 
 	private int type;
-
 	private String name;
-	private String value;
-	private String enddate;
 
 	@ManyToMany(mappedBy = "goals", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Person> people = new ArrayList<Person>();
@@ -52,14 +49,6 @@ public class Goal {
 
 	public void setType(int type) {
 		this.type = type;
-	}
-
-	public String getEnddate() {
-		return enddate;
-	}
-
-	public void setEnddate(String enddate) {
-		this.enddate = enddate;
 	}
 
 	@XmlTransient
@@ -85,14 +74,6 @@ public class Goal {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
 	}
 
 	public void setActivities(List<Activity> activities) {
