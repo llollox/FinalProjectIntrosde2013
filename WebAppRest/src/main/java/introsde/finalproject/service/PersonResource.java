@@ -2,6 +2,7 @@ package introsde.finalproject.service;
 
 import introsde.finalproject.calories.client.CaloriesCalculator;
 import introsde.finalproject.calories.client.CaloriesService;
+import introsde.finalproject.utils.Utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,23 +47,22 @@ public class PersonResource {
 	public Response createPerson(Person person) {
 
 		int personId = cperson.createPerson(person);
-		if (personId != -1) {
-			return Response.status(Response.Status.OK)
-					.entity(cperson.readPerson(personId)).build();
-		} else {
+		if (personId != -1)
+			return Response.ok(cperson.readPerson(personId)).build();
+
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
 	}
 
 	@GET
 	@Path("/{p_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Person getPerson(@PathParam("p_id") int p_id) throws ParseException {
+
 		Person p = cperson.readPerson(p_id);
 
-		if (p != null) {
+		if (p != null)
 			p.setExtendedhealthprofile(getExtendedHealthProfile(p));
-		}
 
 		return p;
 	}
@@ -91,12 +91,10 @@ public class PersonResource {
 
 		p_id = cperson.deletePerson(p_id);
 
-		if (p_id != -1) {
-			return Response.status(Response.Status.OK)
-					.entity("{\"id\":\"" + p_id + "\"}").build();
-		} else {
+		if (p_id != -1)
+			return Response.ok(Utils.jsonId(p_id)).build();
+		else
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		}
 	}
 
 	@GET
