@@ -1,24 +1,17 @@
 package com.introsde.adapters.yummly;
 
-import java.util.ArrayList;
-
-import com.introsde.adapters.edamam.EdamamConnector;
-import com.introsde.adapters.edamam.models.ENERC_KCAL;
-import com.introsde.adapters.edamam.models.EdamamResponse;
-import com.introsde.adapters.yummly.models.Matches;
-import com.introsde.adapters.yummly.models.RecipeFinder;
-import com.introsde.food.utils.QueryParams;
 
 public class Yummly {
 
 	// OLD KEY
-//	public static final String APP_ID_VALUE = "ad98c4ce";
-//	public static final String APP_KEY_VALUE = "034eea1cd3f52cdd3a742772fca0d859";
-	
-	// NEW KEY 
+	// public static final String APP_ID_VALUE = "ad98c4ce";
+	// public static final String APP_KEY_VALUE =
+	// "034eea1cd3f52cdd3a742772fca0d859";
+
+	// NEW KEY
 	public static final String APP_ID_VALUE = "b1d1c31d";
 	public static final String APP_KEY_VALUE = "35f60559ba7a3a06758df59b5d625599";
-	
+
 	public static final String APP_ID_KEY = "_app_id";
 	public static final String APP_KEY_KEY = "_app_key";
 
@@ -48,37 +41,4 @@ public class Yummly {
 	public static final String LACTO_VEGETARIAN = "388^Lacto vegetarian";
 	public static final String OVO_VEGETARIAN = "389^Ovo vegetarian";
 
-	public static void main(String[] args) {
-
-		RecipeFinder finder = YummlyConnector.getRecipes(null);
-
-		p(finder);
-	}
-
-	static void p(RecipeFinder finder) {
-
-		int count = 0;
-		for (Matches m : finder.getMatches()) {
-
-			// EdamamResponse response =
-			// EdamamConnector.get(m.getIngredients());
-
-			System.out.println("\n" + ++count
-					+ ".    ------------------------------\n");
-			// System.out.println(m.getRecipeName());
-			// System.out.println(m.getIngredients());
-			// System.out.println(response.getCalories());
-			//
-			// ENERC_KCAL kcal = response.getTotalDaily().getENERC_KCAL();
-			// System.out.println(kcal.getLabel() + " " + kcal.getQuantity() +
-			// " "
-			// + kcal.getUnit());
-			// System.out.println(response.getHealthLabels());
-			// System.out.println(response.getDietLabels());
-			// System.out.println(m.getRating());
-			System.out.println(m.getId());
-
-			System.out.println(m);
-		}
-	}
 }

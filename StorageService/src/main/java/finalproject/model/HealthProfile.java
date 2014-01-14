@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import finalproject.utils.DatabaseUtil;
 import finalproject.utils.DoubleDecimalAdapter;
+import finalproject.utils.Utils;
 
 @Entity
 @XmlRootElement
@@ -173,57 +174,40 @@ public class HealthProfile {
 		if (p == null)
 			return null;
 
-		HealthProfile newHP = HealthProfile.read(idperson, hp.getId());
+		HealthProfile hp_db = HealthProfile.read(idperson, hp.getId());
 
-		// if the healthprofile does not exist create it
-		if (newHP == null) {
-			hp.setPerson(p);
-			hp.setDate(getCurrentDate());
-
-			EntityManager em = DatabaseUtil.createEntityManager();
-			EntityTransaction tx = em.getTransaction();
-
-			tx.begin();
-			em.persist(hp);
-			tx.commit();
-
-			em.close();
-			return hp;
-		}
-
-		// if the "healthprofile" does not belong to the person with id
-		// "idperson"
-		if (newHP.getPerson().getId() != idperson)
+		if (hp_db == null)
 			return null;
 
-		// update only the properties which are not null
+		if (hp_db.getPerson().getId() != idperson)
+			return null;
 
 		if (hp.getHeight() != 0)
-			newHP.setHeight(hp.getHeight());
+			hp_db.setHeight(hp.getHeight());
 
 		if (hp.getWeight() != 0)
-			newHP.setWeight(hp.getWeight());
+			hp_db.setWeight(hp.getWeight());
 
 		if (hp.getMinbloodpressure() != 0)
-			newHP.setMinbloodpressure(hp.getMinbloodpressure());
+			hp_db.setMinbloodpressure(hp.getMinbloodpressure());
 
 		if (hp.getMaxbloodpressure() != 0)
-			newHP.setMaxbloodpressure(hp.getMaxbloodpressure());
+			hp_db.setMaxbloodpressure(hp.getMaxbloodpressure());
 
 		if (hp.getHeartrate() != 0)
-			newHP.setHeartrate(hp.getHeartrate());
+			hp_db.setHeartrate(hp.getHeartrate());
 
-		// not updating date on purpose
-		// since the date is set when the healthprofile is created
+		if (Utils.isDateValid(hp.getDate()))
+			hp_db.setDate(hp.getDate());
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		newHP = em.merge(newHP);
+		hp_db = em.merge(hp_db);
 		tx.commit();
 		em.close();
 
-		return newHP;
+		return hp_db;
 	}
 
 	public static boolean delete(int pid, int hpid) {
