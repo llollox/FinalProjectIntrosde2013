@@ -1,5 +1,6 @@
 package introsde.finalproject.crawler;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -75,15 +76,21 @@ public class GetExercisesCrawler extends WebCrawler {
 			else 
 				found = e.getDescription().substring(0,index-1);
 			
-			if (exCategories.add(found)){ //nuova categoria
-				exCat = new ExerciseCategory();
-				exCat.setName(found);
-				exCat.setAerobic(1); //need to implement api
-				ExerciseCategory.create(exCat);
+			if (!found.equals("Sitting") && !found.equals("Standing") && !found.equals("Lying")){ //NO SENSE 
+				if (exCategories.add(found)){ //nuova categoria
+					exCat = new ExerciseCategory();
+					exCat.setName(found);
+					
+					if(Arrays.asList("Calisthenics","Dancing","Golf","Gymnastics","Housework","Rowing Machine","Weight Training","Yardwork").contains(found))
+						exCat.setAerobic(0);
+					else
+						exCat.setAerobic(1);
+					
+					ExerciseCategory.create(exCat);
+				}
+				e.setCategory(exCat);
+				Exercise.create(e);
 			}
-			
-			e.setCategory(exCat);
-			Exercise.create(e);
 			
 		}
 		
@@ -99,6 +106,9 @@ public class GetExercisesCrawler extends WebCrawler {
  * 
  * ANAEROBICI
  * 
- * Calisthenics, Dancing, Golf, Gymnastics
+ * Calisthenics, Dancing, Golf, Gymnastics, Housework, Lying, Rowing Machine, Weight Training, Yardwork
  * 
+ * 
+ * NO SENSE 
+ * Sitting, Standing
  */
