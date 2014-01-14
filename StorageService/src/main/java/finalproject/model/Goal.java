@@ -30,6 +30,8 @@ public class Goal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	private int type;
+
 	private String name;
 	private String value;
 	private String enddate;
@@ -42,6 +44,14 @@ public class Goal {
 	private List<Activity> activities = new ArrayList<Activity>();
 
 	public Goal() {
+	}
+	
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public String getEnddate() {
