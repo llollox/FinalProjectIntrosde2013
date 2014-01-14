@@ -46,7 +46,6 @@ public class ExcludedFood {
 		this.name = name;
 	}
 
-	@XmlTransient
 	public Person getPerson() {
 		return person;
 	}

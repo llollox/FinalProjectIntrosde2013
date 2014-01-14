@@ -46,7 +46,6 @@ public class FavouriteFood {
 		this.name = name;
 	}
 
-	@XmlTransient
 	public Person getPerson() {
 		return person;
 	}

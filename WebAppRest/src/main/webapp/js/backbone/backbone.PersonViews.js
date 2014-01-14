@@ -208,6 +208,7 @@ var EditPerson = Backbone.View.extend({
 		var favouriteFood = new FavouriteFood();
 		favouriteFood.save(favouriteFoodDetails, {
 			success : function(favouriteFood) {
+				$('#favouriteFoodModal').modal('hide');
 				router.navigate('#/showPerson/'+ person_id + "/food", {trigger : true});
 			}
 		});
@@ -219,6 +220,7 @@ var EditPerson = Backbone.View.extend({
 		var excludedFood = new ExcludedFood();
 		excludedFood.save(excludedFoodDetails, {
 			success : function(excludedFood) {
+				$('#excludedFoodModal').modal('hide');
 				router.navigate('#/showPerson/'+ person_id + "/food", {trigger : true});
 			}
 		});

@@ -106,7 +106,7 @@ public class FoodRestService {
 
 		if (p == null || food.getName() == null)
 			return Response.status(Response.Status.BAD_REQUEST).build();
-
+		
 		food.setPerson(p);
 		int id = favSoap.createFavouriteFood(food);
 
@@ -130,10 +130,7 @@ public class FoodRestService {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
 		FavouriteFood old = favSoap.readFavouriteFood(f_id);
-
-		if (p_id != old.getPerson().getId())
-			return Response.status(Response.Status.BAD_REQUEST).build();
-
+		old.setPerson(p);
 		old.setName(food.getName());
 
 		int id = favSoap.updateFavouriteFood(old);
@@ -215,10 +212,8 @@ public class FoodRestService {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
 		ExcludedFood old = exclSoap.readExcludedFood(f_id);
-
-		if (p_id != old.getPerson().getId())
-			return Response.status(Response.Status.BAD_REQUEST).build();
-
+		
+		old.setPerson(p);
 		old.setName(food.getName());
 
 		int id = exclSoap.updateExcludedFood(old);
@@ -239,11 +234,6 @@ public class FoodRestService {
 		Person p = perSoap.readPerson(p_id);
 
 		if (p == null)
-			return Response.status(Response.Status.BAD_REQUEST).build();
-
-		ExcludedFood food = exclSoap.readExcludedFood(f_id);
-
-		if (p_id != food.getPerson().getId())
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
 		if (exclSoap.deleteExcludedFood(f_id))

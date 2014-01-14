@@ -4,13 +4,12 @@ package com.introsde.adapters.yummly;
 public class Yummly {
 
 	// OLD KEY
-	// public static final String APP_ID_VALUE = "ad98c4ce";
-	// public static final String APP_KEY_VALUE =
-	// "034eea1cd3f52cdd3a742772fca0d859";
+	 public static final String APP_ID_VALUE = "ad98c4ce";
+	 public static final String APP_KEY_VALUE = "034eea1cd3f52cdd3a742772fca0d859";
 
 	// NEW KEY
-	public static final String APP_ID_VALUE = "b1d1c31d";
-	public static final String APP_KEY_VALUE = "35f60559ba7a3a06758df59b5d625599";
+//	public static final String APP_ID_VALUE = "b1d1c31d";
+//	public static final String APP_KEY_VALUE = "35f60559ba7a3a06758df59b5d625599";
 
 	public static final String APP_ID_KEY = "_app_id";
 	public static final String APP_KEY_KEY = "_app_key";
