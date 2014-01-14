@@ -17,6 +17,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -97,25 +98,31 @@ public class PersonResource {
 	}
 
 	@GET
-	@Path("/birthdate?from={start}&to={end}")
+	@Path("/birthdate")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Person> getPeopleByBirthdate(@PathParam("start") String start,
-			@PathParam("end") String end) {
+	public List<Person> getPeopleByBirthdate(@QueryParam("start") String start,
+			@QueryParam("end") String end) {
+
 		return cperson.getPeopleByBirthdate(start, end);
 	}
 
 	@GET
-	@Path("/measure?name={name}&min={min}&max={max}")
+	@Path("/measure")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Person> getPeopleByMeasure(@PathParam("name") String name,
-			@PathParam("min") Double min, @PathParam("max") Double max) {
+	public List<Person> getPeopleByMeasure(@QueryParam("name") String name,
+			@QueryParam("min") Double min, @QueryParam("max") Double max) {
+
+		if (name == null || (!name.equals("height") && !name.equals("weight")))
+			return null;
+
 		return cperson.getPeopleByMeasure(name, min + "", max + "");
 	}
 
 	@GET
-	@Path("/name?contains={name}")
+	@Path("/name")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Person> getPeopleByName(@PathParam("name") String name) {
+	public List<Person> getPeopleByName(@QueryParam("contains") String name) {
+
 		return cperson.getPeopleByName(name);
 	}
 
