@@ -6,9 +6,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.xml.ws.Action;
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
 
 import finalproject.model.Person;
 
@@ -79,9 +76,6 @@ public interface CRUDPerson {
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
-	@RequestWrapper(localName = "getPeopleByMeasure", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByMeasure")
-	@ResponseWrapper(localName = "getPeopleByMeasureResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.GetPeopleByMeasureResponse")
-	@Action(input = "http://finalproject.sde.unitn.it/CRUDPerson/getPeopleByMeasureRequest", output = "http://finalproject.sde.unitn.it/CRUDPerson/getPeopleByMeasureResponse")
 	public List<Person> getPeopleByMeasure(
 			@WebParam(name = "arg0", targetNamespace = "") String arg0,
 			@WebParam(name = "arg1", targetNamespace = "") String arg1,
@@ -104,9 +98,6 @@ public interface CRUDPerson {
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
-	@RequestWrapper(localName = "deletePerson", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.DeletePerson")
-	@ResponseWrapper(localName = "deletePersonResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.DeletePersonResponse")
-	@Action(input = "http://finalproject.sde.unitn.it/CRUDPerson/deletePersonRequest", output = "http://finalproject.sde.unitn.it/CRUDPerson/deletePersonResponse")
 	public boolean deletePerson(
 			@WebParam(name = "arg0", targetNamespace = "") int arg0);
 
@@ -116,9 +107,6 @@ public interface CRUDPerson {
 	 * @param arg0
 	 */
 	@WebMethod
-	@RequestWrapper(localName = "linkGoal", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.LinkGoal")
-	@ResponseWrapper(localName = "linkGoalResponse", targetNamespace = "http://finalproject.sde.unitn.it/", className = "it.unitn.sde.finalproject.LinkGoalResponse")
-	@Action(input = "http://finalproject.sde.unitn.it/CRUDPerson/linkGoalRequest", output = "http://finalproject.sde.unitn.it/CRUDPerson/linkGoalResponse")
 	public void linkGoal(
 			@WebParam(name = "arg0", targetNamespace = "") int arg0,
 			@WebParam(name = "arg1", targetNamespace = "") int arg1);

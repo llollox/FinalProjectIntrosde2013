@@ -264,8 +264,8 @@ public class Person {
 		EntityManager em = DatabaseUtil.createEntityManager();
 		List<Person> list = em
 				.createNamedQuery("Person.getByWeight", Person.class)
-				.setParameter("min", min).setParameter("max", max)
-				.getResultList();
+				.setParameter("min", Double.parseDouble(min))
+				.setParameter("max", Double.parseDouble(max)).getResultList();
 		;
 		em.close();
 		return list;
