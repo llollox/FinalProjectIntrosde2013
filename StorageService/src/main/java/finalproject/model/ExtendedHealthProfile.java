@@ -33,6 +33,7 @@ public class ExtendedHealthProfile extends HealthProfile {
 		setMaxbloodpressure(hp.getMaxbloodpressure());
 		setHeartrate(hp.getHeartrate());
 		setDate(hp.getDate());
+		setId(hp.getId());
 	}
 
 	public Integer getAge() {

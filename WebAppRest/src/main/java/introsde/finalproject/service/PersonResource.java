@@ -36,8 +36,7 @@ public class PersonResource {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeople() throws ParseException {
-		List<Person> list = cperson.getPeople();
-		return list;
+		return cperson.getPeople();
 	}
 
 	@POST
@@ -90,7 +89,6 @@ public class PersonResource {
 	public Response deletePerson(@PathParam("p_id") int p_id) {
 
 		if (cperson.deletePerson(p_id)) {
-
 			return Response.status(Response.Status.OK).build();
 
 		} else {
@@ -110,8 +108,8 @@ public class PersonResource {
 	@Path("/measure?name={name}&min={min}&max={max}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeopleByMeasure(@PathParam("name") String name,
-			@PathParam("min") String min, @PathParam("max") String max) {
-		return cperson.getPeopleByMeasure(name, min, max);
+			@PathParam("min") Double min, @PathParam("max") Double max) {
+		return cperson.getPeopleByMeasure(name, min + "", max + "");
 	}
 
 	@GET

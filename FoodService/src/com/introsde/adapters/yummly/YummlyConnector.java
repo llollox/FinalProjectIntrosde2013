@@ -161,7 +161,7 @@ public class YummlyConnector {
 				queryParams.add(Yummly.EXCLUDED_INGREDIENT, ingr);
 
 		if (!queryParams.containsKey(Yummly.MAX_RESULTS))
-			queryParams.add(Yummly.MAX_RESULTS, "20");
+			queryParams.add(Yummly.MAX_RESULTS, "10");
 
 		// parameter to get recipes with pictures
 		queryParams.add("requirePictures", "true");
