@@ -63,8 +63,8 @@ public class CRUDPerson implements PersonWebInterface {
 	}
 
 	// DELETE PERSON
-	public boolean deletePerson(int id) {
-		return Person.delete(id);
+	public int deletePerson(int id) {
+		return Person.delete(id) ? id : -1;
 	}
 
 	// ADD GOAL TO PERSON

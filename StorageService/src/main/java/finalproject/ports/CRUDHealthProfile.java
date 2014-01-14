@@ -35,8 +35,8 @@ public class CRUDHealthProfile implements HealthProfileWebInterface {
 	}
 
 	// DELETE HEALTHPROFILE
-	public boolean deleteHealthProfile(int pid, int hpid) {
-		return HealthProfile.delete(pid, hpid);
+	public int deleteHealthProfile(int pid, int hpid) {
+		return HealthProfile.delete(pid, hpid) ? hpid : -1;
 	}
 
 }

@@ -57,7 +57,7 @@ public interface HealthProfileWebInterface {
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
-	public boolean deleteHealthProfile(
+	public int deleteHealthProfile(
 			@WebParam(name = "arg0", targetNamespace = "") int arg0,
 			@WebParam(name = "arg1", targetNamespace = "") int arg1);
 

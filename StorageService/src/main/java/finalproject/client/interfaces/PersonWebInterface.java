@@ -98,7 +98,7 @@ public interface PersonWebInterface {
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
-	public boolean deletePerson(
+	public int deletePerson(
 			@WebParam(name = "arg0", targetNamespace = "") int arg0);
 
 	/**
