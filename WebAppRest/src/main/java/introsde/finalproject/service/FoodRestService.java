@@ -1,5 +1,6 @@
 package introsde.finalproject.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -25,7 +26,7 @@ public class FoodRestService {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Matches> getRecipesByCalories() {
+	public List<Recipe> getRecipesByCalories() {
 		List<Matches> list;
 		do {
 			RecipeFinder finder = foodService.getRecipes(getRandomPrams());
@@ -33,10 +34,12 @@ public class FoodRestService {
 
 		} while (list == null || list.size() < 10);
 
-		for (Matches m : list)
-			addImagesUrl(m.getSmallImageUrls());
+		List<Recipe> recipeList = new ArrayList<Recipe>();
 
-		return list;
+		for (Matches m : list)
+			recipeList.add(foodService.getRecipe(m.getId()));
+
+		return recipeList;
 	}
 
 	@GET
@@ -47,15 +50,15 @@ public class FoodRestService {
 		return foodService.getRecipe(recipeId);
 	}
 
-	private void addImagesUrl(List<String> listUrls) {
-
-		String url = listUrls.get(0);
-
-		listUrls.add(url.replace(".s.", ".m."));
-		listUrls.add(url.replace(".s.", ".l."));
-		listUrls.add(url.replace(".s.", ".xl."));
-
-	}
+	// private void addImagesUrl(List<String> listUrls) {
+	//
+	// String url = listUrls.get(0);
+	//
+	// listUrls.add(url.replace(".s.", ".m."));
+	// listUrls.add(url.replace(".s.", ".l."));
+	// listUrls.add(url.replace(".s.", ".xl."));
+	//
+	// }
 
 	private Random rand = new Random(System.currentTimeMillis());
 

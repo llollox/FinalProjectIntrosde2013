@@ -108,8 +108,8 @@ public class PersonResource {
 	@Path("/measure?name={name}&min={min}&max={max}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Person> getPeopleByMeasure(@PathParam("name") String name,
-			@PathParam("min") String min, @PathParam("max") String max) {
-		return cperson.getPeopleByMeasure(name, min, max);
+			@PathParam("min") Double min, @PathParam("max") Double max) {
+		return cperson.getPeopleByMeasure(name, min + "", max + "");
 	}
 
 	@GET
