@@ -18,7 +18,8 @@ import finalproject.model.HealthProfile;
 @Path("/person/{p_id}/healthprofile")
 public class HealthProfileResource {
 
-	public static HealthProfileWebInterface soap = new HealthProfileService().getCRUD();
+	public static HealthProfileWebInterface soap = new HealthProfileService()
+			.getCRUD();
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -68,7 +69,7 @@ public class HealthProfileResource {
 	public Response deleteHealthProfile(@PathParam("p_id") int pid,
 			@PathParam("hp_id") int hp_id) {
 
-		if (soap.deleteHealthProfile(pid, hp_id)) {
+		if (soap.deleteHealthProfile(pid, hp_id) != -1) {
 
 			return Response.status(Response.Status.OK).build();
 
