@@ -6,7 +6,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -20,17 +23,21 @@ public class Exercise {
 
 	private String description;
 	private Float difficultyvalue;
-	private Integer categoryId;
+
+	@ManyToOne
+	@JoinColumn(name = "idcategory")
+	private ExerciseCategory category;
 
 	public Exercise() {
 	}
 
-	public Integer getCategoryId() {
-		return categoryId;
+	@XmlTransient
+	public ExerciseCategory getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(ExerciseCategory category) {
+		this.category = category;
 	}
 
 	public int getId() {

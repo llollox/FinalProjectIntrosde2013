@@ -84,7 +84,6 @@ public class PersonResource {
 
 		return p;
 	}
-	
 
 	/**
 	 * GET
@@ -94,15 +93,14 @@ public class PersonResource {
 	@GET
 	@Path("/link")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response link(
-			@QueryParam("idperson") int idperson,
+	public Response link(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
 
 		cperson.linkGoal(idperson, idgoal);
-		
+
 		return Response.ok().build();
 	}
-	
+
 	/**
 	 * PUT
 	 * 
@@ -111,30 +109,28 @@ public class PersonResource {
 	@GET
 	@Path("/goalprogress")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalProgress(
-			@QueryParam("idperson") int idperson,
+	public Response setGoalProgress(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, Double progress) {
-		
+
 		cperson.setGoalProgress(idperson, idgoal, progress);
-		
+
 		return Response.ok().build();
 	}
-	
+
 	/**
 	 * GET
 	 * 
 	 * /person/goalprogress?idperson={id_p}&idgoal={id_g}
 	 */
-	@GET
+	@POST
 	@Path("/goalprogress")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalProgress(
-			@QueryParam("idperson") int idperson,
+	public Response getGoalProgress(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
-		
+
 		return Response.ok(cperson.getGoalProgress(idperson, idgoal)).build();
 	}
-	
+
 	/**
 	 * PUT
 	 * 
@@ -143,30 +139,28 @@ public class PersonResource {
 	@GET
 	@Path("/goalvalue")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalValue(
-			@QueryParam("idperson") int idperson,
+	public Response setGoalValue(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, String value) {
-		
+
 		cperson.setGoalValue(idperson, idgoal, value);
-		
+
 		return Response.ok().build();
 	}
-	
+
 	/**
 	 * GET
 	 * 
 	 * /person/goalvalue?idperson={id_p}&idgoal={id_g}
 	 */
-	@GET
+	@POST
 	@Path("/goalvalue")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalValue(
-			@QueryParam("idperson") int idperson,
+	public Response getGoalValue(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
-		
+
 		return Response.ok(cperson.getGoalValue(idperson, idgoal)).build();
 	}
-	
+
 	/**
 	 * PUT
 	 * 
@@ -175,27 +169,25 @@ public class PersonResource {
 	@GET
 	@Path("/goalenddate")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalEndDate(
-			@QueryParam("idperson") int idperson,
+	public Response setGoalEndDate(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, String enddate) {
-		
+
 		cperson.setGoalEndDate(idperson, idgoal, enddate);
-		
+
 		return Response.ok().build();
 	}
-	
+
 	/**
 	 * GET
 	 * 
 	 * /person/goalenddate?idperson={id_p}&idgoal={id_g}
 	 */
-	@GET
+	@POST
 	@Path("/goalenddate")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalEndDate(
-			@QueryParam("idperson") int idperson,
+	public Response getGoalEndDate(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
-		
+
 		return Response.ok(cperson.getGoalEndDate(idperson, idgoal)).build();
 	}
 

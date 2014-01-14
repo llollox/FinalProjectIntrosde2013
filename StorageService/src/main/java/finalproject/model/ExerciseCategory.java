@@ -1,12 +1,19 @@
 package finalproject.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import finalproject.utils.DatabaseUtil;
@@ -22,6 +29,9 @@ public class ExerciseCategory {
 
 	private String name;
 	private Integer aerobic;
+
+	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Exercise> exercises = new ArrayList<Exercise>();
 
 	public ExerciseCategory() {
 	}
@@ -48,6 +58,11 @@ public class ExerciseCategory {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@XmlElement(name = "exerciseList")
+	public List<Exercise> getExercises() {
+		return this.exercises;
 	}
 
 	// ##########################################
