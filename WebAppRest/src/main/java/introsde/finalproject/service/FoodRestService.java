@@ -49,34 +49,11 @@ public class FoodRestService {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public List<Recipe> getRecipes(@PathParam("p_id") int p_id) {
 
-		List<FavouriteFood> favouriteList = favSoap
-				.getPersonsFavouriteFood(p_id);
-		List<ExcludedFood> excludedList = exclSoap.getPersonsExcludedFood(p_id);
-
-		QueryParams params = new QueryParams();
-
-		for (FavouriteFood f : favouriteList) {
-
-			System.out.println(Yummly.ALLOWED_INGREDIENT + " " + f.getName());
-
-			params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f.getName()));
-		}
-
-		for (ExcludedFood e : excludedList) {
-
-			System.out.println(Yummly.EXCLUDED_INGREDIENT + " " + e.getName());
-
-			params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e.getName()));
-		}
-
-		RecipeFinder finder = foodSoap.getRecipes(params);
-
-		List<Matches> list = finder.getMatches();
+		List<Matches> list = getMatches(p_id);
 		List<Recipe> recipeList = new ArrayList<Recipe>();
 
-		if (list != null)
-			for (Matches m : list)
-				recipeList.add(foodSoap.getRecipe(m.getId()));
+		for (Matches m : list)
+			recipeList.add(foodSoap.getRecipe(m.getId()));
 
 		Iterator<Recipe> i = recipeList.iterator();
 		while (i.hasNext()) {
@@ -277,4 +254,32 @@ public class FoodRestService {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 	}
 
+	private List<Matches> getMatches(int p_id) {
+
+		List<FavouriteFood> favouriteList = favSoap
+				.getPersonsFavouriteFood(p_id);
+		List<ExcludedFood> excludedList = exclSoap.getPersonsExcludedFood(p_id);
+
+		List<Matches> list;
+		int count = 0;
+		do {
+			QueryParams params = new QueryParams();
+
+			if (count < 1)
+				for (FavouriteFood f : favouriteList)
+					params.add(new KeyValuePair(Yummly.ALLOWED_INGREDIENT, f
+							.getName()));
+
+			if (count < 2)
+				for (ExcludedFood e : excludedList)
+					params.add(new KeyValuePair(Yummly.EXCLUDED_INGREDIENT, e
+							.getName()));
+
+			RecipeFinder finder = foodSoap.getRecipes(params);
+			list = finder.getMatches();
+
+		} while (list != null && count++ < 3);
+
+		return list;
+	}
 }

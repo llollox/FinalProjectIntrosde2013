@@ -76,16 +76,22 @@ public class WikiParser {
 		// Important Health Benefits
 		// ************************************
 
-		Activity aeroModerate = new Activity("250 Minutes Aerobic Moderate",
-				250);
-		Activity analMedium = new Activity("3 Times Anaerobic Moderate", 40);
+		Activity aeroLight = new Activity("350 Minutes Aerobic Light Activity",
+				350);
+		Activity aeroModerate = new Activity(
+				"250 Minutes Aerobic Moderate Activity", 250);
+		Activity analMedium = new Activity(
+				"3 Times Anaerobic Moderate Activity", 3);
 
 		// ************************************
 		// Greater Health Benefits
 		// ************************************
 
-		Activity aeroHard = new Activity("40 minutes walking fast", 40);
-		Activity analHard = new Activity("40 minutes walking fast", 40);
+		Activity aeroGModerate = new Activity(
+				"250 Minutes Aerobic Moderate Activity", 250);
+		Activity aeroHard = new Activity("250 Minutes Aerobic Hard Activity",
+				250);
+		Activity analHard = new Activity("3 Times Anaerobic Hard Activity", 3);
 
 		/************* INSERT PERSON ********************/
 
