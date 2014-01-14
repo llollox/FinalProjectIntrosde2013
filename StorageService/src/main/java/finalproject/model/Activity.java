@@ -11,8 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -30,9 +33,12 @@ public class Activity {
 	private String description;
 	private int type;
 	private float value;
-	private float difficultyvalue;
 	private int aerobic;
 	private int activitygroup;
+
+	@ManyToMany
+	@JoinTable(name = "Activity_has_categories", joinColumns = { @JoinColumn(name = "idactivity", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idcategory", referencedColumnName = "id") })
+	private List<ExerciseCategory> categories = new ArrayList<ExerciseCategory>();
 
 	@ManyToMany(mappedBy = "activities", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Goal> goals = new ArrayList<Goal>();
@@ -46,14 +52,6 @@ public class Activity {
 
 	public void setActivitygroup(int activitygroup) {
 		this.activitygroup = activitygroup;
-	}
-
-	public float getDifficultyvalue() {
-		return difficultyvalue;
-	}
-
-	public void setDifficultyvalue(float difficultyvalue) {
-		this.difficultyvalue = difficultyvalue;
 	}
 
 	public int getAerobic() {
@@ -103,6 +101,11 @@ public class Activity {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@XmlElement(name = "exerciseCategory")
+	public List<ExerciseCategory> getCategories() {
+		return categories;
 	}
 
 	// ##########################################

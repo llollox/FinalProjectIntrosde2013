@@ -11,9 +11,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -47,9 +44,14 @@ public class Person {
 	@Transient
 	private ExtendedHealthProfile extendedhealthprofile;
 
-	@ManyToMany
-	@JoinTable(name = "Person_has_Goal", joinColumns = { @JoinColumn(name = "idperson", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idgoal", referencedColumnName = "id") })
-	private List<Goal> goals = new ArrayList<Goal>();
+	// @ManyToMany
+	// @JoinTable(name = "Person_has_Goal", joinColumns = { @JoinColumn(name =
+	// "idperson", referencedColumnName = "id") }, inverseJoinColumns = {
+	// @JoinColumn(name = "idgoal", referencedColumnName = "id") })
+	// private List<Goal> goals = new ArrayList<Goal>();
+
+	@OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<GoalChoosen> goalchoosen = new ArrayList<GoalChoosen>();
 
 	@OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<HealthProfile> healthprofiles = new ArrayList<HealthProfile>();
@@ -125,9 +127,14 @@ public class Person {
 		return list;
 	}
 
-	@XmlElement(name = "goals")
-	public List<Goal> getGoals() {
-		return goals;
+	// @XmlElement(name = "goals")
+	// public List<Goal> getGoals() {
+	// return goals;
+	// }
+
+	@XmlElement(name = "goalChoosen")
+	public List<GoalChoosen> getGoalchoosen() {
+		return goalchoosen;
 	}
 
 	@XmlElement(name = "healthprofile")

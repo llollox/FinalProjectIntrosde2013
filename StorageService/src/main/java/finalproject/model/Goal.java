@@ -3,11 +3,9 @@ package finalproject.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,7 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -30,11 +27,16 @@ public class Goal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private int type;
+	// private int type;
 	private String name;
 
-	@ManyToMany(mappedBy = "goals", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Person> people = new ArrayList<Person>();
+	// @OneToMany(mappedBy = "goal", fetch = FetchType.EAGER, cascade =
+	// CascadeType.ALL)
+	// private List<GoalChoosen> goalchoosen = new ArrayList<GoalChoosen>();
+
+	// @ManyToMany(mappedBy = "goals", fetch = FetchType.EAGER, cascade =
+	// CascadeType.ALL)
+	// private List<GoalChoosen> people = new ArrayList<Person>();
 
 	@ManyToMany
 	@JoinTable(name = "Goal_has_Activity", joinColumns = { @JoinColumn(name = "idgoal", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "idactivity", referencedColumnName = "id") })
@@ -42,23 +44,28 @@ public class Goal {
 
 	public Goal() {
 	}
-	
-	public int getType() {
-		return type;
-	}
 
-	public void setType(int type) {
-		this.type = type;
-	}
+	// public int getType() {
+	// return type;
+	// }
+	//
+	// public void setType(int type) {
+	// this.type = type;
+	// }
 
-	@XmlTransient
-	public List<Person> getPeople() {
-		return people;
-	}
+	// @XmlTransient
+	// public List<Person> getPeople() {
+	// return people;
+	// }
+	//
+	// public void setPeople(List<Person> persons) {
+	// this.people = persons;
+	// }
 
-	public void setPeople(List<Person> persons) {
-		this.people = persons;
-	}
+	// @XmlElement(name = "goalChoosen")
+	// public List<GoalChoosen> getGoalchoosen() {
+	// return goalchoosen;
+	// }
 
 	public int getId() {
 		return id;

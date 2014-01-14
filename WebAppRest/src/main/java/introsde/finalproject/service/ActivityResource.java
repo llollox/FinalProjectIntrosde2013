@@ -20,7 +20,8 @@ import finalproject.model.Activity;
 @Path("/activity")
 public class ActivityResource {
 
-	public static ActivityWebInterface cactivity = new ActivityService().getCRUD();
+	public static ActivityWebInterface cactivity = new ActivityService()
+			.getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
@@ -62,7 +63,6 @@ public class ActivityResource {
 			a.setActivitygroup(json.getActivitygroup());
 			a.setAerobic(json.getAerobic());
 			a.setDescription(json.getDescription());
-			a.setDifficultyvalue(json.getDifficultyvalue());
 			a.setType(json.getType());
 			a.setValue(json.getValue());
 

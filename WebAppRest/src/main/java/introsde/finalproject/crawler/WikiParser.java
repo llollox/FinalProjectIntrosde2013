@@ -6,9 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Random;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -20,7 +17,6 @@ import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
-import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
@@ -30,105 +26,91 @@ public class WikiParser {
 	private static Random random = new Random();
 
 	public static void main(String[] args) throws Exception {
-		
+
 		/************* INSERT EXERCISES AND EX.CATEGORIES ********************/
-		
+
 		File dir = new File("crawl");
 		dir.mkdir();
-		
-		
-			
-		
-        int numberOfCrawlers = 1;
-        CrawlConfig config = new CrawlConfig();
-        config.setCrawlStorageFolder("crawl");
-        PageFetcher pageFetcher = new PageFetcher(config);
-        RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
-        RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig, pageFetcher);
-        CrawlController controller = new CrawlController(config, pageFetcher, robotstxtServer);
-        controller.addSeed("http://www.exrx.net/Calculators/Calories.html");
-        controller.start(GetExercisesCrawler.class, numberOfCrawlers); 
-		
+
+		int numberOfCrawlers = 1;
+		CrawlConfig config = new CrawlConfig();
+		config.setCrawlStorageFolder("crawl");
+		PageFetcher pageFetcher = new PageFetcher(config);
+		RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+		RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,
+				pageFetcher);
+		CrawlController controller = new CrawlController(config, pageFetcher,
+				robotstxtServer);
+		controller.addSeed("http://www.exrx.net/Calculators/Calories.html");
+		controller.start(GetExercisesCrawler.class, numberOfCrawlers);
+
 		/************* INSERT GOALS ********************/
 
-//		Goal goalGA = new Goal();
-//		goalGA.setName("General Activity");
-//		goalGA.setType(1);
-//		// goalGA.setValue(""+3); // numero che voglio praticarlo a settimana!
-//		// questo valore va messo nella PERSON HAS GOAL table NON NELLA TABELLA
-//		// GOAL!!!
-//
-//		Goal goalTW = new Goal();
-//		goalTW.setName("Target Weight");
-//		goalTW.setType(0);
-//
-//		Goal goalIHB = new Goal();
-//		goalIHB.setName("Important Health Benefits");
-//		goalIHB.setType(2);
-//
-//		Goal goalGHB = new Goal();
-//		goalGHB.setName("Great Health Benefits");
-//		goalIHB.setType(3);
-//
-//		Goal.create(goalGA);
-//		Goal.create(goalTW);
-//		Goal.create(goalIHB);
-//		Goal.create(goalGHB);
-//
-//		/************* INSERT ACTIVITIES ********************/
-//
-//		// ************************************
-//		// General Activity
-//
-//		Activity doSpecificSport = new Activity();
-//		doSpecificSport.setDescription("Do a specific sport");
-//		doSpecificSport.setType(0);
-//		doSpecificSport.setValue(0);
-//
-//		// ************************************
-//		// Per il lose weight
-//		// ************************************
-//
-//		Activity loseTargetWeight = new Activity();
-//		loseTargetWeight.setDescription("Loose weight");
-//		loseTargetWeight.setType(0);
-//		loseTargetWeight.setValue(0);
-//
-//		// ************************************
-//		// Important Health Benefits
-//		// ************************************
-//
-//		Activity ihbMinutes = new Activity();
-//		ihbMinutes
-//				.setDescription("150 minutes Moderate Intentensity Aerobic Activities");
-//		ihbMinutes.setType(0);
-//		// ihbMinutes.set
-//		// ihbMinutes.setValue(0);
-//
-//		// ************************************
-//		Activity ihbTimes = new Activity();
-//		ihbTimes.setDescription("Do a specific sport");
-//		ihbTimes.setType(0);
-//		ihbTimes.setValue(0);
-//
-//		// ************************************
-//		// Greater Health Benefits
-//		// ************************************
-//
-//		Activity ghbMinutes = new Activity();
-//		ghbMinutes.setDescription("Do a specific sport");
-//		ghbMinutes.setType(0);
-//		ghbMinutes.setValue(0);
-//		// ************************************
-//
-//		Activity ghbTimes = new Activity();
-//		ghbTimes.setDescription("Do a specific sport");
-//		ghbTimes.setType(0);
-//		ghbTimes.setValue(0);
-//		// ************************************
+		Goal goalTW = new Goal();
+		goalTW.setName("Loose Weight Seriously");
 
-		
-		
+		Goal goalIHB = new Goal();
+		goalIHB.setName("Important Health Benefits");
+
+		Goal goalGHB = new Goal();
+		goalGHB.setName("Great Health Benefits");
+
+		goalTW = Goal.create(goalTW);
+		goalIHB = Goal.create(goalIHB);
+		goalGHB = Goal.create(goalGHB);
+
+		// /************* INSERT ACTIVITIES ********************/
+		//
+		// // ************************************
+		// // General Activity
+		//
+		// Activity doSpecificSport = new Activity();
+		// doSpecificSport.setDescription("Do a specific sport");
+		// doSpecificSport.setType(0);
+		// doSpecificSport.setValue(0);
+		//
+		// // ************************************
+		// // Per il lose weight
+		// // ************************************
+		//
+		// Activity loseTargetWeight = new Activity();
+		// loseTargetWeight.setDescription("Loose weight");
+		// loseTargetWeight.setType(0);
+		// loseTargetWeight.setValue(0);
+		//
+		// // ************************************
+		// // Important Health Benefits
+		// // ************************************
+		//
+		// Activity ihbMinutes = new Activity();
+		// ihbMinutes
+		// .setDescription("150 minutes Moderate Intentensity Aerobic Activities");
+		// ihbMinutes.setType(0);
+		// // ihbMinutes.set
+		// // ihbMinutes.setValue(0);
+		//
+		// // ************************************
+		// Activity ihbTimes = new Activity();
+		// ihbTimes.setDescription("Do a specific sport");
+		// ihbTimes.setType(0);
+		// ihbTimes.setValue(0);
+		//
+		// // ************************************
+		// // Greater Health Benefits
+		// // ************************************
+		//
+		// Activity ghbMinutes = new Activity();
+		// ghbMinutes.setDescription("Do a specific sport");
+		// ghbMinutes.setType(0);
+		// ghbMinutes.setValue(0);
+		// // ************************************
+		//
+		// Activity ghbTimes = new Activity();
+		// ghbTimes.setDescription("Do a specific sport");
+		// ghbTimes.setType(0);
+		// ghbTimes.setValue(0);
+		// // ************************************
+
 		/************* INSERT PERSON ********************/
 
 		HashSet<String> names = new HashSet<String>();

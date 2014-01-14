@@ -11,10 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -32,6 +34,9 @@ public class ExerciseCategory {
 
 	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Exercise> exercises = new ArrayList<Exercise>();
+
+	@ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Activity> activities = new ArrayList<Activity>();
 
 	public ExerciseCategory() {
 	}
@@ -58,6 +63,11 @@ public class ExerciseCategory {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@XmlTransient
+	public List<Activity> getActivities() {
+		return activities;
 	}
 
 	@XmlElement(name = "exerciseList")

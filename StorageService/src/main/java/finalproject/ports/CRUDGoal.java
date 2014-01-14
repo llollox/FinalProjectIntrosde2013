@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 import finalproject.client.interfaces.GoalWebInterface;
 import finalproject.model.Activity;

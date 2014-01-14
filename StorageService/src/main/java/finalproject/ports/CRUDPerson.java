@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import finalproject.client.interfaces.PersonWebInterface;
-import finalproject.model.Goal;
 import finalproject.model.Person;
 import finalproject.utils.DatabaseUtil;
 
@@ -72,16 +71,16 @@ public class CRUDPerson implements PersonWebInterface {
 
 	// ADD GOAL TO PERSON
 	public void linkGoal(int idperson, int idgoal) {
-		Person p = Person.read(idperson);
-		Goal g = Goal.read(idgoal);
-
-		if (p.getGoals().contains(g))
-			return;
-
-		p.getGoals().add(g);
-		g.getPeople().add(p);
-
-		Person.update(p);
+		// Person p = Person.read(idperson);
+		// Goal g = Goal.read(idgoal);
+		//
+		// if (p.getGoals().contains(g))
+		// return;
+		//
+		// p.getGoals().add(g);
+		// g.getPeople().add(p);
+		//
+		// Person.update(p);
 	}
 	
 	public void setGoalProgress(int idperson, int idgoal, double percentage) {

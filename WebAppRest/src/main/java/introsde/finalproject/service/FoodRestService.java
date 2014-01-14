@@ -3,6 +3,7 @@ package introsde.finalproject.service;
 import introsde.finalproject.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -76,6 +77,15 @@ public class FoodRestService {
 		if (list != null)
 			for (Matches m : list)
 				recipeList.add(foodSoap.getRecipe(m.getId()));
+
+		Iterator<Recipe> i = recipeList.iterator();
+		while (i.hasNext()) {
+			Recipe r = i.next();
+
+			if (r.getImages().size() > 0)
+				if (r.getImages().get(0).getHostedLargeUrl() == null)
+					i.remove();
+		}
 
 		return recipeList;
 	}
