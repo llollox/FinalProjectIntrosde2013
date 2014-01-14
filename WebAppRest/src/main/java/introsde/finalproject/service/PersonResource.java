@@ -89,9 +89,11 @@ public class PersonResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response deletePerson(@PathParam("p_id") int p_id) {
 
-		if (cperson.deletePerson(p_id) != -1) {
-			return Response.status(Response.Status.OK).build();
+		p_id = cperson.deletePerson(p_id);
 
+		if (p_id != -1) {
+			return Response.status(Response.Status.OK)
+					.entity("{\" " + p_id + "\"}").build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}

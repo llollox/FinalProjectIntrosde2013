@@ -68,11 +68,11 @@ public class HealthProfileResource {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public Response deleteHealthProfile(@PathParam("p_id") int pid,
 			@PathParam("hp_id") int hp_id) {
+		hp_id = soap.deleteHealthProfile(pid, hp_id);
 
-		if (soap.deleteHealthProfile(pid, hp_id) != -1) {
-
-			return Response.status(Response.Status.OK).build();
-
+		if (hp_id != -1) {
+			return Response.status(Response.Status.OK)
+					.entity("{\" " + hp_id + "\"}").build();
 		} else {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
