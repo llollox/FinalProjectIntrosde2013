@@ -21,6 +21,7 @@ public class ExerciseCategory {
 	private int id;
 
 	private String name;
+	private Integer aerobic;
 
 	public ExerciseCategory() {
 	}
@@ -31,6 +32,14 @@ public class ExerciseCategory {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Integer getAerobic() {
+		return aerobic;
+	}
+
+	public void setAerobic(Integer aerobic) {
+		this.aerobic = aerobic;
 	}
 
 	public String getName() {
