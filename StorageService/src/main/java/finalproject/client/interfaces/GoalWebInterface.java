@@ -127,5 +127,29 @@ public interface GoalWebInterface {
 	public String getGoalValue(
 			@WebParam(name = "arg0", targetNamespace = "") int arg0,
 			@WebParam(name = "arg1", targetNamespace = "") int arg1);
+	
+	/**
+	 * 
+	 * @param arg2
+	 * @param arg1
+	 * @param arg0
+	 */
+	@WebMethod
+	public void setGoalEndDate(
+			@WebParam(name = "arg0", targetNamespace = "") int arg0,
+			@WebParam(name = "arg1", targetNamespace = "") int arg1,
+			@WebParam(name = "arg2", targetNamespace = "") String arg2);
+
+	/**
+	 * 
+	 * @param arg1
+	 * @param arg0
+	 * @return returns java.lang.Double
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	public String getGoalEndDate(
+			@WebParam(name = "arg0", targetNamespace = "") int arg0,
+			@WebParam(name = "arg1", targetNamespace = "") int arg1);
 
 }
