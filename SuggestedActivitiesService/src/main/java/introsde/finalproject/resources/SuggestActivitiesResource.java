@@ -8,8 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -17,11 +19,12 @@ import finalproject.client.interfaces.ActivityWebInterface;
 import finalproject.client.interfaces.GoalWebInterface;
 import finalproject.client.service.ActivityService;
 import finalproject.client.service.GoalService;
+import finalproject.client.service.PersonService;
 import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.model.Person;
 
-@Path("/suggest/")
+@Path("/suggest")
 public class SuggestActivitiesResource {
 	
 	private ActivityWebInterface c = new ActivityService().getCRUD();
@@ -31,10 +34,15 @@ public class SuggestActivitiesResource {
 	private double THRESHOLD_IHB = 0.5;
 	private double THRESHOLD_GHB = 0.8;
 	
-	@POST
-	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@GET
+	@Path("/{p_id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public List<Activity> suggestActivities(Person person) {
+	public List<Activity> suggestActivities(@PathParam("p_id") int p_id) {
+		
+		Person person = new PersonService().getCRUD().readPerson(p_id);
+		
+		if (person == null)
+			return null;
 		
 		ArrayList<Activity> results = new ArrayList<Activity>();
 		
