@@ -115,7 +115,8 @@ var EditPerson = Backbone.View.extend({
 		'click .deletePerson' : 'deletePerson',
 		'submit .favouriteFoodForm' : 'saveFavouriteFood',
 		'submit .excludedFoodForm' : 'saveExcludedFood',
-		'submit .setGoalsForm' : 'setGoals'
+		'submit .setGoalsForm' : 'setGoals',
+		'submit .exerciseForm' : 'addExercise'
 	},
 	savePerson : function(ev) {
 		personDetails = $(ev.currentTarget).serializeObject();
@@ -199,11 +200,16 @@ var EditPerson = Backbone.View.extend({
 				var quote = new Quote();
 				quote.fetch({
 					success : function(quote){
-						var template = _.template($('#show-person-goal-template').html(), {
-			 					person : person,
-			 					quote : quote.attributes.content
+						person.goals.fetch({
+							success : function(goals){
+								var template = _.template($('#show-person-goal-template').html(), {
+				 					person : person,
+				 					quote : quote.attributes.content,
+				 					goals : goals.models
+								});
+								that.$el.html(template);
+							}
 						});
-						that.$el.html(template);
 					}
 				});
 			}
@@ -270,6 +276,18 @@ var EditPerson = Backbone.View.extend({
 		goal.save(goalsDetails, {
 			success : function(goal) {
 				$('#setGoalsModal').modal('hide');
+				router.navigate('#/showPerson/'+ person_id + "/goal", {trigger : true});
+			}
+		});
+		return false;
+	},
+	addExercise : function(ev){
+		var exerciseDetails = $(ev.currentTarget).serializeObject();
+		var person_id = exerciseDetails.person_id;
+		var exercise = new Exercise();
+		exercise.save(exerciseDetails, {
+			success : function(exercise) {
+				$('#exerciseModal').modal('hide');
 				router.navigate('#/showPerson/'+ person_id + "/goal", {trigger : true});
 			}
 		});

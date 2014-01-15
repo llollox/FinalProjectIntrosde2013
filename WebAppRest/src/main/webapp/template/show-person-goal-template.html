@@ -42,38 +42,84 @@
 	<br/><br/>
 
 	<div class="row-fluid">
-		<div class="span7 well" style="height:500px;border-radius:10px;">
-			<h2 style="font-family: fantasy;">Goals</h2>
+		<div class="span7 well goals-container">
+			
+			<% if (goals.length > 0) { %>
 
-			<div class="accordion" id="goal-accordion">
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle collapsed" data-toggle="collapse" 
-            		data-parent="#goal-accordion" href="#collapseOne">
-              Collapsible Group Item #1
-            </a>
-          </div>
-          <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
-            <div class="accordion-inner">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
+				<% _.each(goals, function(goal, goal_index) { %>
+					<br/>
+					<h2 style="font-family: fantasy;"><%= goal.get('goal').name %></h2>
+					<div class="progress progress-striped active">
+					  <div class="bar" style="width: <%=goal.get('percentage')%>%;"></div>
+					</div>
 
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" 
-            		data-parent="#goal-accordion" href="#collapseTwo">
-              Collapsible Group Item #2
-            </a>
-          </div>
-          <div id="collapseTwo" class="accordion-body in collapse" style="height: auto;">
-            <div class="accordion-inner">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
-            </div>
-          </div>
-        </div>
-      </div>
+					<div class="accordion" id="accordion<%= goal_index %>">
+					
+					<% _.each(goal.get('goal').activities, function(activity, index) { %>
+			        <div class="accordion-group">
+			          <div class="accordion-heading" style="position:relative">
+			            <a class="accordion-toggle collapsed" data-toggle="collapse" 
+			            		data-parent="#goal-accordion<%= goal_index %>" 
+			            			href="#collapse<%= goal_index + '_' + index %>">
+			              
+			            	<% if (activity.percentage) { %>
+			              	<%= activity.description + "("+ activity.percentage +")"%>
+			              <% } else { %>
+			              	<%= activity.description + " (0%)"%>
+			              <% } %>
+			            </a>
+			            <a href="#exerciseModal" role="button" class="btn btn-success" 
+			            		id="addDailyExercise"
+											data-toggle="modal" style="position:absolute;right:10px;top: 3px;"
+											goalchoosenId="<%= goal.get('id') %>"
+											activityId="<%= activity.id %>">
+										<i class="icon-plus icon-white"></i> Add Daily Exercise
+									</a>
+			          </div>
+			          <div id="collapse<%= goal_index + '_' + index %>" 
+			          		class="accordion-body collapse" style="height: 0px;">
+			            <div class="accordion-inner">
+			            	<ul>
+			            	<% if (activity.exerciseCategory.length > 0) { %>
+				            	<% _.each(activity.exerciseCategory, function(category, index) { %>
+
+				            		<% if (category.exerciseList.length > 0) { %>
+					              	<% _.each(category.exerciseList, function(exercise, index) { %>
+					              	<p>
+					              		<li><%= exercise.description %></li>
+					              	</p>
+					              	<% }) %>
+					              <% } else { %>
+					              	<p>
+					              		<li><%= category.exerciseList.description %></li>
+					              	</p>
+					              <% } %>
+
+				              <% }) %>
+				            <% } else { %> 
+				            	
+				            	<% if (activity.exerciseCategory.exerciseList.length > 0) { %>
+				              	<% _.each(activity.exerciseCategory.exerciseList, function(exercise, index) { %>
+				              	<p>
+				              		<li><%= exercise.description %></li>
+				              	</p>
+				              	<% }) %>
+					            <% } else { %>
+				              	<p>
+				              		<li><%= activity.exerciseCategory.exerciseList.description %></li>
+				              	</p>
+					            <% } %>
+
+				            <% } %>
+			              </ul> 
+			            </div>
+			          </div>
+			        </div>
+			      <% }) %>
+			    </div>
+        <% }) %>
+      <% } %>
+
 		</div>
 		<div class="span1"></div>
 		<div class="span4" style="position:relative;">
@@ -97,13 +143,13 @@
 	    	<div class="control-group">
           <div class="controls">
           	<label class="radio">
-						  <input type="radio" name="goal_id" value="1"> Reach Your Ideal Weight
+						  <input type="radio" name="goal" value="1"> Reach Your Ideal Weight
 						</label>
 						<label class="radio">
-						  <input type="radio" name="goal_id" value="2"> Important Health Benefits
+						  <input type="radio" name="goal" value="2"> Important Health Benefits
 						</label>
 						<label class="radio">
-						  <input type="radio" name="goal_id" value="3"> Greater Health Benefits
+						  <input type="radio" name="goal" value="3"> Greater Health Benefits
 						</label>
             <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
           </div>
@@ -114,6 +160,38 @@
 	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 	    <button type="submit" class="btn btn-primary">
 	    	<i class="icon-tasks icon-white"></i> Set Goals
+	    </button>
+	  </div>
+	  </form>
+	</div>
+
+
+	<div id="exerciseModal" class="modal hide fade" tabindex="-1" role="dialog" 
+				aria-labelledby="exerciseModalLabel" aria-hidden="true">
+		<form class="form-horizontal exerciseForm" style="margin-bottom: 0px;">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="exerciseModalLabel">Daily Exercise</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>
+	    	<div class="control-group">
+          <label class="control-label" for="name">Value</label>
+          <div class="controls">
+            <input type="text" id="value" name="value" placeholder="Value">
+            <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
+            <input type="hidden" id="goal_choosen_id" name="goal_choosen_id" 
+            				value="ciao" />
+            <input type="hidden" id="activity_id" name="activity_id" 
+            				value="pirla" />
+          </div>
+        </div>
+	    </p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button type="submit" class="btn btn-success">
+	    	<i class="icon-plus icon-white"></i> Create
 	    </button>
 	  </div>
 	  </form>
@@ -154,7 +232,7 @@
 			background: #e4ebe9 url(img/pattern.png);
 		}
 		.goals-container{
-			height:500px;
+			min-height:500px;
 			border-radius:10px;
 		}
 
@@ -165,4 +243,13 @@
 			background-color: white;
 		}
 	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a#addDailyExercise").click(function(){
+				$("input#goal_choosen_id").attr("value", $(this).attr("goalchoosenId"));
+				$("input#activity_id").attr("value", $(this).attr("activityId"));
+			});
+		});
+	</script>
 </script>

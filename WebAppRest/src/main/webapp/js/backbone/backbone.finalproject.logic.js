@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var editHealthProfile = new EditHealthProfile();
 
 	$.ajaxPrefilter(function(options, originalOptions, jqXR) {
-		options.url = "http://10.22.35.241:5900"
+		options.url = "http://192.168.0.5:5900"
 				+ options.url;
 	});
 

@@ -36,6 +36,9 @@ These recipes are based on favourited and excluded food of that person.
 Excluded food is very important in case this person have some problems with a particular food or simply he don't like it.
 The system provide recipes (if it is possible) that contains the favourite foods and not contains the excluded foods.
 
+![Alt text](img/doc/showPersonGoal.png)
+
+In the "Goal" page the user can set his goals and add their daily exercises.
 
 #### Chrome and CORS Request
 

@@ -79,3 +79,13 @@ ExcludedFoodList = Backbone.Collection.extend({
 	}
 });
 
+GoalList = Backbone.Collection.extend({
+	model : Goal,
+	parse : function(response) {
+		if (response)
+			return response.goalChoosen;
+		else
+			return null;
+	}
+});
+
