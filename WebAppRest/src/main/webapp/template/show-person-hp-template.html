@@ -34,7 +34,7 @@
 	</center>
 	<br/><br/>
 
-
+	<% if (healthProfile != null) { %>
 	<legend>Current Health Profile</legend>
 	<div class="row-fluid" id="hpinformation">
 		<div class="span5" style="position:relative">
@@ -108,6 +108,8 @@
 	</div>
 	<br/>
 
+	<% } %>
+
 	<br/>
 	<legend>Health Profile History</legend>
 	<a href="#/editPerson/<%= person.get('id') %>/editHealthProfile" 
@@ -115,6 +117,8 @@
 		<i class="icon-plus icon-white"></i> New Health Profile
 	</a>
 	<br/><br/>
+
+	<% if (healthProfileHistory != null) { %>
 	    
 	<% if (healthProfileHistory.length > 0 || healthProfileHistory.id) { %> 
 
@@ -166,6 +170,7 @@
 			</tbody>
 		</table>
 	<% } %>
+	<% } %>
 
 	<br/>
 
@@ -179,6 +184,8 @@
 		</a>
 	</div>
 
+	
+
 	<style>
 		.ideal{
 			color: black;
@@ -191,7 +198,11 @@
 		}
 	</style>
 
+
+	
+
 	<script type="text/javascript">
+		<% if (healthProfile != null) { %>
 		$(document).ready(function(){
 	    var opts = {
 		    lines: 12, // The number of lines to draw
@@ -215,6 +226,10 @@
 	    gauge.animationSpeed = 15; // set animation speed (32 is default value)
 	    gauge.set(<%= healthProfile.bmi %>); // set actual value
 	  });
+		
+		<% } %>
 	</script>
+
+
 
 </script>
