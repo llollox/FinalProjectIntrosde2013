@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -25,43 +26,42 @@ public class ExerciseHistory {
 
 	private String date;
 
-	@ManyToOne
-	@JoinColumn(name = "idperson")
-	private Person person;
+	private Integer value;
 
 	@ManyToOne
-	@JoinColumn(name = "idactivitychoosen")
-	private ActivityChoosen activitychoosen;
+	@JoinColumn(name = "idactivity")
+	private Activity activity;
 
 	@ManyToOne
-	@JoinColumn(name = "idexercise")
-	private Exercise exercise;
+	@JoinColumn(name = "idgoalchoosen")
+	private GoalChoosen goalchoosen;
 
 	public ExerciseHistory() {
 	}
 
-	public Person getPerson() {
-		return person;
+	@XmlTransient
+	public GoalChoosen getGoalchoosen() {
+		return goalchoosen;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setGoalchoosen(GoalChoosen goalchoosen) {
+		this.goalchoosen = goalchoosen;
 	}
 
-	public ActivityChoosen getActivityChoosen() {
-		return activitychoosen;
+	public Activity getActivity() {
+		return activity;
 	}
 
-	public void setActivityChoosen(ActivityChoosen activitychoosen) {
-		this.activitychoosen = activitychoosen;
+	public void setActivity(Activity exercise) {
+		this.activity = exercise;
 	}
 
-	public Exercise getExercise() {
-		return exercise;
+	public Integer getValue() {
+		return value;
 	}
 
-	public void setExercise(Exercise exercise) {
-		this.exercise = exercise;
+	public void setValue(Integer value) {
+		this.value = value;
 	}
 
 	public int getId() {
@@ -84,26 +84,25 @@ public class ExerciseHistory {
 	// # CRUD
 	// ##########################################
 
-	public static ExerciseHistory create(ExerciseHistory a) {
+	public static ExerciseHistory create(ExerciseHistory ex) {
 		// reset id
-		a.setId(0);
+		ex.setId(0);
 
-		if (a.getDate() != null && !isDateValid(a.getDate()))
+		if (ex.getDate() != null && !isDateValid(ex.getDate()))
 			return null;
 
-		if (a.getPerson() == null || a.getActivityChoosen() == null
-				|| a.getExercise() == null)
+		if (ex.getGoalchoosen() == null || ex.getActivity() == null)
 			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 
 		tx.begin();
-		em.persist(a);
+		em.persist(ex);
 		tx.commit();
 
 		em.close();
-		return a;
+		return ex;
 	}
 
 	public static ExerciseHistory read(int id) {
@@ -121,8 +120,7 @@ public class ExerciseHistory {
 		if (a.getDate() != null && !isDateValid(a.getDate()))
 			return null;
 
-		if (a.getPerson() == null || a.getActivityChoosen() == null
-				|| a.getExercise() == null)
+		if (a.getGoalchoosen() == null || a.getActivity() == null)
 			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();

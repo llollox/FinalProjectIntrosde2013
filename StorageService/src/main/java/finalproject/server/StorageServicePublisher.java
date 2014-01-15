@@ -3,7 +3,6 @@ package finalproject.server;
 import javax.xml.ws.Endpoint;
 
 import finalproject.ports.CRUDActivity;
-import finalproject.ports.CRUDActivityChoosen;
 import finalproject.ports.CRUDExcludedFood;
 import finalproject.ports.CRUDExercise;
 import finalproject.ports.CRUDExerciseCategory;
@@ -24,9 +23,6 @@ public class StorageServicePublisher {
 				new CRUDHealthProfile());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/goal",
 				new CRUDGoal());
-		Endpoint.publish(
-				"http://localhost:5910/lifestyle/storageservice/activitychoosen",
-				new CRUDActivityChoosen());
 		Endpoint.publish(
 				"http://localhost:5910/lifestyle/storageservice/exercisehistory",
 				new CRUDExerciseHistory());

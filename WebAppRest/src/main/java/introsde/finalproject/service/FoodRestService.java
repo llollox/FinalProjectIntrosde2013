@@ -57,16 +57,6 @@ public class FoodRestService {
 
 			m.setSmallImageUrls(url);
 		}
-		// recipeList.add(foodSoap.getRecipe(m.getId()));
-		//
-		// Iterator<Recipe> i = recipeList.iterator();
-		// while (i.hasNext()) {
-		// Recipe r = i.next();
-		//
-		// if (r.getImages().size() > 0)
-		// if (r.getImages().get(0).getHostedLargeUrl() == null)
-		// i.remove();
-		// }
 
 		return list;
 	}
@@ -106,7 +96,7 @@ public class FoodRestService {
 
 		if (p == null || food.getName() == null)
 			return Response.status(Response.Status.BAD_REQUEST).build();
-		
+
 		food.setPerson(p);
 		int id = favSoap.createFavouriteFood(food);
 
@@ -212,7 +202,7 @@ public class FoodRestService {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 
 		ExcludedFood old = exclSoap.readExcludedFood(f_id);
-		
+
 		old.setPerson(p);
 		old.setName(food.getName());
 

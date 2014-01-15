@@ -50,15 +50,10 @@ public class ExerciseHistoryResource {
 
 		ExerciseHistory a = cexercisehistory.readExerciseHistory(id);
 
-		if (a != null && json.getActivityChoosen() != null
-				&& json.getDate() != null && json.getExercise() != null
-				&& json.getPerson() != null) {
+		if (a != null && json.getDate() != null) {
 
 			// aggionro i dati
-			a.setActivityChoosen(json.getActivityChoosen());
 			a.setDate(json.getDate());
-			a.setExercise(json.getExercise());
-			a.setPerson(json.getPerson());
 
 			// aggiorno nel db
 			int _id = cexercisehistory.updateExerciseHistory(a);
