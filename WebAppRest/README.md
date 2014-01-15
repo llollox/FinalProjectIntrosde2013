@@ -6,6 +6,8 @@ To specify the response format just set the header `Accept: application/json` or
 
 Here is the list of our rest services:
 
+<hr/>
+
 ### Person
 
 **GET**  ```/person```
@@ -27,6 +29,8 @@ This method is for updating the person information like firstname, lastname, bir
 **DELETE**  ```/person/{p_id}```
 
 Delete the person identified by that specific **p_id** and also his healthprofile history. This method returns to the caller all the information that are deleted.
+
+<hr/>
 
 ### Health Profile
 
@@ -50,6 +54,8 @@ Updates weight and height of the specified healthprofile of the specified person
 
 Delete the specified healthprofile. The data removed from the database will be returned in the response.
 
+<hr/>
+
 ### Search
 
 **GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
@@ -64,7 +70,6 @@ Returns all the people that are in the specified range of height or weight.
 
 Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
 
-
 <hr/>
 ### Food
 **GET**  ```/food/recipe/{RECIPE_ID}```
@@ -77,27 +82,28 @@ Returns a <b>List of Matches</b> which are the recipes found. The parameters are
 
 <hr/>
 
-####Calculate Calories Api
-**GET  /calculate/idealweight?height=HEIGHT&sex=SEX**
+### Calculate Calories
+
+**GET**  ```/calculate/idealweight?height=HEIGHT&sex=SEX```
 
 Returns a double that indicates IDEAL WEIGHT.
 
-**GET  /calculate/idealbmi?height=HEIGHT&sex=SEX**
+**GET**  ```/calculate/idealbmi?height=HEIGHT&sex=SEX```
 
 Returns the IDEAL BMI calculated for that person.
 
-**GET  /calculate/bmi?height=HEIGHT&weight=WEIGHT**
+**GET**  ```/calculate/bmi?height=HEIGHT&weight=WEIGHT```
 
 Returns the BMI calculated for that person.
 
-**GET  /calculate/bmr?height=HEIGHT&weight=WEIGHT&age=AGE&sex=SEX**
+**GET**  ```/calculate/bmr?height=HEIGHT&weight=WEIGHT&age=AGE&sex=SEX```
 
 Returns the BMR calculated for that person.
 
-**GET  /calculate/dailycalories?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK**
+**GET**  ```/calculate/dailycalories?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK```
 
 Returns the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 
-**GET  /calculate/dailycaloriesmanaged?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK&weightDifference=WEIGHTDIFFERENCE&days=DAYS**
+**GET**  ```/calculate/dailycaloriesmanaged?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK&weightDifference=WEIGHTDIFFERENCE&days=DAYS```
 
 Returns the amount of calories needed for that person to reach his target weight, doing this amount of exercise per week, in the specified amount of days available.
