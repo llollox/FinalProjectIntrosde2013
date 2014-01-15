@@ -114,7 +114,8 @@ var EditPerson = Backbone.View.extend({
 		'submit .new-person-form' : 'savePerson',
 		'click .deletePerson' : 'deletePerson',
 		'submit .favouriteFoodForm' : 'saveFavouriteFood',
-		'submit .excludedFoodForm' : 'saveExcludedFood'
+		'submit .excludedFoodForm' : 'saveExcludedFood',
+		'submit .setGoalsForm' : 'setGoals'
 	},
 	savePerson : function(ev) {
 		personDetails = $(ev.currentTarget).serializeObject();
@@ -252,6 +253,18 @@ var EditPerson = Backbone.View.extend({
 				router.navigate('showPerson/' + options.id +"/food", {
 					trigger : true
 				});
+			}
+		});
+		return false;
+	},
+	setGoals : function(ev){
+		var goalsDetails = $(ev.currentTarget).serializeObject();
+		var person_id = goalsDetails.person_id;
+		var goal = new Goal();
+		goal.save(goalsDetails, {
+			success : function(goal) {
+				$('#setGoalsModal').modal('hide');
+				router.navigate('#/showPerson/'+ person_id + "/goal", {trigger : true});
 			}
 		});
 		return false;

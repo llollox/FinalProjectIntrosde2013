@@ -1,6 +1,6 @@
 <script type="text/template" id="filters-template">
 		 
-  <fieldset class="scheduler-border">
+  <fieldset class="scheduler-border hide">
     <legend class="scheduler-border">Filters</legend>
     
       <form class="form-horizontal searchForm">      
@@ -29,10 +29,18 @@
         $("select#condition").change(function(){
           var val = $("select#condition").val();
           if (val == "measure"){
-            $("div.searchForm-controls").load("/../ajax/measureForm.html");
+            // $("div.searchForm-controls").load("/ajax/measureForm.html");
+            $.get("/ajax/measureForm.html", function(data) {
+                $("div.searchForm-controls").html(data)
+            });
             $("div.searchForm-submit").removeClass("hide");
           } else if (val == "birthdate"){
-            $("div.searchForm-controls").load("/../ajax/birthdateForm.html");
+
+            $.get("/ajax/birthdateForm.html", function(data) {
+                $("div.searchForm-controls").html(data)
+            });
+
+            // $("div.searchForm-controls").load("/ajax/birthdateForm.html");
             $("div.searchForm-submit").removeClass("hide");
           } else {
             $("div.searchForm-controls").html("");

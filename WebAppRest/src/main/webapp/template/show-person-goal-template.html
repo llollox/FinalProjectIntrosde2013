@@ -33,6 +33,45 @@
 	</center>
 	<br/><br/>
 
-	<h1>GOOAAAALLS</h2>
+	<hr/>
+
+	<a href="#setGoalsModal" role="button" class="btn btn-primary btn-large" 
+			data-toggle="modal">
+			<i class="icon-tasks icon-white"></i> Set Goals
+	</a>
+
+	<div id="setGoalsModal" class="modal hide fade" tabindex="-1" role="dialog" 
+				aria-labelledby="setGoalsModalLabel" aria-hidden="true">
+		<form class="form-horizontal setGoalsForm" style="margin-bottom: 0px;">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="setGoalsModalLabel">Set Goals</h3>
+	  </div>
+	  <div class="modal-body">
+	    <p>
+	    	<div class="control-group">
+          <div class="controls">
+          	<label class="radio">
+						  <input type="radio" name="goal" value="1"> Reach Your Ideal Weight
+						</label>
+						<label class="radio">
+						  <input type="radio" name="goal" value="2"> Important Health Benefits
+						</label>
+						<label class="radio">
+						  <input type="radio" name="goal" value="3"> Greater Health Benefits
+						</label>
+            <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
+          </div>
+        </div>
+	    </p>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button type="submit" class="btn btn-primary">
+	    	<i class="icon-tasks icon-white"></i> Set Goals
+	    </button>
+	  </div>
+	  </form>
+	</div>
 
 </script>
