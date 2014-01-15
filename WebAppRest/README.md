@@ -81,6 +81,42 @@ Delete the activity identified by that specific **id**.
 
 <hr/>
 
+### Goals Choosen
+
+**GET**  ```/person/{p_id}/goal```
+
+Returns the list of all the goals choosen by that person.
+
+**GET**  ```/person/{p_id}/goal/{g_id}```
+
+Returns the specific goal **{g_id}** choosen by the person **{p_id}**
+
+<hr/>
+
+### Exercise Category
+
+**GET**  ```/exercisecategory```
+
+Returns the list of all the categories of exercises.
+
+**GET**  ```/exercisecategory/{id}```
+
+Returns the exercise category associated to that specific **id**. If there isn't an exercise category associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercisecategory```
+
+Creates a new exercise category in our database and returns it with the generated identifier that can be used after to access to that category. The exercise category object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"name":"corsa","aerobic":"1"}`.
+
+**PUT**  ```/exercisecategory/{id}```
+
+This method is for updating the exercise category information like the name. The updated exercise category object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercisecategory/{id}```
+
+Delete the exercise category identified by that specific **id**.
+
+<hr/>
+
 ### Search
 
 **GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
