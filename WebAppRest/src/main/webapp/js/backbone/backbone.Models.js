@@ -52,3 +52,9 @@ Goal = Backbone.Model.extend({
 		return '/person/' + this.get('person_id') + '/goal';
 	}
 });
+
+Quote = Backbone.Model.extend({
+	urlRoot : function() {
+		return '/randomQuote/';
+	}
+});

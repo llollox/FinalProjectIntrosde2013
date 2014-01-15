@@ -12,8 +12,7 @@ public class ProjectRunner {
 		new CaloriesCalculatorPublisher();
 		new FoodServicePublisher();
 		new StorageServicePublisher();
-		new WebAppRestServer();
 		new SuggestGoalActivityServer();
-
+		new WebAppRestServer();
 	}
 }
