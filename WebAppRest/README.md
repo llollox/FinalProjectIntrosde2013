@@ -10,15 +10,15 @@ Here is the list of our rest services:
 
 **GET**  ```/person```
 
-Returns the list of all the people in the database 
-
-**POST**  ```/person```
-
-Creates a new person in our database and returns it with the generated identifier that can be used after to access to that person. The person object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`.
+Returns the list of all the people in the database
 
 **GET**  ```/person/{p_id}```
 
 Returns the person associated to that specific **p_id**. The person object is returned with the current healthprofile and also le list of healthprofile_ids of that person. If there isn't a person associated with the given **p_id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/person```
+
+Creates a new person in our database and returns it with the generated identifier that can be used after to access to that person. The person object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`.
 
 **PUT**  ```/person/{p_id}```
 
@@ -30,25 +30,27 @@ Delete the person identified by that specific **p_id** and also his healthprofil
 
 ### Health Profile
 
-**GET  /person/{p_id}/healthprofile**
+**GET**  ```/person/{p_id}/healthprofile```
 
 Returns the specified person with all the data relating to its healthprofile history.
 
-**POST  /person/{p_id}/healthprofile**
-
-Updates the new healthprofile of the specified person. The current healthprofile of this person will be put in his healthprofile history and replaced by the updated data that are given. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.74</height><weight>70.3</weight></healthProfile>`. The response will be the updated person with all the data relating to its healthprofile history.
-
-**GET  /person/p_id/healthprofile/hp_id**
+**GET**  ```/person/p_id/healthprofile/hp_id```
 
 Returns the specified healthprofile of the specified person. If there isn't an healthprofile identified by **hp_id** associated to the given **p_id** the response will be 204 NO_CONTENT.
 
-**PUT  /person/p_id/healthprofile/hp_id**
+**POST**  ```/person/{p_id}/healthprofile```
+
+Updates the new healthprofile of the specified person. The current healthprofile of this person will be put in his healthprofile history and replaced by the updated data that are given. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.74</height><weight>70.3</weight></healthProfile>`. The response will be the updated person with all the data relating to its healthprofile history.
+
+**PUT**  ```/person/p_id/healthprofile/hp_id```
 
 Updates weight and height of the specified healthprofile of the specified person. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.80</height><weight>75.3</weight></healthProfile>`. The response will contains be the updated healthprofile.
 
-**DELETE  /person/p_id/healthprofile/hp_id**
+**DELETE**  ```/person/p_id/healthprofile/hp_id```
 
 Delete the specified healthprofile. The data removed from the database will be returned in the response.
+
+### Search
 
 **GET  /search/birthdate?from=DD-MM-YYYY&to=DD-MM-YYYY**
 
