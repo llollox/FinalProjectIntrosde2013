@@ -48,6 +48,16 @@ public class ExerciseHistory {
 		this.goalchoosen = goalchoosen;
 	}
 
+	public int getIdGoalChoosen() {
+		if (this.goalchoosen != null)
+			return this.goalchoosen.getId();
+		return -1;
+	}
+
+	public void setIdGoalChoosen(int id) {
+		this.goalchoosen = GoalChoosen.read(id);
+	}
+
 	public Activity getActivity() {
 		return activity;
 	}
@@ -87,12 +97,6 @@ public class ExerciseHistory {
 	public static ExerciseHistory create(ExerciseHistory ex) {
 		// reset id
 		ex.setId(0);
-
-		if (ex.getDate() != null && !isDateValid(ex.getDate()))
-			return null;
-
-		if (ex.getGoalchoosen() == null || ex.getActivity() == null)
-			return null;
 
 		EntityManager em = DatabaseUtil.createEntityManager();
 		EntityTransaction tx = em.getTransaction();

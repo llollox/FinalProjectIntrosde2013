@@ -87,11 +87,18 @@ public class SuggestActivitiesResource {
 			@PathParam("g_id") int gid, @PathParam("a_id") int aid,
 			ExerciseHistory ex) {
 
+		GoalChoosen g = goalChossen.read(gid);
+		
+		System.out.println(g);
+		
 		ex.setActivity(activity.readActivity(aid));
-		ex.setGoalchoosen(goalChossen.read(gid));
+		ex.setGoalchoosen(g);
 		ex.setDate(df.format(new Date()));
 
 		int exid = exHist.createExerciseHistory(ex);
+		
+		System.out.println("#########################");
+		System.out.println(exid);
 
 		if (exid == -1)
 			return null;
