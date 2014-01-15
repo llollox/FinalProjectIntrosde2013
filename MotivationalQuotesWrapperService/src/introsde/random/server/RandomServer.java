@@ -5,7 +5,7 @@ import com.sun.net.httpserver.HttpServer;
 
 public class RandomServer {
 
-	public static final String URL_SERVER = "http://localhost:5990/";
+	public static final String URL_SERVER = "http://localhost:6990/";
 
 	public RandomServer() throws Exception {
 

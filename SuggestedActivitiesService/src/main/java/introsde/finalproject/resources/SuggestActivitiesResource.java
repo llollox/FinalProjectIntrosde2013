@@ -52,23 +52,23 @@ public class SuggestActivitiesResource {
 		return goal.read(gid);
 	}
 
-	@POST
-	public void insertExercise() {
-	}
-
-	@POST
-	public void insertGoal() {
-
-	}
-
-	@PUT
-	public void updateExercise() {
-	}
-
-	@PUT
-	public void updateGoal() {
-
-	}
+	// @POST
+	// public void insertExercise() {
+	// }
+	//
+	// @POST
+	// public void insertGoal() {
+	//
+	// }
+	//
+	// @PUT
+	// public void updateExercise() {
+	// }
+	//
+	// @PUT
+	// public void updateGoal() {
+	//
+	// }
 
 	public void getWeeklyWorkout() {
 	}
