@@ -1,6 +1,9 @@
 ##Storage Service
 This is a simple storage service that allows you to communicate with a MySql database. 
 
+####Explanation of the API
+You can access the API through a soap service. For each entity in the database there is a Port, which mostly contains the CRUD methods necessary 'Create' 'Read' 'Update' 'Delete' the entities in the database.
+
 ####How to comunicate
 To start communicate with this server follow these steps:
 
