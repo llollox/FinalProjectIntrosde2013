@@ -10,7 +10,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
-@Path("/randomQuote")
+@Path("/quote")
 public class RandomQuotes {
 
 	private static WebResource service;
@@ -23,6 +23,7 @@ public class RandomQuotes {
 	}
 
 	@GET
+	@Path("/motivational")
 	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
 	public RandomQuotes.JsonQuote getRandomQuote() {
 
@@ -32,7 +33,7 @@ public class RandomQuotes {
 	}
 
 	@XmlRootElement
-	static class JsonQuote {
+	public static class JsonQuote {
 
 		private int id;
 
