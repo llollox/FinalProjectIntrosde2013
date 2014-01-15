@@ -45,3 +45,10 @@ ExcludedFood = Backbone.Model.extend({
 		return '/person/' + this.get('person_id') + '/food/excluded';
 	}
 });
+
+Goal = Backbone.Model.extend({
+	idAttribute : "id",
+	urlRoot : function() {
+		return '/person/' + this.get('person_id') + '/goal';
+	}
+});
