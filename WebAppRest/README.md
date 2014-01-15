@@ -97,7 +97,7 @@ Returns the specific goal **{g_id}** choosen by the person **{p_id}**
 
 **GET**  ```/exercisecategory```
 
-Returns the list of all the categories of exercises.
+Returns the list of all the categories of exercise categories.
 
 **GET**  ```/exercisecategory/{id}```
 
@@ -114,6 +114,72 @@ This method is for updating the exercise category information like the name. The
 **DELETE**  ```/exercisecategory/{id}```
 
 Delete the exercise category identified by that specific **id**.
+
+<hr/>
+
+### Exercise History
+
+**GET**  ```/exercisehistory/{id}```
+
+Returns the exercise history associated to that specific **id**. If there isn't an exercise history associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercisehistory```
+
+Creates a new exercise history in our database and returns it with the generated identifier that can be used after to access to that category. The exercise history object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/exercisehistory/{id}```
+
+This method is for updating the exercise history information like the name. The updated exercise history object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercisehistory/{id}```
+
+Delete the exercise history identified by that specific **id**.
+
+<hr/>
+
+### Exercise
+
+**GET**  ```/exercise/{id}```
+
+Returns the exercise associated to that specific **id**. If there isn't an exercise associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercise```
+
+Creates a new exercise in our database and returns it with the generated identifier that can be used after to access to that exercise. The exercise object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/exercise/{id}```
+
+This method is for updating the exercise information like description and value. The updated exercise object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercise/{id}```
+
+Delete the exercise identified by that specific **id**.
+
+
+<hr/>
+
+### Goal
+
+**GET**  ```/goal```
+
+Returns the list of all the goals in the database
+
+**GET**  ```/goal/{id}```
+
+Returns the goal associated to that specific **id**. If there isn't an goal associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/goal```
+
+Creates a new goal in our database and returns it with the generated identifier that can be used after to access to that goal. The goal object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/goal/{id}```
+
+This method is for updating the goal information. The updated goal object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/goal/{id}```
+
+Delete the goal identified by that specific **id**.
+
 
 <hr/>
 
