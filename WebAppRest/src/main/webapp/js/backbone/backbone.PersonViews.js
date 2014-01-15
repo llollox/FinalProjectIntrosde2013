@@ -196,10 +196,16 @@ var EditPerson = Backbone.View.extend({
 		});
 		person.fetch({
 			success : function(person) {
-				var template = _.template($('#show-person-goal-template').html(), {
-			 					person : person
+				var quote = new Quote();
+				quote.fetch({
+					success : function(quote){
+						var template = _.template($('#show-person-goal-template').html(), {
+			 					person : person,
+			 					quote : quote.attributes.content
 						});
-				that.$el.html(template);
+						that.$el.html(template);
+					}
+				});
 			}
 		});
 	},

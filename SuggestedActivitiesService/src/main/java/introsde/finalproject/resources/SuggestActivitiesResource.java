@@ -1,14 +1,5 @@
 package introsde.finalproject.resources;
 
-import finalproject.client.interfaces.ActivityWebInterface;
-import finalproject.client.interfaces.GoalWebInterface;
-import finalproject.client.service.ActivityService;
-import finalproject.client.service.GoalService;
-import finalproject.client.service.PersonService;
-import finalproject.model.Activity;
-import finalproject.model.Goal;
-import finalproject.model.GoalChoosen;
-import finalproject.model.Person;
 import introsde.finalproject.model.GoalExtended;
 
 import java.text.ParseException;
@@ -19,32 +10,70 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/suggest")
+import finalproject.client.interfaces.ActivityWebInterface;
+import finalproject.client.interfaces.GoalWebInterface;
+import finalproject.client.service.ActivityService;
+import finalproject.client.service.GoalChoosenService;
+import finalproject.client.service.GoalService;
+import finalproject.client.service.PersonService;
+import finalproject.model.Activity;
+import finalproject.model.Goal;
+import finalproject.model.GoalChoosen;
+import finalproject.model.Person;
+import finalproject.ports.CRUDGoalChoosen;
+
+@Path("/person/{id}")
 public class SuggestActivitiesResource {
 
+	private CRUDGoalChoosen goal = new GoalChoosenService().getCRUD();
+
 	@GET
-	@Path("/person/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public GoalExtended getExtendedGoalsForPerson(@PathParam("id") int id) {
 
-		List<GoalChoosen> goals = GoalChoosen.getGoalChoosenForPerson(id);
+		List<GoalChoosen> goals = goal.getGoalChoosenForPerson(id);
+		/**
+		 * 
+		 * TODO ADD SOME STUFF LIKE FILTERING
+		 */
 		return new GoalExtended(goals);
 	}
 
-	public void getExerciseForPerson(int pid) {
+	@GET
+	@Path("/goal/{id}")
+	public GoalChoosen getExerciseForPerson(int pid, int gid) {
+		return goal.read(gid);
 	}
 
-	public void insertExercise() {
-	}
+	// @POST
+	// public void insertExercise() {
+	// }
+	//
+	// @POST
+	// public void insertGoal() {
+	//
+	// }
+	//
+	// @PUT
+	// public void updateExercise() {
+	// }
+	//
+	// @PUT
+	// public void updateGoal() {
+	//
+	// }
 
 	public void getWeeklyWorkout() {
 	}
 
+	// ????????????????????????????????????????
 	public void getPersonExerciseHistory() {
 	}
 

@@ -1,9 +1,8 @@
-package introsde.finalproject.service;
+package introsde.random.quotes;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.sun.jersey.api.client.Client;
@@ -24,10 +23,11 @@ public class RandomQuotes {
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
 	public RandomQuotes.JsonQuote getRandomQuote() {
 
-		return service.path("/random_quote").accept(MediaType.APPLICATION_JSON)
+		return service.path("/random_quote")
+				.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON)
 				.get(RandomQuotes.JsonQuote.class);
 	}
 

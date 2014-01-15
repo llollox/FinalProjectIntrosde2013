@@ -1,14 +1,13 @@
 package finalproject.ports;
 
+import java.util.List;
+
 import javax.jws.WebService;
 
 import finalproject.client.interfaces.GoalChoosenWebInterface;
 import finalproject.model.GoalChoosen;
 
-@WebService(
-		serviceName = "GoalChoosenService",
-		portName = "CRUD",
-		targetNamespace = "http://finalproject.sde.unitn.it/")
+@WebService(serviceName = "GoalChoosenService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDGoalChoosen implements GoalChoosenWebInterface {
 
 	// CREATE GOAL CHOOSEN
@@ -39,6 +38,10 @@ public class CRUDGoalChoosen implements GoalChoosenWebInterface {
 	// DELETE GOAL CHOOSEN
 	public boolean delete(int id) {
 		return GoalChoosen.delete(id);
+	}
+
+	public List<GoalChoosen> getGoalChoosenForPerson(int pid) {
+		return GoalChoosen.getGoalChoosenForPerson(pid);
 	}
 
 }
