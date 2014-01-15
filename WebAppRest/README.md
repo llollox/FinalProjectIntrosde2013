@@ -183,6 +183,14 @@ Delete the goal identified by that specific **id**.
 
 <hr/>
 
+### Random Quote
+
+**GET**  ```/randomquote```
+
+Returns a random quote.
+
+<hr/>
+
 ### Search
 
 **GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
