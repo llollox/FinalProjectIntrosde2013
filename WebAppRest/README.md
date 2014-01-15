@@ -8,11 +8,11 @@ Here is the list of our rest services:
 
 ### Person
 
-```**GET  /person**```
+```GET  /person```
 
 Returns the list of all the people in the database 
 
-```**POST  /person**```
+```POST  /person```
 
 Creates a new person in our database and returns it with the generated identifier that can be used after to access to that person. The person object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`.
 
