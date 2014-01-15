@@ -2,6 +2,7 @@ package introsde.finalproject.server;
 
 import finalproject.server.StorageServicePublisher;
 import introsde.finalproject.calories.server.CaloriesCalculatorPublisher;
+import introsde.random.server.RandomServer;
 
 import com.introsde.food.service.server.FoodServicePublisher;
 
@@ -14,6 +15,7 @@ public class ProjectRunner {
 		new StorageServicePublisher();
 		new WebAppRestServer();
 		new SuggestGoalActivityServer();
+		new RandomServer();
 
 	}
 }

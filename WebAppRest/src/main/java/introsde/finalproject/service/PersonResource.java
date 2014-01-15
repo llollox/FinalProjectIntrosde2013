@@ -22,12 +22,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import finalproject.client.interfaces.GoalWebInterface;
 import finalproject.client.interfaces.PersonWebInterface;
-import finalproject.client.service.GoalService;
 import finalproject.client.service.PersonService;
 import finalproject.model.ExtendedHealthProfile;
-import finalproject.model.Goal;
 import finalproject.model.HealthProfile;
 import finalproject.model.Person;
 
@@ -96,7 +93,7 @@ public class PersonResource {
 	public Response link(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
 
-		cperson.linkGoal(idperson, idgoal);
+		// cperson.linkGoal(idperson, idgoal);
 
 		return Response.ok().build();
 	}
@@ -112,7 +109,7 @@ public class PersonResource {
 	public Response setGoalProgress(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, Double progress) {
 
-		cperson.setGoalProgress(idperson, idgoal, progress);
+		// cperson.setGoalProgress(idperson, idgoal, progress);
 
 		return Response.ok().build();
 	}
@@ -128,7 +125,8 @@ public class PersonResource {
 	public Response getGoalProgress(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
 
-		return Response.ok(cperson.getGoalProgress(idperson, idgoal)).build();
+		return null;// Response.ok(cperson.getGoalProgress(idperson,
+					// idgoal)).build();
 	}
 
 	/**
@@ -142,7 +140,7 @@ public class PersonResource {
 	public Response setGoalValue(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, String value) {
 
-		cperson.setGoalValue(idperson, idgoal, value);
+		// cperson.setGoalValue(idperson, idgoal, value);
 
 		return Response.ok().build();
 	}
@@ -158,7 +156,8 @@ public class PersonResource {
 	public Response getGoalValue(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
 
-		return Response.ok(cperson.getGoalValue(idperson, idgoal)).build();
+		return null;// Response.ok(cperson.getGoalValue(idperson,
+					// idgoal)).build();
 	}
 
 	/**
@@ -172,7 +171,7 @@ public class PersonResource {
 	public Response setGoalEndDate(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal, String enddate) {
 
-		cperson.setGoalEndDate(idperson, idgoal, enddate);
+		// cperson.setGoalEndDate(idperson, idgoal, enddate);
 
 		return Response.ok().build();
 	}
@@ -188,7 +187,8 @@ public class PersonResource {
 	public Response getGoalEndDate(@QueryParam("idperson") int idperson,
 			@QueryParam("idgoal") int idgoal) {
 
-		return Response.ok(cperson.getGoalEndDate(idperson, idgoal)).build();
+		return null;// Response.ok(cperson.getGoalEndDate(idperson,
+					// idgoal)).build();
 	}
 
 	/**

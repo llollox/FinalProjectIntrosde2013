@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -27,36 +29,51 @@ import finalproject.model.GoalChoosen;
 import finalproject.model.Person;
 import finalproject.ports.CRUDGoalChoosen;
 
-@Path("/suggest")
+@Path("/person/{id}")
 public class SuggestActivitiesResource {
 
 	private CRUDGoalChoosen goal = new GoalChoosenService().getCRUD();
 
 	@GET
-	@Path("/person/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public GoalExtended getExtendedGoalsForPerson(@PathParam("id") int id) {
 
 		List<GoalChoosen> goals = goal.getGoalChoosenForPerson(id);
-
-		// TODO ADD SOME STUFF
-
+		/**
+		 * 
+		 * TODO ADD SOME STUFF LIKE FILTERING
+		 */
 		return new GoalExtended(goals);
 	}
 
-	public void getExerciseForPerson(int pid) {
+	@GET
+	@Path("/goal/{id}")
+	public GoalChoosen getExerciseForPerson(int pid, int gid) {
+		return goal.read(gid);
 	}
 
+	@POST
 	public void insertExercise() {
 	}
 
+	@POST
 	public void insertGoal() {
+
+	}
+
+	@PUT
+	public void updateExercise() {
+	}
+
+	@PUT
+	public void updateGoal() {
 
 	}
 
 	public void getWeeklyWorkout() {
 	}
 
+	// ????????????????????????????????????????
 	public void getPersonExerciseHistory() {
 	}
 

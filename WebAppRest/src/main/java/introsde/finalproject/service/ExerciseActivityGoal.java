@@ -30,7 +30,7 @@ public class ExerciseActivityGoal {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public GoalExtended getGoals(@PathParam("p_id") int id) {
 
-		return service.path("suggest").path("person").path(id + "")
+		return service.path("person").path(id + "")
 				.accept(MediaType.APPLICATION_JSON).get(GoalExtended.class);
 	}
 }
