@@ -1,162 +1,244 @@
 ##WebApp Rest Service
 
-This is the Service that interact with the client and all other services.
+This is the Service that interact with the client and all other services. It is a REST service, and all the API are available both in json and in xml.
 
-<!--Hibernate Configuration:
-----------------
-The database used is in `database/mydb.db`, we need to configure hibernate to find it: please go to 
-`src/main/resources/hibernate.cfg.xml` file and at connection url property type the following:
-
-* For Mac users: `jdbc:sqlite:database/mydb.db`
-* For Unix users: `jdbc:sqlite:<your_directory>/<path_to_this_project>/database/mydb.db`-->
-
-####Database
-We use the Storage Service
-<!--The database used is sqlite, it contains all ice hockey 
-people from Ontario present in [dbpedia.org](http://dbpedia.org/About).
-
-To fetch and parse data from dbpedia it was used [Apache Jena](http://jena.apache.org/): a free and open source Java framework for building Semantic Web and Linked Data applications. -->
-
-####REST Service
-All our services support both json and xml format for response. 
 To specify the response format just set the header `Accept: application/json` or `Accept: application/xml` for the type you require.
 
 Here is the list of our rest services:
 
-**GET  /person**
+<hr/>
 
-Returns the list of all the people in the database 
+### Person
 
-**POST  /person**
+**GET**  ```/person```
 
-Creates a new person in our database and returns it with the generated identifier that can be used after to access to that person. The person object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`.
+Returns the list of all the people in the database
 
-**GET  /person/{p_id}**
+**GET**  ```/person/{p_id}```
 
 Returns the person associated to that specific **p_id**. The person object is returned with the current healthprofile and also le list of healthprofile_ids of that person. If there isn't a person associated with the given **p_id** the response status will be 204 NO_CONTENT.
 
-**PUT  /person/{p_id}**
+**POST**  ```/person```
+
+Creates a new person in our database and returns it with the generated identifier that can be used after to access to that person. The person object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`.
+
+**PUT**  ```/person/{p_id}```
 
 This method is for updating the person information like firstname, lastname, birthdate or the current weight and height. The updated person object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of a json request could be: `{"firstname":"Francesco","lastname":"Maturi","birthdate":"27-01-1990","height":"1.89","weight":"89.2"}`. If weight and height are also updated will be saved in the healthprofile history the old healthprofile. The person updated will be returned in the body of the response.
 
-**DELETE  /person/{p_id}**
+**DELETE**  ```/person/{p_id}```
 
 Delete the person identified by that specific **p_id** and also his healthprofile history. This method returns to the caller all the information that are deleted.
 
-**GET  /person/{p_id}/healthprofile**
+<hr/>
+
+### Health Profile
+
+**GET**  ```/person/{p_id}/healthprofile```
 
 Returns the specified person with all the data relating to its healthprofile history.
 
-**POST  /person/{p_id}/healthprofile**
-
-Updates the new healthprofile of the specified person. The current healthprofile of this person will be put in his healthprofile history and replaced by the updated data that are given. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.74</height><weight>70.3</weight></healthProfile>`. The response will be the updated person with all the data relating to its healthprofile history.
-
-**GET  /person/p_id/healthprofile/hp_id**
+**GET**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Returns the specified healthprofile of the specified person. If there isn't an healthprofile identified by **hp_id** associated to the given **p_id** the response will be 204 NO_CONTENT.
 
-**PUT  /person/p_id/healthprofile/hp_id**
+**POST**  ```/person/{p_id}/healthprofile```
+
+Updates the new healthprofile of the specified person. The current healthprofile of this person will be put in his healthprofile history and replaced by the updated data that are given. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.74</height><weight>70.3</weight></healthProfile>`. The response will be the updated person with all the data relating to its healthprofile history.
+
+**PUT**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Updates weight and height of the specified healthprofile of the specified person. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.80</height><weight>75.3</weight></healthProfile>`. The response will contains be the updated healthprofile.
 
-**DELETE  /person/p_id/healthprofile/hp_id**
+**DELETE**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Delete the specified healthprofile. The data removed from the database will be returned in the response.
 
-**GET  /search/birthdate?from=DD-MM-YYYY&to=DD-MM-YYYY**
+<hr/>
 
-Returns all the people that have the birthday in the specified range.
+### Activity
 
-**GET  /search/profile?measure={height|weight}&min=MIN&max=MAX**
+**GET**  ```/activity```
 
-Returns all the people that are in the specified range of height or weight.
+Returns the list of all the activities in the database
 
-**GET  /search/name?q=TEXT_TO_SEARCH**
+**GET**  ```/activity/{id}```
 
-Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
+Returns the activity associated to that specific **id**. If there isn't an activity associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/activity```
+
+Creates a new activity in our database and returns it with the generated identifier that can be used after to access to that activity. The activity object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"description":"corri","value":"120"}`.
+
+**PUT**  ```/activity/{id}```
+
+This method is for updating the activity information like description and value. The updated activity object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/activity/{id}```
+
+Delete the activity identified by that specific **id**.
 
 
 <hr/>
-####Food Api
-**GET  /food/recipe/{RECIPE_ID}**
+
+### Goals Choosen
+
+**GET**  ```/person/{p_id}/goal```
+
+Returns the list of all the goals choosen by that person.
+
+**GET**  ```/person/{p_id}/goal/{g_id}```
+
+Returns the specific goal **{g_id}** choosen by the person **{p_id}**
+
+<hr/>
+
+### Exercise Category
+
+**GET**  ```/exercisecategory```
+
+Returns the list of all the categories of exercise categories.
+
+**GET**  ```/exercisecategory/{id}```
+
+Returns the exercise category associated to that specific **id**. If there isn't an exercise category associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercisecategory```
+
+Creates a new exercise category in our database and returns it with the generated identifier that can be used after to access to that category. The exercise category object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"name":"corsa","aerobic":"1"}`.
+
+**PUT**  ```/exercisecategory/{id}```
+
+This method is for updating the exercise category information like the name. The updated exercise category object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercisecategory/{id}```
+
+Delete the exercise category identified by that specific **id**.
+
+<hr/>
+
+### Exercise History
+
+**GET**  ```/exercisehistory/{id}```
+
+Returns the exercise history associated to that specific **id**. If there isn't an exercise history associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercisehistory```
+
+Creates a new exercise history in our database and returns it with the generated identifier that can be used after to access to that category. The exercise history object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/exercisehistory/{id}```
+
+This method is for updating the exercise history information like the name. The updated exercise history object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercisehistory/{id}```
+
+Delete the exercise history identified by that specific **id**.
+
+<hr/>
+
+### Exercise
+
+**GET**  ```/exercise/{id}```
+
+Returns the exercise associated to that specific **id**. If there isn't an exercise associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/exercise```
+
+Creates a new exercise in our database and returns it with the generated identifier that can be used after to access to that exercise. The exercise object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/exercise/{id}```
+
+This method is for updating the exercise information like description and value. The updated exercise object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/exercise/{id}```
+
+Delete the exercise identified by that specific **id**.
+
+
+<hr/>
+
+### Goal
+
+**GET**  ```/goal```
+
+Returns the list of all the goals in the database
+
+**GET**  ```/goal/{id}```
+
+Returns the goal associated to that specific **id**. If there isn't an goal associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/goal```
+
+Creates a new goal in our database and returns it with the generated identifier that can be used after to access to that goal. The goal object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` .
+
+**PUT**  ```/goal/{id}```
+
+This method is for updating the goal information. The updated goal object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/goal/{id}```
+
+Delete the goal identified by that specific **id**.
+
+
+<hr/>
+
+### Random Quote
+
+**GET**  ```/randomquote```
+
+Returns a random quote.
+
+<hr/>
+
+### Search
+
+**GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
+
+Returns all the people that have the birthday in the specified range.
+
+**GET**  ```/search/profile?measure={height|weight}&min=MIN&max=MAX```
+
+Returns all the people that are in the specified range of height or weight.
+
+**GET**  ```/search/name?q=TEXT_TO_SEARCH```
+
+Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
+
+<hr/>
+### Food
+**GET**  ```/food/recipe/{RECIPE_ID}```
 
 Returns a <b>Receipt</b> object
 
-**GET  /food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS**
+**GET**  ```/food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS```
 
 Returns a <b>List of Matches</b> which are the recipes found. The parameters are all optionals.
 
 <hr/>
 
-####Calculate Calories Api
-**GET  /calculate/idealweight?height=HEIGHT&sex=SEX**
+### Calculate Calories
+
+**GET**  ```/calculate/idealweight?height=HEIGHT&sex=SEX```
 
 Returns a double that indicates IDEAL WEIGHT.
 
-**GET  /calculate/idealbmi?height=HEIGHT&sex=SEX**
+**GET**  ```/calculate/idealbmi?height=HEIGHT&sex=SEX```
 
 Returns the IDEAL BMI calculated for that person.
 
-**GET  /calculate/bmi?height=HEIGHT&weight=WEIGHT**
+**GET**  ```/calculate/bmi?height=HEIGHT&weight=WEIGHT```
 
 Returns the BMI calculated for that person.
 
-**GET  /calculate/bmr?height=HEIGHT&weight=WEIGHT&age=AGE&sex=SEX**
+**GET**  ```/calculate/bmr?height=HEIGHT&weight=WEIGHT&age=AGE&sex=SEX```
 
 Returns the BMR calculated for that person.
 
-**GET  /calculate/dailycalories?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK**
+**GET**  ```/calculate/dailycalories?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK```
 
 Returns the amount of calories needed for that person to maintain his weight and doing this amount of exercise per week.
 
-**GET  /calculate/dailycaloriesmanaged?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK&weightDifference=WEIGHTDIFFERENCE&days=DAYS**
+**GET**  ```/calculate/dailycaloriesmanaged?bmr=BMR&exerciseTimesPerWeek=EXERCISETIMESPERWEEK&weightDifference=WEIGHTDIFFERENCE&days=DAYS```
 
 Returns the amount of calories needed for that person to reach his target weight, doing this amount of exercise per week, in the specified amount of days available.
-
-<hr/>
-
-
-####Client
-
-This is a simple introduction to understand how to use that web application.
-
-This client is implemented using [Backbone.js](http://backbonejs.org/) which is a javascript library that easily allows to make REST request and manage their response on a html page.
-
-#### Usage
-
-Start tomcat, open your browser and navigate the the follow url: `http://localhost:8080/RESTService/`
-
-It will show a view that contains the list of the people contained in the database 
-like the following screenshot.
-
-You can also search people by Firstname, Lastname, Fullname etc, 
-just typing something in the search bar in the navbar on top.
-
-Also, you can search people by their weight, height or birthdate just filling the filter form and press "Search" button.
-
-![Alt text](doc/index.png)
-
-If you click on a specific person it will show a view in which there are all the informations of that person, his current health profile and his health profile history.
-
-You can add a new health profile for that person (in this case the previous one will be shown in the health profile history table), or edit / delete each health profile present in the history.
-
-Finally you can also edit or delete that person.
-
-![Alt text](doc/show-person.png)
-
-Just for an example, the following screenshot contains the form for the editing of a person.
-
-![Alt text](doc/edit-person.png)
-
-#### Chrome and CORS Request
-
-To make a request outside our domain we have to set a flag for google chrome that allows make requests for any domain.
-
-**MAC users:**
-write on terminal `alias chrome="open /Applications/Google\ Chrome.app/ --args --disable-web-security"`
-
-**OTHER users:**
-write on terminal `alias chrome="open <Your_Google_Chrome_path> --args --disable-web-security"`
-
-With that command we create an alias to chrome to open it without web security flag so we can make requests to any
-from our local files.
