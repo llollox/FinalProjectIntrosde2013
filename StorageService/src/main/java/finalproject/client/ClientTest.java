@@ -13,7 +13,9 @@ import finalproject.model.Person;
 public class ClientTest {
 
 	public static void main(String[] args) {
-
+		PersonWebInterface pp = new PersonService().getCRUD();
+		System.out.println(pp.readPerson(1).getFirstname());
+/*
 		PersonWebInterface pp = new PersonService().getCRUD();
 		FavouriteFoodWebInterface ff = new FavouriteFoodService().getCRUD();
 		ExcludedFoodWebInterface ee = new ExcludedFoodService().getCRUD();
@@ -57,6 +59,6 @@ public class ClientTest {
 			System.out.println(f.getName());
 
 		ee.deleteExcludedFood(eid);
-
+*/
 	}
 }
