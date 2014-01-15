@@ -18,7 +18,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -82,114 +81,114 @@ public class PersonResource {
 		return p;
 	}
 
-	/**
-	 * GET
-	 * 
-	 * /person/link?idperson={id_p}&idgoal={id_g}
-	 */
-	@GET
-	@Path("/link")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response link(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal) {
+	// /**
+	// * GET
+	// *
+	// * /person/link?idperson={id_p}&idgoal={id_g}
+	// */
+	// @GET
+	// @Path("/link")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response link(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal) {
+	//
+	// // cperson.linkGoal(idperson, idgoal);
+	//
+	// return Response.ok().build();
+	// }
+	//
+	// /**
+	// * PUT
+	// *
+	// * /person/goalprogress?idperson={id_p}&idgoal={id_g}
+	// */
+	// @GET
+	// @Path("/goalprogress")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response setGoalProgress(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal, Double progress) {
+	//
+	// // cperson.setGoalProgress(idperson, idgoal, progress);
+	//
+	// return Response.ok().build();
+	// }
+	//
+	// /**
+	// * GET
+	// *
+	// * /person/goalprogress?idperson={id_p}&idgoal={id_g}
+	// */
+	// @POST
+	// @Path("/goalprogress")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response getGoalProgress(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal) {
+	//
+	// return null;// Response.ok(cperson.getGoalProgress(idperson,
+	// // idgoal)).build();
+	// }
 
-		// cperson.linkGoal(idperson, idgoal);
+	// /**
+	// * PUT
+	// *
+	// * /person/goalvalue?idperson={id_p}&idgoal={id_g}
+	// */
+	// @GET
+	// @Path("/goalvalue")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response setGoalValue(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal, String value) {
+	//
+	// // cperson.setGoalValue(idperson, idgoal, value);
+	//
+	// return Response.ok().build();
+	// }
+	//
+	// /**
+	// * GET
+	// *
+	// * /person/goalvalue?idperson={id_p}&idgoal={id_g}
+	// */
+	// @POST
+	// @Path("/goalvalue")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response getGoalValue(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal) {
+	//
+	// return null;// Response.ok(cperson.getGoalValue(idperson,
+	// // idgoal)).build();
+	// }
 
-		return Response.ok().build();
-	}
-
-	/**
-	 * PUT
-	 * 
-	 * /person/goalprogress?idperson={id_p}&idgoal={id_g}
-	 */
-	@GET
-	@Path("/goalprogress")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalProgress(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal, Double progress) {
-
-		// cperson.setGoalProgress(idperson, idgoal, progress);
-
-		return Response.ok().build();
-	}
-
-	/**
-	 * GET
-	 * 
-	 * /person/goalprogress?idperson={id_p}&idgoal={id_g}
-	 */
-	@POST
-	@Path("/goalprogress")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalProgress(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal) {
-
-		return null;// Response.ok(cperson.getGoalProgress(idperson,
-					// idgoal)).build();
-	}
-
-	/**
-	 * PUT
-	 * 
-	 * /person/goalvalue?idperson={id_p}&idgoal={id_g}
-	 */
-	@GET
-	@Path("/goalvalue")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalValue(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal, String value) {
-
-		// cperson.setGoalValue(idperson, idgoal, value);
-
-		return Response.ok().build();
-	}
-
-	/**
-	 * GET
-	 * 
-	 * /person/goalvalue?idperson={id_p}&idgoal={id_g}
-	 */
-	@POST
-	@Path("/goalvalue")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalValue(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal) {
-
-		return null;// Response.ok(cperson.getGoalValue(idperson,
-					// idgoal)).build();
-	}
-
-	/**
-	 * PUT
-	 * 
-	 * /person/goalvalue?idperson={id_p}&idgoal={id_g}
-	 */
-	@GET
-	@Path("/goalenddate")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response setGoalEndDate(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal, String enddate) {
-
-		// cperson.setGoalEndDate(idperson, idgoal, enddate);
-
-		return Response.ok().build();
-	}
-
-	/**
-	 * GET
-	 * 
-	 * /person/goalenddate?idperson={id_p}&idgoal={id_g}
-	 */
-	@POST
-	@Path("/goalenddate")
-	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response getGoalEndDate(@QueryParam("idperson") int idperson,
-			@QueryParam("idgoal") int idgoal) {
-
-		return null;// Response.ok(cperson.getGoalEndDate(idperson,
-					// idgoal)).build();
-	}
+	// /**
+	// * PUT
+	// *
+	// * /person/goalvalue?idperson={id_p}&idgoal={id_g}
+	// */
+	// @GET
+	// @Path("/goalenddate")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response setGoalEndDate(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal, String enddate) {
+	//
+	// // cperson.setGoalEndDate(idperson, idgoal, enddate);
+	//
+	// return Response.ok().build();
+	// }
+	//
+	// /**
+	// * GET
+	// *
+	// * /person/goalenddate?idperson={id_p}&idgoal={id_g}
+	// */
+	// @POST
+	// @Path("/goalenddate")
+	// @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	// public Response getGoalEndDate(@QueryParam("idperson") int idperson,
+	// @QueryParam("idgoal") int idgoal) {
+	//
+	// return null;// Response.ok(cperson.getGoalEndDate(idperson,
+	// // idgoal)).build();
+	// }
 
 	/**
 	 * PUT
