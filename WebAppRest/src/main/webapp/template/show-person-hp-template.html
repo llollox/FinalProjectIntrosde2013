@@ -69,13 +69,9 @@
 			</p>
 
 			<hr/>
-			<p class="lead">
+			<p class="lead ideal" style="width:70%">
 				<b>Ideal Weight</b>: 
 				<%= healthProfile.idealWeight %> kg
-			</p>
-			<p class="lead">
-				<b>Ideal Bmi</b>: 
-				<%= healthProfile.idealBmi %> kg/m<sup>2</sup>
 			</p>
 		</div>
 		
@@ -102,6 +98,10 @@
 					<canvas id="canvas-preview" ></canvas>
 					<div class="gauge-textfield">Bmi </div>
 					<div id="preview-textfield" class="gauge-textfield"></div>
+					<p class="lead ideal">
+						<b>Ideal Bmi</b>: 
+						<%= healthProfile.idealBmi %> kg/m<sup>2</sup>
+					</p>
 				</center>
 			</div>
 		</div>
@@ -178,6 +178,18 @@
 			<i class="icon-trash icon-white"></i> Delete Person
 		</a>
 	</div>
+
+	<style>
+		.ideal{
+			color: black;
+			margin-top: 30px;
+			border: 1px solid #acacac;
+			padding: 5px;
+			border-radius: 5px;
+			background: #e4ebe9 url(img/pattern.png);
+			text-align: center;
+		}
+	</style>
 
 	<script type="text/javascript">
 		$(document).ready(function(){

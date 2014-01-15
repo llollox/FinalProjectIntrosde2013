@@ -64,11 +64,12 @@
 								<h6><%= recipe.get('recipeName') %></h6>
 								<a href="#" class="ca-close">close</a>
 								<div class="ca-content-text">
-								  <div style="height:250px;">
-										<% _.each(recipe.get('ingredients'), function (ingredient, index) { %>
-											<%= index < 10 ? "<div>"+ingredient+"</div>" : "" %>
-										<% }) %>
-									</div>
+							  	<h2 style="font-size: 21.5px;margin:0px;color:#383838;">Ingredients</h2>
+							  	<ul style="margin-top: 0px;font-size:16.5px;">
+									<% _.each(recipe.get('ingredients'), function (ingredient, index) { %>
+										<%= index < 10 ? "<p><li>"+ingredient+"</li></p>" : "" %>
+									<% }) %>
+									</ul>
 								</div>
 							</div>
 						</div>
