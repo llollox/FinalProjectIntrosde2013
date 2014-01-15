@@ -8,7 +8,7 @@ Here is the list of our rest services:
 
 ### Person
 
-**GET**  /person
+**GET**  ```/person```
 
 Returns the list of all the people in the database 
 
