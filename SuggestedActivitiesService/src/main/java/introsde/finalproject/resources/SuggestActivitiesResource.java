@@ -1,14 +1,5 @@
 package introsde.finalproject.resources;
 
-import finalproject.client.interfaces.ActivityWebInterface;
-import finalproject.client.interfaces.GoalWebInterface;
-import finalproject.client.service.ActivityService;
-import finalproject.client.service.GoalService;
-import finalproject.client.service.PersonService;
-import finalproject.model.Activity;
-import finalproject.model.Goal;
-import finalproject.model.GoalChoosen;
-import finalproject.model.Person;
 import introsde.finalproject.model.GoalExtended;
 
 import java.text.ParseException;
@@ -24,15 +15,32 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import finalproject.client.interfaces.ActivityWebInterface;
+import finalproject.client.interfaces.GoalWebInterface;
+import finalproject.client.service.ActivityService;
+import finalproject.client.service.GoalChoosenService;
+import finalproject.client.service.GoalService;
+import finalproject.client.service.PersonService;
+import finalproject.model.Activity;
+import finalproject.model.Goal;
+import finalproject.model.GoalChoosen;
+import finalproject.model.Person;
+import finalproject.ports.CRUDGoalChoosen;
+
 @Path("/suggest")
 public class SuggestActivitiesResource {
+
+	private CRUDGoalChoosen goal = new GoalChoosenService().getCRUD();
 
 	@GET
 	@Path("/person/{id}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public GoalExtended getExtendedGoalsForPerson(@PathParam("id") int id) {
 
-		List<GoalChoosen> goals = GoalChoosen.getGoalChoosenForPerson(id);
+		List<GoalChoosen> goals = goal.getGoalChoosenForPerson(id);
+
+		// TODO ADD SOME STUFF
+
 		return new GoalExtended(goals);
 	}
 
@@ -40,6 +48,10 @@ public class SuggestActivitiesResource {
 	}
 
 	public void insertExercise() {
+	}
+
+	public void insertGoal() {
+
 	}
 
 	public void getWeeklyWorkout() {
