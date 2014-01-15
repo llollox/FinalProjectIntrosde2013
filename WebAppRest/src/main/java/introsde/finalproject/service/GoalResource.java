@@ -87,7 +87,7 @@ public class GoalResource {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
-	
+
 	/**
 	 * GET
 	 * 
@@ -96,12 +96,11 @@ public class GoalResource {
 	@GET
 	@Path("/link")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public Response link(
-			@QueryParam("idgoal") int idgoal,
+	public Response link(@QueryParam("idgoal") int idgoal,
 			@QueryParam("idactivity") int idactivity) {
 
 		cgoal.linkActivity(idgoal, idactivity);
-		
+
 		return Response.ok().build();
 	}
 
