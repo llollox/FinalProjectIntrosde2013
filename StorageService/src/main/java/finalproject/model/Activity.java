@@ -46,6 +46,7 @@ public class Activity {
 	public Activity(String description, Integer value) {
 		super();
 		this.description = description;
+		this.value = value;
 	}
 
 	public Integer getValue() {

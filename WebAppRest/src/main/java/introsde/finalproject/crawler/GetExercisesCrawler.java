@@ -92,8 +92,6 @@ public class GetExercisesCrawler extends WebCrawler {
 
 		}
 
-		List<Activity> list = Activity.getActivities();
-
 		System.out.println(exCategories);
 
 	}
