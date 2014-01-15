@@ -2,7 +2,7 @@
 	<a href="#" class="btn"><i class="icon-arrow-left"></i> Back to person list</a>
 	<br/><br/>
 	<div style="position:relative;text-align:center;">
-		<h2>
+		<h2 style="font-family: serif;">
 			<%= person.get('firstname') + " " + person.get('lastname') %>
 			<%= " (" + person.get('birthdate') + ")" %>
 		</h2>
@@ -34,14 +34,48 @@
 	<br/><br/>
 
 	<hr/>
+	<a href="#setGoalsModal" role="button" class="btn btn-primary btn-large" 
+		data-toggle="modal">
+		<i class="icon-tasks icon-white"></i> Set Goals
+	</a>
+
+	<br/><br/>
 
 	<div class="row-fluid">
-		<div class="span8">
-			<a href="#setGoalsModal" role="button" class="btn btn-primary btn-large" 
-				data-toggle="modal">
-				<i class="icon-tasks icon-white"></i> Set Goals
-			</a>
+		<div class="span7 well" style="height:500px;border-radius:10px;">
+			<h2 style="font-family: fantasy;">Goals</h2>
+
+			<div class="accordion" id="goal-accordion">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle collapsed" data-toggle="collapse" 
+            		data-parent="#goal-accordion" href="#collapseOne">
+              Collapsible Group Item #1
+            </a>
+          </div>
+          <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+            <div class="accordion-inner">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" 
+            		data-parent="#goal-accordion" href="#collapseTwo">
+              Collapsible Group Item #2
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-body in collapse" style="height: auto;">
+            <div class="accordion-inner">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
 		</div>
+		<div class="span1"></div>
 		<div class="span4" style="position:relative;">
 			<div class="speaking-container"></div>
 			<img src="img/speech-bubble.png" id="speech-bubble"/>
@@ -63,13 +97,13 @@
 	    	<div class="control-group">
           <div class="controls">
           	<label class="radio">
-						  <input type="radio" name="goal" value="1"> Reach Your Ideal Weight
+						  <input type="radio" name="goal_id" value="1"> Reach Your Ideal Weight
 						</label>
 						<label class="radio">
-						  <input type="radio" name="goal" value="2"> Important Health Benefits
+						  <input type="radio" name="goal_id" value="2"> Important Health Benefits
 						</label>
 						<label class="radio">
-						  <input type="radio" name="goal" value="3"> Greater Health Benefits
+						  <input type="radio" name="goal_id" value="3"> Greater Health Benefits
 						</label>
             <input type="hidden" name="person_id" value="<%= person.get('id') %>" />
           </div>
@@ -87,36 +121,48 @@
 
 	<style>
 		#speech-bubble{
-			width: 90%;
+			width: 300px;
 			position: absolute;
 			top: 20px;
-			left: -170px;
+			left: -100px;
 			z-index: 2;
 		}
 		#public-speaking{
-			position:absolute;
-			top: 170px;
-			left: 130px;
+			position: absolute;
+			top: 150px;
+			right: 5px;
 			z-index: 1;
+			height: 300px;
 		}
 		#quote{
 			position: absolute;
 			top: 70px;
-			left: -120px;
+			left: -60px;
 			width: 60%;
 			font-size:22px;
 			font-style: italic;
 			font-family: serif;
-			z-index: 999999999;
+			z-index: 3;
 		}
 		.speaking-container{
 			background-color: #f4f4f4;
 			height:500px;
-			width:150%;
+			width:130%;
+			right : 0px;
 			position : absolute;
-			left: -185px;
 			border-radius:10px;
 			background: #e4ebe9 url(img/pattern.png);
+		}
+		.goals-container{
+			height:500px;
+			border-radius:10px;
+		}
+
+		.goals-container > h3{
+			color : #4a4a4a;
+		}
+		.accordion-group{
+			background-color: white;
 		}
 	</style>
 </script>
