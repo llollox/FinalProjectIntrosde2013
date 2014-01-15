@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -56,6 +57,15 @@ public class GoalChoosen {
 
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+
+	@XmlElement(name = "exerciseHistory")
+	public List<ExerciseHistory> getExercises() {
+		return exercises;
+	}
+
+	public void setExercises(List<ExerciseHistory> exercises) {
+		this.exercises = exercises;
 	}
 
 	public Goal getGoal() {

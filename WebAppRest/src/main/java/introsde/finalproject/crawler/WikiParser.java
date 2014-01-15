@@ -32,7 +32,7 @@ public class WikiParser {
 		/************* INSERT GOALS ********************/
 
 		Goal goalTW = new Goal();
-		goalTW.setName("Loose Weight Seriously");
+		goalTW.setName("Reach Your Ideal Weight");
 
 		Goal goalIHB = new Goal();
 		goalIHB.setName("Important Health Benefits");
@@ -98,7 +98,7 @@ public class WikiParser {
 		Activity analHardGHB = new Activity("3 Times Anaerobic Hard Activity",
 				3);
 		Activity analMediumGHB = new Activity(
-				"3 Times Anaerobic Medium Activity", 5);
+				"5 Times Anaerobic Medium Activity", 5);
 
 		ArrayList<Activity> GHBlist = new ArrayList<Activity>();
 		GHBlist.add(aeroModerateGHB);
