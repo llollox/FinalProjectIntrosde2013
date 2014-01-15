@@ -10,7 +10,10 @@ import finalproject.model.Activity;
 import finalproject.model.Goal;
 import finalproject.utils.DatabaseUtil;
 
-@WebService(serviceName = "GoalService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
+@WebService(
+		serviceName = "GoalService",
+		portName = "CRUD",
+		targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDGoal implements GoalWebInterface {
 
 	// GET GOALS

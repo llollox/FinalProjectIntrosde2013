@@ -6,6 +6,7 @@ import javax.jws.WebService;
 
 import finalproject.client.interfaces.ActivityWebInterface;
 import finalproject.model.Activity;
+import finalproject.model.ExerciseCategory;
 
 @WebService(serviceName = "ActivityService", portName = "CRUD", targetNamespace = "http://finalproject.sde.unitn.it/")
 public class CRUDActivity implements ActivityWebInterface {
@@ -43,6 +44,21 @@ public class CRUDActivity implements ActivityWebInterface {
 	// DELETE ACTIVITY
 	public boolean deleteActivity(int id) {
 		return Activity.delete(id);
+	}
+	
+	// ADD EXERCISE CATEGORY TO ACTIVITY
+	public void linkExerciseCategory(int idactivity, int idexercisecategory) {
+		
+		Activity a = Activity.read(idactivity);
+		ExerciseCategory e = ExerciseCategory.read(idexercisecategory);
+
+		if (a.getCategories().contains(e))
+			return;
+
+		a.getCategories().add(e);
+		e.getActivities().add(a);
+		
+		Activity.update(a);
 	}
 
 }

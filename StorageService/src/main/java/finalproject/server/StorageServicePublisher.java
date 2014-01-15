@@ -9,6 +9,7 @@ import finalproject.ports.CRUDExerciseCategory;
 import finalproject.ports.CRUDExerciseHistory;
 import finalproject.ports.CRUDFavouriteFood;
 import finalproject.ports.CRUDGoal;
+import finalproject.ports.CRUDGoalChoosen;
 import finalproject.ports.CRUDHealthProfile;
 import finalproject.ports.CRUDPerson;
 
@@ -23,6 +24,8 @@ public class StorageServicePublisher {
 				new CRUDHealthProfile());
 		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/goal",
 				new CRUDGoal());
+		Endpoint.publish("http://localhost:5910/lifestyle/storageservice/goalchoosen",
+				new CRUDGoalChoosen());
 		Endpoint.publish(
 				"http://localhost:5910/lifestyle/storageservice/exercisehistory",
 				new CRUDExerciseHistory());
@@ -43,6 +46,10 @@ public class StorageServicePublisher {
 				new CRUDExerciseCategory());
 
 		System.out.println("Started Storage Service Publisher");
+	}
+	
+	public static void main(String[] args) {
+		new StorageServicePublisher();
 	}
 
 }

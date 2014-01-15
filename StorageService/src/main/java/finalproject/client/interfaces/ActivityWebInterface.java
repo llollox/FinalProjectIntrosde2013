@@ -65,4 +65,10 @@ public interface ActivityWebInterface {
 	@WebResult(targetNamespace = "")
 	public List<Activity> getActivities();
 
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	public void linkExerciseCategory(
+			@WebParam(name = "arg0", targetNamespace = "") int arg0,
+			@WebParam(name = "arg1", targetNamespace = "") int arg1);
+	
 }
