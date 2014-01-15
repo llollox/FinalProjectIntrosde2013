@@ -25,7 +25,6 @@ public class ExerciseHistory {
 	private int id;
 
 	private String date;
-
 	private Integer value;
 
 	@ManyToOne
@@ -46,16 +45,6 @@ public class ExerciseHistory {
 
 	public void setGoalchoosen(GoalChoosen goalchoosen) {
 		this.goalchoosen = goalchoosen;
-	}
-
-	public int getIdGoalChoosen() {
-		if (this.goalchoosen != null)
-			return this.goalchoosen.getId();
-		return -1;
-	}
-
-	public void setIdGoalChoosen(int id) {
-		this.goalchoosen = GoalChoosen.read(id);
 	}
 
 	public Activity getActivity() {

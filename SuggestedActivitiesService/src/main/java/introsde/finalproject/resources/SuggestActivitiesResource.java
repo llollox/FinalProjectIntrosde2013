@@ -2,7 +2,10 @@ package introsde.finalproject.resources;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -54,7 +57,7 @@ public class SuggestActivitiesResource {
 	public GoalChoosen getExerciseForPerson(@PathParam("p_id") int pid,
 			@PathParam("g_id") int gid) {
 
-		return calculatePercentage(goalChossen.read(gid));
+		return goalChossen.read(gid);
 	}
 
 	@POST
@@ -77,7 +80,7 @@ public class SuggestActivitiesResource {
 		if (id == -1)
 			return null;
 
-		return calculatePercentage(goalChossen.read(id));
+		return goalChossen.read(id);
 	}
 
 	@POST
@@ -88,22 +91,14 @@ public class SuggestActivitiesResource {
 			ExerciseHistory ex) {
 
 		GoalChoosen g = goalChossen.read(gid);
-		
-		System.out.println(g);
-		
+
 		ex.setActivity(activity.readActivity(aid));
 		ex.setGoalchoosen(g);
 		ex.setDate(df.format(new Date()));
 
-		int exid = exHist.createExerciseHistory(ex);
-		
-		System.out.println("#########################");
-		System.out.println(exid);
+		ex = ExerciseHistory.create(ex);
 
-		if (exid == -1)
-			return null;
-
-		return exHist.readExerciseHistory(exid);
+		return ex;
 	}
 
 	private List<GoalChoosen> calculatePercentage(List<GoalChoosen> goalList) {
@@ -112,20 +107,39 @@ public class SuggestActivitiesResource {
 
 			for (GoalChoosen g : goalList) {
 
-				// List<Activity> activities = g.getGoal().getActivities();
-				//
-				// for (Activity a : activities)
-				// ;
+				// calcolo le percentuali per questo goal
+
+				Map<Activity, Integer> map = new HashMap<Activity, Integer>();
 
 				List<ExerciseHistory> ese = g.getExercises();
 				// Double percentage = new Double(0);
 
 				for (ExerciseHistory e : ese) {
 
-					Activity a = e.getActivity();
+					Integer eVal = e.getValue();
+					Activity eAct = e.getActivity();
 
-					a.setPercentage((double) 0);
+					if (map.containsKey(eAct)) {
+						// ho gia dentro le vecchie somme
 
+						Integer sum = map.get(eAct);
+
+						sum += eVal;
+
+						map.put(e.getActivity(), sum);
+
+					} else {
+
+						// prima volta che la trovo
+						map.put(eAct, eVal);
+					}
+
+					Set<Activity> act = map.keySet();
+
+					for (Activity a : act) {
+
+						a.setPercentage((double) map.get(a));
+					}
 				}
 
 				g.setPercentage((double) 0);
@@ -134,29 +148,6 @@ public class SuggestActivitiesResource {
 		}
 		return goalList;
 	}
-
-	private GoalChoosen calculatePercentage(GoalChoosen g) {
-
-		if (g != null) {
-
-			List<ExerciseHistory> ese = g.getExercises();
-			// Double percentage = new Double(0);
-
-			for (ExerciseHistory e : ese) {
-
-				Activity a = e.getActivity();
-
-				a.setPercentage((double) 0);
-
-			}
-
-			g.setPercentage((double) 0);
-
-		}
-
-		return g;
-	}
-
 	// @PUT
 	// public void updateExercise() {
 	// }
