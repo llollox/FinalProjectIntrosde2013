@@ -13,7 +13,7 @@
 
 ###Services SOAP
 
-*   [Inspirational Quotes Adapter](): This is an adapter to the inspirational quotes service.
-*   [Storage Service](): This service provides the apis needed to store data on the database.
-*   [Food Service](): The food service, given a list of ingredients, can calculate their nutritional values or suggest recipes based on those ingredients.
+*   [Motivational Quotes Adapter](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/MotivationalQuotesWrapperService): This is an adapter to the inspirational quotes service.
+*   [Storage Service](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/StorageService): This service provides the apis needed to store data on the database.
+*   [Food Service](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/FoodService): The food service, given a list of ingredients, can calculate their nutritional values or suggest recipes based on those ingredients.
 *   [CaloriesCalculator](https://github.com/llollox/FinalProjectIntrosde2013/tree/master/CaloriesCalculatorService):  A simple service that implements some formulae to calculate calories stuff (Ideal Weight, Ideal Amount of Calories per day etc.)
