@@ -34,7 +34,7 @@ Delete the person identified by that specific **p_id** and also his healthprofil
 
 Returns the specified person with all the data relating to its healthprofile history.
 
-**GET**  ```/person/p_id/healthprofile/hp_id```
+**GET**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Returns the specified healthprofile of the specified person. If there isn't an healthprofile identified by **hp_id** associated to the given **p_id** the response will be 204 NO_CONTENT.
 
@@ -42,36 +42,36 @@ Returns the specified healthprofile of the specified person. If there isn't an h
 
 Updates the new healthprofile of the specified person. The current healthprofile of this person will be put in his healthprofile history and replaced by the updated data that are given. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.74</height><weight>70.3</weight></healthProfile>`. The response will be the updated person with all the data relating to its healthprofile history.
 
-**PUT**  ```/person/p_id/healthprofile/hp_id```
+**PUT**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Updates weight and height of the specified healthprofile of the specified person. This method support both json and xml request format. Just set in the headers what you prefer `Content-Type: application/json` or `Content-Type: application/xml`. For example the body of an xml request could be: `<healthProfile><height>1.80</height><weight>75.3</weight></healthProfile>`. The response will contains be the updated healthprofile.
 
-**DELETE**  ```/person/p_id/healthprofile/hp_id```
+**DELETE**  ```/person/{p_id}/healthprofile/{hp_id}```
 
 Delete the specified healthprofile. The data removed from the database will be returned in the response.
 
 ### Search
 
-**GET  /search/birthdate?from=DD-MM-YYYY&to=DD-MM-YYYY**
+**GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
 
 Returns all the people that have the birthday in the specified range.
 
-**GET  /search/profile?measure={height|weight}&min=MIN&max=MAX**
+**GET**  ```/search/profile?measure={height|weight}&min=MIN&max=MAX```
 
 Returns all the people that are in the specified range of height or weight.
 
-**GET  /search/name?q=TEXT_TO_SEARCH**
+**GET**  ```/search/name?q=TEXT_TO_SEARCH```
 
 Returns the people that have firstname or lastname matching the TEXT_TO_SEARCH 
 
 
 <hr/>
-####Food Api
-**GET  /food/recipe/{RECIPE_ID}**
+### Food
+**GET**  ```/food/recipe/{RECIPE_ID}```
 
 Returns a <b>Receipt</b> object
 
-**GET  /food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS**
+**GET**  ```/food/recipe?max=MAX_KCAL&min=MIN_KCAL&maxResults=MAX_RESULTS```
 
 Returns a <b>List of Matches</b> which are the recipes found. The parameters are all optionals.
 
