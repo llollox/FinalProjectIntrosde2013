@@ -56,6 +56,31 @@ Delete the specified healthprofile. The data removed from the database will be r
 
 <hr/>
 
+### Activity
+
+**GET**  ```/activity```
+
+Returns the list of all the activities in the database
+
+**GET**  ```/activity/{id}```
+
+Returns the activity associated to that specific **id**. If there isn't an activity associated with the given **id** the response status will be 204 NO_CONTENT.
+
+**POST**  ```/activity```
+
+Creates a new activity in our database and returns it with the generated identifier that can be used after to access to that activity. The activity object you want to create should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml` . For example the body of a json request could be: `{"description":"corri","value":"120"}`.
+
+**PUT**  ```/activity/{id}```
+
+This method is for updating the activity information like description and value. The updated activity object should be passed as body of the request. This method support both json and xml request format. Just set the header `Content-Type: application/json` or `Content-Type: application/xml`.
+
+**DELETE**  ```/activity/{id}```
+
+Delete the activity identified by that specific **id**.
+
+
+<hr/>
+
 ### Search
 
 **GET**  ```/search/birthdate?from=YYYY-MM-DD&to=YYYY-MM-DD```
