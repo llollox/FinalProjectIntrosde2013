@@ -49,6 +49,12 @@ ExcludedFood = Backbone.Model.extend({
 Goal = Backbone.Model.extend({
 	idAttribute : "id",
 	urlRoot : function() {
-		return '/person/' + this.get('person_id') + '/goal';
+		return '/person/' + this.get('person_id') + '/goal/' + this.get('goal_id');
+	}
+});
+
+Quote = Backbone.Model.extend({
+	urlRoot : function() {
+		return '/randomQuote/';
 	}
 });
