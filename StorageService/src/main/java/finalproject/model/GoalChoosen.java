@@ -16,9 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 
@@ -30,6 +30,9 @@ public class GoalChoosen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
+
+	@Transient
+	private Double percentage;
 
 	@ManyToOne
 	@JoinColumn(name = "idperson")
@@ -50,7 +53,14 @@ public class GoalChoosen {
 		this.id = id;
 	}
 
-	@XmlTransient
+	public Double getPercentage() {
+		return percentage;
+	}
+
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+
 	public Person getPerson() {
 		return person;
 	}

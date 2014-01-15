@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import finalproject.utils.DatabaseUtil;
 import finalproject.utils.Utils;
@@ -132,7 +133,7 @@ public class Person {
 	// return goals;
 	// }
 
-	@XmlElement(name = "goalChoosen")
+	@XmlTransient
 	public List<GoalChoosen> getGoalchoosen() {
 		return goalchoosen;
 	}
