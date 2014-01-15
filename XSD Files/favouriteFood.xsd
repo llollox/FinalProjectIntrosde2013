@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="activity" type="activity"/>
+
+  <xs:element name="exercise" type="exercise"/>
+
+  <xs:element name="exerciseCategory" type="exerciseCategory"/>
+
+  <xs:element name="exerciseHistory" type="exerciseHistory"/>
+
+  <xs:element name="extendedHealthProfile" type="extendedHealthProfile"/>
+
+  <xs:element name="favouriteFood" type="favouriteFood"/>
+
+  <xs:element name="goal" type="goal"/>
+
+  <xs:element name="goalChoosen" type="goalChoosen"/>
+
+  <xs:element name="healthProfile" type="healthProfile"/>
+
+  <xs:element name="person" type="person"/>
+
+  <xs:complexType name="favouriteFood">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element ref="person" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="person">
+    <xs:sequence>
+      <xs:element name="birthdate" type="xs:string" minOccurs="0"/>
+      <xs:element name="exerciseTimesPerWeek" type="xs:int" minOccurs="0"/>
+      <xs:element name="extendedhealthprofile" type="extendedHealthProfile" minOccurs="0"/>
+      <xs:element name="firstname" type="xs:string" minOccurs="0"/>
+      <xs:element ref="goalChoosen" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="healthprofilehistory" type="healthProfile" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="healthprofile" type="healthProfile" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="lastname" type="xs:string" minOccurs="0"/>
+      <xs:element name="sex" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="extendedHealthProfile">
+    <xs:complexContent>
+      <xs:extension base="healthProfile">
+        <xs:sequence>
+          <xs:element name="age" type="xs:int" minOccurs="0"/>
+          <xs:element name="bloodPressureLabel" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmi" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmiLabel" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmr" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealBmi" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealKcal" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealWeight" type="xs:string" minOccurs="0"/>
+          <xs:element name="menagedWeightKcal" type="xs:string" minOccurs="0"/>
+          <xs:element name="targetHearthRate" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="healthProfile">
+    <xs:sequence>
+      <xs:element name="date" type="xs:string" minOccurs="0"/>
+      <xs:element name="heartrate" type="xs:int"/>
+      <xs:element name="height" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="maxbloodpressure" type="xs:int"/>
+      <xs:element name="minbloodpressure" type="xs:int"/>
+      <xs:element name="weight" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="goalChoosen">
+    <xs:sequence>
+      <xs:element ref="exerciseHistory" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="goal" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exerciseHistory">
+    <xs:sequence>
+      <xs:element ref="activity" minOccurs="0"/>
+      <xs:element name="date" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="value" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="activity">
+    <xs:sequence>
+      <xs:element ref="exerciseCategory" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="value" type="xs:int" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exerciseCategory">
+    <xs:sequence>
+      <xs:element name="aerobic" type="xs:int" minOccurs="0"/>
+      <xs:element name="exerciseList" type="exercise" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exercise">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="difficultyvalue" type="xs:float" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="goal">
+    <xs:sequence>
+      <xs:element name="activities" type="activity" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

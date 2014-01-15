@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="extendedHealthProfile" type="extendedHealthProfile"/>
+
+  <xs:element name="healthProfile" type="healthProfile"/>
+
+  <xs:complexType name="extendedHealthProfile">
+    <xs:complexContent>
+      <xs:extension base="healthProfile">
+        <xs:sequence>
+          <xs:element name="age" type="xs:int" minOccurs="0"/>
+          <xs:element name="bloodPressureLabel" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmi" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmiLabel" type="xs:string" minOccurs="0"/>
+          <xs:element name="bmr" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealBmi" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealKcal" type="xs:string" minOccurs="0"/>
+          <xs:element name="idealWeight" type="xs:string" minOccurs="0"/>
+          <xs:element name="menagedWeightKcal" type="xs:string" minOccurs="0"/>
+          <xs:element name="targetHearthRate" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="healthProfile">
+    <xs:sequence>
+      <xs:element name="date" type="xs:string" minOccurs="0"/>
+      <xs:element name="heartrate" type="xs:int"/>
+      <xs:element name="height" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="maxbloodpressure" type="xs:int"/>
+      <xs:element name="minbloodpressure" type="xs:int"/>
+      <xs:element name="weight" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,5 +1,5 @@
 ##Client
-<hr/>
+<br/>
 ![Alt text](img/doc/backbone.jpeg)
 
 This client is implemented using [Backbone.js](http://backbonejs.org/)
@@ -12,22 +12,30 @@ Open file index.html inside ```WebAppRest/src/main/webapp``` folder.
 It will show a view that contains the list of the people contained in the database 
 like the following screenshot.
 
+![Alt text](img/doc/index.png)
+
 You can also filter people just typing something in the search bar in the navbar on top.
 Automatically it will shown people which firstname or lastname match with that query.
 
-![Alt text](doc/index.png)
+If you click on a specific person it will show a view in which there are all the informations of that person.
 
-If you click on a specific person it will show a view in which there are all the informations of that person, his current health profile and his health profile history.
+![Alt text](img/doc/showPersonStats.png)
 
-You can add a new health profile for that person (in this case the previous one will be shown in the health profile history table), or edit / delete each health profile present in the history.
+First of all, in the "Stats" page there are all the informations of health profile, heart rate, blood pressure, weight, bmi for that person.
+
+You can find ideal some values for that person such as the calories needed, the ideal weight and the ideal bmi.
+
+You can also add a new health profile for that person (in this case the previous one will be shown in the health profile history table), or edit / delete each health profile present in the history.
 
 Finally you can also edit or delete that person.
 
-![Alt text](doc/show-person.png)
+![Alt text](img/doc/showPersonFood.png)
 
-Just for an example, the following screenshot contains the form for the editing of a person.
+In "Food" page the user can find some suggested recipes.
+These recipes are based on favourited and excluded food of that person.
+Excluded food is very important in case this person have some problems with a particular food or simply he don't like it.
+The system provide recipes (if it is possible) that contains the favourite foods and not contains the excluded foods.
 
-![Alt text](doc/edit-person.png)
 
 #### Chrome and CORS Request
 

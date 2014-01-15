@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="exercise" type="exercise"/>
+
+  <xs:element name="exerciseCategory" type="exerciseCategory"/>
+
+  <xs:complexType name="exerciseCategory">
+    <xs:sequence>
+      <xs:element name="aerobic" type="xs:int" minOccurs="0"/>
+      <xs:element name="exerciseList" type="exercise" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exercise">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="difficultyvalue" type="xs:float" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
