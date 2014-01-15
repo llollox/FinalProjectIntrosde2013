@@ -9,21 +9,31 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import finalproject.client.interfaces.GoalChoosenWebInterface;
+import finalproject.client.interfaces.PersonWebInterface;
 import finalproject.client.service.GoalChoosenService;
+import finalproject.client.service.PersonService;
 import finalproject.model.GoalChoosen;
-import finalproject.ports.CRUDGoalChoosen;
 
-@Path("/suggest/person/{id}")
+@Path("/suggest/person/{p_id}")
 public class SuggestActivitiesResource {
 
-	private CRUDGoalChoosen goal = new GoalChoosenService().getCRUD();
+	@GET
+	public Response getExerciseForPerson() {
+		return Response.ok().build();
+	}
+
+	GoalChoosenWebInterface goal = new GoalChoosenService().getCRUD();
+	PersonWebInterface person = new PersonService().getCRUD();
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	public GoalExtended getExtendedGoalsForPerson(@PathParam("id") int id) {
+	public GoalExtended getExtendedGoalsForPerson(@PathParam("p_id") int id) {
 
 		List<GoalChoosen> goals = goal.getGoalChoosenForPerson(id);
+
 		/**
 		 * 
 		 * TODO ADD SOME STUFF LIKE FILTERING
@@ -32,8 +42,10 @@ public class SuggestActivitiesResource {
 	}
 
 	@GET
-	@Path("/goal/{id}")
-	public GoalChoosen getExerciseForPerson(int pid, int gid) {
+	@Path("/goal/{g_id}")
+	public GoalChoosen getExerciseForPerson(@PathParam("p_id") int pid,
+			@PathParam("g_id") int gid) {
+
 		return goal.read(gid);
 	}
 
@@ -55,12 +67,12 @@ public class SuggestActivitiesResource {
 	//
 	// }
 
-	public void getWeeklyWorkout() {
-	}
-
-	// ????????????????????????????????????????
-	public void getPersonExerciseHistory() {
-	}
+	// public void getWeeklyWorkout() {
+	// }
+	//
+	// // ????????????????????????????????????????
+	// public void getPersonExerciseHistory() {
+	// }
 	//
 	// private ActivityWebInterface c = new ActivityService().getCRUD();
 	// private GoalWebInterface g = new GoalService().getCRUD();

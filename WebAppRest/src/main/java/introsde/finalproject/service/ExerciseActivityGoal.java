@@ -1,5 +1,6 @@
 package introsde.finalproject.service;
 
+import finalproject.model.GoalChoosen;
 import introsde.finalproject.model.GoalExtended;
 import introsde.finalproject.server.SuggestGoalActivityServer;
 
@@ -30,7 +31,29 @@ public class ExerciseActivityGoal {
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	public GoalExtended getGoals(@PathParam("p_id") int id) {
 
-		return service.path("person").path(id + "")
-				.accept(MediaType.APPLICATION_JSON).get(GoalExtended.class);
+		GoalExtended goal = service.path("suggest").path("person")
+				.path(id + "").accept(MediaType.APPLICATION_JSON)
+				.get(GoalExtended.class);
+
+		if (goal == null)
+			return null;
+
+		return goal;
 	}
+
+	@GET
+	@Path("/{g_id}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public GoalChoosen f(@PathParam("p_id") int pid, @PathParam("g_id") int gid) {
+
+		GoalChoosen goal = service.path("suggest").path("person")
+				.path(pid + "").path("goal").path(gid + "")
+				.accept(MediaType.APPLICATION_JSON).get(GoalChoosen.class);
+
+		if (goal == null)
+			return null;
+
+		return goal;
+	}
+
 }
